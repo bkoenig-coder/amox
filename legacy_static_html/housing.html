@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="mn" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AMOX - Оюутны Дотуур Байр &amp; Орон Сууцны Хайлтын Портал</title>
+  <meta name="description" content="Австри дахь Монголын Оюутны Холбоо (AMOX Seit 2007) - Оюутны дотуур байр (ÖJAB, STUWO, WIHAST, Home4Students, Akademikerhilfe) болон WG хувийн түрээсийн харьцуулалт, шүүлтүүр." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800;900&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Navigation Header (Coca-Cola Red Signature) -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="AMOX Нүүр хуудас">
+        <div class="logo-symbol">
+          <img src="assets/logo.png" alt="AMOX Logo" class="brand-logo-img" />
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">AMOX Австри</span>
+          <span class="brand-sub">Seit 2007</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" id="navMenu" aria-label="Үндсэн цэс">
+        <a href="index.html" class="nav-item">Нүүр</a>
+        <a href="sun-festival.html" class="nav-item">
+          🏆 Sun Festival
+          <span class="badge badge-yellow" style="margin-left:4px;">HOT</span>
+        </a>
+        <a href="guide.html" class="nav-item">📖 Гарын авлага</a>
+        <a href="housing.html" class="nav-item active">🏠 Дотуур байр</a>
+        <a href="visa-insurance.html" class="nav-item">🛂 Виз &amp; Даатгал</a>
+        <a href="about.html" class="nav-item">🤝 Бидний тухай</a>
+      </nav>
+
+      <!-- Right Action Tools -->
+      <div class="nav-actions">
+        <button class="search-shortcut-btn" id="searchShortcutBtn" title="Шуурхай хайлт (Ctrl+K)">
+          <span>🔍</span>
+          <kbd>Ctrl+K</kbd>
+        </button>
+        <a href="#dorm-filter" class="btn btn-white btn-sm">Байр хайх →</a>
+
+        <button class="nav-toggle-btn" id="navToggleBtn" aria-label="Цэс нээх">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <a href="index.html" class="mobile-nav-link"><span>🏠 Нүүр хуудас</span> <span>→</span></a>
+    <a href="sun-festival.html" class="mobile-nav-link"><span>🏆 AMOX Sun Festival 2025</span> <span class="badge badge-yellow">HOT</span></a>
+    <a href="guide.html" class="mobile-nav-link"><span>📖 9 Бүлэг Гарын Авлага</span> <span>→</span></a>
+    <a href="housing.html" class="mobile-nav-link active"><span>🏠 Дотуур Байр Хайгч</span> <span>→</span></a>
+    <a href="visa-insurance.html" class="mobile-nav-link"><span>🛂 Виз &amp; Даатгалын Төв</span> <span>→</span></a>
+    <a href="about.html" class="mobile-nav-link"><span>🤝 Бидний Тухай &amp; Менторшил</span> <span>→</span></a>
+  </div>
+
+  <!-- Housing Hero Section -->
+  <section class="hero-section" style="padding: 64px 0 72px;">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="pill-badge">
+          <span class="pulse-indicator"></span>
+          <span>Орон Сууц &bull; Дотуур Байрны Төв</span>
+        </div>
+        <h1 class="hero-title" style="font-size:3rem;">
+          Оюутны <span class="gradient-text">Дотуур Байр &amp; Түрээсийн Хөтөч</span>
+        </h1>
+        <p class="hero-desc">
+          Австрийн томоохон ашгийн бус оюутны дотуур байрны байгууллагуудын үнэ тариф, өрөөний төрөл, байршил болон WG хамтран түрээслэх заавруудыг нэг дороос аваарай.
+        </p>
+
+        <div class="quick-tags">
+          <a href="#dorm-filter" class="tag-btn">🔍 Дотуур байр шүүх</a>
+          <a href="#dorm-types" class="tag-btn">🏢 Сүлжээ байгууллагууд</a>
+          <a href="#wg-guide" class="tag-btn">🏠 WG Түрээсийн заавар</a>
+        </div>
+      </div>
+
+      <div class="hero-sidebar-card">
+        <div class="highlight-box-accent">
+          <h4>💡 Дотуур байр захиалах үеийн зөвлөмж:</h4>
+          <ul class="styled-list">
+            <li><strong>Хугацаа:</strong> Ирэхээсээ <em>3–6 сарын өмнө</em> өргөдөл өгөх.</li>
+            <li><strong>Баталгаа:</strong> Гэрээ (Wohnrechtsvereinbarung) авснаар визэндээ хавсаргана.</li>
+            <li><strong>Kaution:</strong> 1-3 сарын барьцаа мөнгө байршуулдаг.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Dormitory Filter & Search Tool -->
+  <section class="dorm-filter-section" id="dorm-filter">
+    <div class="container">
+      <div class="section-title-wrap text-center">
+        <span class="section-subtitle">ИНТЕРАКТИВ ХАЙЛТ</span>
+        <h2>Дотуур Байрны Шүүлтүүр &amp; Харьцуулалт</h2>
+        <p>Өөрийн төсөв болон дүүрэгтээ тохируулан хайна уу.</p>
+      </div>
+
+      <!-- Controls -->
+      <div class="filter-controls-row">
+        <div class="filter-group">
+          <label for="dormProviderSelect">Байгууллагын нэр:</label>
+          <select id="dormProviderSelect" class="filter-select">
+            <option value="all">Бүх байгууллага</option>
+            <option value="oejab">ÖJAB (23 байр)</option>
+            <option value="stuwo">STUWO (12 байр)</option>
+            <option value="wihast">WIHAST (14 байр)</option>
+            <option value="home4students">Home4Students</option>
+            <option value="akademikerhilfe">Akademikerhilfe</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="dormRoomTypeSelect">Өрөөний төрөл:</label>
+          <select id="dormRoomTypeSelect" class="filter-select">
+            <option value="all">Бүх төрөл</option>
+            <option value="single">Ганцаарчилсан (Einzelzimmer)</option>
+            <option value="double">Хосын / Хоёр хүний (Doppelzimmer)</option>
+            <option value="apartment">Бүрэн апартмент (Garconniere)</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="dormBudgetSelect">Үнийн дээд хязгаар:</label>
+          <select id="dormBudgetSelect" class="filter-select">
+            <option value="all">Бүх үнэ</option>
+            <option value="350">€350 хүртэл (Хямд)</option>
+            <option value="450">€450 хүртэл (Дундаж)</option>
+            <option value="600">€600 хүртэл (Өндөр зэрэглэл)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Results Grid -->
+      <div class="dorm-results-grid" id="dormResultsGrid">
+        <!-- Card 1 -->
+        <div class="dorm-result-card" data-provider="oejab" data-room="single" data-price="420">
+          <div class="dorm-result-top">
+            <span class="badge badge-accent">ÖJAB</span>
+            <span class="dorm-price-badge">~€420 / сар</span>
+          </div>
+          <h4>ÖJAB-Haus Salzburg</h4>
+          <p>Вена 15-р дүүрэг, Westbahnhof галт тэрэгний буудлын дэргэд. U3, U6 метротой ойрхон.</p>
+          <div class="dorm-tags" style="margin-top:auto; padding-top:14px;">
+            <span>Ганцаарчилсан өрөө</span>
+            <span>Интернэт багтсан</span>
+            <span>Спорт заалтай</span>
+          </div>
+          <a href="https://www.oejab.at" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" style="margin-top:16px;">
+            Вэбсайт руу зочлох ↗
+          </a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="dorm-result-card" data-provider="wihast" data-room="double" data-price="319">
+          <div class="dorm-result-top">
+            <span class="badge badge-accent">WIHAST</span>
+            <span class="dorm-price-badge">~€319 / сар</span>
+          </div>
+          <h4>WIHAST Tendlergasse</h4>
+          <p>Вена 9-р дүүрэг (1090 Wien). Uni Wien болон MedUni оюутнуудад маш тохиромжтой байршилтай.</p>
+          <div class="dorm-tags" style="margin-top:auto; padding-top:14px;">
+            <span>2 хүний өрөө</span>
+            <span>Төвд ойр</span>
+            <span>Хямд үнэ</span>
+          </div>
+          <a href="https://www.wihast.at" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" style="margin-top:16px;">
+            Вэбсайт руу зочлох ↗
+          </a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="dorm-result-card" data-provider="stuwo" data-room="single" data-price="490">
+          <div class="dorm-result-top">
+            <span class="badge badge-accent">STUWO</span>
+            <span class="dorm-price-badge">~€490 / сар</span>
+          </div>
+          <h4>STUWO Vorgartenstraße</h4>
+          <p>Вена 2-р дүүрэг, WU (Эдийн засгийн их сургууль) болон Prater цэцэрлэгт хүрээлэнтэй залгаа.</p>
+          <div class="dorm-tags" style="margin-top:auto; padding-top:14px;">
+            <span>Саун &amp; Фитнесс</span>
+            <span>Хувийн угаалгын өрөө</span>
+            <span>WU-д алхах зайтай</span>
+          </div>
+          <a href="https://www.stuwo.at" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" style="margin-top:16px;">
+            Вэбсайт руу зочлох ↗
+          </a>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="dorm-result-card" data-provider="home4students" data-room="single" data-price="380">
+          <div class="dorm-result-top">
+            <span class="badge badge-accent">Home4Students</span>
+            <span class="dorm-price-badge">~€380 / сар</span>
+          </div>
+          <h4>Home4Students Große Schiffgasse</h4>
+          <p>Вена 2-р дүүрэг, Дунайн суваг (Donaukanal)-тай ойр. Оюутны чөлөөт уур амьсгалтай.</p>
+          <div class="dorm-tags" style="margin-top:auto; padding-top:14px;">
+            <span>Ганцаарчилсан</span>
+            <span>Олон нийтийн гал тогоо</span>
+            <span>Унадаг дугуйн зогсоол</span>
+          </div>
+          <a href="https://www.home4students.at" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" style="margin-top:16px;">
+            Вэбсайт руу зочлох ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WG & Private Rental Guide Section -->
+  <section class="section-pillars" id="wg-guide" style="background: var(--bg-subtle);">
+    <div class="container">
+      <div class="section-title-wrap text-center">
+        <span class="section-subtitle">ХАМТЫН ТҮРЭЭС</span>
+        <h2>WG (Wohngemeinschaft) буюу Хамтран Байр Түрээслэх нь</h2>
+        <p>Хувийн орон сууц, олон өрөөтэй байрыг найзуудтайгаа хуваан түрээслэх алхамчилсан заавар.</p>
+      </div>
+
+      <div class="info-subgrid">
+        <div class="subbox">
+          <h4>🔑 WG-ийн давуу талууд:</h4>
+          <ul class="styled-list">
+            <li>Нэг хүнд ногдох зардал багасдаг (~€300 - €450/сар).</li>
+            <li>Том гал тогоо, зочны өрөө, тагттай байх боломжтой.</li>
+            <li>Герман болон олон улсын оюутнуудтай хамт амьдарч хэлээ сайжруулна.</li>
+          </ul>
+        </div>
+
+        <div class="subbox">
+          <h4>⚠️ Гэрээ хийхдээ анхаарах зүйлс:</h4>
+          <ul class="styled-list">
+            <li><strong>Hauptmieter vs. Untermieter:</strong> Үндсэн түрээслэгч эсвэл дам түрээслэгч гэдгээ тодорхой болгох.</li>
+            <li><strong>Meldezettel:</strong> Байрны эзэн (Vermieter) гарын үсэг зурж өгөх эсэхийг урьдчилан асуух.</li>
+            <li><strong>Übergabeprotokoll:</strong> Нүүж орох үед байрны эвдрэл, зурвасыг зургаар баримтжуулах.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Exact Coca-Cola Austria Style Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="assets/logo.png" alt="AMOX Logo" class="footer-logo-img" />
+          <p><strong>AMOX</strong> — Австри дахь Монголын Оюутны Холбоо<br/>Verein der Mongolischen Studenten in Österreich (Seit 2007)</p>
+          <div class="footer-social-pills">
+            <a href="https://www.instagram.com/amox_at/" target="_blank" rel="noopener noreferrer">📷 Instagram: @amox_at</a>
+            <a href="https://www.facebook.com/MongolianStudentAssociationInAustria" target="_blank" rel="noopener noreferrer">👥 Facebook Page</a>
+          </div>
+        </div>
+
+        <div class="footer-nav">
+          <h5>Үндсэн хуудсууд</h5>
+          <ul>
+            <li><a href="index.html">Нүүр хуудас</a></li>
+            <li><a href="sun-festival.html">🏆 AMOX Sun Festival 2025</a></li>
+            <li><a href="guide.html">📖 9 Бүлэг Гарын Авлага</a></li>
+            <li><a href="housing.html">🏠 Дотуур байр хайгч</a></li>
+            <li><a href="visa-insurance.html">🛂 Виз &amp; Даатгал</a></li>
+            <li><a href="about.html">🤝 Бидний тухай &amp; Менторшил</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav">
+          <h5>Хэрэгслүүд &amp; Эвент</h5>
+          <ul>
+            <li><a href="visa-insurance.html#email-generator">MA35 И-мэйл Генератор</a></li>
+            <li><a href="guide.html#calculator-section">Зардлын тооцоолуур</a></li>
+            <li><a href="about.html#mentor">Менторшил хөтөлбөр</a></li>
+            <li><a href="about.html#students-day">Оюутнуудын Өдөрлөг</a></li>
+            <li><a href="sun-festival.html#register">Баг бүртгүүлэх</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav">
+          <h5>Албан ёсны порталууд</h5>
+          <ul>
+            <li><a href="https://www.oesterreich.gv.at" target="_blank" rel="noopener noreferrer">oesterreich.gv.at</a></li>
+            <li><a href="https://www.wien.gv.at" target="_blank" rel="noopener noreferrer">wien.gv.at (MA35)</a></li>
+            <li><a href="https://www.ams.at" target="_blank" rel="noopener noreferrer">ams.at</a></li>
+            <li><a href="https://www.gesundheitskasse.at" target="_blank" rel="noopener noreferrer">gesundheitskasse.at (ÖGK)</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="country-flag-pill">
+          <span>🇦🇹 Österreich</span> &bull; <span>🇲🇳 Монгол</span>
+        </div>
+        <p>© 2025–2026 AMOX - Verein der Mongolischen Studenten in Österreich (Seit 2007). Бүх эрх хуулиар хамгаалагдсан.</p>
+        <div class="footer-bottom-links">
+          <a href="about.html">Бидний тухай</a>
+          <a href="guide.html">Тусламж</a>
+          <a href="mailto:contact@amox.at">contact@amox.at</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

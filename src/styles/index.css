@@ -1,0 +1,573 @@
+/* ==========================================================================
+   AMOX Austria - Official AIESEC Design System Theme
+   Directly matching https://aiesec.at layout, typography, colors & aesthetics
+   ========================================================================== */
+
+:root {
+  /* AIESEC Austria Signature Brand Colors */
+  --aiesec-blue: #037EF3;              /* Iconic AIESEC Electric Blue */
+  --aiesec-blue-dark: #0A58CA;
+  --aiesec-navy: #002D62;              /* Deep Midnight Navy */
+  --aiesec-orange: #F85A40;            /* Global Volunteer Orange */
+  --aiesec-teal: #00C16E;              /* Global Talent / Sustainable Green */
+  --aiesec-cyan: #00878A;
+  --aiesec-yellow: #F4B400;            /* Global Teacher / Sun Festival Gold */
+  --aiesec-purple: #795290;
+  --aiesec-crimson: #E00613;           /* Austrian Flag Accent */
+  
+  --bg: #FFFFFF;
+  --bg-subtle: #F8FAFC;
+  --bg-dark: #0A192F;
+  --surface: #FFFFFF;
+  --surface-raised: #FFFFFF;
+  
+  --text-main: #1D2129;
+  --text-sub: #4A5568;
+  --text-muted: #718096;
+  --text-light: #A0AEC0;
+  --text-inverse: #FFFFFF;
+  
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.14);
+  
+  --font-display: 'Plus Jakarta Sans', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Open Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', 'Open Sans', sans-serif;
+  
+  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.06);
+  --shadow-card: 0 12px 32px rgba(3, 126, 243, 0.08);
+  --shadow-hover: 0 20px 40px rgba(0, 45, 98, 0.12);
+  --shadow-blue-btn: 0 8px 24px rgba(3, 126, 243, 0.3);
+  --shadow-nav: 0 4px 20px rgba(0, 0, 0, 0.06);
+  --shadow-modal: 0 25px 60px rgba(0, 45, 98, 0.25);
+  
+  --radius-xs: 6px;
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-pill: 9999px;
+  
+  --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--text-main);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* Typography matching aiesec.at */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-main);
+  line-height: 1.18;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+p {
+  color: var(--text-sub);
+}
+
+/* -------------------------------------------------------------
+   AIESEC Austria Signature Outline Text Marquee
+   ------------------------------------------------------------- */
+.outline-text-marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 1;
+  opacity: 0.15;
+}
+
+.outline-text-marquee {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: clamp(3.5rem, 9vw, 8rem);
+  font-weight: 900;
+  text-transform: lowercase;
+  color: transparent;
+  -webkit-text-stroke: 1.5px #0A192F;
+  letter-spacing: -0.01em;
+  animation: marqueeOutline 45s linear infinite;
+}
+
+@keyframes marqueeOutline {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+/* -------------------------------------------------------------
+   Hand-Drawn AIESEC Squiggles and Loops
+   ------------------------------------------------------------- */
+.doodle-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.doodle-blue-loop {
+  position: absolute;
+  bottom: -18px;
+  left: -8px;
+  width: calc(100% + 16px);
+  height: 28px;
+  pointer-events: none;
+}
+
+.doodle-wave-underline {
+  position: absolute;
+  bottom: -14px;
+  left: 0;
+  width: 100%;
+  height: 18px;
+  pointer-events: none;
+}
+
+/* -------------------------------------------------------------
+   AIESEC Button Styles
+   ------------------------------------------------------------- */
+.aiesec-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--aiesec-blue);
+  color: #FFFFFF !important;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 13px 30px;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--aiesec-blue);
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(3, 126, 243, 0.28);
+  transition: var(--transition);
+}
+
+.aiesec-btn-primary:hover {
+  background: var(--aiesec-blue-dark);
+  border-color: var(--aiesec-blue-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(3, 126, 243, 0.38);
+}
+
+.aiesec-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  color: #FFFFFF !important;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 13px 30px;
+  border-radius: var(--radius-pill);
+  border: 2px solid #FFFFFF;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.aiesec-btn-outline:hover {
+  background: #FFFFFF;
+  color: var(--text-main) !important;
+  transform: translateY(-2px);
+}
+
+/* Program Discover Pill (aiesec.at signature discover button) */
+.discover-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px 8px 24px;
+  border-radius: var(--radius-pill);
+  border: 2px solid currentColor;
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  margin-top: 24px;
+}
+
+.discover-pill .arrow-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: currentColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  transition: var(--transition);
+}
+
+.discover-pill:hover {
+  transform: translateX(4px);
+}
+
+.discover-pill:hover .arrow-circle {
+  transform: translateX(3px);
+}
+
+.pill-orange {
+  color: var(--aiesec-orange);
+}
+.pill-orange .arrow-circle {
+  background: var(--aiesec-orange);
+  color: #fff;
+}
+
+.pill-teal {
+  color: var(--aiesec-cyan);
+}
+.pill-teal .arrow-circle {
+  background: var(--aiesec-cyan);
+  color: #fff;
+}
+
+.pill-gold {
+  color: #D97706;
+}
+.pill-gold .arrow-circle {
+  background: #D97706;
+  color: #fff;
+}
+
+.pill-blue {
+  color: var(--aiesec-blue);
+}
+.pill-blue .arrow-circle {
+  background: var(--aiesec-blue);
+  color: #fff;
+}
+
+/* -------------------------------------------------------------
+   Rotating Scroll Down Badge
+   ------------------------------------------------------------- */
+.scroll-down-badge {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.scroll-down-badge:hover {
+  transform: translateX(-50%) translateY(4px);
+}
+
+.scroll-down-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: rotateBadge 16s linear infinite;
+}
+
+@keyframes rotateBadge {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.scroll-down-arrow {
+  color: var(--aiesec-blue);
+  font-size: 1.25rem;
+  z-index: 2;
+  animation: bounceArrow 2s ease-in-out infinite;
+}
+
+@keyframes bounceArrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+/* -------------------------------------------------------------
+   AIESEC Values Hexagons
+   ------------------------------------------------------------- */
+.hex-cluster {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.hex-item {
+  width: 130px;
+  height: 145px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+  color: #FFFFFF;
+  transition: var(--transition);
+  cursor: default;
+}
+
+.hex-item:hover {
+  transform: scale(1.06);
+}
+
+.hex-item h4 {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin-top: 6px;
+  line-height: 1.15;
+}
+
+/* -------------------------------------------------------------
+   Cascading Photo Collages
+   ------------------------------------------------------------- */
+.cascading-collage-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  height: 380px;
+  margin: 0 auto;
+}
+
+.collage-img-1 {
+  position: absolute;
+  width: 58%;
+  height: 250px;
+  left: 2%;
+  top: 15%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+  transform: rotate(-7deg);
+  z-index: 2;
+  transition: var(--transition);
+  border: 4px solid #FFFFFF;
+}
+
+.collage-img-2 {
+  position: absolute;
+  width: 54%;
+  height: 240px;
+  right: 6%;
+  bottom: 5%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+  transform: rotate(5deg);
+  z-index: 3;
+  transition: var(--transition);
+  border: 4px solid #FFFFFF;
+}
+
+.collage-img-3 {
+  position: absolute;
+  width: 48%;
+  height: 190px;
+  right: 15%;
+  top: 0;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  transform: rotate(-3deg);
+  z-index: 1;
+  transition: var(--transition);
+  border: 4px solid #FFFFFF;
+}
+
+.cascading-collage-wrapper:hover .collage-img-1 {
+  transform: rotate(-5deg) scale(1.03);
+}
+
+.cascading-collage-wrapper:hover .collage-img-2 {
+  transform: rotate(3deg) scale(1.03);
+}
+
+.cascading-collage-wrapper:hover .collage-img-3 {
+  transform: rotate(-1deg) scale(1.03);
+}
+
+/* -------------------------------------------------------------
+   Youth Speak Forum / Mega Highlight Section
+   ------------------------------------------------------------- */
+.youth-forum-banner {
+  background: #E86A38;
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+  padding: 90px 0;
+}
+
+.youth-forum-marquee {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.youth-forum-marquee span {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 900;
+  color: #FFFFFF;
+  animation: marqueeForum 30s linear infinite;
+}
+
+@keyframes marqueeForum {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+/* -------------------------------------------------------------
+   Partner Showcase Grid
+   ------------------------------------------------------------- */
+.partner-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.partner-logo-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 20px;
+  background: #FFFFFF;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--text-sub);
+  text-decoration: none;
+  filter: grayscale(100%);
+  opacity: 0.75;
+  transition: var(--transition);
+}
+
+.partner-logo-card:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+  border-color: var(--aiesec-blue);
+  color: var(--aiesec-blue);
+}
+
+/* -------------------------------------------------------------
+   Forms & Inputs
+   ------------------------------------------------------------- */
+.form-input, .form-textarea, .form-select {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border-strong);
+  background-color: var(--surface);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 500;
+  outline: none;
+  transition: var(--transition);
+}
+
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  border-color: var(--aiesec-blue);
+  box-shadow: 0 0 0 4px rgba(3, 126, 243, 0.15);
+}
+
+/* -------------------------------------------------------------
+   Team Profile & Timeline Cards
+   ------------------------------------------------------------- */
+.team-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 45, 98, 0.1);
+  border-color: var(--aiesec-blue);
+}
+
+.timeline-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 26px 30px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.timeline-card:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-card);
+  border-color: var(--aiesec-blue);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+  .values-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .program-row {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+}

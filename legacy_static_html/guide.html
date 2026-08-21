@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="mn" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AMOX - Оюутан Залуусын 9 Бүлэг Мэдээллийн Гарын Авлага</title>
+  <meta name="description" content="Австри дахь Монголын Оюутны Холбоо (AMOX Seit 2007) - Виз, хэлний бэлтгэл VWU, оюутны ажиллах 20 цаг & AMS, E-Card даатгал, дотуур байр, их сургуулийн элсэлтийн 9 бүлэг гарын авлага." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800;900&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Navigation Header (Coca-Cola Red Signature) -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="AMOX Нүүр хуудас">
+        <div class="logo-symbol">
+          <img src="assets/logo.png" alt="AMOX Logo" class="brand-logo-img" />
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">AMOX Австри</span>
+          <span class="brand-sub">Seit 2007</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" id="navMenu" aria-label="Үндсэн цэс">
+        <a href="index.html" class="nav-item">Нүүр</a>
+        <a href="sun-festival.html" class="nav-item">
+          🏆 Sun Festival
+          <span class="badge badge-yellow" style="margin-left:4px;">HOT</span>
+        </a>
+        <a href="guide.html" class="nav-item active">📖 Гарын авлага</a>
+        <a href="housing.html" class="nav-item">🏠 Дотуур байр</a>
+        <a href="visa-insurance.html" class="nav-item">🛂 Виз &amp; Даатгал</a>
+        <a href="about.html" class="nav-item">🤝 Бидний тухай</a>
+      </nav>
+
+      <!-- Right Action Tools -->
+      <div class="nav-actions">
+        <button class="search-shortcut-btn" id="searchShortcutBtn" title="Шуурхай хайлт (Ctrl+K)">
+          <span>🔍</span>
+          <kbd>Ctrl+K</kbd>
+        </button>
+        <a href="visa-insurance.html#email-generator" class="btn btn-white btn-sm">
+          ✉️ MA35 И-мэйл
+        </a>
+
+        <button class="nav-toggle-btn" id="navToggleBtn" aria-label="Цэс нээх">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <a href="index.html" class="mobile-nav-link"><span>🏠 Нүүр хуудас</span> <span>→</span></a>
+    <a href="sun-festival.html" class="mobile-nav-link"><span>🏆 AMOX Sun Festival 2025</span> <span class="badge badge-yellow">HOT</span></a>
+    <a href="guide.html" class="mobile-nav-link active"><span>📖 9 Бүлэг Гарын Авлага</span> <span>→</span></a>
+    <a href="housing.html" class="mobile-nav-link"><span>🏠 Дотуур Байр Хайгч</span> <span>→</span></a>
+    <a href="visa-insurance.html" class="mobile-nav-link"><span>🛂 Виз &amp; Даатгалын Төв</span> <span>→</span></a>
+    <a href="about.html" class="mobile-nav-link"><span>🤝 Бидний Тухай &amp; Менторшил</span> <span>→</span></a>
+  </div>
+
+  <!-- Guide Hero Search Header -->
+  <section class="guide-header-hero">
+    <div class="container text-center">
+      <div class="pill-badge">
+        <span class="pulse-indicator"></span>
+        <span>2025 Албан ёсны эх сурвалж &bull; Seit 2007</span>
+      </div>
+      <h1 class="hero-title" style="font-size:3rem; margin-bottom:14px;">
+        Оюутан Залуусын <span class="gradient-text">Мэдээллийн Гарын Авлага</span>
+      </h1>
+      <p class="hero-desc" style="margin: 0 auto 28px; max-width: 680px;">
+        Энэхүү гарын авлага нь Австрид суралцаж буй Монгол оюутан залуусд зориулан Австри дахь Монголын Оюутны Холбоо (AMOX)-оос бэлдэж боловсруулсан албан ёсны заавар зөвлөмж юм.
+      </p>
+
+      <!-- Search Input -->
+      <div class="hero-search-wrapper" style="max-width: 640px; margin: 0 auto 20px;">
+        <div class="hero-search-box">
+          <svg class="search-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="heroSearchInput" placeholder="Хайх үгээ бичнэ үү (Жишээ: MA35, VWU, E-Card, AMS 20 цаг, ÖH...)" autocomplete="off" />
+          <button class="btn btn-coke" id="heroSearchBtn">Хайх</button>
+        </div>
+        <div class="search-dropdown" id="searchDropdown" style="display:none;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive University Admission Visual Roadmap Stepper -->
+  <section class="roadmap-section" id="admission-roadmap">
+    <div class="container">
+      <div class="section-title-wrap text-center">
+        <span class="section-subtitle">АКАДЕМИК ЗАМНАЛ</span>
+        <h2>Монголоос Австрийн Их Сургуульд Элсэх Алхамчилсан Замнал</h2>
+        <p>Монгол гэрчилгээг дүйцүүлэхээс эхлээд үндсэн бакалаврын оюутан болох хүртэлх албан ёсны дараалал.</p>
+      </div>
+
+      <div class="stepper-timeline">
+        <div class="stepper-step active" data-step="1">
+          <div class="step-circle">1</div>
+          <div class="step-content">
+            <h4>Монгол Гэрчилгээ &amp; Баталгаажуулалт</h4>
+            <p>Монгол ЕБС-ийн гэрчилгээ/дипломоо нотариатаар батлуулж, Бээжин дэх Австрийн ЭСЯ-ны консулын баталгаажуулалт (Beglaubigung) хийлгэнэ.</p>
+          </div>
+        </div>
+
+        <div class="stepper-arrow">→</div>
+
+        <div class="stepper-step" data-step="2">
+          <div class="step-circle">2</div>
+          <div class="step-content">
+            <h4>Ердийн бус (Außerordentlich) Оюутан</h4>
+            <p>Их сургуульд өргөдөл өгч "ердийн бус" оюутнаар бүртгүүлнэ. VWU (Vorstudienlehrgang)-д герман хэлний бэлтгэлд суралцана.</p>
+          </div>
+        </div>
+
+        <div class="stepper-arrow">→</div>
+
+        <div class="stepper-step" data-step="3">
+          <div class="step-circle">3</div>
+          <div class="step-content">
+            <h4>EPD C1 &amp; Дүйцүүлэх Шалгалт</h4>
+            <p>Герман хэлний C1 (EPD / ÖSD C1) шалгалт болон их сургуулиас заасан нэмэлт Ergänzungsprüfungen шалгалтуудаа өгч тэнцэнэ.</p>
+          </div>
+        </div>
+
+        <div class="stepper-arrow">→</div>
+
+        <div class="stepper-step" data-step="4">
+          <div class="step-circle">4</div>
+          <div class="step-content">
+            <h4>Ердийн (Ordentlich) Үндсэн Оюутан</h4>
+            <p>Үндсэн бакалаврын хөтөлбөртөө бүрэн элсэж, U:SPACE / TUGRAZonline системээр семестрийн хичээлүүдээ сонгон кредитээ цуглуулна.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Hub with Sticky Table of Contents (TOC) Layout -->
+  <section class="guide-hub-section" id="guide-hub">
+    <div class="container">
+
+      <div class="hub-header">
+        <div>
+          <span class="section-subtitle">МЭДЭЭЛЛИЙН САН &bull; 9 БҮЛЭГ</span>
+          <h2>Гарын Авлагын Бүлгүүд</h2>
+        </div>
+
+        <!-- Filter Category Tabs -->
+        <div class="filter-tabs-wrapper">
+          <div class="filter-tabs" role="tablist">
+            <button class="filter-tab active" data-category="all">Бүгд (9 Бүлэг)</button>
+            <button class="filter-tab" data-category="visa">🛂 Виз &amp; Оршин суух</button>
+            <button class="filter-tab" data-category="language">🗣️ Герман хэл &amp; VWU</button>
+            <button class="filter-tab" data-category="work">💼 Ажил &amp; AMS</button>
+            <button class="filter-tab" data-category="insurance">🏥 E-Card Даатгал</button>
+            <button class="filter-tab" data-category="housing">🏠 Дотуур байр &amp; Түрээс</button>
+            <button class="filter-tab" data-category="opportunities">🚀 Боломжууд &amp; Клуб</button>
+            <button class="filter-tab" data-category="admission">🎓 Их Сургууль &amp; Элсэлт</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Search feedback badge -->
+      <div id="searchStats" class="search-stats" style="display:none;"></div>
+
+      <!-- 2-Column Layout: Sticky Sidebar TOC + Content Articles -->
+      <div class="hub-layout-grid">
+
+        <!-- Sticky Table of Contents Sidebar (ScrollSpy) -->
+        <aside class="toc-sidebar" id="tocSidebar">
+          <div class="toc-sticky-card">
+            <div class="toc-header">
+              <span class="toc-title">ГАРЧИГ (ScrollSpy)</span>
+              <span class="toc-progress" id="tocReadingProgress">0% уншсан</span>
+            </div>
+            <nav class="toc-nav" id="tocNav">
+              <a href="#chap-1" class="toc-link active" data-target="chap-1">
+                <span class="toc-num">1</span>
+                <span class="toc-txt">Виз, Оршин суух эрх</span>
+              </a>
+              <a href="#chap-2" class="toc-link" data-target="chap-2">
+                <span class="toc-num">2</span>
+                <span class="toc-txt">Герман хэлний сургалт (VWU)</span>
+              </a>
+              <a href="#chap-3" class="toc-link" data-target="chap-3">
+                <span class="toc-num">3</span>
+                <span class="toc-txt">AMS ба Ажиллах тухай</span>
+              </a>
+              <a href="#chap-4" class="toc-link" data-target="chap-4">
+                <span class="toc-num">4</span>
+                <span class="toc-txt">Эрүүл мэндийн даатгал E-Card</span>
+              </a>
+              <a href="#chap-5" class="toc-link" data-target="chap-5">
+                <span class="toc-num">5</span>
+                <span class="toc-txt">Оюутны дотуур байр</span>
+              </a>
+              <a href="#chap-6" class="toc-link" data-target="chap-6">
+                <span class="toc-num">6</span>
+                <span class="toc-txt">Өөрийн орон сууц, WG түрээс</span>
+              </a>
+              <a href="#chap-7" class="toc-link" data-target="chap-7">
+                <span class="toc-num">7</span>
+                <span class="toc-txt">Монгол оюутны боломжууд</span>
+              </a>
+              <a href="#chap-8" class="toc-link" data-target="chap-8">
+                <span class="toc-num">8</span>
+                <span class="toc-txt">Вена хотод суралцах</span>
+              </a>
+              <a href="#chap-9" class="toc-link" data-target="chap-9">
+                <span class="toc-num">9</span>
+                <span class="toc-txt">Элсэлтийн мэдээлэл &amp; Төлбөр</span>
+              </a>
+            </nav>
+
+            <div class="toc-footer-widget">
+              <a href="visa-insurance.html#email-generator" class="btn btn-coke btn-sm w-full" style="justify-content:center;">
+                ✉️ MA35 И-мэйл бэлдэх
+              </a>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Articles Column -->
+        <div class="guide-articles-list" id="guideArticlesList">
+
+          <!-- Chapter 1: Visa & Residence Permit -->
+          <article class="guide-card" data-category="visa" id="chap-1">
+            <header class="card-head">
+              <div class="chapter-badge">БҮЛЭГ 1</div>
+              <div class="head-meta">
+                <span class="cat-pill">🛂 Виз ба Оршин суух эрх</span>
+                <span class="read-time">6 мин унших</span>
+              </div>
+            </header>
+            <div class="card-main">
+              <h3>1. Австри улс дахь Виз, Оршин суух эрх (Aufenthaltstitel)</h3>
+              <p class="summary-text">
+                Австри улсад суралцах, амьдрахад шаардлагатай виз, оршин суух зөвшөөрлийн төрлүүд, эхний бүртгэлүүд болон MA35-д өргөдөл гаргах бүрэн заавар.
+              </p>
+
+              <div class="content-toggle-zone">
+                <div class="info-subgrid">
+                  <div class="subbox">
+                    <h4>1.1 Визний ангилал</h4>
+                    <ul class="styled-list">
+                      <li><strong>Виз (Visum):</strong> Австри руу нэвтрэх зөвшөөрөл (жишээ нь D-Visa).</li>
+                      <li><strong>Оршин суух эрх (Aufenthaltstitel):</strong> Австрид тодорхой хугацаанд хууль ёсоор амьдрах үнэмлэх.</li>
+                      <li><strong>Онцгой оршин суух эрх:</strong> Тодорхой зорилгоор олгох тусгай зөвшөөрөл.</li>
+                    </ul>
+                  </div>
+                  <div class="subbox">
+                    <h4>1.2 Одоогийн визний хугацаа</h4>
+                    <ul class="styled-list">
+                      <li><span class="highlight-term">D-Visa:</span> 90–180 хоног (Анх Монголоос ирэхэд олгогддог).</li>
+                      <li><span class="highlight-term">Aufenthaltstitel - Student:</span> 1 жил (Жил бүр сунгагдана).</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="highlight-box-accent">
+                  <h4>1.3 Эхний алхам: Бичиг баримт, бүртгэлүүд</h4>
+                  <div class="steps-row">
+                    <div class="step-col">
+                      <span class="step-num">1</span>
+                      <strong>Meldezettel (Хаяг)</strong>
+                      <p>Ирснээс хойш <em>72 цагийн дотор</em> Meldeamt-д бүртгүүлнэ.</p>
+                    </div>
+                    <div class="step-col">
+                      <span class="step-num">2</span>
+                      <strong>E-Card (ЭМД)</strong>
+                      <p>ÖGK дээр даатгал хийлгэнэ.</p>
+                    </div>
+                    <div class="step-col">
+                      <span class="step-num">3</span>
+                      <strong>Банкны данс</strong>
+                      <p>Erste Bank, Bank Austria-д данс нээнэ.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="two-col-details">
+                  <div>
+                    <h5>1.4.1 Шаардлагатай бичиг баримтууд:</h5>
+                    <ul class="styled-list">
+                      <li>Meldezettel (Хаягийн бүртгэл)</li>
+                      <li>E-Card (Эрүүл мэндийн даатгалын баталгаа)</li>
+                      <li>Паспорт (Reisepass)</li>
+                      <li>Их сургуулийн бүртгэл (Studienbestätigung, Studienblatt)</li>
+                      <li>Санхүүгийн баталгаа / Банкны хуулга</li>
+                    </ul>
+
+                    <h5 style="margin-top:16px;">1.4.2 Хугацаа ба холбогдох:</h5>
+                    <p>D-Visa дуусахаас <strong>2 сарын өмнө</strong> өргөдөл гаргаж эхэлнэ.<br/>
+                    И-мэйл бичих хаяг: <a href="mailto:12-ref@ma35.wien.gv.at" class="inline-link">12-ref@ma35.wien.gv.at</a></p>
+                    <a href="visa-insurance.html#email-generator" class="btn btn-outline btn-sm" style="margin-top:10px;">
+                      ✉️ Бэлэн И-мэйл загвар үүсгэх →
+                    </a>
+                  </div>
+
+                  <div>
+                    <h5>1.4.3 Түгээмэл гаргадаг алдаа:</h5>
+                    <div class="alert-box alert-warning">
+                      <ul>
+                        <li>⚠️ <strong>Бүртгэлээс хоцрох:</strong> Визний хугацаа дуусахаас өмнө амжихгүй байх.</li>
+                        <li>⚠️ <strong>Бичиг баримт дутуу илгээх:</strong> Материал дутуу бол хариу сунжирна.</li>
+                        <li>⚠️ <strong>Бусдад хэт найдах:</strong> Хувийн хэргээ өөрөө нягтлах.</li>
+                      </ul>
+                    </div>
+
+                    <h5 style="margin-top:12px;">Албан ёсны холбоосууд:</h5>
+                    <div class="link-buttons">
+                      <a href="https://www.oesterreich.gv.at/de/themen/menschen_aus_anderen_staaten/aufenthalt/3/2/1/Seite.120102" target="_blank" rel="noopener noreferrer" class="link-btn">
+                        🌐 Aufenthaltstitel Drittstaatsangehörige
+                      </a>
+                      <a href="https://www.wien.gv.at/kontakt/ma35-terminbuchung-verlaengerungsantraege" target="_blank" rel="noopener noreferrer" class="link-btn">
+                        📅 MA35 Terminbuchung (Цаг авах)
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Chapter 2: German Language Preparation -->
+          <article class="guide-card" data-category="language" id="chap-2">
+            <header class="card-head">
+              <div class="chapter-badge">БҮЛЭГ 2</div>
+              <div class="head-meta">
+                <span class="cat-pill">🗣️ Герман хэлний сургалт</span>
+                <span class="read-time">5 мин унших</span>
+              </div>
+            </header>
+            <div class="card-main">
+              <h3>2. Герман хэлний сургалт ба Төвүүдийн харьцуулалт</h3>
+              <p class="summary-text">
+                Австрийн их дээд сургуулиудад ороход шаардагдах C1 түвшний шалгалт (EPD), хэлний бэлтгэлийн төвүүдийн үнэ, элсэлтийн онцлог, давуу болон сул талууд.
+              </p>
+
+              <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                  <thead>
+                    <tr>
+                      <th>Хэлний төв</th>
+                      <th>Төлбөр / Семестер</th>
+                      <th>Онцлог &amp; Давуу тал</th>
+                      <th>Сул тал / Анхаарах</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <strong>VWU</strong><br/>
+                        <small>Vorstudienlehrgang der Wiener Universitäten</small>
+                      </td>
+                      <td><span class="price-tag">€600 – €700</span></td>
+                      <td>
+                        <span class="badge-tag">Их сургуулийн албан ёсны</span><br/>
+                        • C1 түвшний EPD шалгалт өгнө<br/>
+                        • Бусад төвүүдээс харьцангуй хямд
+                      </td>
+                      <td class="text-muted-col">
+                        • Ангийн орон тоо цөөвтөр<br/>
+                        • 7 хоног бүр жижиг шалгалттай
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Wien Sprachzentrum</strong><br/>
+                        <small>Universität Wien хэлний төв</small>
+                      </td>
+                      <td><span class="price-tag high">€1,800 – €1,900</span></td>
+                      <td>
+                        <span class="badge-tag">Кредиттэй</span><br/>
+                        • Гадаад оюутнуудад зориулсан<br/>
+                        • TOEFL, IELTS, ÖSD бэлтгэх боломж
+                      </td>
+                      <td class="text-muted-col">
+                        • Харьцангуй өндөр төлбөртэй<br/>
+                        • Жилд 2 удаа элсэлт авдаг
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Die Berater</strong><br/>
+                        <small>OEAD хамтарсан</small>
+                      </td>
+                      <td><span class="price-tag high">€1,800</span></td>
+                      <td>
+                        <span class="badge-tag">Хамтарсан хөтөлбөр</span><br/>
+                        • Багш/анги солих боломжтой<br/>
+                        • Бичиг баримт найдвартай
+                      </td>
+                      <td class="text-muted-col">
+                        • Дунд шалгалтын дүн level up-д нөлөөлөхгүй
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </article>
+
+          <!-- Chapter 3: AMS & Work in Austria -->
+          <article class="guide-card" data-category="work" id="chap-3">
+            <header class="card-head">
+              <div class="chapter-badge">БҮЛЭГ 3</div>
+              <div class="head-meta">
+                <span class="cat-pill">💼 Ажил &amp; AMS</span>
+                <span class="read-time">7 мин унших</span>
+              </div>
+            </header>
+            <div class="card-main">
+              <h3>3. AMS ба Австри улсад ажиллах тухай нэгдсэн мэдээлэл</h3>
+              <p class="summary-text">
+                Оюутны ажиллах цагийн хязгаар (20 цаг), цагийн ажлын төрлүүд (Geringfügig, Teilzeit, Vollzeit), AMS-ээс зөвшөөрөл авах журам, ажил хайх сайтууд.
+              </p>
+
+              <!-- Work types cards -->
+              <div class="work-types-grid">
+                <div class="work-card">
+                  <div class="work-badge">10 хүртэлх цаг / 7 хоног</div>
+                  <h4>3.7.1 Geringfügig</h4>
+                  <div class="salary-est">~€518.44 / сар</div>
+                  <ul class="styled-list">
+                    <li>Цалингаас татвар суутгахгүй.</li>
+                    <li>Оюутны Selbstversicherung (€73.48)-ээ өөрөө төлнө.</li>
+                  </ul>
+                </div>
+
+                <div class="work-card featured-work">
+                  <div class="work-badge popular">11 – 20 цаг / 7 хоног</div>
+                  <h4>3.7.2 Teilzeit (Хагас цаг)</h4>
+                  <div class="salary-est">€518-аас дээш орлого</div>
+                  <ul class="styled-list">
+                    <li>Цалингаас татвар, нийгмийн даатгал суутгагдана.</li>
+                    <li><strong>Бүрэн нийгмийн даатгалтай</strong> (эрүүл мэнд, тэтгэвэр).</li>
+                  </ul>
+                </div>
+
+                <div class="work-card">
+                  <div class="work-badge">38 – 40 цаг / 7 хоног</div>
+                  <h4>3.7.3 Vollzeit (Бүтэн цаг)</h4>
+                  <div class="salary-est">Бүрэн үндсэн цалин</div>
+                  <ul class="styled-list">
+                    <li>Бүрэн нийгмийн даатгал.</li>
+                    <li><strong class="text-danger">⚠️ Оюутны визтэй үед хориглоно.</strong></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="two-col-details" style="margin-top:24px;">
+                <div>
+                  <h4>3.4 Ажиллах нөхцөл ба журам</h4>
+                  <ul class="styled-list">
+                    <li><strong>Ажил олгогч:</strong> Албан ёсны гэрээ, цагийн дундаж ~13€/цаг, 13 ба 14 дэх сарын нэмэлт цалин (Urlaubs-/Weihnachtsgeld).</li>
+                    <li><strong>Оюутны эрх:</strong> Хичээлийн үеэр дээд тал нь <strong>20 цаг</strong>.</li>
+                    <li><strong>AMS Маягт:</strong> <em>Antrag auf Beschäftigungsbewilligung für Studierende</em></li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4>3.1 Ажил хайх найдвартай порталууд</h4>
+                  <div class="portal-tags">
+                    <a href="https://www.karriere.at/" target="_blank" rel="noopener noreferrer" class="portal-link">karriere.at</a>
+                    <a href="https://www.hokify.at/" target="_blank" rel="noopener noreferrer" class="portal-link">hokify.at</a>
+                    <a href="https://www.studentjob.at/" target="_blank" rel="noopener noreferrer" class="portal-link">studentjob.at</a>
+                    <a href="https://www.indeed.at/" target="_blank" rel="noopener noreferrer" class="portal-link">indeed.at</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Chapter 4: Health Insurance & E-Card -->
+          <article class="guide-card" data-category="insurance" id="chap-4">
+            <header class="card-head">
+              <div class="chapter-badge">БҮЛЭГ 4</div>
+              <div class="head-meta">
+                <span class="cat-pill">🏥 Эрүүл мэндийн даатгал</span>
+                <span class="read-time">6 мин унших</span>
+              </div>
+            </header>
+            <div class="card-main">
+              <h3>4. Эрүүл мэндийн даатгал – E-Card ба Эмнэлгийн тусламж</h3>
+              <p class="summary-text">
+                E-Card-ийн үүрэг (ELGA, E-Rezept, EKVK), оюутны даатгалын төлбөр (~€73.48), шаардагдах баримтууд, даатгалгүй үед хандах боломжтой эмнэлгүүд.
+              </p>
+
+              <div class="info-subgrid">
+                <div class="subbox">
+                  <h4>4.1 E-Card гэж юу вэ?</h4>
+                  <p>Австрийн эрүүл мэндийн даатгалын үндсэн баримт бөгөөд дотоодын эмнэлэгт үзүүлэх, <strong>ELGA</strong>, <strong>E-Rezept</strong> системд нэвтрэх гол түлхүүр болдог.</p>
+                </div>
+                <div class="subbox">
+                  <h4>4.7 Төлбөрийн хэмжээ (2025 он)</h4>
+                  <ul class="styled-list">
+                    <li><strong>Оюутан (Selbstversicherung):</strong> <span class="highlight-term">~€73.48 / сар</span>.</li>
+                    <li><strong>Teilzeit ажиллаж буй үед:</strong> Ажлын газраас даатгалыг бүрэн төлнө.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Chapter 5: Student Dormitories -->
+          <article class="guide-card" data-category="housing" id="chap-5">
+            <header class="card-head">
+              <div class="chapter-badge">БҮЛЭГ 5</div>
+              <div class="head-meta">
+                <span class="cat-pill">🏠 Оюутны дотуур байр</span>
+                <span class="read-time">7 мин унших</span>
+              </div>
+            </header>
+            <div class="card-main">
+              <h3>5. Оюутны дотуур байр (Studentenwohnheime) – Сүлжээ &amp; Үнэ</h3>
+              <p class="summary-text">
+                Австрийн ашгийн бус оюутны дотуур байрны томоохон байгууллагууд (ÖJAB, STUWO, WIHAST, Home4Students, Akademikerhilfe), үнэ ханш.
+              </p>
+
+              <div class="dorm-cards-grid">
+                <div class="dorm-item">
+                  <div class="dorm-head">
+                    <h4>ÖJAB</h4>
+                    <a href="http://www.oejab.at" target="_blank" rel="noopener noreferrer" class="ext-link">oejab.at ↗</a>
+                  </div>
+                  <p>1946 онд байгуулагдсан. Австри даяар 23 дотуур байртай.</p>
+                </div>
+
+                <div class="dorm-item">
+                  <div class="dorm-head">
+                    <h4>STUWO</h4>
+                    <a href="http://www.stuwo.at" target="_blank" rel="noopener noreferrer" class="ext-link">stuwo.at ↗</a>
+                  </div>
+                  <p>Вена хотод 12 дотуур байртай. Бүх төлбөр багтсан түрээстэй.</p>
+                </div>
+
+                <div class="dorm-item">
+                  <div class="dorm-head">
+                    <h4>WIHAST</h4>
+                    <a href="http://www.wihast.at" target="_blank" rel="noopener noreferrer" class="ext-link">wihast.at ↗</a>
+                  </div>
+                  <p>Жишээ байр: Tendlergasse (1090 Wien) үнэ <strong>~319€</strong>.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Chapter 6: Private Apartment & WG Rental -->
+          <article class="guide-card" data-category="housing" id="chap-6">
+            <header class="card-head">
+              <div class="chapter-badge">БҮЛЭГ 6</div>
+              <div class="head-meta">
+                <span class="cat-pill">🏠 Өөрийн орон сууц &amp; WG</span>
+                <span class="read-time">5 мин унших</span>
+              </div>
+            </header>
+            <div class="card-main">
+              <h3>6. Өөрийн орон сууц, WG түрээслэх алхамчилсан заавар</h3>
+              <p class="summary-text">
+                Willhaben болон Facebook группээс байр хайх, барьцаа (Kaution), хүлээлгэн өгөх протокол (Übergabeprotokoll).
+              </p>
+
+              <div class="tip-box">
+                <strong>🔍 Хаанаас хайх вэ:</strong> <a href="https://www.willhaben.at/iad/immobilien/mietwohnungen" target="_blank" rel="noopener noreferrer" class="inline-link">Willhaben.at</a> (Австрийн #1 портал), WG-Gesucht.de.
+              </div>
+            </div>
+          </article>
+
+          <!-- Chapter 7: Opportunities & Student Organizations -->
+          <article class="guide-card" data-category="opportunities" id="chap-7">
+            <header class="card-head">
+              <div class="chapter-badge">БҮЛЭГ 7</div>
+              <div class="head-meta">
+                <span class="cat-pill">🚀 Боломжууд &amp; Клубууд</span>
+                <span class="read-time">6 мин унших</span>
+              </div>
+            </header>
+            <div class="card-main">
+              <h3>7. Австри дахь Монгол оюутны олон улсын боломжууд</h3>
+              <p class="summary-text">
+                НҮБ-ын дадлага, 42 Vienna код бичих сургууль, AIESEC, IAESTE, ÖH, Erasmus+ хөтөлбөрүүд.
+              </p>
+
+              <div class="opportunities-grid">
+                <div class="opp-card">
+                  <span class="opp-icon">🇺🇳</span>
+                  <h4>UN Internship (НҮБ-ын дадлага)</h4>
+                  <p>Вена дахь НҮБ-ын төв байр (VIC) болон IAEA, UNODC агентлагуудад дадлага хийх боломжтой.</p>
+                </div>
+
+                <div class="opp-card">
+                  <span class="opp-icon">💻</span>
+                  <h4>42 Vienna (Coding School)</h4>
+                  <p>Багшгүй, сургалтын төлбөргүй, төсөлд суурилсан дэлхийн жишиг код бичих сургууль.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Chapter 8: Studying in Vienna & University Landscape -->
+          <article class="guide-card" data-category="admission" id="chap-8">
+            <header class="card-head">
+              <div class="chapter-badge">БҮЛЭГ 8</div>
+              <div class="head-meta">
+                <span class="cat-pill">🎓 Вена хотод суралцах</span>
+                <span class="read-time">5 мин унших</span>
+              </div>
+            </header>
+            <div class="card-main">
+              <h3>8. Вена хотод суралцах Монгол оюутны гарын авлага</h3>
+              <p class="summary-text">
+                University of Vienna болон FH (Хэрэглээний их сургуулиуд)-ийн ялгаа, сургалтын төлбөр (€726.72 + ÖH).
+              </p>
+            </div>
+          </article>
+
+          <!-- Chapter 9: Mongolian Student Admission Roadmap -->
+          <article class="guide-card" data-category="admission" id="chap-9">
+            <header class="card-head">
+              <div class="chapter-badge">БҮЛЭГ 9</div>
+              <div class="head-meta">
+                <span class="cat-pill">🎓 Элсэлтийн дүрэм &amp; Шаардлага</span>
+                <span class="read-time">7 мин унших</span>
+              </div>
+            </header>
+            <div class="card-main">
+              <h3>9. Монгол оюутны Элсэлтийн бүрэн зааварчилгаа</h3>
+              <p class="summary-text">
+                Монголын ЕБС-ийн гэрчилгээг Австрид дүйцүүлэх, Außerordentlich vs Ordentlich статус, Бээжин ЭСЯ консулын баталгаажуулалт.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Student Monthly Budget Calculator -->
+  <section class="calculator-section" id="calculator-section">
+    <div class="container">
+      <div class="calc-wrapper">
+        <div class="calc-intro">
+          <span class="section-subtitle">САНХҮҮГИЙН ТӨЛӨВЛӨЛТ</span>
+          <h2>Оюутны Сарын Зардал &amp; Орлогын Тооцоолуур</h2>
+          <p>Австри улсад суралцах үеийн сарын үндсэн зардлаа бодитоор тооцоолж үзээрэй.</p>
+        </div>
+
+        <div class="calc-box">
+          <div class="calc-group">
+            <label for="rentRange">Байр / Дотуур байрны түрээс (€/сар):</label>
+            <div class="slider-val-row">
+              <input type="range" id="rentRange" min="280" max="800" step="10" value="420" />
+              <span class="range-display" id="rentDisplay">€420</span>
+            </div>
+          </div>
+
+          <div class="calc-group">
+            <label>Эрүүл мэндийн даатгал (ÖGK Selbstversicherung):</label>
+            <div class="static-val-box">
+              <span>Оюутны тогтмол даатгал</span>
+              <strong>€73.48 / сар</strong>
+            </div>
+          </div>
+
+          <div class="calc-group">
+            <label for="foodRange">Хоол хүнс &amp; Ахуйн хэрэглээ (€/сар):</label>
+            <div class="slider-val-row">
+              <input type="range" id="foodRange" min="150" max="500" step="10" value="250" />
+              <span class="range-display" id="foodDisplay">€250</span>
+            </div>
+          </div>
+
+          <div class="calc-group">
+            <label for="transportRange">Нийтийн тээвэр &amp; Мобайл интернэт (€/сар):</label>
+            <div class="slider-val-row">
+              <input type="range" id="transportRange" min="20" max="100" step="5" value="45" />
+              <span class="range-display" id="transportDisplay">€45</span>
+            </div>
+          </div>
+
+          <div class="calc-group">
+            <label for="miscRange">Чөлөөт цаг &amp; Бусад хувийн зардал (€/сар):</label>
+            <div class="slider-val-row">
+              <input type="range" id="miscRange" min="30" max="300" step="10" value="100" />
+              <span class="range-display" id="miscDisplay">€100</span>
+            </div>
+          </div>
+
+          <div class="calc-result-box">
+            <div class="result-label">Багцаалсан сарын нийт зардал:</div>
+            <div class="result-total" id="calcTotal">€888.48</div>
+            <div class="result-subtext">+ Их сургуулийн семестрийн төлбөр (€726.72 + €24.70 ÖH) сард хуваавал ~€125/сар</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Exact Coca-Cola Austria Style Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="assets/logo.png" alt="AMOX Logo" class="footer-logo-img" />
+          <p><strong>AMOX</strong> — Австри дахь Монголын Оюутны Холбоо<br/>Verein der Mongolischen Studenten in Österreich (Seit 2007)</p>
+          <div class="footer-social-pills">
+            <a href="https://www.instagram.com/amox_at/" target="_blank" rel="noopener noreferrer">📷 Instagram: @amox_at</a>
+            <a href="https://www.facebook.com/MongolianStudentAssociationInAustria" target="_blank" rel="noopener noreferrer">👥 Facebook Page</a>
+          </div>
+        </div>
+
+        <div class="footer-nav">
+          <h5>Үндсэн хуудсууд</h5>
+          <ul>
+            <li><a href="index.html">Нүүр хуудас</a></li>
+            <li><a href="sun-festival.html">🏆 AMOX Sun Festival 2025</a></li>
+            <li><a href="guide.html">📖 9 Бүлэг Гарын Авлага</a></li>
+            <li><a href="housing.html">🏠 Дотуур байр хайгч</a></li>
+            <li><a href="visa-insurance.html">🛂 Виз &amp; Даатгал</a></li>
+            <li><a href="about.html">🤝 Бидний тухай &amp; Менторшил</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav">
+          <h5>Хэрэгслүүд &amp; Эвент</h5>
+          <ul>
+            <li><a href="visa-insurance.html#email-generator">MA35 И-мэйл Генератор</a></li>
+            <li><a href="guide.html#calculator-section">Зардлын тооцоолуур</a></li>
+            <li><a href="about.html#mentor">Менторшил хөтөлбөр</a></li>
+            <li><a href="about.html#students-day">Оюутнуудын Өдөрлөг</a></li>
+            <li><a href="sun-festival.html#register">Баг бүртгүүлэх</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav">
+          <h5>Албан ёсны порталууд</h5>
+          <ul>
+            <li><a href="https://www.oesterreich.gv.at" target="_blank" rel="noopener noreferrer">oesterreich.gv.at</a></li>
+            <li><a href="https://www.wien.gv.at" target="_blank" rel="noopener noreferrer">wien.gv.at (MA35)</a></li>
+            <li><a href="https://www.ams.at" target="_blank" rel="noopener noreferrer">ams.at</a></li>
+            <li><a href="https://www.gesundheitskasse.at" target="_blank" rel="noopener noreferrer">gesundheitskasse.at (ÖGK)</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="country-flag-pill">
+          <span>🇦🇹 Österreich</span> &bull; <span>🇲🇳 Монгол</span>
+        </div>
+        <p>© 2025–2026 AMOX - Verein der Mongolischen Studenten in Österreich (Seit 2007). Бүх эрх хуулиар хамгаалагдсан.</p>
+        <div class="footer-bottom-links">
+          <a href="about.html">Бидний тухай</a>
+          <a href="guide.html">Тусламж</a>
+          <a href="mailto:contact@amox.at">contact@amox.at</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTopBtn" class="back-to-top" aria-label="Дээш очих">↑</button>
+
+  <script src="app.js"></script>
+</body>
+</html>

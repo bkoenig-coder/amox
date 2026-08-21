@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="mn" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AMOX - Бидний Тухай | Австри дахь Монголын Оюутны Холбоо</title>
+  <meta name="description" content="Австри дахь Монголын Оюутны Холбоо (AMOX Seit 2007) — Бидний түүхэн замнал, AMOX Sun Festival-ийн өмнөх жилүүдийн тэмцээн, Оюутнуудын Өдөрлөг арга хэмжээ, менторшил хөтөлбөр, хамтрагч ба ивээн тэтгэгч байгууллагууд." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800;900&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Navigation Header (Coca-Cola Red Signature) -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="AMOX Нүүр хуудас">
+        <div class="logo-symbol">
+          <img src="assets/logo.png" alt="AMOX Logo" class="brand-logo-img" />
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">AMOX Австри</span>
+          <span class="brand-sub">Seit 2007</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" id="navMenu" aria-label="Үндсэн цэс">
+        <a href="index.html" class="nav-item">Нүүр</a>
+        <a href="sun-festival.html" class="nav-item">
+          🏆 Sun Festival
+          <span class="badge badge-yellow" style="margin-left:4px;">HOT</span>
+        </a>
+        <a href="guide.html" class="nav-item">📖 Гарын авлага</a>
+        <a href="housing.html" class="nav-item">🏠 Дотуур байр</a>
+        <a href="visa-insurance.html" class="nav-item">🛂 Виз &amp; Даатгал</a>
+        <a href="about.html" class="nav-item active">🤝 Бидний тухай</a>
+      </nav>
+
+      <!-- Right Action Tools -->
+      <div class="nav-actions">
+        <button class="search-shortcut-btn" id="searchShortcutBtn" title="Шуурхай хайлт (Ctrl+K)">
+          <span>🔍</span>
+          <kbd>Ctrl+K</kbd>
+        </button>
+        <a href="#mentor" class="btn btn-white btn-sm">Ментор хүсэх →</a>
+
+        <button class="nav-toggle-btn" id="navToggleBtn" aria-label="Цэс нээх">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <a href="index.html" class="mobile-nav-link"><span>🏠 Нүүр хуудас</span> <span>→</span></a>
+    <a href="sun-festival.html" class="mobile-nav-link"><span>🏆 AMOX Sun Festival 2025</span> <span class="badge badge-yellow">HOT</span></a>
+    <a href="guide.html" class="mobile-nav-link"><span>📖 9 Бүлэг Гарын Авлага</span> <span>→</span></a>
+    <a href="housing.html" class="mobile-nav-link"><span>🏠 Дотуур Байр Хайгч</span> <span>→</span></a>
+    <a href="visa-insurance.html" class="mobile-nav-link"><span>🛂 Виз &amp; Даатгалын Төв</span> <span>→</span></a>
+    <a href="about.html" class="mobile-nav-link active"><span>🤝 Бидний Тухай &amp; Менторшил</span> <span>→</span></a>
+  </div>
+
+  <!-- About Hero Section -->
+  <section class="hero-section" style="padding: 60px 0 72px;">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="pill-badge">
+          <span class="pulse-indicator"></span>
+          <span>Нэгдсэн холбоо &bull; Seit 2007</span>
+        </div>
+        <h1 class="hero-title" style="font-size:3rem;">
+          Бидний Эрхэм Зорилго &amp; <span class="gradient-text">Хамт Олон</span>
+        </h1>
+        <p class="hero-desc">
+          AMOX (Verein der Mongolischen Studenten in Österreich - Seit 2007) нь Австри улсад суралцаж, ажиллаж буй Монгол оюутан залуусыг нэгтгэн, тэдний эрдэм боловсрол, карьер, хууль эрх зүйн баталгааг дэмжиж, соёлын харилцааг хөгжүүлэх зорилготой ашгийн бус байгууллага юм.
+        </p>
+
+        <div class="quick-tags">
+          <a href="#timeline" class="tag-btn">⏳ Түүхэн замнал</a>
+          <a href="#festival-history" class="tag-btn">🏆 Өмнөх Sun Festival наадмууд</a>
+          <a href="#students-day" class="tag-btn">🎓 Оюутнуудын Өдөрлөг</a>
+          <a href="#partners" class="tag-btn">🤝 Хамтрагч &amp; Спонсорууд</a>
+          <a href="#mentor" class="tag-btn">👥 Менторшил</a>
+        </div>
+      </div>
+
+      <!-- Quick Quote Card -->
+      <div class="hero-sidebar-card">
+        <div class="highlight-box-accent">
+          <h4 style="font-size:1.2rem; margin-bottom:10px; color:var(--coke-red);">🌟 Холбооны Уриа</h4>
+          <p style="font-size:1rem; color:var(--text-sub); line-height:1.7; margin-bottom:14px;">
+            “Австри улсад ирж буй оюутан бүрт тусалж, нэгэндээ түшиг болж, эх орныхоо нэрийг өндөрт өргөх хүчирхэг, эв нэгдэлтэй оюутны хүрээллийг бүтээнэ.”
+          </p>
+          <div style="font-weight:800; color:var(--coke-red); font-size:0.9rem;">— АМОХ-ын гэр бүл 🇲🇳 🇦🇹</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1. History & Milestones Timeline Section -->
+  <section class="about-timeline-section" id="timeline">
+    <div class="container">
+      <div class="section-title-wrap text-center">
+        <span class="section-subtitle">ХӨГЖЛИЙН ТҮҮХ</span>
+        <h2>AMOX Холбооны Түүхэн Замнал</h2>
+        <p>Бид 2007 оноос эхлэн оюутан залуусын нөхөрлөлөөс үүсгэн байгуулагдаж өнөөдөр Европ даяар хүлээн зөвшөөрөгдсөн оюутны байгууллага болон өргөжлөө.</p>
+      </div>
+
+      <div class="timeline-wrapper">
+        <div class="timeline-item">
+          <div class="timeline-card">
+            <span class="timeline-year-badge">2007</span>
+            <h4>AMOX Үүсгэн Байгуулагдав (Seit 2007)</h4>
+            <p>Австри дахь Монголын Оюутны Холбоо (Verein der Mongolischen Studenten in Österreich) анх албан ёсоор үүсгэн байгуулагдаж, оюутан залуусын хамтын хүчийг нэгтгэж эхлэв.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-card">
+            <span class="timeline-year-badge">2018</span>
+            <h4>Академик &amp; Stammtisch Уулзалтууд</h4>
+            <p>Вена хотын их сургуулиудад (Uni Wien, TU Wien, WU) суралцаж байсан Монгол оюутнууд анх санаачлан мэдээлэл солилцох тогтмол уулзалтуудыг эхлүүлэв.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-card">
+            <span class="timeline-year-badge">2022</span>
+            <h4>Анхны AMOX Sun Festival Спортын Наадам</h4>
+            <p>Австри, Герман, Чех, Унгарын нийт 16 баг, 150+ тамирчныг хамруулсан анхны Европын Монголчуудын нэгдсэн спортын их наадмыг Вена хотноо амжилттай зохион байгуулав.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-card">
+            <span class="timeline-year-badge">2023</span>
+            <h4>"Оюутнуудын Өдөрлөг" &amp; Менторшип Хөтөлбөр</h4>
+            <p>Шинээр ирсэн оюутнуудад зориулсан 9 бүлэг бүхий анхны мэдээллийн гарын авлагыг хэвлэн гаргаж, ахмад оюутнуудын ментор холбох хөтөлбөрийг албан ёсоор эхлүүлэв.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-card">
+            <span class="timeline-year-badge">2024</span>
+            <h4>AMOX Sun Festival-ийн Дээд Амжилт</h4>
+            <p>Европын 8 орноос 32 баг, 450+ тамирчин, 800+ үзэгч хүрэлцэн ирж, Австрийн хамгийн том Монгол залуусын соёл, спортын наадам болон өргөжив.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-card">
+            <span class="timeline-year-badge">2025–2026</span>
+            <h4>Цахим Портал &amp; Олон Улсын Түншлэл</h4>
+            <p>Австри улс дахь оюутнуудад зориулсан анхны интерактив цахим систем, MA35 герман и-мэйл генератор, дотуур байрны нэгдсэн мэдээллийн санг бүрэн ашиглалтад оруулав.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Previous Sun Festival Events Showcase (Yearly Picture Slides / Carousel) -->
+  <section class="festival-history-section" id="festival-history">
+    <div class="container">
+      <div class="section-title-wrap text-center">
+        <span class="section-subtitle">АРХИВ &bull; СЛАЙД</span>
+        <h2>Өмнөх Жилүүдийн AMOX Sun Festival Наадмууд</h2>
+        <p>Жил бүр уламжлал болон өргөжиж буй спортын их наадмын өмнөх түүх, амжилтуудтай танилцана уу.</p>
+      </div>
+
+      <div class="festival-carousel-container">
+        <!-- Year Selector Tabs -->
+        <div class="carousel-year-tabs">
+          <button class="carousel-year-btn active" data-year="2024">🏆 Sun Festival 2024</button>
+          <button class="carousel-year-btn" data-year="2023">🥇 Sun Festival 2023</button>
+          <button class="carousel-year-btn" data-year="2022">🏅 Sun Festival 2022</button>
+        </div>
+
+        <!-- Slide 2024 -->
+        <div class="carousel-slide-card" data-year="2024">
+          <div class="carousel-media-visual">
+            <div class="slide-sports-badges">
+              <span class="slide-sport-chip">🏀 Сагсан бөмбөг 5v5</span>
+              <span class="slide-sport-chip">🏐 Гар бөмбөг</span>
+              <span class="slide-sport-chip">⚽ Futsal</span>
+              <span class="slide-sport-chip">🏓 Теннис</span>
+            </div>
+            <div class="slide-media-footer">
+              <h4>AMOX Sun Festival 2024 &bull; Wien Sports Hall</h4>
+              <p>Европын 8 орны 32 баг, 450+ тамирчин оролцсон түүхэн наадам</p>
+            </div>
+          </div>
+          <div class="carousel-info-pane">
+            <span class="badge badge-accent" style="align-self:flex-start; margin-bottom:12px;">2024 Оны Аварга</span>
+            <h3>Sun Festival 2024: Хамгийн Том Цар Хүрээ</h3>
+            <p>
+              Австри, Герман, Чех, Унгар, Франц, Польш, Швейцараас ирсэн тамирчид сагсан бөмбөг, гар бөмбөг, хөлбөмбөгийн төрлүүдээр өрсөлдөж, шилдэг багууд тодорлоо. Төгсгөлд нь "Sun Festival Gala Night" цэнгүүн зохион байгуулагдсан.
+            </p>
+            <div class="carousel-stats-list">
+              <div class="c-stat-box"><strong>32 Баг</strong><span>Европ даяар</span></div>
+              <div class="c-stat-box"><strong>€3,000+</strong><span>Шагналын сан</span></div>
+              <div class="c-stat-box"><strong>800+</strong><span>Үзэгч дэмжигч</span></div>
+              <div class="c-stat-box"><strong>8 Улс</strong><span>Оролцогч орнууд</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2023 -->
+        <div class="carousel-slide-card" data-year="2023" style="display:none;">
+          <div class="carousel-media-visual">
+            <div class="slide-sports-badges">
+              <span class="slide-sport-chip">🏀 5v5 Basketball</span>
+              <span class="slide-sport-chip">🏐 Volleyball Open</span>
+              <span class="slide-sport-chip">♟️ Rapid Chess</span>
+            </div>
+            <div class="slide-media-footer">
+              <h4>AMOX Sun Festival 2023 &bull; Вена хот</h4>
+              <p>24 баг тамирчдын гал гарсан шигшээ тоглолтууд</p>
+            </div>
+          </div>
+          <div class="carousel-info-pane">
+            <span class="badge badge-accent" style="align-self:flex-start; margin-bottom:12px;">2023 Оны Амжилт</span>
+            <h3>Sun Festival 2023: Спортын 5 Төрөл</h3>
+            <p>
+              Шатрын тэмцээн болон ширээний теннисний ангиллууд шинээр нэмэгдэж, оюун ухаан, авхаалж самбаа сорьсон өрсөлдөөнт наадам болов. Шилжин явах цомыг Австрийн баг хүртсэн.
+            </p>
+            <div class="carousel-stats-list">
+              <div class="c-stat-box"><strong>24 Баг</strong><span>Оролцсон</span></div>
+              <div class="c-stat-box"><strong>€2,200</strong><span>Шагналын сан</span></div>
+              <div class="c-stat-box"><strong>500+</strong><span>Үзэгч</span></div>
+              <div class="c-stat-box"><strong>5 Спорт</strong><span>Тэмцээний төрөл</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2022 -->
+        <div class="carousel-slide-card" data-year="2022" style="display:none;">
+          <div class="carousel-media-visual">
+            <div class="slide-sports-badges">
+              <span class="slide-sport-chip">🏀 Сагсан бөмбөг</span>
+              <span class="slide-sport-chip">🪢 Олс таталт</span>
+              <span class="slide-sport-chip">🇲🇳 Соёлын өдөрлөг</span>
+            </div>
+            <div class="slide-media-footer">
+              <h4>AMOX Sun Festival 2022 &bull; Анхны наадам</h4>
+              <p>Монгол оюутан залуусын нөхөрлөлийг бататгасан түүхэн эхлэл</p>
+            </div>
+          </div>
+          <div class="carousel-info-pane">
+            <span class="badge badge-accent" style="align-self:flex-start; margin-bottom:12px;">Анхны Түүх</span>
+            <h3>Sun Festival 2022: Эхлэл ба Үүсэл</h3>
+            <p>
+              Европ дахь Монгол оюутан залуусыг нэгтгэн, эрүүл идэвхтэй амьдралын хэв маягийг сурталчлах зорилгоор анхны Sun Festival-ийг зохион байгуулсан нь өнөөдрийн уламжлалт их наадмын эх үндэс болсон юм.
+            </p>
+            <div class="carousel-stats-list">
+              <div class="c-stat-box"><strong>16 Баг</strong><span>Анхны багууд</span></div>
+              <div class="c-stat-box"><strong>€1,500</strong><span>Шагналын сан</span></div>
+              <div class="c-stat-box"><strong>350+</strong><span>Үзэгч</span></div>
+              <div class="c-stat-box"><strong>4 Улс</strong><span>Оролцсон</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <div class="carousel-nav-controls">
+          <button class="carousel-arrow-btn" id="prevFestivalSlideBtn" title="Өмнөх">‹</button>
+          <span style="font-size:0.88rem; color:var(--text-muted); font-weight:700;">Слайд солих эсвэл оныг товшино уу</span>
+          <button class="carousel-arrow-btn" id="nextFestivalSlideBtn" title="Дараах">›</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Students Day = "Оюутнуудын Өдөрлөг" Feature Section -->
+  <section class="students-day-section" id="students-day">
+    <div class="container">
+      <div class="students-day-card">
+        <div class="students-day-grid">
+          <div>
+            <div class="pill-badge" style="background:var(--surface);">
+              <span class="pulse-indicator"></span>
+              <span>Жил Бүрийн Уламжлалт Арга Хэмжээ</span>
+            </div>
+            <h2 style="font-size: 2.4rem; margin-bottom: 14px;">
+              Оюутнуудын Өдөрлөг <span class="gradient-crimson">(Students Day)</span>
+            </h2>
+            <p style="color:var(--text-sub); font-size:1.05rem; line-height:1.7;">
+              AMOX холбооноос шинээр болон суралцаж буй нийт Монгол оюутан залууст зориулан жил бүр зохион байгуулдаг цогц чиглүүлэх (Orientation &amp; Networking) өдөрлөг юм. Энэхүү өдөрлөгөөр Австри улсад амжилттай суралцаж, бие даан амьдрахад шаардлагатай бүх мэдээллийг үнэ төлбөргүй олгодог.
+            </p>
+
+            <div class="students-day-features">
+              <div class="s-feature-item">
+                <strong>📖 Мэдээллийн Гарын Авлага</strong>
+                <p>9 бүлэг бүхий виз, дотуур байр, хэлний төв, 20 цагийн ажлын гарын авлагыг үнэгүй тараана.</p>
+              </div>
+
+              <div class="s-feature-item">
+                <strong>🤝 Ахмад Оюутны Менторшил</strong>
+                <p>Uni Wien, TU Wien, WU, MedUni, FH-ийн ахмад оюутнуудтай биечлэн уулзаж хичээл сонголтоо төлөвлөнө.</p>
+              </div>
+
+              <div class="s-feature-item">
+                <strong>🛂 MA35 &amp; ÖGK Зөвлөгөө</strong>
+                <p>Хаягийн бүртгэл Meldezettel, E-Card даатгал, виз сунгалтын бичиг баримтыг газар дээр нь шалгуулна.</p>
+              </div>
+
+              <div class="s-feature-item">
+                <strong>🍕 Танилцах Үдэш &amp; Сүлжээ</strong>
+                <p>Шинэ оюутнууд хоорондоо танилцаж, хамтран байр түрээслэх найзуудтайгаа холбогдох боломж.</p>
+              </div>
+            </div>
+
+            <div style="margin-top: 30px; display:flex; gap:14px; flex-wrap:wrap;">
+              <a href="guide.html" class="btn btn-coke btn-lg">Гарын авлага үзэх →</a>
+              <a href="#mentor" class="btn btn-outline btn-lg">Ментор хүсэх</a>
+            </div>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:16px;">
+            <div class="highlight-box-accent" style="background:var(--surface); margin:0;">
+              <h4>🗓️ Дараагийн Өдөрлөг:</h4>
+              <ul class="styled-list">
+                <li><strong>Хугацаа:</strong> Намар / Хаврын семестрийн эхэнд</li>
+                <li><strong>Байршил:</strong> Вена хот, Их сургуулийн кампус</li>
+                <li><strong>Оролцоо:</strong> Бүх оюутан, залууст 100% нээлттэй &amp; үнэ төлбөргүй</li>
+              </ul>
+            </div>
+            <div class="tip-box">
+              💡 Өдөрлөгийн албан ёсны товыг манай <a href="https://www.instagram.com/amox_at/" target="_blank" rel="noopener noreferrer" class="inline-link">@amox_at Instagram</a> болон Facebook хуудсаар урьдчилан зарладаг.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Partners & Sponsors Section -->
+  <section class="partners-section" id="partners">
+    <div class="container">
+      <div class="section-title-wrap text-center">
+        <span class="section-subtitle">ТҮНШЛЭЛ</span>
+        <h2>Хамтрагч &amp; Ивээн Тэтгэгч Байгууллагууд</h2>
+        <p>Бидний үйл ажиллагаа, оюутны хөгжил болон AMOX Sun Festival наадмыг дэмжин ажилладаг байгууллагууд.</p>
+      </div>
+
+      <!-- Diplomatic & Official Partners -->
+      <div class="partners-category-title">🏛️ Албан Ёсны &amp; Төрийн Байгууллагууд</div>
+      <div class="partners-logos-grid">
+        <div class="partner-logo-card">
+          <div class="partner-icon-pill">🇲🇳</div>
+          <h4>Монгол Улсын ЭСЯ</h4>
+          <span>Embassy of Mongolia in Vienna</span>
+        </div>
+        <div class="partner-logo-card">
+          <div class="partner-icon-pill">🎓</div>
+          <h4>ÖH Österreich</h4>
+          <span>Австрийн Үндэсний Оюутны Холбоо</span>
+        </div>
+        <div class="partner-logo-card">
+          <div class="partner-icon-pill">🌐</div>
+          <h4>OEAD Austria</h4>
+          <span>Боловсролын Олон Улсын Агентлаг</span>
+        </div>
+        <div class="partner-logo-card">
+          <div class="partner-icon-pill">🌍</div>
+          <h4>AIESEC Austria</h4>
+          <span>Олон улсын манлайллын сүлжээ</span>
+        </div>
+      </div>
+
+      <!-- Universities -->
+      <div class="partners-category-title">🎓 Австрийн Тэргүүлэх Их Сургуулиуд</div>
+      <div class="partners-logos-grid">
+        <div class="partner-logo-card">
+          <div class="partner-icon-pill">🏛️</div>
+          <h4>Universität Wien</h4>
+          <span>Венагийн Их Сургууль (1365)</span>
+        </div>
+        <div class="partner-logo-card">
+          <div class="partner-icon-pill">⚙️</div>
+          <h4>TU Wien</h4>
+          <span>Венагийн Техникийн Их Сургууль</span>
+        </div>
+        <div class="partner-logo-card">
+          <div class="partner-icon-pill">📈</div>
+          <h4>WU Wien</h4>
+          <span>Эдийн Засгийн Их Сургууль</span>
+        </div>
+        <div class="partner-logo-card">
+          <div class="partner-icon-pill">🏥</div>
+          <h4>MedUni Wien</h4>
+          <span>Венагийн Анагаах Ухааны Их Сургууль</span>
+        </div>
+      </div>
+
+      <!-- Housing & Corporate Sponsors -->
+      <div class="partners-category-title">🏠 Оюутны Дотуур Байр &amp; Корпорэйт Түншүүд</div>
+      <div class="partners-logos-grid">
+        <div class="partner-logo-card">
+          <div class="partner-icon-pill">🏢</div>
+          <h4>ÖJAB</h4>
+          <span>Оюутны дотуур байрны сүлжээ</span>
+        </div>
+        <div class="partner-logo-card">
+          <div class="partner-icon-pill">🏠</div>
+          <h4>STUWO</h4>
+          <span>Studentenwohnbau Wien</span>
+        </div>
+        <div class="partner-logo-card">
+          <div class="partner-icon-pill">🛏️</div>
+          <h4>WIHAST</h4>
+          <span>Оюутны байрны байгууллага</span>
+        </div>
+        <div class="partner-logo-card">
+          <div class="partner-icon-pill">💳</div>
+          <h4>Erste Bank / Sparkasse</h4>
+          <span>Оюутны санхүүгийн үйлчилгээ</span>
+        </div>
+      </div>
+
+      <!-- Sponsor CTA Banner -->
+      <div class="sponsor-cta-banner">
+        <div>
+          <h3>🤝 Бидэнтэй хамтран ажиллах, ивээн тэтгэгч болох</h3>
+          <p>AMOX Sun Festival болон Оюутны Өдөрлөг арга хэмжээнүүдийг ивээн тэтгэж, Европ дахь 1000+ оюутан залууст байгууллагаа таниулаарай.</p>
+        </div>
+        <a href="mailto:contact@amox.at?subject=AMOX%20Sponsorship%20Inquiry" class="btn btn-white btn-lg" style="white-space:nowrap;">
+          ✉️ Спонсор санал илгээх →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Interactive Senior Mentor Matchmaking Form -->
+  <section class="section-pillars" id="mentor" style="background: var(--surface);">
+    <div class="container">
+      <div class="reg-form-wrapper">
+        <div class="reg-intro text-center">
+          <span class="section-subtitle">МЕНТОРШИЛ</span>
+          <h2>Ахмад Оюутантай Холбогдох Хүсэлт</h2>
+          <p>Та өөрийн суралцах чиглэл, сонирхсон сургуулиа сонгон хүсэлт илгээвэл бид танд тохирох менторыг холбож өгнө.</p>
+        </div>
+
+        <form class="festival-form" id="mentorForm">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="mStudentName">Таны нэр:</label>
+              <input type="text" id="mStudentName" placeholder="Овог, Нэр" required />
+            </div>
+
+            <div class="form-group">
+              <label for="mTargetUni">Сонирхож буй Их сургууль / Түвшин:</label>
+              <select id="mTargetUni" required>
+                <option value="uniwien">University of Vienna (Uni Wien)</option>
+                <option value="tuwien">TU Wien (Техникийн их сургууль)</option>
+                <option value="wu">WU Wien (Эдийн засгийн их сургууль)</option>
+                <option value="meduni">Medical University of Vienna</option>
+                <option value="fh">Fachhochschule (FH Campus, Technikum)</option>
+                <option value="vwu">VWU Хэлний бэлтгэл</option>
+                <option value="other">Бусад их сургууль</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="mField">Суралцах мэргэжлийн чиглэл:</label>
+              <input type="text" id="mField" placeholder="Жишээ: Software Engineering, Business, Medicine..." required />
+            </div>
+
+            <div class="form-group">
+              <label for="mEmail">И-мэйл хаяг:</label>
+              <input type="email" id="mEmail" placeholder="example@email.com" required />
+            </div>
+
+            <div class="form-group">
+              <label for="mPhone">Утас / WhatsApp:</label>
+              <input type="tel" id="mPhone" placeholder="+43 660 0000000" required />
+            </div>
+
+            <div class="form-group">
+              <label for="mCurrentStatus">Таны одоогийн байдал:</label>
+              <select id="mCurrentStatus">
+                <option value="planning">Монголоос ирэхээр бэлтгэж буй</option>
+                <option value="arrived">Австрид дөнгөж ирсэн (Эхний 1-3 сар)</option>
+                <option value="vwu">VWU хэлний бэлтгэлд сурч буй</option>
+                <option value="student">Их сургуулийн үндсэн оюутан</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-top:16px;">
+            <label for="mQuestions">Танд тусламж хэрэгтэй байгаа гол асуулт:</label>
+            <textarea id="mQuestions" rows="4" placeholder="Жишээ нь: Хичээл сонголт, дотуур байрны өргөдөл, MA35 бичиг баримт..."></textarea>
+          </div>
+
+          <div class="form-submit-row text-center" style="margin-top:24px;">
+            <button type="submit" class="btn btn-coke btn-lg">
+              🤝 Ментор хүсэлт илгээх →
+            </button>
+          </div>
+
+          <div id="mentorSuccessAlert" class="tip-box" style="display:none; margin-top:20px; text-align:center;">
+            🎉 <strong>Баярлалаа!</strong> Таны ментор хүсэлтийг хүлээн авлаа. Бид тухайн чиглэлийн ахмад оюутантай холбож таны и-мэйлээр хариу илгээх болно.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Connect & Social Media -->
+  <section class="community-section" id="contact">
+    <div class="container text-center">
+      <span class="section-subtitle">ХОЛБОО БАРИХ</span>
+      <h2>Бидэнтэй Шууд Холбогдох Сувгууд</h2>
+      <p class="community-desc">
+        Instagram болон Facebook хуудсаар тогтмол мэдээлэл авч, эвентүүдэд нэгдээрэй.
+      </p>
+
+      <div class="social-cards-grid">
+        <a href="https://www.instagram.com/amox_at/" target="_blank" rel="noopener noreferrer" class="social-card">
+          <div class="social-icon">📷</div>
+          <h3>Instagram: @amox_at</h3>
+          <p>Өдөр тутмын мэдээлэл, стори зарын мэдээлэл, арга хэмжээний зургууд</p>
+          <span class="card-action">Instagram нээх ↗</span>
+        </a>
+
+        <a href="https://www.facebook.com/MongolianStudentAssociationInAustria" target="_blank" rel="noopener noreferrer" class="social-card">
+          <div class="social-icon">👥</div>
+          <h3>Facebook Хуудас</h3>
+          <p>Монгол Оюутны Холбооны албан ёсны эвент зарлалууд, шууд уулзалтууд</p>
+          <span class="card-action">Facebook хуудас ↗</span>
+        </a>
+
+        <div class="social-card">
+          <div class="social-icon">✉️</div>
+          <h3>И-мэйл Холбоо</h3>
+          <p>Хамтран ажиллах, ивээн тэтгэгч болох болон албан ёсны санал хүсэлт</p>
+          <a href="mailto:contact@amox.at" class="card-action">contact@amox.at ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Exact Coca-Cola Austria Style Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="assets/logo.png" alt="AMOX Logo" class="footer-logo-img" />
+          <p><strong>AMOX</strong> — Австри дахь Монголын Оюутны Холбоо<br/>Verein der Mongolischen Studenten in Österreich (Seit 2007)</p>
+          <div class="footer-social-pills">
+            <a href="https://www.instagram.com/amox_at/" target="_blank" rel="noopener noreferrer">📷 Instagram: @amox_at</a>
+            <a href="https://www.facebook.com/MongolianStudentAssociationInAustria" target="_blank" rel="noopener noreferrer">👥 Facebook Page</a>
+          </div>
+        </div>
+
+        <div class="footer-nav">
+          <h5>Үндсэн хуудсууд</h5>
+          <ul>
+            <li><a href="index.html">Нүүр хуудас</a></li>
+            <li><a href="sun-festival.html">🏆 AMOX Sun Festival 2025</a></li>
+            <li><a href="guide.html">📖 9 Бүлэг Гарын Авлага</a></li>
+            <li><a href="housing.html">🏠 Дотуур байр хайгч</a></li>
+            <li><a href="visa-insurance.html">🛂 Виз &amp; Даатгал</a></li>
+            <li><a href="about.html">🤝 Бидний тухай &amp; Менторшил</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav">
+          <h5>Хэрэгслүүд &amp; Эвент</h5>
+          <ul>
+            <li><a href="visa-insurance.html#email-generator">MA35 И-мэйл Генератор</a></li>
+            <li><a href="guide.html#calculator-section">Зардлын тооцоолуур</a></li>
+            <li><a href="about.html#mentor">Менторшил хөтөлбөр</a></li>
+            <li><a href="about.html#students-day">Оюутнуудын Өдөрлөг</a></li>
+            <li><a href="sun-festival.html#register">Баг бүртгүүлэх</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav">
+          <h5>Албан ёсны порталууд</h5>
+          <ul>
+            <li><a href="https://www.oesterreich.gv.at" target="_blank" rel="noopener noreferrer">oesterreich.gv.at</a></li>
+            <li><a href="https://www.wien.gv.at" target="_blank" rel="noopener noreferrer">wien.gv.at (MA35)</a></li>
+            <li><a href="https://www.ams.at" target="_blank" rel="noopener noreferrer">ams.at</a></li>
+            <li><a href="https://www.gesundheitskasse.at" target="_blank" rel="noopener noreferrer">gesundheitskasse.at (ÖGK)</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="country-flag-pill">
+          <span>🇦🇹 Österreich</span> &bull; <span>🇲🇳 Монгол</span>
+        </div>
+        <p>© 2025–2026 AMOX - Verein der Mongolischen Studenten in Österreich (Seit 2007). Бүх эрх хуулиар хамгаалагдсан.</p>
+        <div class="footer-bottom-links">
+          <a href="about.html">Бидний тухай</a>
+          <a href="guide.html">Тусламж</a>
+          <a href="mailto:contact@amox.at">contact@amox.at</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="mn" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AMOX - Виз &amp; Эрүүл Мэндийн Даатгал (MA35 И-мэйл Генератор)</title>
+  <meta name="description" content="Австри дахь Монголын Оюутны Холбоо (AMOX Seit 2007) - Виз сунгалт (MA35), Meldezettel хаягийн бүртгэл, ÖGK E-Card эрүүл мэндийн даатгал, 1-Click Герман өргөдлийн и-мэйл үүсгэгч хэрэгсэл." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800;900&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Navigation Header (Coca-Cola Red Signature) -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="AMOX Нүүр хуудас">
+        <div class="logo-symbol">
+          <img src="assets/logo.png" alt="AMOX Logo" class="brand-logo-img" />
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">AMOX Австри</span>
+          <span class="brand-sub">Seit 2007</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" id="navMenu" aria-label="Үндсэн цэс">
+        <a href="index.html" class="nav-item">Нүүр</a>
+        <a href="sun-festival.html" class="nav-item">
+          🏆 Sun Festival
+          <span class="badge badge-yellow" style="margin-left:4px;">HOT</span>
+        </a>
+        <a href="guide.html" class="nav-item">📖 Гарын авлага</a>
+        <a href="housing.html" class="nav-item">🏠 Дотуур байр</a>
+        <a href="visa-insurance.html" class="nav-item active">🛂 Виз &amp; Даатгал</a>
+        <a href="about.html" class="nav-item">🤝 Бидний тухай</a>
+      </nav>
+
+      <!-- Right Action Tools -->
+      <div class="nav-actions">
+        <button class="search-shortcut-btn" id="searchShortcutBtn" title="Шуурхай хайлт (Ctrl+K)">
+          <span>🔍</span>
+          <kbd>Ctrl+K</kbd>
+        </button>
+        <a href="#email-generator" class="btn btn-white btn-sm">✉️ И-мэйл үүсгэх →</a>
+
+        <button class="nav-toggle-btn" id="navToggleBtn" aria-label="Цэс нээх">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <a href="index.html" class="mobile-nav-link"><span>🏠 Нүүр хуудас</span> <span>→</span></a>
+    <a href="sun-festival.html" class="mobile-nav-link"><span>🏆 AMOX Sun Festival 2025</span> <span class="badge badge-yellow">HOT</span></a>
+    <a href="guide.html" class="mobile-nav-link"><span>📖 9 Бүлэг Гарын Авлага</span> <span>→</span></a>
+    <a href="housing.html" class="mobile-nav-link"><span>🏠 Дотуур Байр Хайгч</span> <span>→</span></a>
+    <a href="visa-insurance.html" class="mobile-nav-link active"><span>🛂 Виз &amp; Даатгалын Төв</span> <span>→</span></a>
+    <a href="about.html" class="mobile-nav-link"><span>🤝 Бидний Тухай &amp; Менторшил</span> <span>→</span></a>
+  </div>
+
+  <!-- Visa & Insurance Hero Section -->
+  <section class="hero-section" style="padding: 64px 0 72px;">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="pill-badge">
+          <span class="pulse-indicator"></span>
+          <span>Хууль &bull; Бичиг Баримтын Төв</span>
+        </div>
+        <h1 class="hero-title" style="font-size:3rem;">
+          Виз Сунгалт &amp; <span class="gradient-text">Эрүүл Мэндийн Даатгал</span>
+        </h1>
+        <p class="hero-desc">
+          MA35 визний өргөдлийн бэлтгэл, 72 цагийн Meldezettel хаягийн бүртгэл, ÖGK E-Card оюутны даатгалын зааврууд болон 1 товшилтоор герман өргөдөл үүсгэгч хэрэгсэл.
+        </p>
+
+        <div class="quick-tags">
+          <a href="#email-generator" class="tag-btn">✉️ MA35 И-мэйл Генератор</a>
+          <a href="#meldezettel" class="tag-btn">📋 72 цагийн Meldezettel</a>
+          <a href="#ecard" class="tag-btn">🏥 ÖGK E-Card Даатгал</a>
+        </div>
+      </div>
+
+      <div class="hero-sidebar-card">
+        <div class="highlight-box-accent">
+          <h4>⚠️ Визний чухал хугацаа:</h4>
+          <ul class="styled-list">
+            <li><strong>Өргөдөл гаргах:</strong> Виз дуусахаас <em>хамгийн багадаа 2 сарын өмнө</em>.</li>
+            <li><strong>И-мэйл:</strong> <a href="mailto:12-ref@ma35.wien.gv.at" class="inline-link">12-ref@ma35.wien.gv.at</a></li>
+            <li><strong>Цаг захиалах:</strong> <a href="https://www.wien.gv.at/kontakt/ma35-terminbuchung-verlaengerungsantraege" target="_blank" rel="noopener noreferrer" class="inline-link">MA35 Terminbuchung ↗</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive 1-Click MA35 German Email Generator -->
+  <section class="section-pillars" id="email-generator" style="background: var(--surface);">
+    <div class="container">
+      <div class="reg-form-wrapper" style="max-width: 920px;">
+        <div class="reg-intro text-center">
+          <span class="section-subtitle">ИНТЕРАКТИВ ХЭРЭГСЭЛ</span>
+          <h2>MA35 Герман И-мэйл Үүсгэгч (1-Click Generator)</h2>
+          <p>Мэдээллээ оруулснаар MA35 цагаачлалын албанд илгээх албан ёсны герман өргөдлийг автоматаар бэлтгэж өгнө.</p>
+        </div>
+
+        <form class="festival-form" id="ma35EmailForm">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="studentFullName">Таны бүтэн нэр (Паспорт дээрх):</label>
+              <input type="text" id="studentFullName" placeholder="Жишээ: Batbold BATBAYAR" required />
+            </div>
+
+            <div class="form-group">
+              <label for="studentDOB">Төрсөн огноо (Date of Birth):</label>
+              <input type="date" id="studentDOB" required />
+            </div>
+
+            <div class="form-group">
+              <label for="studentPassport">Паспортын дугаар:</label>
+              <input type="text" id="studentPassport" placeholder="Жишээ: E12345678" required />
+            </div>
+
+            <div class="form-group">
+              <label for="studentVisaExpiry">Одоогийн виз дуусах огноо:</label>
+              <input type="date" id="studentVisaExpiry" required />
+            </div>
+
+            <div class="form-group">
+              <label for="emailPurpose">И-мэйл бичих зорилго:</label>
+              <select id="emailPurpose">
+                <option value="extension">Виз сунгах цаг авах (Antrag auf Verlängerung)</option>
+                <option value="first-time">D-Visa-аас Оюутны үнэмлэх болгох (Erstantrag)</option>
+                <option value="status-check">Өргөдлийн явцыг асуух (Statusanfrage)</option>
+                <option value="document-submission">Нэмэлт бичиг баримт илгээх (Nachreichung)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="studentUniversity">Сургуулийн нэр:</label>
+              <input type="text" id="studentUniversity" placeholder="Жишээ: Universität Wien, VWU" required />
+            </div>
+          </div>
+
+          <div class="form-submit-row text-center" style="margin-top: 24px;">
+            <button type="button" class="btn btn-coke btn-lg" id="generateEmailBtn">
+              ⚡ Герман И-мэйл Бэлтгэх →
+            </button>
+          </div>
+        </form>
+
+        <!-- Preview Box -->
+        <div id="emailPreviewContainer" style="margin-top: 32px; display: none;">
+          <div class="generated-email-preview">
+            <div class="email-preview-head">
+              <div><strong>Хүлээн авагч:</strong> 12-ref@ma35.wien.gv.at (MA35 Außenstelle 12)</div>
+              <div><strong>Гарчиг (Subject):</strong> <span id="previewSubject"></span></div>
+            </div>
+            <pre class="email-text-box" id="previewBody"></pre>
+          </div>
+
+          <div class="text-center" style="margin-top: 18px;">
+            <button class="btn btn-coke" id="copyEmailBtn">📋 И-мэйлийг хуулж авах (Copy to Clipboard)</button>
+            <span id="copyFeedback" style="display:none; color:var(--success); font-weight:800; margin-left:12px;">✓ Амжилттай хуулагдлаа!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meldezettel & E-Card Info Section -->
+  <section class="section-pillars" id="meldezettel" style="background: var(--bg-subtle);">
+    <div class="container">
+      <div class="section-title-wrap text-center">
+        <span class="section-subtitle">БҮРТГЭЛ &bull; ДААТГАЛ</span>
+        <h2>Meldezettel Хаягийн Бүртгэл &amp; ÖGK E-Card Даатгал</h2>
+      </div>
+
+      <div class="info-subgrid">
+        <!-- Meldezettel -->
+        <div class="subbox">
+          <h4>📋 Meldezettel (72 цагийн дотор)</h4>
+          <p style="margin-bottom:12px;">Австри улсад очсон даруйдаа харьяа Meldeamt (Magistratisches Bezirksamt)-д бүртгүүлнэ.</p>
+          <ul class="styled-list">
+            <li><strong>Маягт:</strong> Meldezettel formulare (Байрны эзэн эсвэл дотуур байр гарын үсэг зурна).</li>
+            <li><strong>Бичиг баримт:</strong> Паспорт + Бөглөсөн маягт.</li>
+            <li><strong>Төлбөр:</strong> Үнэгүй. Газар дээр нь шууд олгоно.</li>
+          </ul>
+        </div>
+
+        <!-- E-Card -->
+        <div class="subbox" id="ecard">
+          <h4>🏥 ÖGK E-Card (Оюутны Даатгал)</h4>
+          <p style="margin-bottom:12px;">Österreichische Gesundheitskasse (ÖGK)-д оюутны хөнгөлөлттэй даатгалд хамрагдана.</p>
+          <ul class="styled-list">
+            <li><strong>Төлбөр:</strong> Сард <strong>~€73.48</strong> (2025 оны байдлаар).</li>
+            <li><strong>Шаардагдах:</strong> Паспорт, Meldezettel, Их сургуулийн Studienblatt.</li>
+            <li><strong>Ашиг тус:</strong> Эмчид үнэгүй үзүүлэх, эмийн хөнгөлөлт, ЕХ-ны EKVK карт.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Exact Coca-Cola Austria Style Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="assets/logo.png" alt="AMOX Logo" class="footer-logo-img" />
+          <p><strong>AMOX</strong> — Австри дахь Монголын Оюутны Холбоо<br/>Verein der Mongolischen Studenten in Österreich (Seit 2007)</p>
+          <div class="footer-social-pills">
+            <a href="https://www.instagram.com/amox_at/" target="_blank" rel="noopener noreferrer">📷 Instagram: @amox_at</a>
+            <a href="https://www.facebook.com/MongolianStudentAssociationInAustria" target="_blank" rel="noopener noreferrer">👥 Facebook Page</a>
+          </div>
+        </div>
+
+        <div class="footer-nav">
+          <h5>Үндсэн хуудсууд</h5>
+          <ul>
+            <li><a href="index.html">Нүүр хуудас</a></li>
+            <li><a href="sun-festival.html">🏆 AMOX Sun Festival 2025</a></li>
+            <li><a href="guide.html">📖 9 Бүлэг Гарын Авлага</a></li>
+            <li><a href="housing.html">🏠 Дотуур байр хайгч</a></li>
+            <li><a href="visa-insurance.html">🛂 Виз &amp; Даатгал</a></li>
+            <li><a href="about.html">🤝 Бидний тухай &amp; Менторшил</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav">
+          <h5>Хэрэгслүүд &amp; Эвент</h5>
+          <ul>
+            <li><a href="visa-insurance.html#email-generator">MA35 И-мэйл Генератор</a></li>
+            <li><a href="guide.html#calculator-section">Зардлын тооцоолуур</a></li>
+            <li><a href="about.html#mentor">Менторшил хөтөлбөр</a></li>
+            <li><a href="about.html#students-day">Оюутнуудын Өдөрлөг</a></li>
+            <li><a href="sun-festival.html#register">Баг бүртгүүлэх</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav">
+          <h5>Албан ёсны порталууд</h5>
+          <ul>
+            <li><a href="https://www.oesterreich.gv.at" target="_blank" rel="noopener noreferrer">oesterreich.gv.at</a></li>
+            <li><a href="https://www.wien.gv.at" target="_blank" rel="noopener noreferrer">wien.gv.at (MA35)</a></li>
+            <li><a href="https://www.ams.at" target="_blank" rel="noopener noreferrer">ams.at</a></li>
+            <li><a href="https://www.gesundheitskasse.at" target="_blank" rel="noopener noreferrer">gesundheitskasse.at (ÖGK)</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="country-flag-pill">
+          <span>🇦🇹 Österreich</span> &bull; <span>🇲🇳 Монгол</span>
+        </div>
+        <p>© 2025–2026 AMOX - Verein der Mongolischen Studenten in Österreich (Seit 2007). Бүх эрх хуулиар хамгаалагдсан.</p>
+        <div class="footer-bottom-links">
+          <a href="about.html">Бидний тухай</a>
+          <a href="guide.html">Тусламж</a>
+          <a href="mailto:contact@amox.at">contact@amox.at</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
