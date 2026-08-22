@@ -122,7 +122,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
                   fontWeight: 500
                 }}
               >
-                Austria Mongolian Students
+                Mongolian Students Association in Austria
               </span>
             </div>
           </Link>
