@@ -206,7 +206,7 @@ export const AboutPage: React.FC = () => {
 
             <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
               <a href="#history" className="aiesec-btn-primary">
-                <span>18 Жилийн Түүх</span>
+                <span>19 Жилийн Түүх</span>
                 <ArrowRight size={16} />
               </a>
               <a href="#mentor" className="aiesec-btn-outline">
@@ -422,13 +422,13 @@ export const AboutPage: React.FC = () => {
       </section>
 
       {/* -------------------------------------------------------------
-          4. 18-YEAR INTERACTIVE HISTORY TIMELINE
+          4. 19-YEAR INTERACTIVE HISTORY TIMELINE
           ------------------------------------------------------------- */}
       <section id="history" style={{ padding: '100px 0', backgroundColor: '#FFFFFF' }}>
         <div className="container" style={{ maxWidth: 860 }}>
           <div style={{ textAlign: 'center', marginBottom: 60 }}>
             <span style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--aiesec-blue)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-              Seit 2007 &bull; 18 Жилийн Түүх
+              Seit 2007 &bull; 19 Жилийн Түүх
             </span>
             <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginTop: 4 }}>
               Түүхэн Замнал &amp; Онцлох Үйл Явдлууд

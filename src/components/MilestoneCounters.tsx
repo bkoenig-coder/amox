@@ -68,7 +68,7 @@ export const MilestoneCounters: React.FC = () => {
           gap: 24,
           textAlign: 'center'
         }}>
-          <AnimatedNumber target={18} suffix="+" label="Жилийн Түүх (Seit 2007)" />
+          <AnimatedNumber target={19} suffix="+" label="Жилийн Баялаг Түүх (Seit 2007)" />
           <AnimatedNumber target={500} suffix="+" label="Оюутан Залуусын Сүлжээ" />
           <AnimatedNumber target={12} suffix="+" label="Австрийн Их Сургуулиуд" />
           <AnimatedNumber target={6} suffix="+" label="Жил Тутмын Эвент Наадам" />

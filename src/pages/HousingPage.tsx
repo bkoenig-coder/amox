@@ -198,28 +198,44 @@ export const HousingPage: React.FC = () => {
                 {filteredDorms.map(dorm => (
                   <div
                     key={dorm.id}
+                    className="timeline-card"
                     style={{
                       background: 'var(--surface)',
                       border: '1.5px solid var(--border)',
                       borderRadius: 'var(--radius-lg)',
-                      padding: 28,
+                      padding: 26,
                       boxShadow: 'var(--shadow-card)',
                       display: 'flex',
                       flexDirection: 'column',
-                      position: 'relative'
+                      position: 'relative',
+                      transition: 'var(--transition)'
                     }}
                   >
                     {dorm.badge && (
-                      <span className="badge badge-yellow" style={{ position: 'absolute', top: 20, right: 20 }}>
+                      <span
+                        style={{
+                          position: 'absolute',
+                          top: 18,
+                          right: 18,
+                          background: dorm.badge.includes('LUXURY') || dorm.badge.includes('PREMIUM') ? '#0F172A' : '#EFF6FF',
+                          color: dorm.badge.includes('LUXURY') || dorm.badge.includes('PREMIUM') ? '#F4B400' : 'var(--aiesec-blue)',
+                          fontSize: '0.72rem',
+                          fontWeight: 800,
+                          padding: '4px 10px',
+                          borderRadius: 'var(--radius-pill)',
+                          border: '1px solid rgba(0, 82, 204, 0.15)',
+                          letterSpacing: '0.04em'
+                        }}
+                      >
                         {dorm.badge}
                       </span>
                     )}
 
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 8, fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                      <MapPin size={14} color="var(--primary)" /> {dorm.city} &bull; {dorm.district}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 8, fontSize: '0.84rem', color: 'var(--text-muted)' }}>
+                      <MapPin size={14} color="var(--aiesec-orange)" /> {dorm.city} &bull; {dorm.district}
                     </div>
 
-                    <h3 style={{ fontSize: '1.25rem', marginBottom: 10 }}>{dorm.name}</h3>
+                    <h3 style={{ fontSize: '1.2rem', fontWeight: 800, marginBottom: 10, paddingRight: dorm.badge ? 80 : 0 }}>{dorm.name}</h3>
 
                     <div style={{
                       display: 'flex',
@@ -227,21 +243,21 @@ export const HousingPage: React.FC = () => {
                       gap: 6,
                       fontSize: '1.8rem',
                       fontWeight: 900,
-                      color: 'var(--primary)',
-                      marginBottom: 16
+                      color: 'var(--aiesec-blue)',
+                      marginBottom: 14
                     }}>
                       €{dorm.pricePerMonth}
                       <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-muted)' }}>/ сар</span>
                     </div>
 
-                    <p style={{ fontSize: '0.88rem', color: 'var(--text-sub)', marginBottom: 16 }}>
+                    <p style={{ fontSize: '0.88rem', color: 'var(--text-sub)', lineHeight: 1.55, marginBottom: 16 }}>
                       {dorm.recommendedFor}
                     </p>
 
                     <ul style={{ listStyle: 'none', marginBottom: 20, flexGrow: 1 }}>
                       {dorm.features.map((feat, fIdx) => (
-                        <li key={fIdx} style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: 6, display: 'flex', gap: 6 }}>
-                          <span style={{ color: 'var(--primary)', fontWeight: 800 }}>✓</span> {feat}
+                        <li key={fIdx} style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: 6, display: 'flex', gap: 8 }}>
+                          <span style={{ color: 'var(--aiesec-blue)', fontWeight: 800 }}>✓</span> {feat}
                         </li>
                       ))}
                     </ul>
