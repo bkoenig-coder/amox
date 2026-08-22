@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
     <footer className="amox-footer">
       <div className="container">
         {/* National & Academic Partners Showcase */}
-        <div style={{ textAlign: 'center', marginBottom: 32 }}>
+        <div style={{ textAlign: 'center', marginBottom: 28 }}>
           <div
             style={{
               display: 'inline-flex',
@@ -47,7 +47,7 @@ export const Footer: React.FC = () => {
               fontSize: 'clamp(0.95rem, 2vw, 1.15rem)',
               fontWeight: 800,
               color: 'var(--text-main)',
-              marginBottom: 16
+              marginBottom: 14
             }}
           >
             Хамтран ажилладаг их дээд сургуулиуд &amp; Түншүүд
@@ -67,13 +67,39 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
+        {/* Giant Unending Moving AMOX Marquee Banner */}
+        <div className="footer-amox-marquee-wrap" aria-hidden="true">
+          <div className="footer-amox-marquee-track">
+            <span>AMOX</span>
+            <span className="marquee-dot">•</span>
+            <span className="marquee-outline">SEIT 2007</span>
+            <span className="marquee-dot">•</span>
+            <span>YOUTH LEADERSHIP</span>
+            <span className="marquee-dot">•</span>
+            <span className="marquee-outline">AMOX</span>
+            <span className="marquee-dot">•</span>
+            <span>AUSTRIA</span>
+            <span className="marquee-dot">•</span>
+            <span>AMOX</span>
+            <span className="marquee-dot">•</span>
+            <span className="marquee-outline">SEIT 2007</span>
+            <span className="marquee-dot">•</span>
+            <span>YOUTH LEADERSHIP</span>
+            <span className="marquee-dot">•</span>
+            <span className="marquee-outline">AMOX</span>
+            <span className="marquee-dot">•</span>
+            <span>AUSTRIA</span>
+            <span className="marquee-dot">•</span>
+          </div>
+        </div>
+
         {/* Top Brand Banner Row */}
         <div className="footer-brand-banner">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <img src="/assets/logo.png" alt="AMOX Logo" style={{ height: 34, width: 'auto' }} />
             <div>
-              <strong style={{ fontSize: '0.98rem', color: 'var(--aiesec-blue)', display: 'block', fontWeight: 800 }}>
-                AMOX Austria
+              <strong style={{ fontSize: '1.05rem', color: 'var(--aiesec-blue)', display: 'block', fontWeight: 900, letterSpacing: '0.02em' }}>
+                AMOX
               </strong>
               <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 600 }}>
                 Seit 2007 &bull; 19 дэх жилдээ
@@ -156,7 +182,7 @@ export const Footer: React.FC = () => {
         {/* Minimal Legal Footer Bar */}
         <div className="footer-legal-bar">
           <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.72rem' }}>
-            <span>© AMOX Austria 2026. </span>
+            <span>© AMOX 2026. </span>
             <span className="legal-verein-text">Der Verein für mongolische Studierende und Jugendliche in Österreich.</span>
           </div>
 
@@ -180,8 +206,9 @@ export const Footer: React.FC = () => {
         .amox-footer {
           background-color: #F8FAFC;
           border-top: 1.5px solid var(--border);
-          padding: 44px 0 28px;
+          padding: 40px 0 28px;
           position: relative;
+          overflow: hidden;
         }
 
         /* Top Partner Parallel Badges */
@@ -189,7 +216,7 @@ export const Footer: React.FC = () => {
           display: grid;
           grid-template-columns: repeat(7, 1fr);
           gap: 8px;
-          margin-bottom: 28px;
+          margin-bottom: 24px;
         }
 
         .partner-parallel-card {
@@ -210,6 +237,47 @@ export const Footer: React.FC = () => {
           box-shadow: 0 4px 12px rgba(3, 126, 243, 0.08);
         }
 
+        /* Giant Unending Moving AMOX Marquee Banner */
+        .footer-amox-marquee-wrap {
+          overflow: hidden;
+          white-space: nowrap;
+          width: 100%;
+          padding: 10px 0;
+          margin-bottom: 24px;
+          background: linear-gradient(90deg, rgba(3, 126, 243, 0.04), rgba(248, 90, 64, 0.04), rgba(3, 126, 243, 0.04));
+          border-radius: 12px;
+          border: 1px solid rgba(3, 126, 243, 0.08);
+          user-select: none;
+        }
+
+        @keyframes footerMarqueeAnim {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+
+        .footer-amox-marquee-track {
+          display: inline-flex;
+          align-items: center;
+          gap: 24px;
+          animation: footerMarqueeAnim 22s linear infinite;
+          font-family: var(--font-heading);
+          font-size: clamp(1.4rem, 4vw, 2.2rem);
+          font-weight: 900;
+          letter-spacing: 0.08em;
+          color: var(--aiesec-blue);
+          text-transform: uppercase;
+        }
+
+        .footer-amox-marquee-track .marquee-outline {
+          -webkit-text-stroke: 1.5px var(--aiesec-blue);
+          color: transparent;
+        }
+
+        .footer-amox-marquee-track .marquee-dot {
+          color: var(--aiesec-orange);
+          font-size: 1rem;
+        }
+
         /* Brand Banner Row */
         .footer-brand-banner {
           display: flex;
@@ -217,8 +285,8 @@ export const Footer: React.FC = () => {
           justify-content: space-between;
           flex-wrap: wrap;
           gap: 16px;
-          padding-bottom: 20px;
-          margin-bottom: 24px;
+          padding-bottom: 18px;
+          margin-bottom: 22px;
           border-bottom: 1px solid var(--border);
         }
 
@@ -235,7 +303,7 @@ export const Footer: React.FC = () => {
           display: grid;
           grid-template-columns: repeat(3, 1fr) !important;
           gap: clamp(10px, 3vw, 32px);
-          padding-bottom: 28px;
+          padding-bottom: 24px;
           border-bottom: 1px solid var(--border);
         }
 
