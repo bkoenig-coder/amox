@@ -133,23 +133,35 @@ export const FestivalPhotoSlider: React.FC = () => {
           border: '1px solid rgba(255,255,255,0.1)'
         }}
       >
-        <div style={{ position: 'relative', height: 'clamp(380px, 50vw, 560px)' }}>
+        <div style={{ position: 'relative', height: 'clamp(320px, 50vw, 560px)' }}>
           <AnimatePresence mode="wait">
-            <motion.img
+            <motion.div
               key={currentPhoto.id}
-              src={currentPhoto.image}
-              alt={currentPhoto.title}
-              initial={{ opacity: 0, scale: 1.04 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.98 }}
-              transition={{ duration: 0.6 }}
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                display: 'block'
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.35 }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.2}
+              onDragEnd={(_, info) => {
+                if (info.offset.x > 50) handlePrev();
+                else if (info.offset.x < -50) handleNext();
               }}
-            />
+              style={{ width: '100%', height: '100%', cursor: 'grab' }}
+            >
+              <img
+                src={currentPhoto.image}
+                alt={currentPhoto.title}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  display: 'block',
+                  pointerEvents: 'none'
+                }}
+              />
+            </motion.div>
           </AnimatePresence>
 
           {/* Dark Gradient Overlay with Details */}
@@ -161,18 +173,19 @@ export const FestivalPhotoSlider: React.FC = () => {
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'flex-end',
-              padding: 'clamp(20px, 4vw, 44px)',
-              color: '#FFFFFF'
+              padding: 'clamp(16px, 4vw, 44px)',
+              color: '#FFFFFF',
+              pointerEvents: 'none'
             }}
           >
-            <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 12, flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 10, flexWrap: 'wrap' }}>
               <span
                 style={{
                   backgroundColor: 'var(--aiesec-orange)',
                   color: '#FFFFFF',
                   padding: '4px 12px',
                   borderRadius: 20,
-                  fontSize: '0.8rem',
+                  fontSize: '0.78rem',
                   fontWeight: 800
                 }}
               >
@@ -184,7 +197,7 @@ export const FestivalPhotoSlider: React.FC = () => {
                   backdropFilter: 'blur(6px)',
                   padding: '4px 12px',
                   borderRadius: 20,
-                  fontSize: '0.8rem',
+                  fontSize: '0.78rem',
                   fontWeight: 700
                 }}
               >
@@ -194,11 +207,11 @@ export const FestivalPhotoSlider: React.FC = () => {
 
             <h3
               style={{
-                fontSize: 'clamp(1.3rem, 3vw, 2.1rem)',
+                fontSize: 'clamp(1.2rem, 3vw, 2.1rem)',
                 fontWeight: 800,
                 color: '#FFFFFF',
                 lineHeight: 1.25,
-                marginBottom: 10,
+                marginBottom: 8,
                 letterSpacing: '-0.02em'
               }}
             >
@@ -207,23 +220,23 @@ export const FestivalPhotoSlider: React.FC = () => {
 
             <p
               style={{
-                fontSize: 'clamp(0.88rem, 1.5vw, 1rem)',
+                fontSize: 'clamp(0.85rem, 1.5vw, 1rem)',
                 color: '#E2E8F0',
                 maxWidth: 720,
-                lineHeight: 1.6,
-                marginBottom: 16
+                lineHeight: 1.55,
+                marginBottom: 12
               }}
             >
               {currentPhoto.description}
             </p>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: 20, fontSize: '0.82rem', color: '#94A3B8' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 16, fontSize: '0.8rem', color: '#94A3B8', flexWrap: 'wrap' }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                <MapPin size={14} color="var(--aiesec-orange)" />
+                <MapPin size={13} color="var(--aiesec-orange)" />
                 {currentPhoto.location}
               </span>
               <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                <Camera size={14} color="var(--aiesec-blue)" />
+                <Camera size={13} color="var(--aiesec-blue)" />
                 AMOX Media Team
               </span>
             </div>
@@ -234,24 +247,25 @@ export const FestivalPhotoSlider: React.FC = () => {
             onClick={() => setLightboxOpen(true)}
             style={{
               position: 'absolute',
-              top: 20,
-              right: 20,
+              top: 16,
+              right: 16,
               background: 'rgba(0,0,0,0.5)',
               backdropFilter: 'blur(8px)',
               border: '1px solid rgba(255,255,255,0.3)',
               color: '#FFFFFF',
               borderRadius: '50%',
-              width: 44,
-              height: 44,
+              width: 40,
+              height: 40,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               cursor: 'pointer',
-              transition: 'var(--transition)'
+              transition: 'var(--transition)',
+              zIndex: 5
             }}
             title="Томоор үзэх"
           >
-            <Maximize2 size={18} />
+            <Maximize2 size={16} />
           </button>
         </div>
 
@@ -260,78 +274,80 @@ export const FestivalPhotoSlider: React.FC = () => {
           onClick={handlePrev}
           style={{
             position: 'absolute',
-            left: 20,
+            left: 12,
             top: '50%',
             transform: 'translateY(-50%)',
-            background: 'rgba(255,255,255,0.9)',
+            background: 'rgba(255,255,255,0.92)',
             border: 'none',
             borderRadius: '50%',
-            width: 48,
-            height: 48,
+            width: 42,
+            height: 42,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             color: '#0F172A',
             cursor: 'pointer',
-            boxShadow: '0 8px 24px rgba(0,0,0,0.2)',
+            boxShadow: '0 6px 20px rgba(0,0,0,0.2)',
             zIndex: 10,
             transition: 'var(--transition)'
           }}
           aria-label="Previous Slide"
         >
-          <ChevronLeft size={24} />
+          <ChevronLeft size={22} />
         </button>
 
         <button
           onClick={handleNext}
           style={{
             position: 'absolute',
-            right: 20,
+            right: 12,
             top: '50%',
             transform: 'translateY(-50%)',
-            background: 'rgba(255,255,255,0.9)',
+            background: 'rgba(255,255,255,0.92)',
             border: 'none',
             borderRadius: '50%',
-            width: 48,
-            height: 48,
+            width: 42,
+            height: 42,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             color: '#0F172A',
             cursor: 'pointer',
-            boxShadow: '0 8px 24px rgba(0,0,0,0.2)',
+            boxShadow: '0 6px 20px rgba(0,0,0,0.2)',
             zIndex: 10,
             transition: 'var(--transition)'
           }}
           aria-label="Next Slide"
         >
-          <ChevronRight size={24} />
+          <ChevronRight size={22} />
         </button>
       </div>
 
-      {/* Thumbnails Navigation Row */}
+      {/* Thumbnails Navigation Row - Touch Scrollable on Mobile */}
       <div
+        className="scroll-x-touch slider-thumbnails-strip"
         style={{
-          display: 'grid',
-          gridTemplateColumns: `repeat(${filteredPhotos.length}, 1fr)`,
-          gap: 12,
-          marginTop: 16
+          gap: 10,
+          marginTop: 14
         }}
       >
         {filteredPhotos.map((photo, index) => (
           <button
             key={photo.id}
             onClick={() => setCurrentIndex(index)}
+            className="slider-thumb-btn"
             style={{
               padding: 0,
               border: currentIndex === index ? '3px solid var(--aiesec-orange)' : '2px solid transparent',
-              borderRadius: 14,
+              borderRadius: 12,
               overflow: 'hidden',
               background: '#000',
               cursor: 'pointer',
-              height: 76,
+              height: 72,
+              minWidth: 110,
+              flex: '1 1 0',
               position: 'relative',
-              opacity: currentIndex === index ? 1 : 0.6,
+              opacity: currentIndex === index ? 1 : 0.65,
               transition: 'var(--transition)'
             }}
           >
@@ -346,9 +362,9 @@ export const FestivalPhotoSlider: React.FC = () => {
                 bottom: 0,
                 left: 0,
                 right: 0,
-                background: 'rgba(0,0,0,0.6)',
+                background: 'rgba(0,0,0,0.65)',
                 color: '#fff',
-                fontSize: '0.68rem',
+                fontSize: '0.66rem',
                 fontWeight: 700,
                 padding: '2px 4px',
                 textAlign: 'center',
@@ -362,6 +378,15 @@ export const FestivalPhotoSlider: React.FC = () => {
           </button>
         ))}
       </div>
+
+      <style>{`
+        @media (max-width: 640px) {
+          .slider-thumb-btn {
+            min-width: 100px !important;
+            flex-shrink: 0 !important;
+          }
+        }
+      `}</style>
 
       {/* Fullscreen Lightbox Modal */}
       <AnimatePresence>

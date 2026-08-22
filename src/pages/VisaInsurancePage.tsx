@@ -60,25 +60,28 @@ Telefon: [Таны Утасны дугаар]`;
       </section>
 
       {/* MA35 German Email Generator */}
-      <section style={{ padding: '60px 0' }} id="email-generator">
+      <section style={{ padding: '50px 0 80px' }} id="email-generator">
         <div className="container" style={{ maxWidth: 1000 }}>
           <div style={{
             background: 'var(--surface)',
             border: '1.5px solid var(--border)',
             borderRadius: 'var(--radius-xl)',
-            padding: '40px 36px',
+            padding: 'clamp(22px, 5vw, 40px)',
             boxShadow: 'var(--shadow-modal)'
           }}>
-            <div className="text-center" style={{ marginBottom: 32 }}>
+            <div className="text-center" style={{ marginBottom: 28 }}>
               <span className="section-subtitle">ИНТЕРАКТИВ ХЭРЭГСЭЛ &bull; 1-CLICK EMAIL</span>
-              <h2>MA35 Герман И-мэйл Бэлтгэгч</h2>
-              <p style={{ color: 'var(--text-muted)' }}>Та өөрийн мэдээллээ оруулснаар албан ёсны герман хэл дээрх өргөдөл шууд бэлэн болно.</p>
+              <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.3rem)' }}>MA35 Герман И-мэйл Бэлтгэгч</h2>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>Та өөрийн мэдээллээ оруулснаар албан ёсны герман хэл дээрх өргөдөл шууд бэлэн болно.</p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 36, alignItems: 'flex-start' }}>
+            <div
+              className="visa-gen-grid"
+              style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32, alignItems: 'flex-start' }}
+            >
               {/* Input Controls */}
               <div>
-                <h4 style={{ fontSize: '1.1rem', marginBottom: 18, color: 'var(--primary)' }}>1. Өөрийн Мэдээллээ Оруулах</h4>
+                <h4 style={{ fontSize: '1.1rem', marginBottom: 18, color: 'var(--aiesec-blue)' }}>1. Өөрийн Мэдээллээ Оруулах</h4>
 
                 <div style={{ marginBottom: 16 }}>
                   <label style={{ fontSize: '0.85rem', fontWeight: 700, display: 'block', marginBottom: 6 }}>Овог Нэр (Латинаар)</label>
@@ -90,7 +93,7 @@ Telefon: [Таны Утасны дугаар]`;
                   />
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, marginBottom: 16 }}>
+                <div className="form-2col-grid">
                   <div>
                     <label style={{ fontSize: '0.85rem', fontWeight: 700, display: 'block', marginBottom: 6 }}>Төрсөн Огноо</label>
                     <input
@@ -141,15 +144,15 @@ Telefon: [Таны Утасны дугаар]`;
 
               {/* Live Preview Box */}
               <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-                  <h4 style={{ fontSize: '1.1rem', color: 'var(--primary)' }}>2. Бэлэн Герман И-мэйл</h4>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12, flexWrap: 'wrap', gap: 8 }}>
+                  <h4 style={{ fontSize: '1.1rem', color: 'var(--aiesec-blue)' }}>2. Бэлэн Герман И-мэйл</h4>
                   <button
                     onClick={handleCopy}
-                    className="btn btn-primary btn-sm"
-                    style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}
+                    className="aiesec-btn-primary"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '8px 18px', fontSize: '0.85rem' }}
                   >
                     {copied ? <Check size={15} /> : <Copy size={15} />}
-                    {copied ? 'Хуулагдлаа!' : 'И-мэйл хуулах'}
+                    <span>{copied ? 'Хуулагдлаа!' : 'И-мэйл хуулах'}</span>
                   </button>
                 </div>
 
@@ -160,7 +163,7 @@ Telefon: [Таны Утасны дугаар]`;
                   padding: 20,
                   fontSize: '0.88rem',
                   lineHeight: 1.6,
-                  fontFamily: 'var(--font-mono)',
+                  fontFamily: 'monospace',
                   whiteSpace: 'pre-wrap',
                   maxHeight: 380,
                   overflowY: 'auto',

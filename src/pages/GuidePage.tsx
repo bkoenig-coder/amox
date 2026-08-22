@@ -85,7 +85,7 @@ export const GuidePage: React.FC = () => {
           </div>
 
           {/* Category Filter Pills */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: 8, flexWrap: 'wrap', marginTop: 24 }}>
+          <div className="scroll-x-touch" style={{ justifyContent: 'center', gap: 8, flexWrap: 'wrap', marginTop: 24, padding: '4px 0' }}>
             {categories.map(cat => (
               <button
                 key={cat.id}
@@ -96,10 +96,11 @@ export const GuidePage: React.FC = () => {
                   fontSize: '0.86rem',
                   fontWeight: 700,
                   border: '1.5px solid transparent',
-                  background: selectedCategory === cat.id ? 'var(--primary)' : 'var(--bg-subtle)',
+                  background: selectedCategory === cat.id ? 'var(--aiesec-blue)' : 'var(--bg-subtle)',
                   color: selectedCategory === cat.id ? '#FFFFFF' : 'var(--text-sub)',
                   cursor: 'pointer',
-                  transition: 'var(--transition)'
+                  transition: 'var(--transition)',
+                  whiteSpace: 'nowrap'
                 }}
               >
                 {cat.label}
@@ -110,7 +111,7 @@ export const GuidePage: React.FC = () => {
       </section>
 
       {/* Chapters Accordion List */}
-      <section style={{ padding: '60px 0' }}>
+      <section style={{ padding: '50px 0' }}>
         <div className="container" style={{ maxWidth: 900 }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             {filteredChapters.map(chapter => {
@@ -121,7 +122,7 @@ export const GuidePage: React.FC = () => {
                   id={chapter.id}
                   style={{
                     background: 'var(--surface)',
-                    border: `1.5px solid ${isOpen ? 'var(--primary)' : 'var(--border)'}`,
+                    border: `1.5px solid ${isOpen ? 'var(--aiesec-blue)' : 'var(--border)'}`,
                     borderRadius: 'var(--radius-lg)',
                     overflow: 'hidden',
                     boxShadow: 'var(--shadow-card)',
@@ -131,60 +132,61 @@ export const GuidePage: React.FC = () => {
                   <div
                     onClick={() => setOpenChapterId(isOpen ? '' : chapter.id)}
                     style={{
-                      padding: '24px 28px',
+                      padding: '20px clamp(16px, 4vw, 28px)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'space-between',
                       cursor: 'pointer',
-                      background: isOpen ? 'var(--primary-light)' : 'transparent'
+                      background: isOpen ? '#EFF6FF' : 'transparent'
                     }}
                   >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
                       <div style={{
-                        width: 44,
-                        height: 44,
+                        width: 42,
+                        height: 42,
                         borderRadius: 12,
-                        background: isOpen ? 'var(--primary)' : 'var(--bg-subtle)',
-                        color: isOpen ? '#FFFFFF' : 'var(--primary)',
+                        background: isOpen ? 'var(--aiesec-blue)' : 'var(--bg-subtle)',
+                        color: isOpen ? '#FFFFFF' : 'var(--aiesec-blue)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
                         fontWeight: 900,
-                        fontSize: '1.1rem'
+                        fontSize: '1.05rem',
+                        flexShrink: 0
                       }}>
                         {chapter.chapterNumber}
                       </div>
                       <div>
-                        <h3 style={{ fontSize: '1.25rem', marginBottom: 4 }}>{chapter.title}</h3>
-                        <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>{chapter.subtitle}</p>
+                        <h3 style={{ fontSize: 'clamp(1.05rem, 2.5vw, 1.25rem)', marginBottom: 4 }}>{chapter.title}</h3>
+                        <p style={{ fontSize: '0.84rem', color: 'var(--text-muted)' }}>{chapter.subtitle}</p>
                       </div>
                     </div>
 
-                    {isOpen ? <ChevronUp size={22} color="var(--primary)" /> : <ChevronDown size={22} color="var(--text-muted)" />}
+                    {isOpen ? <ChevronUp size={22} color="var(--aiesec-blue)" /> : <ChevronDown size={22} color="var(--text-muted)" />}
                   </div>
 
                   {isOpen && (
-                    <div style={{ padding: '24px 28px', borderTop: '1px solid var(--border)' }}>
+                    <div style={{ padding: '20px clamp(16px, 4vw, 28px)', borderTop: '1px solid var(--border)' }}>
                       {/* Summary callout */}
                       <div style={{
                         background: 'var(--bg-subtle)',
-                        borderLeft: '4px solid var(--primary)',
-                        padding: '16px 20px',
+                        borderLeft: '4px solid var(--aiesec-blue)',
+                        padding: '14px 18px',
                         borderRadius: 8,
-                        marginBottom: 24,
-                        fontSize: '0.95rem',
+                        marginBottom: 20,
+                        fontSize: '0.92rem',
                         lineHeight: 1.6
                       }}>
                         {chapter.summary}
                       </div>
 
                       {/* Key Takeaways */}
-                      <div style={{ marginBottom: 24 }}>
-                        <h5 style={{ fontSize: '1rem', marginBottom: 12, color: 'var(--primary)' }}>⚡ Гол Анхаарах Зүйлс:</h5>
+                      <div style={{ marginBottom: 20 }}>
+                        <h5 style={{ fontSize: '0.95rem', marginBottom: 10, color: 'var(--aiesec-blue)' }}>⚡ Гол Анхаарах Зүйлс:</h5>
                         <ul style={{ listStyle: 'none' }}>
                           {chapter.keyTakeaways.map((point, pIdx) => (
-                            <li key={pIdx} style={{ fontSize: '0.92rem', color: 'var(--text-sub)', marginBottom: 8, display: 'flex', gap: 10 }}>
-                              <span style={{ color: 'var(--primary)', fontWeight: 900 }}>•</span> {point}
+                            <li key={pIdx} style={{ fontSize: '0.88rem', color: 'var(--text-sub)', marginBottom: 8, display: 'flex', gap: 8 }}>
+                              <span style={{ color: 'var(--aiesec-blue)', fontWeight: 900 }}>•</span> {point}
                             </li>
                           ))}
                         </ul>
@@ -192,17 +194,18 @@ export const GuidePage: React.FC = () => {
 
                       {/* Official Links */}
                       {chapter.officialLinks.length > 0 && (
-                        <div style={{ paddingTop: 16, borderTop: '1px solid var(--border)', display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+                        <div style={{ paddingTop: 14, borderTop: '1px solid var(--border)', display: 'flex', gap: 10, flexWrap: 'wrap' }}>
                           {chapter.officialLinks.map((link, lIdx) => (
                             <a
                               key={lIdx}
                               href={link.url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="btn btn-outline btn-sm"
-                              style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}
+                              className="aiesec-btn-outline"
+                              style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '7px 16px', fontSize: '0.82rem', color: 'var(--text-main) !important', borderColor: 'var(--border-strong)' }}
                             >
-                              {link.label} <ExternalLink size={13} />
+                              <span>{link.label}</span>
+                              <ExternalLink size={13} />
                             </a>
                           ))}
                         </div>
@@ -217,22 +220,25 @@ export const GuidePage: React.FC = () => {
       </section>
 
       {/* Interactive Student Budget Calculator */}
-      <section style={{ padding: '80px 0', background: 'var(--bg-subtle)' }} id="calculator">
+      <section style={{ padding: '70px 0', background: 'var(--bg-subtle)' }} id="calculator">
         <div className="container" style={{ maxWidth: 880 }}>
           <div style={{
             background: 'var(--surface)',
             border: '1.5px solid var(--border)',
             borderRadius: 'var(--radius-xl)',
-            padding: 40,
+            padding: 'clamp(22px, 5vw, 40px)',
             boxShadow: 'var(--shadow-modal)'
           }}>
-            <div className="text-center" style={{ marginBottom: 32 }}>
+            <div className="text-center" style={{ marginBottom: 28 }}>
               <span className="section-subtitle">ИНТЕРАКТИВ ТООЦООЛУУР &bull; LIVE BUDGET</span>
-              <h2>Оюутны Сарын Төсвийн Тооцоолуур</h2>
-              <p style={{ color: 'var(--text-muted)' }}>Та өөрийн сарын зардал болон орлогыг оруулж санхүүгийн тэнцлээ тооцоолоорой.</p>
+              <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.3rem)' }}>Оюутны Сарын Төсвийн Тооцоолуур</h2>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>Та өөрийн сарын зардал болон орлогыг оруулж санхүүгийн тэнцлээ тооцоолоорой.</p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: 36, alignItems: 'center' }}>
+            <div
+              className="budget-calc-grid"
+              style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: 32, alignItems: 'center' }}
+            >
               <div>
                 <div style={{ marginBottom: 18 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6, fontSize: '0.9rem', fontWeight: 700 }}>

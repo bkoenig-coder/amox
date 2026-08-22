@@ -562,6 +562,7 @@ export const HomePage: React.FC = () => {
 
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div
+            className="youth-banner-grid"
             style={{
               display: 'grid',
               gridTemplateColumns: '1.2fr 0.8fr',
@@ -676,7 +677,7 @@ export const HomePage: React.FC = () => {
             style={{
               backgroundColor: '#FFFFFF',
               borderRadius: 24,
-              padding: '40px 44px',
+              padding: 'clamp(24px, 5vw, 44px)',
               boxShadow: '0 15px 45px rgba(0, 45, 98, 0.08)',
               border: '1px solid var(--border)'
             }}
@@ -692,6 +693,7 @@ export const HomePage: React.FC = () => {
 
             <form onSubmit={handleToolSubmit}>
               <div
+                className="quick-finder-form-grid"
                 style={{
                   display: 'grid',
                   gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr)) auto',
@@ -735,7 +737,7 @@ export const HomePage: React.FC = () => {
                 <button
                   type="submit"
                   className="aiesec-btn-primary"
-                  style={{ padding: '14px 28px', height: 'fit-content' }}
+                  style={{ padding: '14px 28px', height: 'fit-content', width: '100%', justifyContent: 'center' }}
                 >
                   <span>Шуурхай нээх</span>
                   <ArrowRight size={16} />
@@ -796,7 +798,7 @@ export const HomePage: React.FC = () => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))',
               gap: 24
             }}
           >

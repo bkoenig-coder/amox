@@ -557,7 +557,7 @@ p {
   border-color: var(--aiesec-blue);
 }
 
-/* Responsive Breakpoints */
+/* Responsive Breakpoints & Mobile Enhancements */
 @media (max-width: 992px) {
   .hero-grid {
     grid-template-columns: 1fr !important;
@@ -565,9 +565,112 @@ p {
   }
   .values-grid {
     grid-template-columns: 1fr !important;
+    gap: 30px !important;
   }
   .program-row {
     grid-template-columns: 1fr !important;
-    gap: 40px !important;
+    gap: 36px !important;
+  }
+  .youth-banner-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+    text-align: center;
+  }
+  .housing-layout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .budget-calc-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  .visa-gen-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  .festival-schedule-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
   }
 }
+
+/* Universal Anchor Offset for Sticky Navbar */
+section[id], div[id], [id] {
+  scroll-margin-top: 86px;
+}
+
+/* Touch & Mobile Utilities */
+.scroll-x-touch {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 6px;
+}
+.scroll-x-touch::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-x-touch > * {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* Responsive Form Grid */
+.form-2col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 680px) {
+  .form-2col-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+}
+
+/* Responsive Container */
+@media (max-width: 640px) {
+  .container {
+    padding: 0 16px !important;
+  }
+  
+  .scroll-down-badge {
+    width: 72px !important;
+    height: 72px !important;
+    bottom: -36px !important;
+  }
+  
+  .scroll-down-badge svg {
+    font-size: 11px;
+  }
+  
+  .cascading-collage-wrapper {
+    height: 280px !important;
+    max-width: 360px !important;
+  }
+  
+  .collage-img-1 {
+    height: 190px !important;
+  }
+  .collage-img-2 {
+    height: 180px !important;
+  }
+  .collage-img-3 {
+    height: 150px !important;
+  }
+  
+  .timeline-card, .team-card, .roadmap-step-card {
+    padding: 20px 18px !important;
+  }
+
+  .aiesec-btn-primary, .aiesec-btn-outline {
+    padding: 11px 22px !important;
+    font-size: 0.9rem !important;
+  }
+}
+

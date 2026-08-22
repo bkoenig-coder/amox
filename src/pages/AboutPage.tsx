@@ -560,20 +560,22 @@ export const AboutPage: React.FC = () => {
             style={{
               backgroundColor: '#FFFFFF',
               borderRadius: 24,
-              padding: '44px 48px',
+              padding: 'clamp(22px, 5vw, 44px)',
               boxShadow: '0 20px 50px rgba(0, 45, 98, 0.09)',
               border: '1.5px solid var(--border)'
             }}
           >
             {/* Form Mode Switcher Tabs */}
             <div
+              className="scroll-x-touch"
               style={{
                 display: 'flex',
                 background: 'var(--bg-subtle)',
                 borderRadius: 'var(--radius-pill)',
                 padding: 4,
-                marginBottom: 36,
-                border: '1px solid var(--border)'
+                marginBottom: 32,
+                border: '1px solid var(--border)',
+                gap: 4
               }}
             >
               <button
@@ -581,16 +583,17 @@ export const AboutPage: React.FC = () => {
                 onClick={() => setActiveTab('mentor')}
                 style={{
                   flex: 1,
-                  padding: '12px 20px',
+                  padding: '12px 18px',
                   borderRadius: 'var(--radius-pill)',
                   border: 'none',
                   background: activeTab === 'mentor' ? 'var(--aiesec-blue)' : 'transparent',
                   color: activeTab === 'mentor' ? '#FFFFFF' : 'var(--text-sub)',
                   fontFamily: 'var(--font-heading)',
                   fontWeight: 700,
-                  fontSize: '0.92rem',
+                  fontSize: '0.88rem',
                   cursor: 'pointer',
-                  transition: 'var(--transition)'
+                  transition: 'var(--transition)',
+                  whiteSpace: 'nowrap'
                 }}
               >
                 👥 1-on-1 Ментор Зөвлөгөө Авах
@@ -600,16 +603,17 @@ export const AboutPage: React.FC = () => {
                 onClick={() => setActiveTab('volunteer')}
                 style={{
                   flex: 1,
-                  padding: '12px 20px',
+                  padding: '12px 18px',
                   borderRadius: 'var(--radius-pill)',
                   border: 'none',
                   background: activeTab === 'volunteer' ? 'var(--aiesec-orange)' : 'transparent',
                   color: activeTab === 'volunteer' ? '#FFFFFF' : 'var(--text-sub)',
                   fontFamily: 'var(--font-heading)',
                   fontWeight: 700,
-                  fontSize: '0.92rem',
+                  fontSize: '0.88rem',
                   cursor: 'pointer',
-                  transition: 'var(--transition)'
+                  transition: 'var(--transition)',
+                  whiteSpace: 'nowrap'
                 }}
               >
                 ✨ AMOX Багт Нэгдэх &bull; Volunteer
@@ -634,7 +638,7 @@ export const AboutPage: React.FC = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     style={{
                       textAlign: 'center',
-                      padding: 40,
+                      padding: 'clamp(24px, 5vw, 40px)',
                       backgroundColor: '#EFF6FF',
                       borderRadius: 18,
                       border: '1.5px solid rgba(3, 126, 243, 0.3)'
@@ -657,7 +661,7 @@ export const AboutPage: React.FC = () => {
                   </motion.div>
                 ) : (
                   <form onSubmit={handleMentorSubmit}>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18, marginBottom: 16 }}>
+                    <div className="form-2col-grid">
                       <div>
                         <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 6 }}>
                           Таны Нэр *
@@ -686,7 +690,7 @@ export const AboutPage: React.FC = () => {
                       </div>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18, marginBottom: 16 }}>
+                    <div className="form-2col-grid">
                       <div>
                         <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 6 }}>
                           Сонирхож буй Их Сургууль *
@@ -765,7 +769,7 @@ export const AboutPage: React.FC = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     style={{
                       textAlign: 'center',
-                      padding: 40,
+                      padding: 'clamp(24px, 5vw, 40px)',
                       backgroundColor: '#FFF7ED',
                       borderRadius: 18,
                       border: '1.5px solid rgba(248, 90, 64, 0.3)'
@@ -788,7 +792,7 @@ export const AboutPage: React.FC = () => {
                   </motion.div>
                 ) : (
                   <form onSubmit={handleVolunteerSubmit}>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18, marginBottom: 16 }}>
+                    <div className="form-2col-grid">
                       <div>
                         <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 6 }}>
                           Таны Нэр *
@@ -817,7 +821,7 @@ export const AboutPage: React.FC = () => {
                       </div>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18, marginBottom: 16 }}>
+                    <div className="form-2col-grid">
                       <div>
                         <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 6 }}>
                           Суралцаж буй Сургууль *

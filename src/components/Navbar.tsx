@@ -324,18 +324,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
             </NavLink>
           </nav>
 
-          {/* Right Actions - Search, Socials, and Member Button */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+          {/* Right Actions - Search, CTA, and Member Button */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             {/* Search Trigger */}
             <button
               onClick={onOpenSearch}
               aria-label="Search"
               style={{
-                background: isTransparent ? 'rgba(255,255,255,0.15)' : 'var(--bg-subtle)',
+                background: isTransparent ? 'rgba(255,255,255,0.18)' : 'var(--bg-subtle)',
                 border: 'none',
                 borderRadius: '50%',
-                width: 38,
-                height: 38,
+                width: 40,
+                height: 40,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -344,16 +344,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
                 transition: 'var(--transition)'
               }}
             >
-              <Search size={17} />
+              <Search size={18} />
             </button>
 
-            {/* Join CTA Button */}
+            {/* Join CTA Button - hidden on tiny mobile, visible on desktop/tablet */}
             <Link
               to="/about#mentor"
-              className={isTransparent ? 'aiesec-btn-outline' : 'aiesec-btn-primary'}
+              className={`desktop-cta ${isTransparent ? 'aiesec-btn-outline' : 'aiesec-btn-primary'}`}
               style={{
-                padding: '9px 22px',
-                fontSize: '0.88rem'
+                padding: '8px 18px',
+                fontSize: '0.85rem'
               }}
             >
               <span>Бидэнтэй нэгдэх</span>
@@ -363,111 +363,230 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               style={{
-                background: 'none',
+                background: isTransparent ? 'rgba(255,255,255,0.18)' : 'var(--bg-subtle)',
                 border: 'none',
+                borderRadius: 10,
                 color: isTransparent ? '#FFFFFF' : 'var(--text-main)',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                padding: 6
+                width: 40,
+                height: 40
               }}
               className="mobile-toggle"
               aria-label="Toggle Menu"
             >
-              {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Navigation Overlay */}
+        {/* Mobile Navigation Drawer Overlay */}
         <AnimatePresence>
           {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              style={{
-                backgroundColor: '#FFFFFF',
-                borderBottom: '1px solid var(--border)',
-                padding: '20px 28px 30px',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 16,
-                boxShadow: '0 20px 30px rgba(0,0,0,0.1)'
-              }}
-            >
-              <Link
-                to="/"
+            <>
+              {/* Backdrop */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setIsMobileMenuOpen(false)}
                 style={{
-                  fontSize: '1.05rem',
-                  fontWeight: 700,
-                  color: 'var(--text-main)',
-                  textDecoration: 'none'
+                  position: 'fixed',
+                  top: 76,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  backgroundColor: 'rgba(0,0,0,0.5)',
+                  backdropFilter: 'blur(4px)',
+                  zIndex: 998
                 }}
-              >
-                Нүүр хуудас
-              </Link>
-              <Link
-                to="/sun-festival"
+              />
+
+              {/* Drawer Content */}
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
                 style={{
-                  fontSize: '1.05rem',
-                  fontWeight: 700,
-                  color: 'var(--aiesec-orange)',
-                  textDecoration: 'none',
+                  position: 'absolute',
+                  top: 76,
+                  left: 0,
+                  right: 0,
+                  backgroundColor: '#FFFFFF',
+                  borderBottom: '2px solid var(--border)',
+                  padding: '20px 20px 28px',
                   display: 'flex',
-                  alignItems: 'center',
-                  gap: 8
+                  flexDirection: 'column',
+                  gap: 10,
+                  boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
+                  maxHeight: 'calc(100vh - 86px)',
+                  overflowY: 'auto',
+                  zIndex: 999
                 }}
               >
-                <Trophy size={18} />
-                <span>AMOX Sun Festival 2027</span>
-              </Link>
-              <Link
-                to="/guide"
-                style={{
-                  fontSize: '1.05rem',
-                  fontWeight: 700,
-                  color: 'var(--text-main)',
-                  textDecoration: 'none'
-                }}
-              >
-                📖 9 Бүлэг Гарын Авлага
-              </Link>
-              <Link
-                to="/housing"
-                style={{
-                  fontSize: '1.05rem',
-                  fontWeight: 700,
-                  color: 'var(--text-main)',
-                  textDecoration: 'none'
-                }}
-              >
-                🏠 Дотуур Байр Хайгч (15+)
-              </Link>
-              <Link
-                to="/visa-insurance"
-                style={{
-                  fontSize: '1.05rem',
-                  fontWeight: 700,
-                  color: 'var(--text-main)',
-                  textDecoration: 'none'
-                }}
-              >
-                🛂 MA35 Виз & E-Card
-              </Link>
-              <Link
-                to="/about"
-                style={{
-                  fontSize: '1.05rem',
-                  fontWeight: 700,
-                  color: 'var(--text-main)',
-                  textDecoration: 'none'
-                }}
-              >
-                Бидний тухай
-              </Link>
-            </motion.div>
+                <NavLink
+                  to="/"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  style={({ isActive }) => ({
+                    fontSize: '1rem',
+                    fontWeight: 700,
+                    color: isActive ? 'var(--aiesec-blue)' : 'var(--text-main)',
+                    textDecoration: 'none',
+                    padding: '10px 14px',
+                    borderRadius: 10,
+                    background: isActive ? 'var(--bg-subtle)' : 'transparent',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 10
+                  })}
+                  end
+                >
+                  <Sparkles size={18} color="var(--aiesec-blue)" />
+                  <span>Нүүр хуудас</span>
+                </NavLink>
+
+                <div style={{ padding: '6px 14px', fontSize: '0.75rem', fontWeight: 800, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  Оюутны Хөтөч &amp; Үйлчилгээ
+                </div>
+
+                <Link
+                  to="/guide"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  style={{
+                    fontSize: '0.95rem',
+                    fontWeight: 600,
+                    color: 'var(--text-main)',
+                    textDecoration: 'none',
+                    padding: '10px 14px',
+                    borderRadius: 10,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 10,
+                    background: 'var(--bg-subtle)'
+                  }}
+                >
+                  <BookOpen size={18} color="var(--aiesec-blue)" />
+                  <span>📖 9 Бүлэг Оюутны Гарын Авлага</span>
+                </Link>
+
+                <Link
+                  to="/housing"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  style={{
+                    fontSize: '0.95rem',
+                    fontWeight: 600,
+                    color: 'var(--text-main)',
+                    textDecoration: 'none',
+                    padding: '10px 14px',
+                    borderRadius: 10,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 10,
+                    background: 'var(--bg-subtle)'
+                  }}
+                >
+                  <Home size={18} color="var(--aiesec-teal)" />
+                  <span>🏠 Дотуур Байр Хайгч (15+ Байр)</span>
+                </Link>
+
+                <Link
+                  to="/visa-insurance"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  style={{
+                    fontSize: '0.95rem',
+                    fontWeight: 600,
+                    color: 'var(--text-main)',
+                    textDecoration: 'none',
+                    padding: '10px 14px',
+                    borderRadius: 10,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 10,
+                    background: 'var(--bg-subtle)'
+                  }}
+                >
+                  <ShieldCheck size={18} color="var(--aiesec-orange)" />
+                  <span>🛂 MA35 Виз &amp; E-Card Төв</span>
+                </Link>
+
+                <div style={{ padding: '6px 14px', fontSize: '0.75rem', fontWeight: 800, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  Хөтөлбөр &amp; Наадам
+                </div>
+
+                <Link
+                  to="/sun-festival"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  style={{
+                    fontSize: '0.95rem',
+                    fontWeight: 700,
+                    color: 'var(--aiesec-orange)',
+                    textDecoration: 'none',
+                    padding: '10px 14px',
+                    borderRadius: 10,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 10,
+                    background: '#FFF7ED'
+                  }}
+                >
+                  <Trophy size={18} color="var(--aiesec-orange)" />
+                  <span>AMOX Sun Festival 2027</span>
+                </Link>
+
+                <Link
+                  to="/about#mentor"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  style={{
+                    fontSize: '0.95rem',
+                    fontWeight: 700,
+                    color: 'var(--aiesec-purple)',
+                    textDecoration: 'none',
+                    padding: '10px 14px',
+                    borderRadius: 10,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 10,
+                    background: '#FAF5FF'
+                  }}
+                >
+                  <Users size={18} color="var(--aiesec-purple)" />
+                  <span>🎓 9-р Сарын Өдөрлөг &amp; Менторшил</span>
+                </Link>
+
+                <Link
+                  to="/about"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  style={{
+                    fontSize: '0.95rem',
+                    fontWeight: 600,
+                    color: 'var(--text-main)',
+                    textDecoration: 'none',
+                    padding: '10px 14px',
+                    borderRadius: 10,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 10
+                  }}
+                >
+                  <span>Бидний тухай &bull; Түүх &bull; Үнэт зүйлс</span>
+                </Link>
+
+                <div style={{ marginTop: 8, paddingTop: 14, borderTop: '1px solid var(--border)' }}>
+                  <Link
+                    to="/about#mentor"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="aiesec-btn-primary"
+                    style={{ width: '100%', justifyContent: 'center', padding: '12px' }}
+                  >
+                    <span>Бидэнтэй нэгдэх (1-on-1 Ментор)</span>
+                    <ArrowRight size={16} />
+                  </Link>
+                </div>
+              </motion.div>
+            </>
           )}
         </AnimatePresence>
       </header>
@@ -479,6 +598,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
             display: flex !important;
           }
           .mobile-toggle {
+            display: none !important;
+          }
+          .desktop-cta {
+            display: inline-flex !important;
+          }
+        }
+        @media (max-width: 859px) {
+          .desktop-cta {
             display: none !important;
           }
         }

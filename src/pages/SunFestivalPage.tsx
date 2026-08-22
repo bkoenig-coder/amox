@@ -307,7 +307,7 @@ export const SunFestivalPage: React.FC = () => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(310px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))',
               gap: 24
             }}
           >
@@ -318,7 +318,7 @@ export const SunFestivalPage: React.FC = () => {
                   backgroundColor: '#FFFFFF',
                   borderRadius: 20,
                   border: '1px solid var(--border)',
-                  padding: 26,
+                  padding: 24,
                   boxShadow: 'var(--shadow-sm)',
                   display: 'flex',
                   flexDirection: 'column',
@@ -388,13 +388,13 @@ export const SunFestivalPage: React.FC = () => {
       {/* -------------------------------------------------------------
           5. WEEKEND SCHEDULE & VENUE DETAILS
           ------------------------------------------------------------- */}
-      <section style={{ padding: '100px 0', backgroundColor: '#FFFFFF' }}>
+      <section style={{ padding: '80px 0', backgroundColor: '#FFFFFF' }}>
         <div className="container">
           <div
             style={{
               display: 'grid',
               gridTemplateColumns: '1fr 1fr',
-              gap: 50,
+              gap: 40,
               alignItems: 'center'
             }}
             className="program-row"
@@ -403,12 +403,12 @@ export const SunFestivalPage: React.FC = () => {
               <span style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--aiesec-orange)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
                 Schedule &bull; 2 Өдрийн Хөтөлбөр
               </span>
-              <h2 style={{ fontSize: '2.4rem', fontWeight: 800, marginTop: 4, marginBottom: 24 }}>
+              <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.4rem)', fontWeight: 800, marginTop: 4, marginBottom: 24 }}>
                 Наадмын Хуваарь (2027)
               </h2>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
-                <div style={{ backgroundColor: '#F8FAFC', padding: 22, borderRadius: 16, borderLeft: '4px solid var(--aiesec-blue)' }}>
+                <div style={{ backgroundColor: '#F8FAFC', padding: 20, borderRadius: 16, borderLeft: '4px solid var(--aiesec-blue)' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
                     <Calendar size={18} color="var(--aiesec-blue)" />
                     <h4 style={{ fontSize: '1.05rem', fontWeight: 800 }}>1 дэх өдөр • Бямба гараг</h4>
@@ -421,7 +421,7 @@ export const SunFestivalPage: React.FC = () => {
                   </ul>
                 </div>
 
-                <div style={{ backgroundColor: '#F8FAFC', padding: 22, borderRadius: 16, borderLeft: '4px solid var(--aiesec-orange)' }}>
+                <div style={{ backgroundColor: '#F8FAFC', padding: 20, borderRadius: 16, borderLeft: '4px solid var(--aiesec-orange)' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
                     <Trophy size={18} color="var(--aiesec-orange)" />
                     <h4 style={{ fontSize: '1.05rem', fontWeight: 800 }}>2 дахь өдөр • Ням гараг</h4>
@@ -443,7 +443,7 @@ export const SunFestivalPage: React.FC = () => {
                   backgroundColor: '#0F172A',
                   color: '#FFFFFF',
                   borderRadius: 24,
-                  padding: '36px 32px',
+                  padding: 'clamp(24px, 5vw, 36px)',
                   boxShadow: '0 20px 45px rgba(0,0,0,0.2)'
                 }}
               >
@@ -484,25 +484,25 @@ export const SunFestivalPage: React.FC = () => {
       {/* -------------------------------------------------------------
           6. INTERACTIVE TEAM REGISTRATION FORM (2027)
           ------------------------------------------------------------- */}
-      <section id="register" style={{ padding: '100px 0', backgroundColor: '#F8FAFC', borderTop: '1px solid var(--border)' }}>
+      <section id="register" style={{ padding: '80px 0', backgroundColor: '#F8FAFC', borderTop: '1px solid var(--border)' }}>
         <div className="container" style={{ maxWidth: 840 }}>
           <div
             style={{
               backgroundColor: '#FFFFFF',
               borderRadius: 24,
-              padding: '48px 44px',
+              padding: 'clamp(22px, 5vw, 44px)',
               boxShadow: '0 20px 50px rgba(0, 45, 98, 0.09)',
               border: '1.5px solid var(--border)'
             }}
           >
-            <div style={{ textAlign: 'center', marginBottom: 36 }}>
+            <div style={{ textAlign: 'center', marginBottom: 32 }}>
               <span style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--aiesec-orange)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
                 Online Registration &bull; Sun Festival 2027
               </span>
-              <h2 style={{ fontSize: '2.3rem', fontWeight: 800, marginTop: 4 }}>
+              <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.3rem)', fontWeight: 800, marginTop: 4 }}>
                 2027 Наадамд Баг Урьдчилан Бүртгүүлэх
               </h2>
-              <p style={{ color: 'var(--text-sub)', marginTop: 6, fontSize: '0.95rem' }}>
+              <p style={{ color: 'var(--text-sub)', marginTop: 6, fontSize: '0.92rem' }}>
                 Маягтыг бөглөж илгээснээр зохион байгуулах комиссоос бэлтгэл мэдээлэл болон дүрмийн зааврыг и-мэйлээр илгээнэ.
               </p>
             </div>
@@ -513,7 +513,7 @@ export const SunFestivalPage: React.FC = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 style={{
                   textAlign: 'center',
-                  padding: 44,
+                  padding: 'clamp(24px, 5vw, 40px)',
                   backgroundColor: '#FFF7ED',
                   borderRadius: 18,
                   border: '1.5px solid rgba(248, 90, 64, 0.3)'
@@ -536,7 +536,7 @@ export const SunFestivalPage: React.FC = () => {
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18, marginBottom: 18 }}>
+                <div className="form-2col-grid">
                   <div>
                     <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 6 }}>
                       Спортын Төрөл *
@@ -571,7 +571,7 @@ export const SunFestivalPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18, marginBottom: 18 }}>
+                <div className="form-2col-grid">
                   <div>
                     <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 6 }}>
                       Ахлагчийн Овог Нэр *
@@ -601,7 +601,7 @@ export const SunFestivalPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18, marginBottom: 18 }}>
+                <div className="form-2col-grid">
                   <div>
                     <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 6 }}>
                       И-мэйл Хаяг *

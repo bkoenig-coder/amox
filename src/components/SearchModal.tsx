@@ -41,36 +41,42 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
   };
 
   return (
-    <div style={{
-      position: 'fixed',
-      inset: 0,
-      background: 'rgba(15, 23, 42, 0.65)',
-      backdropFilter: 'blur(8px)',
-      zIndex: 2000,
-      display: 'flex',
-      alignItems: 'flex-start',
-      justifyContent: 'center',
-      padding: '80px 20px 20px'
-    }}>
-      <div style={{
-        background: 'var(--surface)',
-        width: '100%',
-        maxWidth: 640,
-        borderRadius: 'var(--radius-lg)',
-        boxShadow: 'var(--shadow-modal)',
-        border: '1px solid var(--border)',
-        overflow: 'hidden',
-        animation: 'fadeIn 0.2s ease'
-      }}>
+    <div
+      onClick={onClose}
+      style={{
+        position: 'fixed',
+        inset: 0,
+        background: 'rgba(15, 23, 42, 0.7)',
+        backdropFilter: 'blur(8px)',
+        zIndex: 2000,
+        display: 'flex',
+        alignItems: 'flex-start',
+        justifyContent: 'center',
+        padding: 'clamp(20px, 8vh, 80px) 14px 20px'
+      }}
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        style={{
+          background: 'var(--surface)',
+          width: '100%',
+          maxWidth: 640,
+          borderRadius: 'var(--radius-lg)',
+          boxShadow: 'var(--shadow-modal)',
+          border: '1px solid var(--border)',
+          overflow: 'hidden',
+          animation: 'fadeIn 0.2s ease'
+        }}
+      >
         {/* Search Input Bar */}
         <div style={{
           display: 'flex',
           alignItems: 'center',
           gap: 12,
-          padding: '18px 24px',
+          padding: '16px 20px',
           borderBottom: '1px solid var(--border)'
         }}>
-          <Search size={20} color="var(--primary)" />
+          <Search size={20} color="var(--aiesec-blue)" />
           <input
             type="text"
             placeholder="Хайх: MA35 виз, дотуур байр, элсэлт, 20 цагийн ажил..."
@@ -81,14 +87,29 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
               width: '100%',
               border: 'none',
               outline: 'none',
-              fontSize: '1.05rem',
+              fontSize: '1rem',
               fontFamily: 'var(--font-body)',
               background: 'transparent',
               color: 'var(--text-main)'
             }}
           />
-          <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)' }}>
-            <X size={20} />
+          <button
+            onClick={onClose}
+            aria-label="Close search"
+            style={{
+              background: 'var(--bg-subtle)',
+              border: 'none',
+              borderRadius: '50%',
+              width: 32,
+              height: 32,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              color: 'var(--text-muted)'
+            }}
+          >
+            <X size={18} />
           </button>
         </div>
 
