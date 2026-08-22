@@ -81,19 +81,19 @@ export const HomePage: React.FC = () => {
                 background: 'rgba(255, 255, 255, 0.16)',
                 backdropFilter: 'blur(8px)',
                 border: '1px solid rgba(255, 255, 255, 0.25)',
-                fontSize: '0.86rem',
+                fontSize: '0.84rem',
                 fontWeight: 700,
                 letterSpacing: '0.04em',
                 textTransform: 'uppercase',
-                marginBottom: 28
+                marginBottom: 20
               }}
             >
-              <span>🇦🇹 Seit 2007 &bull; Activating Mongolian Youth Leadership in Austria 2026</span>
+              <span>🇦🇹 Seit 2007 &bull; Mongolian Students Association in Austria</span>
             </div>
 
             <h1
               style={{
-                fontSize: 'clamp(2.5rem, 6vw, 4.4rem)',
+                fontSize: 'clamp(2.3rem, 5.5vw, 4.2rem)',
                 lineHeight: 1.12,
                 fontWeight: 800,
                 color: '#FFFFFF',
@@ -101,11 +101,12 @@ export const HomePage: React.FC = () => {
                 letterSpacing: '-0.03em'
               }}
             >
-              Leadership for{' '}
+              Mongolian Students{' '}
               <span className="doodle-wrap">
-                youth
+                Association
                 <HandDrawnLoop color="#037EF3" />
-              </span>
+              </span>{' '}
+              in Austria
             </h1>
 
             <p
@@ -185,17 +186,18 @@ export const HomePage: React.FC = () => {
           <div style={{ textAlign: 'center', marginBottom: 60 }}>
             <h2
               style={{
-                fontSize: 'clamp(2.2rem, 5vw, 3.4rem)',
+                fontSize: 'clamp(2.1rem, 4.8vw, 3.2rem)',
                 fontWeight: 800,
                 letterSpacing: '-0.03em',
                 marginBottom: 12
               }}
             >
-              Leadership for{' '}
+              Mongolian Students{' '}
               <span className="doodle-wrap">
-                youth
+                Association
                 <HandDrawnLoop color="#037EF3" />
-              </span>
+              </span>{' '}
+              in Austria
             </h2>
           </div>
 
