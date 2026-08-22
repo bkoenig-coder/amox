@@ -12,7 +12,7 @@ export const AiesecHexagonsLeft: React.FC = () => {
           className="hex-item hex-pos-1"
           style={{ backgroundColor: '#037EF3' }}
         >
-          <Flag size={28} color="#FFFFFF" strokeWidth={2.2} />
+          <Flag className="hex-icon" size={26} color="#FFFFFF" strokeWidth={2.2} />
           <h4>Activating Leadership</h4>
         </motion.div>
 
@@ -22,7 +22,7 @@ export const AiesecHexagonsLeft: React.FC = () => {
           className="hex-item hex-pos-2"
           style={{ backgroundColor: '#F85A40' }}
         >
-          <Gem size={28} color="#FFFFFF" strokeWidth={2.2} />
+          <Gem className="hex-icon" size={26} color="#FFFFFF" strokeWidth={2.2} />
           <h4>Demonstrating Integrity</h4>
         </motion.div>
 
@@ -32,7 +32,7 @@ export const AiesecHexagonsLeft: React.FC = () => {
           className="hex-item hex-pos-3"
           style={{ backgroundColor: '#F4B400' }}
         >
-          <Heart size={28} color="#FFFFFF" strokeWidth={2.2} />
+          <Heart className="hex-icon" size={26} color="#FFFFFF" strokeWidth={2.2} />
           <h4>Enjoying Participation</h4>
         </motion.div>
       </div>
@@ -54,22 +54,41 @@ export const AiesecHexagonsLeft: React.FC = () => {
 
         @media (max-width: 992px) {
           .hex-cluster.left-cluster {
-            position: static;
-            width: auto;
-            height: auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 14px;
-          }
-          .hex-pos-1, .hex-pos-2, .hex-pos-3 {
             position: static !important;
-            width: 110px;
-            height: 125px;
-            padding: 10px;
+            width: 100% !important;
+            max-width: 380px !important;
+            height: auto !important;
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: clamp(6px, 2vw, 12px) !important;
+            justify-items: center !important;
+            align-items: center !important;
+            margin: 0 auto !important;
           }
-          .hex-pos-1 h4, .hex-pos-2 h4, .hex-pos-3 h4 {
-            font-size: 0.65rem;
+          .hex-cluster.left-cluster .hex-item {
+            position: static !important;
+            width: 100% !important;
+            max-width: 116px !important;
+            min-width: 84px !important;
+            height: clamp(96px, 27vw, 128px) !important;
+            padding: 8px 4px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+          }
+          .hex-cluster.left-cluster .hex-item h4 {
+            font-size: clamp(0.56rem, 1.8vw, 0.68rem) !important;
+            line-height: 1.15 !important;
+            margin-top: 4px !important;
+            letter-spacing: 0.02em !important;
+            text-align: center !important;
+            word-break: break-word !important;
+          }
+          .hex-cluster.left-cluster .hex-item .hex-icon,
+          .hex-cluster.left-cluster .hex-item svg {
+            width: clamp(18px, 4.5vw, 24px) !important;
+            height: clamp(18px, 4.5vw, 24px) !important;
           }
         }
       `}</style>
@@ -87,7 +106,7 @@ export const AiesecHexagonsRight: React.FC = () => {
           className="hex-item hex-pos-4"
           style={{ backgroundColor: '#00C16E' }}
         >
-          <Leaf size={28} color="#FFFFFF" strokeWidth={2.2} />
+          <Leaf className="hex-icon" size={26} color="#FFFFFF" strokeWidth={2.2} />
           <h4>Acting Sustainably</h4>
         </motion.div>
 
@@ -97,7 +116,7 @@ export const AiesecHexagonsRight: React.FC = () => {
           className="hex-item hex-pos-5"
           style={{ backgroundColor: '#002D62' }}
         >
-          <Trophy size={28} color="#FFFFFF" strokeWidth={2.2} />
+          <Trophy className="hex-icon" size={26} color="#FFFFFF" strokeWidth={2.2} />
           <h4>Striving for Excellence</h4>
         </motion.div>
 
@@ -107,7 +126,7 @@ export const AiesecHexagonsRight: React.FC = () => {
           className="hex-item hex-pos-6"
           style={{ backgroundColor: '#00878A' }}
         >
-          <Users size={28} color="#FFFFFF" strokeWidth={2.2} />
+          <Users className="hex-icon" size={26} color="#FFFFFF" strokeWidth={2.2} />
           <h4>Living Diversity</h4>
         </motion.div>
       </div>
@@ -124,22 +143,41 @@ export const AiesecHexagonsRight: React.FC = () => {
 
         @media (max-width: 992px) {
           .hex-cluster.right-cluster {
-            position: static;
-            width: auto;
-            height: auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 14px;
-          }
-          .hex-pos-4, .hex-pos-5, .hex-pos-6 {
             position: static !important;
-            width: 110px;
-            height: 125px;
-            padding: 10px;
+            width: 100% !important;
+            max-width: 380px !important;
+            height: auto !important;
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: clamp(6px, 2vw, 12px) !important;
+            justify-items: center !important;
+            align-items: center !important;
+            margin: 0 auto !important;
           }
-          .hex-pos-4 h4, .hex-pos-5 h4, .hex-pos-6 h4 {
-            font-size: 0.65rem;
+          .hex-cluster.right-cluster .hex-item {
+            position: static !important;
+            width: 100% !important;
+            max-width: 116px !important;
+            min-width: 84px !important;
+            height: clamp(96px, 27vw, 128px) !important;
+            padding: 8px 4px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+          }
+          .hex-cluster.right-cluster .hex-item h4 {
+            font-size: clamp(0.56rem, 1.8vw, 0.68rem) !important;
+            line-height: 1.15 !important;
+            margin-top: 4px !important;
+            letter-spacing: 0.02em !important;
+            text-align: center !important;
+            word-break: break-word !important;
+          }
+          .hex-cluster.right-cluster .hex-item .hex-icon,
+          .hex-cluster.right-cluster .hex-item svg {
+            width: clamp(18px, 4.5vw, 24px) !important;
+            height: clamp(18px, 4.5vw, 24px) !important;
           }
         }
       `}</style>
