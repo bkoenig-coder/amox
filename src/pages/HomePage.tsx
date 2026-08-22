@@ -111,14 +111,16 @@ export const HomePage: React.FC = () => {
             <p
               style={{
                 fontSize: 'clamp(1.05rem, 2vw, 1.25rem)',
-                color: 'rgba(255, 255, 255, 0.92)',
-                lineHeight: 1.7,
-                maxWidth: 720,
+                color: 'rgba(255, 255, 255, 0.94)',
+                lineHeight: 1.75,
+                maxWidth: 780,
                 margin: '0 auto 36px',
                 fontWeight: 400
               }}
             >
-              Австри улс дахь Монгол оюутан, залуусын манлайлал, 9-р сарын Students Info Day, 9 бүлэг цогц хөтөч ба Sun Festival 2027 наадмын нэгдсэн талбар.
+              Австри дахь Монгол оюутан, залуусыг нэгтгэж, дэмжиж, хөгжүүлэх AMOX холбоо.
+              <br />
+              Суралцах, ажиллах, хөгжих боломж, мэдээлэл, зөвлөгөө, соёлын үйл ажиллагаа болон Монгол залуусын хамтын оролцоог дэмжих нэгдсэн платформ.
             </p>
 
             <div
@@ -213,23 +215,30 @@ export const HomePage: React.FC = () => {
             </div>
 
             {/* Center High-Elegance Manifesto */}
-            <div style={{ textAlign: 'center', padding: '0 20px', maxWidth: 620, margin: '0 auto' }}>
+            <div style={{ textAlign: 'center', padding: '0 20px', maxWidth: 680, margin: '0 auto' }}>
               <p
                 style={{
-                  fontSize: 'clamp(1.1rem, 2vw, 1.35rem)',
+                  fontSize: 'clamp(1.12rem, 2.2vw, 1.35rem)',
                   lineHeight: 1.8,
                   color: 'var(--text-main)',
-                  fontWeight: 300,
+                  fontWeight: 700,
+                  marginBottom: 14
+                }}
+              >
+                Австри дахь Монгол оюутан, залуусыг нэгтгэж, дэмжиж, хөгжүүлэх AMOX холбоо.
+              </p>
+              <p
+                style={{
+                  fontSize: 'clamp(0.98rem, 1.8vw, 1.1rem)',
+                  lineHeight: 1.8,
+                  color: 'var(--text-sub)',
+                  fontWeight: 400,
                   marginBottom: 20
                 }}
               >
-                <strong>AMOX</strong> нь Австри улсад суралцаж буй Монгол залууст манлайллын ур чадвар, практик туршлага,{' '}
-                <Link to="/guide" style={{ color: 'var(--aiesec-blue)', textDecoration: 'underline' }}>оюутны цогц хөтөч</Link>,{' '}
-                <Link to="/housing" style={{ color: 'var(--aiesec-teal)', textDecoration: 'underline' }}>байр</Link> &amp;{' '}
-                <Link to="/visa-insurance" style={{ color: 'var(--aiesec-orange)', textDecoration: 'underline' }}>визний дэмжлэг</Link>,{' '}
-                <Link to="/about#mentor" style={{ color: 'var(--aiesec-purple)', textDecoration: 'underline' }}>менторшил</Link> болон спорт соёлын наадмаар дамжуулан боломж олгодог 100% оюутны төрийн бус байгууллага юм.
+                Суралцах, ажиллах, хөгжих боломж, мэдээлэл, зөвлөгөө, соёлын үйл ажиллагаа болон Монгол залуусын хамтын оролцоог дэмжих нэгдсэн платформ.
               </p>
-              <p style={{ fontSize: '1rem', color: 'var(--text-muted)' }}>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)' }}>
                 2007 онд үүсгэн байгуулагдсан, залуусаас залуусын төлөө тасралтгүй 19 дэх жилдээ.
               </p>
             </div>
