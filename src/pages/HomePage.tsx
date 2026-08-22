@@ -88,7 +88,7 @@ export const HomePage: React.FC = () => {
                 marginBottom: 20
               }}
             >
-              <span>🇦🇹 Seit 2007 &bull; Mongolian Students Association in Austria</span>
+              <span>🇦🇹 Seit 2007</span>
             </div>
 
             <h1
