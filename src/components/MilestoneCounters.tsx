@@ -72,7 +72,7 @@ export const MilestoneCounters: React.FC = () => {
           <AnimatedNumber target={500} suffix="+" label="Оюутан Залуусын Сүлжээ" />
           <AnimatedNumber target={12} suffix="+" label="Австрийн Их Сургуулиуд" />
           <AnimatedNumber target={6} suffix="+" label="Жил Тутмын Эвент Наадам" />
-          <AnimatedNumber target={3000} prefix="€" suffix="+" label="Жилийн Шагналын Сан" />
+          <AnimatedNumber target={32} suffix="+" label="Оролцогч Баг Тамирчид" />
         </div>
       </div>
     </section>

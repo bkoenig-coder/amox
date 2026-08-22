@@ -47,7 +47,7 @@ export const FESTIVAL_PHOTOS: FestivalPhoto[] = [
     category: '🏆 Шагнал Гардуулалт',
     image: '/assets/media_1787152257891.jpg',
     location: 'Sportarena Wien',
-    description: 'Нийт €3,000 шагналын сан бүхий 6 төрлийн аваргуудад цом, өргөмжлөл, ивээн тэтгэгчдийн бэлэг гардуулав.'
+    description: '6 төрлийн шилдэг аваргуудад цом, өргөмжлөл, ивээн тэтгэгчдийн бэлэг гардуулав.'
   },
   {
     id: 'photo-5',

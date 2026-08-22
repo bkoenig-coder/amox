@@ -48,25 +48,25 @@ export const SunFestivalPage: React.FC = () => {
     { 
       id: 'basketball_men', 
       name: 'Сагсан бөмбөг (Эрэгтэй)', 
-      prize: '€1,200', 
+      categoryType: 'Багийн төрөл (5x5)', 
       teams: '16 Баг', 
       icon: '🏀',
       color: '#F85A40',
-      rules: '5x5 Бүсийн тоглолт, 4 үе 10 минут, FIBA дүрэм, 1-р байр: €800 + Цом, 2-р байр: €300, 3-р байр: €100.'
+      rules: '5x5 Бүсийн тоглолт, 4 үе 10 минут, FIBA албан ёсны дүрэм, хасагдах шатны шууд плей-офф.'
     },
     { 
       id: 'basketball_women', 
       name: 'Сагсан бөмбөг (Эмэгтэй)', 
-      prize: '€600', 
+      categoryType: 'Багийн төрөл (5x5)', 
       teams: '8 Баг', 
       icon: '🏀',
       color: '#F85A40',
-      rules: '5x5 Бүсийн тоглолт, 4 үе 8 минут, шилдэг тоглогчийн тусгай шагналтай.'
+      rules: '5x5 Бүсийн тоглолт, 4 үе 8 минут, шилдэг тоглогчийн тусгай өргөмжлөлтэй.'
     },
     { 
       id: 'volleyball', 
       name: 'Гар бөмбөг (Холимог 4+2)', 
-      prize: '€800', 
+      categoryType: 'Багийн төрөл (Холимог)', 
       teams: '12 Баг', 
       icon: '🏐',
       color: '#037EF3',
@@ -75,7 +75,7 @@ export const SunFestivalPage: React.FC = () => {
     { 
       id: 'football', 
       name: 'Хөлбөмбөг (Mini Football)', 
-      prize: '€600', 
+      categoryType: 'Багийн төрөл (5+1)', 
       teams: '10 Баг', 
       icon: '⚽',
       color: '#00C16E',
@@ -84,7 +84,7 @@ export const SunFestivalPage: React.FC = () => {
     { 
       id: 'table_tennis', 
       name: 'Ширээний теннис', 
-      prize: '€250', 
+      categoryType: 'Ганцаарчилсан', 
       teams: '32 Тамирчин', 
       icon: '🏓',
       color: '#F4B400',
@@ -93,7 +93,7 @@ export const SunFestivalPage: React.FC = () => {
     { 
       id: 'tennis', 
       name: 'Талбайн теннис', 
-      prize: '€250', 
+      categoryType: 'Ганцаарчилсан', 
       teams: '16 Тамирчин', 
       icon: '🎾',
       color: '#00878A',
@@ -102,7 +102,7 @@ export const SunFestivalPage: React.FC = () => {
     { 
       id: 'chess', 
       name: 'Шатар (Блиц & Rapid)', 
-      prize: '€200', 
+      categoryType: 'Ганцаарчилсан', 
       teams: '30 Тамирчин', 
       icon: '♟️',
       color: '#002D62',
@@ -193,7 +193,7 @@ export const SunFestivalPage: React.FC = () => {
                 margin: '0 auto 34px'
               }}
             >
-              Европ дахь Монголчуудын спортын дараагийн нэгдсэн наадам <strong>2027 оны 7-р сард</strong> Вена хотноо уламжлал ёсоор зохион байгуулагдана. Сагсан бөмбөг, гар бөмбөг, хөлбөмбөг, теннис, шатрын 6 төрөл, <strong>€3,000+</strong> шагналын сан.
+              Европ дахь Монголчуудын спортын дараагийн нэгдсэн наадам <strong>2027 оны 7-р сард</strong> Вена хотноо уламжлал ёсоор зохион байгуулагдана. Сагсан бөмбөг, гар бөмбөг, хөлбөмбөг, теннис, шатрын 6 төрөлт нээлттэй наадам.
             </p>
 
             <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -246,8 +246,8 @@ export const SunFestivalPage: React.FC = () => {
               <div style={{ color: '#D97706', marginBottom: 8, display: 'flex', justifyContent: 'center' }}>
                 <Trophy size={28} />
               </div>
-              <h4 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: 4 }}>€3,000+ Шагналын Сан</h4>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Цом, медаль &amp; ивээн тэтгэгчийн бэлэг</p>
+              <h4 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: 4 }}>Цом &amp; Медаль</h4>
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Аваргын цом, медаль &amp; өргөмжлөл</p>
             </div>
 
             <div style={{ padding: '10px 16px' }}>
@@ -297,7 +297,7 @@ export const SunFestivalPage: React.FC = () => {
               Tournament Categories &bull; 2027
             </span>
             <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginTop: 4 }}>
-              Тэмцээний Төрөл &amp; Шагналын Сан
+              Тэмцээний Төрөл &amp; Дүрэм
             </h2>
             <p style={{ color: 'var(--text-sub)', maxWidth: 600, margin: '8px auto 0' }}>
               2027 оны наадамд өөрийн сонирхсон спортын төрлөөр баг бүрдүүлэн урьдчилан бүртгүүлээрэй
@@ -351,14 +351,14 @@ export const SunFestivalPage: React.FC = () => {
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'center',
-                    padding: '12px 0',
+                    padding: '10px 0',
                     borderTop: '1px solid var(--border)',
                     borderBottom: '1px solid var(--border)',
                     marginBottom: 16
                   }}
                 >
-                  <span style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Шагналын Сан:</span>
-                  <strong style={{ fontSize: '1.15rem', color: 'var(--aiesec-orange)' }}>{sport.prize}</strong>
+                  <span style={{ fontSize: '0.86rem', color: 'var(--text-muted)' }}>Ангилал:</span>
+                  <strong style={{ fontSize: '0.95rem', color: 'var(--aiesec-orange)' }}>{sport.categoryType}</strong>
                 </div>
 
                 <p style={{ fontSize: '0.86rem', color: 'var(--text-sub)', lineHeight: 1.6, marginBottom: 20, flexGrow: 1 }}>
@@ -546,13 +546,13 @@ export const SunFestivalPage: React.FC = () => {
                       value={formData.sport}
                       onChange={(e) => setFormData({ ...formData, sport: e.target.value })}
                     >
-                      <option value="basketball_men">🏀 Сагсан бөмбөг (Эрэгтэй - €1,200)</option>
-                      <option value="basketball_women">🏀 Сагсан бөмбөг (Эмэгтэй - €600)</option>
-                      <option value="volleyball">🏐 Гар бөмбөг (Холимог 4+2 - €800)</option>
-                      <option value="football">⚽ Хөлбөмбөг (Mini Football - €600)</option>
-                      <option value="table_tennis">🏓 Ширээний теннис (€250)</option>
-                      <option value="tennis">🎾 Талбайн теннис (€250)</option>
-                      <option value="chess">♟️ Шатар (€200)</option>
+                      <option value="basketball_men">🏀 Сагсан бөмбөг (Эрэгтэй)</option>
+                      <option value="basketball_women">🏀 Сагсан бөмбөг (Эмэгтэй)</option>
+                      <option value="volleyball">🏐 Гар бөмбөг (Холимог 4+2)</option>
+                      <option value="football">⚽ Хөлбөмбөг (Mini Football)</option>
+                      <option value="table_tennis">🏓 Ширээний теннис</option>
+                      <option value="tennis">🎾 Талбайн теннис</option>
+                      <option value="chess">♟️ Шатар</option>
                     </select>
                   </div>
 

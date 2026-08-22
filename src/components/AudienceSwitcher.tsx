@@ -130,7 +130,7 @@ export const AudienceSwitcher: React.FC = () => {
                     <Trophy size={22} />
                   </div>
                   <div>
-                    <h5 style={{ fontSize: '1.05rem', color: 'var(--text-main)', fontWeight: 800 }}>€3,000+ Шагналын Сан</h5>
+                    <h5 style={{ fontSize: '1.05rem', color: 'var(--text-main)', fontWeight: 800 }}>Цом &amp; Аваргын Медаль</h5>
                     <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>6 төрлийн аваргууд &amp; шилдэг тамирчид</span>
                   </div>
                 </div>
