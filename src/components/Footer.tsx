@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Camera, Globe, ArrowUp, Mail, MapPin, ExternalLink, GraduationCap, ShieldCheck, Heart } from 'lucide-react';
+import { Camera, Globe, ArrowUp, Mail, MapPin, ShieldCheck } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -8,34 +8,34 @@ export const Footer: React.FC = () => {
   };
 
   const partners = [
-    { name: 'Universität Wien', type: 'Uni Wien', icon: '🏛️' },
+    { name: 'Uni Wien', type: 'Их Сургууль', icon: '🏛️' },
     { name: 'TU Wien', type: 'Техникийн Их Сургууль', icon: '⚙️' },
     { name: 'WU Wien', type: 'Эдийн Засгийн Их Сургууль', icon: '📈' },
     { name: 'OeAD Housing', type: 'Орон Сууц & Солилцоо', icon: '🏠' },
-    { name: 'STUWO Housing', type: 'Оюутны Байр', icon: '🏢' },
-    { name: 'ÖGK Austria', type: 'Эрүүл Мэндийн Даатгал', icon: '🛡️' },
-    { name: 'Монгол Улсын ЭСЯ', type: 'Вена Хот', icon: '🇲🇳' }
+    { name: 'STUWO', type: 'Оюутны Байр', icon: '🏢' },
+    { name: 'ÖGK Austria', type: 'Даатгал', icon: '🛡️' },
+    { name: 'Монгол ЭСЯ', type: 'Вена Хот', icon: '🇲🇳' }
   ];
 
   return (
     <footer className="amox-footer">
       <div className="container">
         {/* National & Academic Partners Showcase */}
-        <div style={{ textAlign: 'center', marginBottom: 44 }}>
+        <div style={{ textAlign: 'center', marginBottom: 32 }}>
           <div
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: 8,
-              padding: '5px 16px',
+              gap: 6,
+              padding: '3px 12px',
               borderRadius: 'var(--radius-pill)',
               background: '#EFF6FF',
               color: 'var(--aiesec-blue)',
-              fontSize: '0.78rem',
+              fontSize: '0.7rem',
               fontWeight: 800,
               letterSpacing: '0.06em',
               textTransform: 'uppercase',
-              marginBottom: 16
+              marginBottom: 10
             }}
           >
             <span>🇦🇹 National &amp; Academic Network</span>
@@ -44,134 +44,124 @@ export const Footer: React.FC = () => {
           <h4
             style={{
               fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(1.15rem, 2.5vw, 1.35rem)',
+              fontSize: 'clamp(0.95rem, 2vw, 1.15rem)',
               fontWeight: 800,
               color: 'var(--text-main)',
-              marginBottom: 20
+              marginBottom: 16
             }}
           >
-            Хамтран ажилладаг их дээд сургуулиуд &amp; Түнш байгууллагууд
+            Хамтран ажилладаг их дээд сургуулиуд &amp; Түншүүд
           </h4>
 
-          {/* Parallel Partner Cards Grid / Scroll */}
+          {/* Parallel Partner Badges */}
           <div className="partner-parallel-grid">
             {partners.map((p, idx) => (
               <div key={idx} className="partner-parallel-card">
-                <span style={{ fontSize: '1.2rem' }}>{p.icon}</span>
-                <div>
-                  <strong style={{ display: 'block', fontSize: '0.86rem', color: 'var(--text-main)' }}>{p.name}</strong>
-                  <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>{p.type}</span>
+                <span style={{ fontSize: '1rem' }}>{p.icon}</span>
+                <div style={{ textAlign: 'left', minWidth: 0 }}>
+                  <strong style={{ display: 'block', fontSize: '0.74rem', color: 'var(--text-main)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{p.name}</strong>
+                  <span style={{ fontSize: '0.64rem', color: 'var(--text-muted)', display: 'block' }}>{p.type}</span>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Parallel Footer Navigation Columns */}
-        <div className="footer-parallel-grid">
-          {/* Column 1: Brand Info */}
-          <div className="footer-col brand-col">
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
-              <img src="/assets/logo.png" alt="AMOX Logo" style={{ height: 42, width: 'auto' }} />
-              <div>
-                <strong style={{ fontSize: '1.15rem', color: 'var(--aiesec-blue)', display: 'block', fontWeight: 800 }}>
-                  AMOX Austria
-                </strong>
-                <span style={{ fontSize: '0.76rem', color: 'var(--text-muted)', fontWeight: 600 }}>
-                  Seit 2007 &bull; 19 дэх жилдээ
-                </span>
-              </div>
-            </div>
-
-            <p style={{ fontSize: '0.86rem', color: 'var(--text-sub)', lineHeight: 1.65, marginBottom: 18 }}>
-              Австри дахь Монгол оюутан, залуусыг нэгтгэж, дэмжиж, хөгжүүлэх 100% оюутны ашгийн бус төрийн бус байгууллага.
-            </p>
-
-            <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-              <a
-                href="https://www.instagram.com/amox_at/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-pill-btn"
-              >
-                <Camera size={14} color="#E1306C" />
-                <span>@amox_at</span>
-              </a>
-              <a
-                href="https://www.facebook.com/MongolianStudentAssociationInAustria"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-pill-btn"
-              >
-                <Globe size={14} color="#1877F2" />
-                <span>Facebook</span>
-              </a>
+        {/* Top Brand Banner Row */}
+        <div className="footer-brand-banner">
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <img src="/assets/logo.png" alt="AMOX Logo" style={{ height: 34, width: 'auto' }} />
+            <div>
+              <strong style={{ fontSize: '0.98rem', color: 'var(--aiesec-blue)', display: 'block', fontWeight: 800 }}>
+                AMOX Austria
+              </strong>
+              <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 600 }}>
+                Seit 2007 &bull; 19 дэх жилдээ
+              </span>
             </div>
           </div>
 
-          {/* Column 2: Contact & Location */}
-          <div className="footer-col contact-col">
+          <p className="footer-brand-desc">
+            Австри дахь Монгол оюутан, залуусыг нэгтгэж, дэмжиж, хөгжүүлэх 100% оюутны төрийн бус байгууллага.
+          </p>
+
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+            <a
+              href="https://www.instagram.com/amox_at/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-pill-btn"
+            >
+              <Camera size={13} color="#E1306C" />
+              <span>@amox_at</span>
+            </a>
+            <a
+              href="https://www.facebook.com/MongolianStudentAssociationInAustria"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-pill-btn"
+            >
+              <Globe size={13} color="#1877F2" />
+              <span>Facebook</span>
+            </a>
+          </div>
+        </div>
+
+        {/* 3 PARALLEL COLUMNS: Холбоо барих | Хөтөлбөрүүд | Оюутны Дэмжлэг */}
+        <div className="footer-three-parallel-grid">
+          {/* Column 1: Холбоо барих */}
+          <div className="footer-col">
             <h5 className="footer-col-title">Холбоо барих</h5>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12, fontSize: '0.86rem' }}>
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: 8, color: 'var(--text-sub)' }}>
-                <MapPin size={16} color="var(--aiesec-orange)" style={{ flexShrink: 0, marginTop: 3 }} />
-                <span>Вена хот, Бүгд Найрамдах Австри Улс</span>
+            <div className="footer-col-content">
+              <div className="footer-contact-item">
+                <MapPin size={13} color="var(--aiesec-orange)" style={{ flexShrink: 0, marginTop: 2 }} />
+                <span>Вена хот, Австри</span>
               </div>
-              <a
-                href="mailto:contact@amox.at"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 8,
-                  color: 'var(--aiesec-blue)',
-                  textDecoration: 'none',
-                  fontWeight: 700
-                }}
-              >
-                <Mail size={16} color="var(--aiesec-blue)" />
+              <a href="mailto:contact@amox.at" className="footer-email-link">
+                <Mail size={13} color="var(--aiesec-blue)" style={{ flexShrink: 0 }} />
                 <span>contact@amox.at</span>
               </a>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--text-muted)', fontSize: '0.78rem' }}>
-                <ShieldCheck size={14} color="var(--aiesec-teal)" />
-                <span>ZVR-Zahl: Албан ёсны бүртгэлтэй ТББ</span>
+              <div className="footer-contact-item" style={{ color: 'var(--text-muted)', fontSize: '0.68rem' }}>
+                <ShieldCheck size={12} color="var(--aiesec-teal)" style={{ flexShrink: 0 }} />
+                <span>ZVR-Zahl ТББ</span>
               </div>
             </div>
           </div>
 
-          {/* Column 3: Programs & Events */}
-          <div className="footer-col links-col">
+          {/* Column 2: Хөтөлбөрүүд */}
+          <div className="footer-col">
             <h5 className="footer-col-title">Хөтөлбөрүүд</h5>
             <ul className="footer-links-list">
-              <li><Link to="/about#mentor">🎓 Students Info Day (9-р сар)</Link></li>
-              <li><Link to="/sun-festival">🏆 AMOX Sun Festival 2027</Link></li>
-              <li><Link to="/guide">📖 9 Бүлэг Оюутны Гарын Авлага</Link></li>
-              <li><Link to="/housing">🏠 Оюутны Дотуур Байр Хайгч</Link></li>
-              <li><Link to="/visa-insurance">🛂 MA35 Виз &amp; E-Card Төв</Link></li>
+              <li><Link to="/about#mentor">🎓 Info Day (9-р сар)</Link></li>
+              <li><Link to="/sun-festival">🏆 Sun Festival 2027</Link></li>
+              <li><Link to="/guide">📖 Оюутны Хөтөч</Link></li>
+              <li><Link to="/housing">🏠 Байр Хайгч</Link></li>
+              <li><Link to="/visa-insurance">🛂 MA35 Виз Төв</Link></li>
             </ul>
           </div>
 
-          {/* Column 4: Student Support */}
-          <div className="footer-col links-col">
+          {/* Column 3: Оюутны Дэмжлэг */}
+          <div className="footer-col">
             <h5 className="footer-col-title">Оюутны Дэмжлэг</h5>
             <ul className="footer-links-list">
-              <li><Link to="/about#mentor">👥 1-on-1 Ментор Зөвлөгөө</Link></li>
-              <li><Link to="/guide#calculator">💶 Амьжиргааны Төсвийн Тооцоо</Link></li>
-              <li><Link to="/visa-insurance#email-generator">✉️ MA35 Герман И-мэйл Үүсгэгч</Link></li>
-              <li><Link to="/about#board">✨ AMOX Багт Нэгдэх</Link></li>
-              <li><Link to="/about#history">🏛️ 19 Жилийн Түүхэн Замнал</Link></li>
+              <li><Link to="/about#mentor">👥 Ментор Зөвлөгөө</Link></li>
+              <li><Link to="/guide#calculator">💶 Зардлын Тооцоо</Link></li>
+              <li><Link to="/visa-insurance#email-generator">✉️ MA35 И-мэйл</Link></li>
+              <li><Link to="/about#board">✨ Багт Нэгдэх</Link></li>
+              <li><Link to="/about#history">🏛️ 19 Жилийн Түүх</Link></li>
             </ul>
           </div>
         </div>
 
         {/* Minimal Legal Footer Bar */}
         <div className="footer-legal-bar">
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.72rem' }}>
             <span>© AMOX Austria 2026. </span>
             <span className="legal-verein-text">Der Verein für mongolische Studierende und Jugendliche in Österreich.</span>
           </div>
 
-          <div style={{ display: 'flex', gap: 18, alignItems: 'center' }}>
-            <Link to="/about" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.82rem' }}>
+          <div style={{ display: 'flex', gap: 14, alignItems: 'center' }}>
+            <Link to="/about" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.72rem' }}>
               Impressum &amp; Privacy
             </Link>
             <button
@@ -180,7 +170,7 @@ export const Footer: React.FC = () => {
               title="Дээш буцах"
               aria-label="Back to Top"
             >
-              <ArrowUp size={16} />
+              <ArrowUp size={14} />
             </button>
           </div>
         </div>
@@ -190,60 +180,121 @@ export const Footer: React.FC = () => {
         .amox-footer {
           background-color: #F8FAFC;
           border-top: 1.5px solid var(--border);
-          padding: 60px 0 36px;
+          padding: 44px 0 28px;
           position: relative;
         }
 
-        /* Top Parallel Partners Grid */
+        /* Top Partner Parallel Badges */
         .partner-parallel-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-          gap: 12px;
-          margin-bottom: 40px;
+          grid-template-columns: repeat(7, 1fr);
+          gap: 8px;
+          margin-bottom: 28px;
         }
 
         .partner-parallel-card {
           background: #FFFFFF;
           border: 1px solid var(--border);
-          border-radius: 14px;
-          padding: 12px 14px;
+          border-radius: 10px;
+          padding: 8px 10px;
           display: flex;
           align-items: center;
-          gap: 10px;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+          gap: 8px;
+          box-shadow: 0 1px 4px rgba(0,0,0,0.02);
           transition: var(--transition);
         }
 
         .partner-parallel-card:hover {
-          transform: translateY(-2px);
+          transform: translateY(-1px);
           border-color: var(--aiesec-blue);
-          box-shadow: 0 6px 16px rgba(3, 126, 243, 0.08);
+          box-shadow: 0 4px 12px rgba(3, 126, 243, 0.08);
         }
 
-        /* Main Parallel Footer 4-Column Grid */
-        .footer-parallel-grid {
-          display: grid;
-          grid-template-columns: 1.3fr 1.1fr 1fr 1fr;
-          gap: 36px;
-          padding-bottom: 36px;
+        /* Brand Banner Row */
+        .footer-brand-banner {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          gap: 16px;
+          padding-bottom: 20px;
+          margin-bottom: 24px;
           border-bottom: 1px solid var(--border);
+        }
+
+        .footer-brand-desc {
+          font-size: 0.78rem;
+          color: var(--text-sub);
+          line-height: 1.5;
+          max-width: 480px;
+          margin: 0;
+        }
+
+        /* 3 PARALLEL COLUMNS GRID */
+        .footer-three-parallel-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr) !important;
+          gap: clamp(10px, 3vw, 32px);
+          padding-bottom: 28px;
+          border-bottom: 1px solid var(--border);
+        }
+
+        .footer-col {
+          min-width: 0;
         }
 
         .footer-col-title {
           font-family: var(--font-heading);
-          font-size: 0.95rem;
+          font-size: clamp(0.78rem, 1.8vw, 0.86rem);
           font-weight: 800;
-          margin-bottom: 16px;
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+          margin-bottom: 12px;
           color: var(--text-main);
-          letter-spacing: -0.01em;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .footer-col-content {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          font-size: clamp(0.7rem, 1.6vw, 0.78rem);
+        }
+
+        .footer-contact-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 6px;
+          color: var(--text-sub);
+          line-height: 1.35;
+          word-break: break-word;
+        }
+
+        .footer-email-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          color: var(--aiesec-blue);
+          text-decoration: none;
+          font-weight: 700;
+          line-height: 1.35;
+          word-break: break-all;
+        }
+
+        .footer-email-link:hover {
+          text-decoration: underline;
         }
 
         .footer-links-list {
           list-style: none;
           display: flex;
           flex-direction: column;
-          gap: 10px;
-          font-size: 0.88rem;
+          gap: 8px;
+          font-size: clamp(0.7rem, 1.6vw, 0.78rem);
+          padding: 0;
+          margin: 0;
         }
 
         .footer-links-list a {
@@ -252,33 +303,37 @@ export const Footer: React.FC = () => {
           transition: var(--transition);
           display: inline-flex;
           align-items: center;
+          line-height: 1.3;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         .footer-links-list a:hover {
           color: var(--aiesec-blue);
-          transform: translateX(3px);
+          transform: translateX(2px);
         }
 
         .social-pill-btn {
           display: inline-flex;
           align-items: center;
-          gap: 6px;
-          padding: 6px 14px;
+          gap: 5px;
+          padding: 4px 10px;
           border-radius: var(--radius-pill);
           background: #FFFFFF;
           border: 1px solid var(--border);
           color: var(--text-main);
-          font-size: 0.8rem;
+          font-size: 0.74rem;
           font-weight: 700;
           text-decoration: none;
-          box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+          box-shadow: 0 1px 3px rgba(0,0,0,0.03);
           transition: var(--transition);
         }
 
         .social-pill-btn:hover {
           border-color: var(--aiesec-blue);
           color: var(--aiesec-blue);
-          transform: translateY(-2px);
+          transform: translateY(-1px);
         }
 
         /* Bottom Legal Bar */
@@ -287,9 +342,9 @@ export const Footer: React.FC = () => {
           justify-content: space-between;
           align-items: center;
           flex-wrap: wrap;
-          padding-top: 24px;
-          gap: 16px;
-          font-size: 0.82rem;
+          padding-top: 18px;
+          gap: 12px;
+          font-size: 0.72rem;
           color: var(--text-muted);
         }
 
@@ -298,14 +353,14 @@ export const Footer: React.FC = () => {
           color: #FFFFFF;
           border: none;
           border-radius: 50%;
-          width: 36px;
-          height: 36px;
+          width: 30px;
+          height: 30px;
           display: flex;
           align-items: center;
           justify-content: center;
           cursor: pointer;
           transition: var(--transition);
-          box-shadow: 0 4px 12px rgba(3, 126, 243, 0.3);
+          box-shadow: 0 2px 8px rgba(3, 126, 243, 0.25);
         }
 
         .back-to-top-btn:hover {
@@ -313,25 +368,23 @@ export const Footer: React.FC = () => {
           transform: translateY(-2px);
         }
 
-        /* Responsive Breakpoints - Parallel 2-Column Grid on Mobile/Tablet */
+        /* Responsive Breakpoints */
         @media (max-width: 992px) {
-          .footer-parallel-grid {
-            grid-template-columns: 1fr 1fr;
-            gap: 28px;
-          }
           .partner-parallel-grid {
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            gap: 8px;
-          }
-          .partner-parallel-card {
-            padding: 10px 12px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
           }
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 640px) {
           .partner-parallel-grid {
             grid-template-columns: repeat(2, 1fr);
-            gap: 8px;
+            gap: 6px;
+          }
+          .footer-brand-banner {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
           }
           .legal-verein-text {
             display: none;
