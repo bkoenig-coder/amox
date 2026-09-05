@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, X, BookOpen, Home, ShieldCheck, Trophy, ArrowRight } from 'lucide-react';
+import { Search, X, BookOpen, Home, ShieldCheck, Trophy, ArrowRight, Scale } from 'lucide-react';
 import { GUIDE_CHAPTERS } from '../data/guideData';
 import { DORMS_DATA } from '../data/dormsData';
 import { EVENTS_DATA } from '../data/eventsData';
@@ -23,6 +23,16 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
+
+  const isLegalMatch = query.trim() ? (
+    'impressum'.includes(query.toLowerCase()) ||
+    'zvr'.includes(query.toLowerCase()) ||
+    '107178700'.includes(query.toLowerCase()) ||
+    'verein'.includes(query.toLowerCase()) ||
+    'хууль'.includes(query.toLowerCase()) ||
+    'бүртгэл'.includes(query.toLowerCase()) ||
+    'offenlegung'.includes(query.toLowerCase())
+  ) : false;
 
   const filteredGuides = query.trim() ? GUIDE_CHAPTERS.filter(g => 
     g.title.toLowerCase().includes(query.toLowerCase()) || 
@@ -115,6 +125,44 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
 
         {/* Search Results Area */}
         <div style={{ maxHeight: '60vh', overflowY: 'auto', padding: '16px 20px' }}>
+          {/* Section: Legal / Impressum Match */}
+          {isLegalMatch && (
+            <div style={{ marginBottom: 20 }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--aiesec-blue)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                ⚖️ Хууль зүйн бүртгэл &amp; Impressum
+              </span>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginTop: 8 }}>
+                <div
+                  onClick={() => handleSelect('/impressum')}
+                  style={{
+                    padding: '12px 14px',
+                    borderRadius: 'var(--radius-sm)',
+                    background: 'rgba(3, 126, 243, 0.06)',
+                    border: '1px solid rgba(3, 126, 243, 0.2)',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    transition: 'var(--transition)'
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                    <ShieldCheck size={18} color="var(--aiesec-blue)" />
+                    <div>
+                      <div style={{ fontSize: '0.92rem', fontWeight: 700, color: 'var(--text-main)' }}>
+                        Verein der mongolischen Studenten in Österreich - &quot;AMOX&quot;
+                      </div>
+                      <div style={{ fontSize: '0.78rem', color: 'var(--aiesec-blue)', fontWeight: 600 }}>
+                        ZVR-Zahl: 107178700 &bull; Impressum &amp; Offenlegung
+                      </div>
+                    </div>
+                  </div>
+                  <ArrowRight size={14} color="var(--aiesec-blue)" />
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Section: Guide */}
           <div style={{ marginBottom: 20 }}>
             <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>

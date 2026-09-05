@@ -71,7 +71,7 @@ export const TIMELINE_HISTORY = [
   {
     year: '2007',
     title: 'AMOX Холбоо Үүсгэн Байгуулагдав',
-    description: 'Австри улсад суралцаж буй анхны Монгол оюутнууд нэгдэн Verein der Mongolischen Studenten in Österreich албан ёсны холбоог байгуулав.'
+    description: 'Австри улсад суралцаж буй анхны Монгол оюутнууд нэгдэн Verein der mongolischen Studenten in Österreich - "AMOX" (ZVR-Zahl: 107178700) албан ёсны холбоог байгуулав.'
   },
   {
     year: '2012',

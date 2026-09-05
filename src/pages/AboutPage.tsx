@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import { 
@@ -20,7 +21,8 @@ import {
   Leaf, 
   Trophy, 
   ChevronDown, 
-  ExternalLink 
+  ExternalLink,
+  Scale
 } from 'lucide-react';
 import { HandDrawnLoop, HandDrawnWave } from '../components/HandDrawnSVGs';
 import { CascadingCollage } from '../components/CascadingCollage';
@@ -112,7 +114,7 @@ export const AboutPage: React.FC = () => {
   const faqs = [
     {
       q: 'AMOX гэж ямар байгууллага вэ? Албан ёсны бүртгэлтэй юу?',
-      a: 'AMOX (Verein der Mongolischen Studenten in Österreich) нь 2007 онд Австри улсын Дотоод Хэргийн Яамны ZVR-д албан ёсоор бүртгэгдсэн, ашгийн бус, оюутан залуусын төрийн бус байгууллага юм.'
+      a: 'AMOX (Verein der mongolischen Studenten in Österreich - "AMOX") нь 2007 онд Австри улсын Дотоод Хэргийн Яамны төрийн бус байгууллагын нэгдсэн санд (ZVR-Zahl: 107178700) албан ёсоор бүртгэгдсэн, ашгийн бус, оюутан залуусын байгууллага юм.'
     },
     {
       q: 'Менторшил хөтөлбөрт хэн хамрагдах боломжтой вэ? Үнэ төлбөртэй юу?',
@@ -172,7 +174,7 @@ export const AboutPage: React.FC = () => {
                 marginBottom: 20
               }}
             >
-              <span>🇦🇹 Verein der Mongolischen Studenten &bull; Seit 2007</span>
+              <span>🇦🇹 Verein der mongolischen Studenten in Österreich &bull; ZVR: 107178700</span>
             </div>
 
             <h1
@@ -978,21 +980,42 @@ export const AboutPage: React.FC = () => {
             }}
           >
             <div>
-              <h4 style={{ fontSize: '1rem', fontWeight: 800, marginBottom: 4 }}>
-                🇦🇹 Verein der Mongolischen Studenten in Österreich
+              <h4 style={{ fontSize: '1.05rem', fontWeight: 800, marginBottom: 4 }}>
+                🇦🇹 Verein der mongolischen Studenten in Österreich - &quot;AMOX&quot;
               </h4>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                ZVR-Zahl (Австрийн Дотоод Хэргийн Яамны Бүртгэлийн Дугаар): Албан ёсны ТББ статус Seit 2007
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', margin: 0 }}>
+                ZVR-Zahl: <strong>107178700</strong> (Австрийн Дотоод Хэргийн Яамны Бүртгэлийн Албан Ёсны Дугаар &bull; Seit 2007)
               </p>
             </div>
-            <a
-              href="mailto:contact@amox.at"
-              className="aiesec-btn-primary"
-              style={{ padding: '10px 22px', fontSize: '0.88rem' }}
-            >
-              <Mail size={15} />
-              <span>Холбоо барих</span>
-            </a>
+            <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+              <Link
+                to="/impressum"
+                style={{
+                  padding: '10px 18px',
+                  fontSize: '0.88rem',
+                  fontWeight: 700,
+                  borderRadius: 'var(--radius-sm)',
+                  border: '1px solid var(--border)',
+                  background: '#FFFFFF',
+                  color: 'var(--text-main)',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 6
+                }}
+              >
+                <Scale size={15} color="var(--aiesec-blue)" />
+                <span>Impressum &amp; Хууль зүйн мэдээлэл</span>
+              </Link>
+              <a
+                href="mailto:contact@amox.at"
+                className="aiesec-btn-primary"
+                style={{ padding: '10px 22px', fontSize: '0.88rem' }}
+              >
+                <Mail size={15} />
+                <span>Холбоо барих</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>

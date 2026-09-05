@@ -9,6 +9,7 @@ import { GuidePage } from './pages/GuidePage';
 import { HousingPage } from './pages/HousingPage';
 import { VisaInsurancePage } from './pages/VisaInsurancePage';
 import { AboutPage } from './pages/AboutPage';
+import { ImpressumPage } from './pages/ImpressumPage';
 
 // Scroll to top helper on route navigation
 const ScrollToTop: React.FC = () => {
@@ -61,6 +62,7 @@ export const App: React.FC = () => {
             <Route path="/housing" element={<HousingPage />} />
             <Route path="/visa-insurance" element={<VisaInsurancePage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/impressum" element={<ImpressumPage />} />
           </Routes>
         </main>
 

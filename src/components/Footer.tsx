@@ -147,10 +147,13 @@ export const Footer: React.FC = () => {
                 <Mail size={13} color="var(--aiesec-blue)" style={{ flexShrink: 0 }} />
                 <span>contact@amox.at</span>
               </a>
-              <div className="footer-contact-item" style={{ color: 'var(--text-muted)', fontSize: '0.68rem' }}>
-                <ShieldCheck size={12} color="var(--aiesec-teal)" style={{ flexShrink: 0 }} />
-                <span>ZVR-Zahl ТББ</span>
+              <div className="footer-contact-item" style={{ color: 'var(--text-muted)', fontSize: '0.72rem' }}>
+                <ShieldCheck size={13} color="var(--aiesec-teal)" style={{ flexShrink: 0 }} />
+                <span>ZVR-Zahl: <strong>107178700</strong></span>
               </div>
+              <Link to="/impressum" style={{ display: 'inline-flex', alignItems: 'center', gap: 4, color: 'var(--aiesec-blue)', fontSize: '0.72rem', fontWeight: 600, textDecoration: 'none', marginTop: 2 }}>
+                <span>Хууль зүйн бүртгэл &amp; Impressum →</span>
+              </Link>
             </div>
           </div>
 
@@ -175,19 +178,22 @@ export const Footer: React.FC = () => {
               <li><Link to="/visa-insurance#email-generator">✉️ MA35 И-мэйл</Link></li>
               <li><Link to="/about#board">✨ Багт Нэгдэх</Link></li>
               <li><Link to="/about#history">🏛️ 19 Жилийн Түүх</Link></li>
+              <li><Link to="/impressum">⚖️ Impressum &amp; Privacy</Link></li>
             </ul>
           </div>
         </div>
 
         {/* Minimal Legal Footer Bar */}
         <div className="footer-legal-bar">
-          <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.72rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.72rem', flexWrap: 'wrap' }}>
             <span>© AMOX 2026. </span>
-            <span className="legal-verein-text">Der Verein für mongolische Studierende und Jugendliche in Österreich.</span>
+            <span className="legal-verein-text">
+              Verein der mongolischen Studenten in Österreich - &quot;AMOX&quot; • ZVR-Zahl: 107178700
+            </span>
           </div>
 
           <div style={{ display: 'flex', gap: 14, alignItems: 'center' }}>
-            <Link to="/about" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.72rem' }}>
+            <Link to="/impressum" style={{ color: 'var(--aiesec-blue)', textDecoration: 'none', fontSize: '0.75rem', fontWeight: 700 }}>
               Impressum &amp; Privacy
             </Link>
             <button
