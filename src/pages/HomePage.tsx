@@ -113,29 +113,6 @@ export const HomePage: React.FC = () => {
               in Austria
             </h1>
 
-            {/* Official Motto Banner */}
-            <div
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 10,
-                padding: '8px 24px',
-                borderRadius: 'var(--radius-pill)',
-                background: 'rgba(3, 126, 243, 0.32)',
-                border: '1px solid rgba(255, 255, 255, 0.32)',
-                backdropFilter: 'blur(10px)',
-                fontSize: 'clamp(0.95rem, 1.8vw, 1.15rem)',
-                fontWeight: 800,
-                color: '#FFFFFF',
-                marginBottom: 18
-              }}
-            >
-              <span>🤝 Хуваалцъя &bull; 💡 Дэмжье &bull; 🚀 Хамтдаа хөгжье</span>
-              <span style={{ opacity: 0.85, fontSize: '0.85rem', fontWeight: 600 }}>
-                (SSG)
-              </span>
-            </div>
-
             {/* Typewriter Categories Loop Banner */}
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 24 }}>
               <div className="typewriter-hero-badge">
@@ -160,15 +137,15 @@ export const HomePage: React.FC = () => {
 
             <p
               style={{
-                fontSize: 'clamp(1.05rem, 2vw, 1.22rem)',
+                fontSize: 'clamp(1.05rem, 2vw, 1.2rem)',
                 color: 'rgba(255, 255, 255, 0.94)',
-                lineHeight: 1.75,
-                maxWidth: 760,
+                lineHeight: 1.78,
+                maxWidth: 780,
                 margin: '0 auto 36px',
                 fontWeight: 400
               }}
             >
-              {AMOX_MISSION_VISION.vision.text}
+              <strong>AMOX (Verein der mongolischen Studenten in Österreich)</strong> нь 2007 оноос эхлэн Австри улсын их, дээд сургуулиудад суралцаж буй болон суралцахаар бэлтгэж буй Монгол оюутан залуусын нэгдсэн эрх ашиг, мэдлэг мэдээллийн гүүр болсоор ирсэн албан ёсны төрийн бус байгууллага юм.
             </p>
 
             <div
