@@ -189,7 +189,7 @@ export const AboutPage: React.FC = () => {
                 fontWeight: 800,
                 color: '#FFFFFF',
                 marginBottom: 20,
-                letterSpacing: '-0.03em'
+                letterSpacing: '-0.01em'
               }}
             >
               About{' '}

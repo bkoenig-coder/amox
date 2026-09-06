@@ -102,7 +102,7 @@ export const HomePage: React.FC = () => {
                 fontWeight: 800,
                 color: '#FFFFFF',
                 marginBottom: 20,
-                letterSpacing: '-0.03em'
+                letterSpacing: '-0.01em'
               }}
             >
               Mongolian Students{' '}
@@ -238,7 +238,7 @@ export const HomePage: React.FC = () => {
               style={{
                 fontSize: 'clamp(2.1rem, 4.8vw, 3.2rem)',
                 fontWeight: 800,
-                letterSpacing: '-0.03em',
+                letterSpacing: '-0.01em',
                 marginBottom: 12
               }}
             >
@@ -460,7 +460,7 @@ export const HomePage: React.FC = () => {
               style={{
                 fontSize: 'clamp(2.2rem, 5vw, 3.4rem)',
                 fontWeight: 800,
-                letterSpacing: '-0.03em',
+                letterSpacing: '-0.01em',
                 marginBottom: 12
               }}
             >
