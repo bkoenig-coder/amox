@@ -53,22 +53,7 @@ export const HomePage: React.FC = () => {
       {/* -------------------------------------------------------------
           1. HERO SECTION (#intro) - Exact AIESEC Austria Layout (2026)
           ------------------------------------------------------------- */}
-      <section
-        id="intro"
-        style={{
-          position: 'relative',
-          minHeight: '100vh',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundImage: 'linear-gradient(180deg, rgba(0, 20, 50, 0.68) 0%, rgba(0, 20, 50, 0.82) 100%), url(/assets/student-female.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center 35%',
-          color: '#FFFFFF',
-          padding: '120px 0 100px',
-          textAlign: 'center'
-        }}
-      >
+      <section id="intro" className="homepage-hero">
         <div className="container" style={{ position: 'relative', zIndex: 2, maxWidth: 900 }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}

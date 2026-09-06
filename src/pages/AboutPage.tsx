@@ -140,22 +140,7 @@ export const AboutPage: React.FC = () => {
       {/* -------------------------------------------------------------
           1. HERO SECTION - AIESEC Dark Scenic Background
           ------------------------------------------------------------- */}
-      <section
-        id="about-intro"
-        style={{
-          position: 'relative',
-          minHeight: '65vh',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundImage: 'linear-gradient(180deg, rgba(0, 20, 50, 0.72) 0%, rgba(0, 20, 50, 0.85) 100%), url(/assets/student-male.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center 25%',
-          color: '#FFFFFF',
-          padding: '130px 0 80px',
-          textAlign: 'center'
-        }}
-      >
+      <section id="about-intro" className="about-hero">
         <div className="container" style={{ position: 'relative', zIndex: 2, maxWidth: 880 }}>
           <motion.div
             initial={{ opacity: 0, y: 25 }}
