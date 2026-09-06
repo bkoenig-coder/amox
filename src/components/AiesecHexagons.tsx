@@ -8,31 +8,43 @@ export const AiesecHexagonsLeft: React.FC = () => {
       <div className="hex-cluster left-cluster">
         {/* 1. Top Hexagon - Activating Leadership */}
         <motion.div
-          whileHover={{ scale: 1.08 }}
+          animate={{ y: [0, -10, 0] }}
+          transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
+          whileHover={{ scale: 1.12, rotate: -2 }}
           className="hex-item hex-pos-1"
-          style={{ backgroundColor: '#037EF3' }}
+          style={{ backgroundColor: '#037EF3', boxShadow: '0 8px 24px rgba(3, 126, 243, 0.3)' }}
         >
-          <Flag className="hex-icon" size={26} color="#FFFFFF" strokeWidth={2.2} />
+          <motion.div whileHover={{ rotate: 15 }} transition={{ type: 'spring', stiffness: 300 }}>
+            <Flag className="hex-icon" size={26} color="#FFFFFF" strokeWidth={2.2} />
+          </motion.div>
           <h4>Activating Leadership</h4>
         </motion.div>
 
         {/* 2. Middle Hexagon - Demonstrating Integrity */}
         <motion.div
-          whileHover={{ scale: 1.08 }}
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 4.6, ease: 'easeInOut', delay: 0.5 }}
+          whileHover={{ scale: 1.12, rotate: 2 }}
           className="hex-item hex-pos-2"
-          style={{ backgroundColor: '#F85A40' }}
+          style={{ backgroundColor: '#F85A40', boxShadow: '0 8px 24px rgba(248, 90, 64, 0.3)' }}
         >
-          <Gem className="hex-icon" size={26} color="#FFFFFF" strokeWidth={2.2} />
+          <motion.div whileHover={{ rotate: -15 }} transition={{ type: 'spring', stiffness: 300 }}>
+            <Gem className="hex-icon" size={26} color="#FFFFFF" strokeWidth={2.2} />
+          </motion.div>
           <h4>Demonstrating Integrity</h4>
         </motion.div>
 
         {/* 3. Bottom Hexagon - Enjoying Participation */}
         <motion.div
-          whileHover={{ scale: 1.08 }}
+          animate={{ y: [0, -9, 0] }}
+          transition={{ repeat: Infinity, duration: 4.2, ease: 'easeInOut', delay: 1 }}
+          whileHover={{ scale: 1.12, rotate: -2 }}
           className="hex-item hex-pos-3"
-          style={{ backgroundColor: '#F4B400' }}
+          style={{ backgroundColor: '#F4B400', boxShadow: '0 8px 24px rgba(244, 180, 0, 0.3)' }}
         >
-          <Heart className="hex-icon" size={26} color="#FFFFFF" strokeWidth={2.2} />
+          <motion.div whileHover={{ scale: 1.25 }} transition={{ type: 'spring', stiffness: 300 }}>
+            <Heart className="hex-icon" size={26} color="#FFFFFF" strokeWidth={2.2} />
+          </motion.div>
           <h4>Enjoying Participation</h4>
         </motion.div>
       </div>
@@ -48,9 +60,9 @@ export const AiesecHexagonsLeft: React.FC = () => {
           width: 270px;
           height: 410px;
         }
-        .hex-pos-1 { position: absolute; top: 0; right: 15px; }
-        .hex-pos-2 { position: absolute; top: 130px; left: 10px; }
-        .hex-pos-3 { position: absolute; top: 260px; right: 15px; }
+        .hex-pos-1 { position: absolute; top: 0; right: 15px; cursor: pointer; }
+        .hex-pos-2 { position: absolute; top: 130px; left: 10px; cursor: pointer; }
+        .hex-pos-3 { position: absolute; top: 260px; right: 15px; cursor: pointer; }
 
         @media (max-width: 992px) {
           .hex-cluster.left-cluster {
@@ -102,31 +114,43 @@ export const AiesecHexagonsRight: React.FC = () => {
       <div className="hex-cluster right-cluster">
         {/* 4. Top Hexagon - Acting Sustainably */}
         <motion.div
-          whileHover={{ scale: 1.08 }}
+          animate={{ y: [0, -8, 0] }}
+          transition={{ repeat: Infinity, duration: 4.3, ease: 'easeInOut', delay: 0.3 }}
+          whileHover={{ scale: 1.12, rotate: 2 }}
           className="hex-item hex-pos-4"
-          style={{ backgroundColor: '#00C16E' }}
+          style={{ backgroundColor: '#00C16E', boxShadow: '0 8px 24px rgba(0, 193, 110, 0.3)' }}
         >
-          <Leaf className="hex-icon" size={26} color="#FFFFFF" strokeWidth={2.2} />
+          <motion.div whileHover={{ rotate: 20 }} transition={{ type: 'spring', stiffness: 300 }}>
+            <Leaf className="hex-icon" size={26} color="#FFFFFF" strokeWidth={2.2} />
+          </motion.div>
           <h4>Acting Sustainably</h4>
         </motion.div>
 
         {/* 5. Middle Hexagon - Striving For Excellence */}
         <motion.div
-          whileHover={{ scale: 1.08 }}
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 3.9, ease: 'easeInOut', delay: 0.8 }}
+          whileHover={{ scale: 1.12, rotate: -2 }}
           className="hex-item hex-pos-5"
-          style={{ backgroundColor: '#002D62' }}
+          style={{ backgroundColor: '#002D62', boxShadow: '0 8px 24px rgba(0, 45, 98, 0.3)' }}
         >
-          <Trophy className="hex-icon" size={26} color="#FFFFFF" strokeWidth={2.2} />
+          <motion.div whileHover={{ y: -4 }} transition={{ type: 'spring', stiffness: 300 }}>
+            <Trophy className="hex-icon" size={26} color="#FFFFFF" strokeWidth={2.2} />
+          </motion.div>
           <h4>Striving for Excellence</h4>
         </motion.div>
 
         {/* 6. Bottom Hexagon - Living Diversity */}
         <motion.div
-          whileHover={{ scale: 1.08 }}
+          animate={{ y: [0, -9, 0] }}
+          transition={{ repeat: Infinity, duration: 4.5, ease: 'easeInOut', delay: 1.3 }}
+          whileHover={{ scale: 1.12, rotate: 2 }}
           className="hex-item hex-pos-6"
-          style={{ backgroundColor: '#00878A' }}
+          style={{ backgroundColor: '#00878A', boxShadow: '0 8px 24px rgba(0, 135, 138, 0.3)' }}
         >
-          <Users className="hex-icon" size={26} color="#FFFFFF" strokeWidth={2.2} />
+          <motion.div whileHover={{ scale: 1.2 }} transition={{ type: 'spring', stiffness: 300 }}>
+            <Users className="hex-icon" size={26} color="#FFFFFF" strokeWidth={2.2} />
+          </motion.div>
           <h4>Living Diversity</h4>
         </motion.div>
       </div>
@@ -137,9 +161,9 @@ export const AiesecHexagonsRight: React.FC = () => {
           width: 270px;
           height: 410px;
         }
-        .hex-pos-4 { position: absolute; top: 0; left: 15px; }
-        .hex-pos-5 { position: absolute; top: 130px; right: 10px; }
-        .hex-pos-6 { position: absolute; top: 260px; left: 15px; }
+        .hex-pos-4 { position: absolute; top: 0; left: 15px; cursor: pointer; }
+        .hex-pos-5 { position: absolute; top: 130px; right: 10px; cursor: pointer; }
+        .hex-pos-6 { position: absolute; top: 260px; left: 15px; cursor: pointer; }
 
         @media (max-width: 992px) {
           .hex-cluster.right-cluster {
@@ -184,4 +208,3 @@ export const AiesecHexagonsRight: React.FC = () => {
     </div>
   );
 };
-

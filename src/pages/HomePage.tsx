@@ -16,6 +16,7 @@ import { HandDrawnLoop, HandDrawnWave } from '../components/HandDrawnSVGs';
 import { AiesecHexagonsLeft, AiesecHexagonsRight } from '../components/AiesecHexagons';
 import { CascadingCollage } from '../components/CascadingCollage';
 import { OfficialChannelsSection } from '../components/OfficialChannelsSection';
+import { AnimatedStatNumber } from '../components/AnimatedStatCounter';
 import { EVENTS_DATA } from '../data/eventsData';
 import { AMOX_MISSION_VISION } from '../data/associationData';
 
@@ -341,7 +342,7 @@ export const HomePage: React.FC = () => {
                   marginBottom: 8
                 }}
               >
-                19+
+                <AnimatedStatNumber target={19} suffix="+" />
               </h3>
               <p style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-sub)' }}>
                 Жилийн түүх &bull; Seit 2007
@@ -377,7 +378,7 @@ export const HomePage: React.FC = () => {
                   marginBottom: 8
                 }}
               >
-                1,500+
+                <AnimatedStatNumber target={1500} suffix="+" />
               </h3>
               <p style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-sub)' }}>
                 Монгол Оюутан &amp; Төгсөгчид
@@ -413,7 +414,7 @@ export const HomePage: React.FC = () => {
                   marginBottom: 8
                 }}
               >
-                50+
+                <AnimatedStatNumber target={50} suffix="+" />
               </h3>
               <p style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-sub)' }}>
                 Наадам, Хэлэлцүүлэг &amp; Төсөл
