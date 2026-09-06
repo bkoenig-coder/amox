@@ -79,20 +79,20 @@ export const HomePage: React.FC = () => {
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: 8,
-                padding: '6px 18px',
+                gap: 10,
+                padding: '7px 20px',
                 borderRadius: 'var(--radius-pill)',
-                background: 'rgba(255, 255, 255, 0.16)',
-                backdropFilter: 'blur(8px)',
-                border: '1px solid rgba(255, 255, 255, 0.25)',
-                fontSize: '0.84rem',
+                background: 'rgba(255, 255, 255, 0.15)',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 255, 255, 0.28)',
+                fontSize: '0.85rem',
                 fontWeight: 700,
                 letterSpacing: '0.04em',
-                textTransform: 'uppercase',
-                marginBottom: 20
+                marginBottom: 22,
+                boxShadow: '0 4px 20px rgba(0,0,0,0.2)'
               }}
             >
-              <span>🇦🇹 Seit 2007</span>
+              <span>🇦🇹 Seit 2007 &bull; Австри дахь Монгол Оюутны Холбоо 🇲🇳</span>
             </div>
 
             <h1
@@ -101,7 +101,7 @@ export const HomePage: React.FC = () => {
                 lineHeight: 1.12,
                 fontWeight: 800,
                 color: '#FFFFFF',
-                marginBottom: 24,
+                marginBottom: 20,
                 letterSpacing: '-0.03em'
               }}
             >
@@ -122,25 +122,25 @@ export const HomePage: React.FC = () => {
                 padding: '8px 24px',
                 borderRadius: 'var(--radius-pill)',
                 background: 'rgba(3, 126, 243, 0.32)',
-                border: '1px solid rgba(255, 255, 255, 0.35)',
+                border: '1px solid rgba(255, 255, 255, 0.32)',
                 backdropFilter: 'blur(10px)',
                 fontSize: 'clamp(0.95rem, 1.8vw, 1.15rem)',
                 fontWeight: 800,
                 color: '#FFFFFF',
-                marginBottom: 20
+                marginBottom: 18
               }}
             >
               <span>🤝 Хуваалцъя &bull; 💡 Дэмжье &bull; 🚀 Хамтдаа хөгжье</span>
-              <span style={{ opacity: 0.8, fontSize: '0.85rem', fontWeight: 600 }}>
+              <span style={{ opacity: 0.85, fontSize: '0.85rem', fontWeight: 600 }}>
                 (SSG)
               </span>
             </div>
 
             {/* Typewriter Categories Loop Banner */}
-            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 24 }}>
               <div className="typewriter-hero-badge">
                 <span className="typewriter-tag-pulse" />
-                <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.85)', fontWeight: 600 }}>
+                <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.9)', fontWeight: 600 }}>
                   Онцлох хөтөлбөр:
                 </span>
                 <TypewriterLoop
@@ -163,8 +163,8 @@ export const HomePage: React.FC = () => {
                 fontSize: 'clamp(1.05rem, 2vw, 1.22rem)',
                 color: 'rgba(255, 255, 255, 0.94)',
                 lineHeight: 1.75,
-                maxWidth: 780,
-                margin: '0 auto 34px',
+                maxWidth: 760,
+                margin: '0 auto 36px',
                 fontWeight: 400
               }}
             >
@@ -181,11 +181,11 @@ export const HomePage: React.FC = () => {
               }}
             >
               <a href="#the-amox-way" className="aiesec-btn-primary">
-                <span>Хөтөлбөрүүдтэй танилцах</span>
+                <span>Хөтөлбөрүүд үзэх</span>
                 <ArrowRight size={17} />
               </a>
               <a href="#official-channels" className="aiesec-btn-outline">
-                <span>Албан ёсны хаягууд</span>
+                <span>Албан ёсны сувгууд</span>
               </a>
               <Link to="/about#mentor" className="aiesec-btn-outline">
                 <span>🎓 9-р Сарын Өдөрлөгт Бүртгүүлэх</span>
@@ -493,7 +493,7 @@ export const HomePage: React.FC = () => {
             </div>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 110 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 72 }}>
             {/* Program 1: Sun Festival (Next coming in 2027) */}
             <div
               className="program-row"

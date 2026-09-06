@@ -167,16 +167,16 @@ export const AboutPage: React.FC = () => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 8,
-                padding: '6px 18px',
+                padding: '7px 20px',
                 borderRadius: 'var(--radius-pill)',
-                background: 'rgba(255, 255, 255, 0.16)',
-                backdropFilter: 'blur(8px)',
-                border: '1px solid rgba(255, 255, 255, 0.25)',
+                background: 'rgba(255, 255, 255, 0.15)',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 255, 255, 0.28)',
                 fontSize: '0.84rem',
                 fontWeight: 700,
                 letterSpacing: '0.04em',
-                textTransform: 'uppercase',
-                marginBottom: 20
+                marginBottom: 22,
+                boxShadow: '0 4px 20px rgba(0,0,0,0.2)'
               }}
             >
               <span>🇦🇹 Verein der mongolischen Studenten in Österreich &bull; ZVR: 107178700</span>
@@ -188,7 +188,7 @@ export const AboutPage: React.FC = () => {
                 lineHeight: 1.15,
                 fontWeight: 800,
                 color: '#FFFFFF',
-                marginBottom: 16,
+                marginBottom: 20,
                 letterSpacing: '-0.03em'
               }}
             >
@@ -205,28 +205,28 @@ export const AboutPage: React.FC = () => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 10,
-                padding: '8px 22px',
+                padding: '8px 24px',
                 borderRadius: 'var(--radius-pill)',
-                background: 'rgba(3, 126, 243, 0.28)',
-                border: '1px solid rgba(255, 255, 255, 0.35)',
+                background: 'rgba(3, 126, 243, 0.3)',
+                border: '1px solid rgba(255, 255, 255, 0.32)',
                 backdropFilter: 'blur(10px)',
                 fontSize: 'clamp(0.95rem, 1.8vw, 1.15rem)',
                 fontWeight: 800,
                 color: '#FFFFFF',
-                marginBottom: 20
+                marginBottom: 18
               }}
             >
               <span>🤝 Хуваалцъя &bull; 💡 Дэмжье &bull; 🚀 Хамтдаа хөгжье</span>
-              <span style={{ opacity: 0.8, fontSize: '0.85rem', fontWeight: 600 }}>
+              <span style={{ opacity: 0.85, fontSize: '0.85rem', fontWeight: 600 }}>
                 (SSG)
               </span>
             </div>
 
             {/* Typewriter Categories Loop */}
-            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 24 }}>
               <div className="typewriter-hero-badge">
                 <span className="typewriter-tag-pulse" />
-                <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.85)', fontWeight: 600 }}>
+                <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.9)', fontWeight: 600 }}>
                   Үйл ажиллагаа:
                 </span>
                 <TypewriterLoop
@@ -246,10 +246,10 @@ export const AboutPage: React.FC = () => {
             <p
               style={{
                 fontSize: 'clamp(1.02rem, 1.8vw, 1.15rem)',
-                color: 'rgba(255, 255, 255, 0.92)',
+                color: 'rgba(255, 255, 255, 0.94)',
                 lineHeight: 1.75,
                 maxWidth: 760,
-                margin: '0 auto 30px'
+                margin: '0 auto 34px'
               }}
             >
               {AMOX_MISSION_VISION.vision.text}

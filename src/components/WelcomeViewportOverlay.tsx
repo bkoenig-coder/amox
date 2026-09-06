@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
-import { Sparkles, ArrowRight, X, Compass, Flag, ShieldCheck, Heart } from 'lucide-react';
+import { Sparkles, ArrowRight, X } from 'lucide-react';
 import { TypewriterLoop } from './TypewriterLoop';
 
 export const WelcomeViewportOverlay: React.FC = () => {
@@ -29,48 +29,8 @@ export const WelcomeViewportOverlay: React.FC = () => {
     setIsOpen(false);
   };
 
-  const handleReplay = () => {
-    setIsOpen(true);
-  };
-
   return (
     <>
-      {/* Floating Replay Welcome Pill (Bottom-left corner) */}
-      {!isOpen && (
-        <motion.button
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          whileHover={{ scale: 1.08, y: -2 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={handleReplay}
-          style={{
-            position: 'fixed',
-            bottom: 24,
-            left: 24,
-            zIndex: 999,
-            background: 'linear-gradient(135deg, #0A192F 0%, #037EF3 100%)',
-            color: '#FFFFFF',
-            border: '1.5px solid rgba(255, 255, 255, 0.3)',
-            borderRadius: 'var(--radius-pill)',
-            padding: '10px 18px',
-            fontFamily: 'var(--font-heading)',
-            fontSize: '0.82rem',
-            fontWeight: 800,
-            cursor: 'pointer',
-            boxShadow: '0 8px 24px rgba(3, 126, 243, 0.35)',
-            display: 'flex',
-            alignItems: 'center',
-            gap: 8,
-            backdropFilter: 'blur(8px)'
-          }}
-          title="Мэндчилгээг дахин тоглуулах"
-          aria-label="Тавтай морил мэндчилгээ"
-        >
-          <span style={{ fontSize: '1rem' }}>👋</span>
-          <span>Тавтай морил!</span>
-          <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#00C16E', boxShadow: '0 0 8px #00C16E' }} />
-        </motion.button>
-      )}
 
       {/* Full-Screen Animated Viewport Splash Overlay */}
       <AnimatePresence>
