@@ -129,6 +129,8 @@ export const HousingPage: React.FC = () => {
                   <option value="STUWO">STUWO Housing</option>
                   <option value="Base19">Base19</option>
                   <option value="WIHAST">WIHAST</option>
+                  <option value="Home4Students">Home4Students</option>
+                  <option value="The Student Hotel">The Social Hub (Student Hotel)</option>
                   <option value="Milestone">Milestone</option>
                 </select>
               </div>

@@ -373,17 +373,22 @@ export const ImpressumPage: React.FC = () => {
                 </h3>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20, fontSize: '0.9rem', lineHeight: 1.6 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20, fontSize: '0.9rem', lineHeight: 1.65 }}>
                 <div>
                   <h4 style={{ fontSize: '0.95rem', fontWeight: 800, marginBottom: 8, color: 'var(--text-main)' }}>
-                    🎯 Vereinszweck (§ 2 Vereinsstatuten)
+                    🎯 Offizielle Vereinsbeschreibung &amp; Vereinszweck
                   </h4>
-                  <p style={{ color: 'var(--text-muted)' }}>
-                    Der Verein ist eine gemeinnützige, unpolitische und überkonfessionelle Interessensvertretung.
-                    Hauptziel ist die ideelle, organisatorische und praktische Unterstützung mongolischer Studierender,
-                    Schüler und Jugendlicher in Österreich bei der Bewältigung des Studienalltags, der behördlichen
-                    Erfordernisse (z.B. MA35 Aufenthaltstitel, ÖGK Versicherung) sowie die Förderung des interkulturellen
-                    und akademischen Austausches zwischen Österreich und der Mongolei.
+                  <p style={{ color: 'var(--text-sub)', marginBottom: 10 }}>
+                    Wir sind der offizielle Studentenverein der mongolischen StudentInnen in Österreich und versuchen in unserer Rolle als gemeinnützige Organisation die Interessen der mongolischen Studenten in Österreich im Rahmen unserer Möglichkeiten zu unterstützen und zu repräsentieren.
+                  </p>
+                  <p style={{ color: 'var(--text-sub)', marginBottom: 10 }}>
+                    Die AMOX (Австри дахь Монголын Оюутны Холбоо) hat sich zum Ziel gesetzt, studentische Veranstaltungen zu vernetzen, gegenseitigen Austausch von Informationen und Erfahrungen zu fördern und in Österreich lebende Mongolen - auch Nichtstudenten - nach unseren Möglichkeiten zu unterstützen.
+                  </p>
+                  <p style={{ color: 'var(--text-sub)', marginBottom: 10 }}>
+                    In der Vergangenheit haben wir zahlreichen StudentInnen geholfen in Österreich Fuß zu fassen, ebenso haben wir viele Veranstaltungen sportlicher wie kultureller Herkunft für uns und Gleichgesinnte organisiert.
+                  </p>
+                  <p style={{ color: 'var(--text-sub)', fontWeight: 600, margin: 0 }}>
+                    Wir heißen jede/n willkommen, der/die uns unterstützen will bzw. mit uns zusammenarbeiten möchte.
                   </p>
                 </div>
 
@@ -391,12 +396,16 @@ export const ImpressumPage: React.FC = () => {
                   <h4 style={{ fontSize: '0.95rem', fontWeight: 800, marginBottom: 8, color: 'var(--text-main)' }}>
                     📰 Grundlegende Richtung (Blattlinie nach § 25 Abs 4 MedienG)
                   </h4>
-                  <p style={{ color: 'var(--text-muted)' }}>
+                  <p style={{ color: 'var(--text-muted)', marginBottom: 12 }}>
                     Die Website <strong>amox.at</strong> dient der Information und Orientierung von mongolischen Studierenden,
                     Studieninteressierten und Jugendlichen in Österreich. Sie bietet Hilfestellungen zu Hochschulzulassung,
                     Wohnheimen, Aufenthaltsrecht, Mentoring-Programmen sowie Berichterstattung über kulturelle und sportliche
                     Vereinsveranstaltungen (wie z.B. das Sun Festival).
                   </p>
+                  <div style={{ background: 'var(--bg-subtle)', padding: '12px 14px', borderRadius: 10, border: '1px solid var(--border)', fontSize: '0.85rem' }}>
+                    <strong style={{ color: 'var(--aiesec-blue)' }}>Leitbild &amp; Mission:</strong><br />
+                    „Хуваалцъя, Дэмжье, Хамтдаа хөгжье“ &bull; Sharing, Supporting, Growing together (SSG).
+                  </div>
                 </div>
               </div>
             </div>
@@ -552,13 +561,25 @@ export const ImpressumPage: React.FC = () => {
                 </div>
 
                 <div>
-                  <div style={{ fontSize: '0.76rem', color: 'var(--text-muted)', fontWeight: 700 }}>СОШИАЛ ХУУДАС:</div>
-                  <div style={{ display: 'flex', gap: 12, marginTop: 4 }}>
-                    <a href="https://www.instagram.com/amox_at/" target="_blank" rel="noopener noreferrer" style={{ color: '#E1306C', textDecoration: 'none', fontWeight: 600 }}>
-                      Instagram: @amox_at
+                  <div style={{ fontSize: '0.76rem', color: 'var(--text-muted)', fontWeight: 700 }}>АЛБАН ЁСНЫ ХАЯГУУД &amp; СУВГУУД:</div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginTop: 8 }}>
+                    <a href="https://www.facebook.com/groups/AmoxAustriaGroup" target="_blank" rel="noopener noreferrer" style={{ color: '#1877F2', textDecoration: 'none', fontWeight: 600, fontSize: '0.86rem' }}>
+                      👥 Facebook Групп: AmoxAustriaGroup
                     </a>
-                    <a href="https://www.facebook.com/MongolianStudentAssociationInAustria" target="_blank" rel="noopener noreferrer" style={{ color: '#1877F2', textDecoration: 'none', fontWeight: 600 }}>
-                      Facebook
+                    <a href="https://www.instagram.com/amox_at/" target="_blank" rel="noopener noreferrer" style={{ color: '#E1306C', textDecoration: 'none', fontWeight: 600, fontSize: '0.86rem' }}>
+                      📸 Instagram: @amox_at
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCx2WabubQ10shpkeOeLUpbQ/videos" target="_blank" rel="noopener noreferrer" style={{ color: '#FF0000', textDecoration: 'none', fontWeight: 600, fontSize: '0.86rem' }}>
+                      ▶️ YouTube: AMOX Austria Channel
+                    </a>
+                    <a href="https://soundcloud.com/amox-podcast" target="_blank" rel="noopener noreferrer" style={{ color: '#FF5500', textDecoration: 'none', fontWeight: 600, fontSize: '0.86rem' }}>
+                      🎙️ SoundCloud: AMOX Podcast
+                    </a>
+                    <a href="https://youtu.be/j_DwiLspu08" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--aiesec-blue)', textDecoration: 'none', fontWeight: 600, fontSize: '0.86rem' }}>
+                      🎥 Австрид суралцах видео мэдээлэл
+                    </a>
+                    <a href="https://docs.google.com/document/d/18X8c1iTN8rQPaVyUCq34wE5ApBgyHJvyvdSv4IGEWbY/edit?usp=sharing" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--aiesec-teal)', textDecoration: 'none', fontWeight: 600, fontSize: '0.86rem' }}>
+                      📄 Австрид суралцах албан ёсны нийтлэл (Doc)
                     </a>
                   </div>
                 </div>
@@ -595,11 +616,34 @@ export const ImpressumPage: React.FC = () => {
                   <Info size={20} />
                 </div>
                 <h3 style={{ fontSize: '1.1rem', fontWeight: 800, margin: 0 }}>
-                  Холбооны Зорилго &amp; Хууль эрх зүйн байдал
+                  Холбооны Эрхэм Зорилго, Алсын Хараа &amp; Хууль Эрх Зүй
                 </h3>
               </div>
 
               <div style={{ fontSize: '0.92rem', color: 'var(--text-main)', lineHeight: 1.7 }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20, marginBottom: 16 }}>
+                  <div style={{ background: '#EFF6FF', padding: '16px 18px', borderRadius: 12, border: '1px solid rgba(3,126,243,0.2)' }}>
+                    <h5 style={{ fontWeight: 800, color: 'var(--aiesec-blue)', marginBottom: 6, fontSize: '0.95rem' }}>
+                      🌟 Алсын Хараа (Vision)
+                    </h5>
+                    <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-main)' }}>
+                      Бид эв нэгдлийг эрхэмлэн, мэдлэгийг түгээж, оюутан залуусаа дэмжин, шинэлэг бүхний түүчээ болж хамтдаа хөгжинө.
+                    </p>
+                  </div>
+
+                  <div style={{ background: '#FFF7ED', padding: '16px 18px', borderRadius: 12, border: '1px solid rgba(248,90,64,0.2)' }}>
+                    <h5 style={{ fontWeight: 800, color: 'var(--aiesec-orange)', marginBottom: 6, fontSize: '0.95rem' }}>
+                      🎯 Эрхэм Зорилго (Mission)
+                    </h5>
+                    <p style={{ margin: '0 0 4px', fontSize: '0.9rem', fontWeight: 700, color: 'var(--text-main)' }}>
+                      Хуваалцъя, Дэмжье, Хамтдаа хөгжье
+                    </p>
+                    <p style={{ margin: 0, fontSize: '0.82rem', color: 'var(--text-muted)' }}>
+                      Sharing, Supporting, Growing together (SSG)
+                    </p>
+                  </div>
+                </div>
+
                 <p style={{ marginBottom: 12 }}>
                   <strong>Verein der mongolischen Studenten in Österreich - &quot;AMOX&quot;</strong> нь Австри улсад суралцаж буй болон
                   суралцахаар бэлтгэж буй Монгол оюутан залуусыг нэгтгэн дэмжих, эрх ашгийг хамгаалах, суралцах таатай орчин бүрдүүлэхэд чиглэсэн

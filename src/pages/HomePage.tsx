@@ -15,7 +15,9 @@ import {
 import { HandDrawnLoop, HandDrawnWave } from '../components/HandDrawnSVGs';
 import { AiesecHexagonsLeft, AiesecHexagonsRight } from '../components/AiesecHexagons';
 import { CascadingCollage } from '../components/CascadingCollage';
+import { OfficialChannelsSection } from '../components/OfficialChannelsSection';
 import { EVENTS_DATA } from '../data/eventsData';
+import { AMOX_MISSION_VISION } from '../data/associationData';
 
 export const HomePage: React.FC = () => {
   const navigate = useNavigate();
@@ -109,19 +111,40 @@ export const HomePage: React.FC = () => {
               in Austria
             </h1>
 
+            {/* Official Motto Banner */}
+            <div
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 10,
+                padding: '8px 24px',
+                borderRadius: 'var(--radius-pill)',
+                background: 'rgba(3, 126, 243, 0.32)',
+                border: '1px solid rgba(255, 255, 255, 0.35)',
+                backdropFilter: 'blur(10px)',
+                fontSize: 'clamp(0.95rem, 1.8vw, 1.15rem)',
+                fontWeight: 800,
+                color: '#FFFFFF',
+                marginBottom: 20
+              }}
+            >
+              <span>🤝 Хуваалцъя &bull; 💡 Дэмжье &bull; 🚀 Хамтдаа хөгжье</span>
+              <span style={{ opacity: 0.8, fontSize: '0.85rem', fontWeight: 600 }}>
+                (SSG)
+              </span>
+            </div>
+
             <p
               style={{
-                fontSize: 'clamp(1.05rem, 2vw, 1.25rem)',
+                fontSize: 'clamp(1.05rem, 2vw, 1.22rem)',
                 color: 'rgba(255, 255, 255, 0.94)',
                 lineHeight: 1.75,
                 maxWidth: 780,
-                margin: '0 auto 36px',
+                margin: '0 auto 34px',
                 fontWeight: 400
               }}
             >
-              Австри дахь Монгол оюутан, залуусыг нэгтгэж, дэмжиж, хөгжүүлэх AMOX холбоо.
-              <br />
-              Суралцах, ажиллах, хөгжих боломж, мэдээлэл, зөвлөгөө, соёлын үйл ажиллагаа болон Монгол залуусын хамтын оролцоог дэмжих 100% оюутны төрийн бус байгууллага, нэгдсэн холбоо юм.
+              {AMOX_MISSION_VISION.vision.text}
             </p>
 
             <div
@@ -136,6 +159,9 @@ export const HomePage: React.FC = () => {
               <a href="#the-amox-way" className="aiesec-btn-primary">
                 <span>Хөтөлбөрүүдтэй танилцах</span>
                 <ArrowRight size={17} />
+              </a>
+              <a href="#official-channels" className="aiesec-btn-outline">
+                <span>Албан ёсны хаягууд</span>
               </a>
               <Link to="/about#mentor" className="aiesec-btn-outline">
                 <span>🎓 9-р Сарын Өдөрлөгт Бүртгүүлэх</span>
@@ -218,30 +244,46 @@ export const HomePage: React.FC = () => {
 
             {/* Center High-Elegance Manifesto */}
             <div style={{ textAlign: 'center', padding: '0 20px', maxWidth: 680, margin: '0 auto' }}>
-              <p
+              <span
                 style={{
-                  fontSize: 'clamp(1.12rem, 2.2vw, 1.35rem)',
-                  lineHeight: 1.8,
-                  color: 'var(--text-main)',
-                  fontWeight: 700,
-                  marginBottom: 14
+                  display: 'inline-block',
+                  fontSize: '0.78rem',
+                  fontWeight: 800,
+                  color: 'var(--aiesec-blue)',
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  marginBottom: 10
                 }}
               >
-                Австри дахь Монгол оюутан, залуусыг нэгтгэж, дэмжиж, хөгжүүлэх AMOX холбоо.
+                Эрхэм Зорилго &bull; SSG Mission
+              </span>
+              <h3
+                style={{
+                  fontSize: 'clamp(1.25rem, 2.4vw, 1.55rem)',
+                  lineHeight: 1.4,
+                  color: 'var(--text-main)',
+                  fontWeight: 800,
+                  marginBottom: 8
+                }}
+              >
+                Хуваалцъя, Дэмжье, Хамтдаа хөгжье
+              </h3>
+              <p style={{ fontSize: '0.92rem', color: 'var(--aiesec-blue)', fontWeight: 700, marginBottom: 14 }}>
+                Sharing, Supporting, Growing together (SSG)
               </p>
               <p
                 style={{
-                  fontSize: 'clamp(0.98rem, 1.8vw, 1.1rem)',
-                  lineHeight: 1.8,
+                  fontSize: 'clamp(0.96rem, 1.8vw, 1.05rem)',
+                  lineHeight: 1.75,
                   color: 'var(--text-sub)',
                   fontWeight: 400,
-                  marginBottom: 20
+                  marginBottom: 18
                 }}
               >
-                Суралцах, ажиллах, хөгжих боломж, мэдээлэл, зөвлөгөө, соёлын үйл ажиллагаа болон Монгол залуусын хамтын оролцоог дэмжих 100% оюутны төрийн бус байгууллага, нэгдсэн холбоо юм.
+                {AMOX_MISSION_VISION.vision.text}
               </p>
-              <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)' }}>
-                2007 онд үүсгэн байгуулагдсан, залуусаас залуусын төлөө тасралтгүй 19 дэх жилдээ.
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                2007 онд үүсгэн байгуулагдсан, 100% оюутны албан ёсны төрийн бус байгууллага.
               </p>
             </div>
 
@@ -883,6 +925,11 @@ export const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* -------------------------------------------------------------
+          8. OFFICIAL CHANNELS & MEDIA PLATFORMS
+          ------------------------------------------------------------- */}
+      <OfficialChannelsSection />
     </div>
   );
 };

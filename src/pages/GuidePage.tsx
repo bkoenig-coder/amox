@@ -10,7 +10,7 @@ export const GuidePage: React.FC = () => {
   // Budget Calculator state
   const [dormPrice, setDormPrice] = useState(450);
   const [foodPrice, setFoodPrice] = useState(250);
-  const [insurancePrice, setInsurancePrice] = useState(69);
+  const [insurancePrice, setInsurancePrice] = useState(79);
   const [otherPrice, setOtherPrice] = useState(130);
   const [workIncome, setWorkIncome] = useState(650);
 
@@ -106,6 +106,103 @@ export const GuidePage: React.FC = () => {
                 {cat.label}
               </button>
             ))}
+          </div>
+
+          {/* Official Resource Fast-Links Bar */}
+          <div
+            style={{
+              marginTop: 28,
+              maxWidth: 860,
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              padding: '16px 22px',
+              backgroundColor: '#FFFFFF',
+              borderRadius: 16,
+              border: '1px solid var(--border)',
+              boxShadow: '0 4px 16px rgba(0, 45, 98, 0.05)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              gap: 14
+            }}
+          >
+            <div style={{ textAlign: 'left' }}>
+              <div style={{ fontSize: '0.74rem', fontWeight: 800, color: 'var(--aiesec-blue)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                AMOX Албан Ёсны Эх Сурвалжууд
+              </div>
+              <div style={{ fontSize: '0.92rem', fontWeight: 700, color: 'var(--text-main)' }}>
+                Австри улсад суралцах албан ёсны нийтлэл &amp; видео гарын авлага
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+              <a
+                href="https://docs.google.com/document/d/18X8c1iTN8rQPaVyUCq34wE5ApBgyHJvyvdSv4IGEWbY/edit?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  padding: '8px 16px',
+                  borderRadius: 'var(--radius-pill)',
+                  background: '#EFF6FF',
+                  color: 'var(--aiesec-blue)',
+                  fontWeight: 700,
+                  fontSize: '0.84rem',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 6,
+                  border: '1px solid rgba(3, 126, 243, 0.2)'
+                }}
+              >
+                <span>📄 Нийтлэл унших (Doc)</span>
+                <ExternalLink size={13} />
+              </a>
+
+              <a
+                href="https://youtu.be/j_DwiLspu08"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  padding: '8px 16px',
+                  borderRadius: 'var(--radius-pill)',
+                  background: '#FEF2F2',
+                  color: '#DC2626',
+                  fontWeight: 700,
+                  fontSize: '0.84rem',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 6,
+                  border: '1px solid rgba(220, 38, 38, 0.2)'
+                }}
+              >
+                <span>🎥 Видео үзэх</span>
+                <ExternalLink size={13} />
+              </a>
+
+              <a
+                href="https://www.facebook.com/groups/AmoxAustriaGroup"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  padding: '8px 16px',
+                  borderRadius: 'var(--radius-pill)',
+                  background: 'var(--bg-subtle)',
+                  color: 'var(--text-main)',
+                  fontWeight: 700,
+                  fontSize: '0.84rem',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 6,
+                  border: '1px solid var(--border)'
+                }}
+              >
+                <span>👥 Фэйсбүүк групп</span>
+                <ExternalLink size={13} />
+              </a>
+            </div>
           </div>
         </div>
       </section>

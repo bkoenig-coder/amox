@@ -108,10 +108,23 @@ export const Footer: React.FC = () => {
           </div>
 
           <p className="footer-brand-desc">
-            Австри дахь Монгол оюутан, залуусыг нэгтгэж, дэмжиж, хөгжүүлэх 100% оюутны төрийн бус байгууллага.
+            <strong style={{ color: 'var(--aiesec-blue)', display: 'block', marginBottom: 4 }}>
+              🤝 Хуваалцъя &bull; 💡 Дэмжье &bull; 🚀 Хамтдаа хөгжье (SSG)
+            </strong>
+            Бид эв нэгдлийг эрхэмлэн, мэдлэгийг түгээж, оюутан залуусаа дэмжин хамтдаа хөгжинө.
           </p>
 
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+            <a
+              href="https://www.facebook.com/groups/AmoxAustriaGroup"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-pill-btn"
+              title="Австри дахь Монгол Оюутны Холбоо албан ёсны групп"
+            >
+              <Globe size={13} color="#1877F2" />
+              <span>FB Групп</span>
+            </a>
             <a
               href="https://www.instagram.com/amox_at/"
               target="_blank"
@@ -122,13 +135,22 @@ export const Footer: React.FC = () => {
               <span>@amox_at</span>
             </a>
             <a
-              href="https://www.facebook.com/MongolianStudentAssociationInAustria"
+              href="https://www.youtube.com/channel/UCx2WabubQ10shpkeOeLUpbQ/videos"
               target="_blank"
               rel="noopener noreferrer"
               className="social-pill-btn"
             >
-              <Globe size={13} color="#1877F2" />
-              <span>Facebook</span>
+              <span style={{ color: '#FF0000', fontSize: '11px', fontWeight: 900 }}>▶</span>
+              <span>YouTube</span>
+            </a>
+            <a
+              href="https://soundcloud.com/amox-podcast"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-pill-btn"
+            >
+              <span style={{ color: '#FF5500', fontSize: '11px' }}>🎙️</span>
+              <span>Подкаст</span>
             </a>
           </div>
         </div>
@@ -166,18 +188,20 @@ export const Footer: React.FC = () => {
               <li><Link to="/guide">📖 Оюутны Хөтөч</Link></li>
               <li><Link to="/housing">🏠 Байр Хайгч</Link></li>
               <li><Link to="/visa-insurance">🛂 MA35 Виз Төв</Link></li>
+              <li><Link to="/about#official-channels">🌐 Албан Ёсны Хаягууд</Link></li>
             </ul>
           </div>
 
-          {/* Column 3: Оюутны Дэмжлэг */}
+          {/* Column 3: Оюутны Дэмжлэг & Эх Сурвалж */}
           <div className="footer-col">
-            <h5 className="footer-col-title">Оюутны Дэмжлэг</h5>
+            <h5 className="footer-col-title">Оюутны Дэмжлэг &amp; Нийтлэл</h5>
             <ul className="footer-links-list">
               <li><Link to="/about#mentor">👥 Ментор Зөвлөгөө</Link></li>
+              <li><a href="https://docs.google.com/document/d/18X8c1iTN8rQPaVyUCq34wE5ApBgyHJvyvdSv4IGEWbY/edit?usp=sharing" target="_blank" rel="noopener noreferrer">📄 Австрид суралцах нийтлэл</a></li>
+              <li><a href="https://youtu.be/j_DwiLspu08" target="_blank" rel="noopener noreferrer">🎥 Суралцах видео хөтөч</a></li>
               <li><Link to="/guide#calculator">💶 Зардлын Тооцоо</Link></li>
               <li><Link to="/visa-insurance#email-generator">✉️ MA35 И-мэйл</Link></li>
               <li><Link to="/about#board">✨ Багт Нэгдэх</Link></li>
-              <li><Link to="/about#history">🏛️ 19 Жилийн Түүх</Link></li>
               <li><Link to="/impressum">⚖️ Impressum &amp; Privacy</Link></li>
             </ul>
           </div>

@@ -22,11 +22,15 @@ import {
   Trophy, 
   ChevronDown, 
   ExternalLink,
-  Scale
+  Scale,
+  Share2,
+  HeartHandshake
 } from 'lucide-react';
 import { HandDrawnLoop, HandDrawnWave } from '../components/HandDrawnSVGs';
 import { CascadingCollage } from '../components/CascadingCollage';
+import { OfficialChannelsSection } from '../components/OfficialChannelsSection';
 import { TIMELINE_HISTORY } from '../data/eventsData';
+import { AMOX_MISSION_VISION } from '../data/associationData';
 
 export const AboutPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'mentor' | 'volunteer'>('mentor');
@@ -183,7 +187,7 @@ export const AboutPage: React.FC = () => {
                 lineHeight: 1.15,
                 fontWeight: 800,
                 color: '#FFFFFF',
-                marginBottom: 20,
+                marginBottom: 16,
                 letterSpacing: '-0.03em'
               }}
             >
@@ -194,25 +198,51 @@ export const AboutPage: React.FC = () => {
               </span>
             </h1>
 
+            {/* Official Motto Banner */}
+            <div
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 10,
+                padding: '8px 22px',
+                borderRadius: 'var(--radius-pill)',
+                background: 'rgba(3, 126, 243, 0.28)',
+                border: '1px solid rgba(255, 255, 255, 0.35)',
+                backdropFilter: 'blur(10px)',
+                fontSize: 'clamp(0.95rem, 1.8vw, 1.15rem)',
+                fontWeight: 800,
+                color: '#FFFFFF',
+                marginBottom: 20
+              }}
+            >
+              <span>🤝 Хуваалцъя &bull; 💡 Дэмжье &bull; 🚀 Хамтдаа хөгжье</span>
+              <span style={{ opacity: 0.8, fontSize: '0.85rem', fontWeight: 600 }}>
+                (SSG)
+              </span>
+            </div>
+
             <p
               style={{
-                fontSize: 'clamp(1.05rem, 2vw, 1.2rem)',
+                fontSize: 'clamp(1.02rem, 1.8vw, 1.15rem)',
                 color: 'rgba(255, 255, 255, 0.92)',
-                lineHeight: 1.7,
-                maxWidth: 700,
+                lineHeight: 1.75,
+                maxWidth: 760,
                 margin: '0 auto 30px'
               }}
             >
-              Австри улсад суралцаж буй Монгол оюутан залуусыг нэгтгэн, тэдний эрдэм боловсрол, карьер, хууль эрх зүйн баталгаа болон соёл спортын манлайллыг дэмжих 100% оюутны байгууллага.
+              {AMOX_MISSION_VISION.vision.text}
             </p>
 
             <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
-              <a href="#history" className="aiesec-btn-primary">
-                <span>19 Жилийн Түүх</span>
+              <a href="#mission" className="aiesec-btn-primary">
+                <span>Эрхэм зорилго &amp; Алсын хараа</span>
                 <ArrowRight size={16} />
               </a>
+              <a href="#official-channels" className="aiesec-btn-outline">
+                <span>Албан ёсны хаягууд</span>
+              </a>
               <a href="#mentor" className="aiesec-btn-outline">
-                <span>Ментор хүсэх / Багт нэгдэх</span>
+                <span>Ментор авах / Багт нэгдэх</span>
               </a>
             </div>
           </motion.div>
@@ -220,9 +250,9 @@ export const AboutPage: React.FC = () => {
       </section>
 
       {/* -------------------------------------------------------------
-          2. MISSION & VISION MANIFESTO
+          2. MISSION & VISION MANIFESTO (SSG Core)
           ------------------------------------------------------------- */}
-      <section style={{ padding: '100px 0', backgroundColor: '#FFFFFF' }}>
+      <section id="mission" style={{ padding: '100px 0 70px', backgroundColor: '#FFFFFF' }}>
         <div className="container">
           <div
             style={{
@@ -245,49 +275,82 @@ export const AboutPage: React.FC = () => {
                   marginBottom: 10
                 }}
               >
-                Who We Are &bull; Алсын Хараа
+                Who We Are &bull; Эрхэм Зорилго &amp; Алсын Хараа
               </div>
 
               <h2
                 style={{
                   fontSize: 'clamp(2.2rem, 4vw, 3rem)',
-                  fontWeight: 300,
-                  marginBottom: 24,
+                  fontWeight: 800,
+                  marginBottom: 14,
                   lineHeight: 1.2
                 }}
               >
-                <span className="doodle-wrap" style={{ fontWeight: 800 }}>
-                  Залуусаас
+                <span className="doodle-wrap">
+                  Хуваалцъя,
                   <HandDrawnWave color="#037EF3" />
                 </span>{' '}
-                Залуусын Төлөө
+                Дэмжье, Хамтдаа хөгжье
               </h2>
 
-              <p style={{ fontSize: '1.08rem', lineHeight: 1.8, color: 'var(--text-sub)', marginBottom: 20 }}>
-                <strong>AMOX (Austrian Mongolian Students Association)</strong> нь 2007 оноос эхлэн Вена, Грац, Линц, Зальцбург хотуудын их дээд сургуулиудад суралцаж буй Монгол оюутнуудын харилцаа холбоо, мэдээллийн нэгдсэн гүүр болсоор ирсэн.
+              <p style={{ fontSize: '1.02rem', fontWeight: 700, color: 'var(--aiesec-blue)', marginBottom: 18 }}>
+                Sharing, Supporting, Growing together (SSG)
               </p>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-                <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-                  <div style={{ background: '#EFF6FF', color: 'var(--aiesec-blue)', padding: 8, borderRadius: '50%', flexShrink: 0 }}>
-                    <Compass size={20} />
+              <p style={{ fontSize: '1.02rem', lineHeight: 1.8, color: 'var(--text-sub)', marginBottom: 26 }}>
+                <strong>AMOX (Verein der mongolischen Studenten in Österreich)</strong> нь 2007 оноос эхлэн Австри улсын их, дээд сургуулиудад суралцаж буй болон суралцахаар бэлтгэж буй Монгол оюутан залуусын нэгдсэн эрх ашиг, мэдлэг мэдээллийн гүүр болсоор ирсэн албан ёсны төрийн бус байгууллага юм.
+              </p>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                {/* Vision Box */}
+                <div
+                  style={{
+                    display: 'flex',
+                    gap: 16,
+                    alignItems: 'flex-start',
+                    padding: '18px 20px',
+                    borderRadius: 16,
+                    background: '#EFF6FF',
+                    border: '1px solid rgba(3, 126, 243, 0.2)'
+                  }}
+                >
+                  <div style={{ background: '#FFFFFF', color: 'var(--aiesec-blue)', padding: 10, borderRadius: 12, flexShrink: 0, boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
+                    <Compass size={22} />
                   </div>
                   <div>
-                    <h4 style={{ fontSize: '1rem', fontWeight: 700 }}>Алсын Хараа (Vision)</h4>
-                    <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-                      Австри дахь Монгол оюутан бүр дэлхийн жишигт нийцсэн өндөр боловсрол эзэмшиж, салбар бүрийн тэргүүлэх манлайлагч болон төлөвших.
+                    <h4 style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: 6 }}>
+                      Алсын Хараа (Vision)
+                    </h4>
+                    <p style={{ fontSize: '0.94rem', color: 'var(--text-sub)', lineHeight: 1.65, margin: 0 }}>
+                      {AMOX_MISSION_VISION.vision.text}
                     </p>
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-                  <div style={{ background: '#FFF7ED', color: 'var(--aiesec-orange)', padding: 8, borderRadius: '50%', flexShrink: 0 }}>
-                    <Flag size={20} />
+                {/* Mission Box */}
+                <div
+                  style={{
+                    display: 'flex',
+                    gap: 16,
+                    alignItems: 'flex-start',
+                    padding: '18px 20px',
+                    borderRadius: 16,
+                    background: '#FFF7ED',
+                    border: '1px solid rgba(248, 90, 64, 0.2)'
+                  }}
+                >
+                  <div style={{ background: '#FFFFFF', color: 'var(--aiesec-orange)', padding: 10, borderRadius: 12, flexShrink: 0, boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
+                    <Flag size={22} />
                   </div>
                   <div>
-                    <h4 style={{ fontSize: '1rem', fontWeight: 700 }}>Эрхэм Зорилго (Mission)</h4>
-                    <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-                      Оюутны виз, дотуур байр, 9 бүлэг гарын авлага, 1-on-1 менторшил болон Sun Festival спортын наадмаар дамжуулан оюутан залуусыг бүх талаар дэмжих.
+                    <h4 style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: 6 }}>
+                      Эрхэм Зорилго (Mission)
+                    </h4>
+                    <p style={{ fontSize: '0.95rem', color: 'var(--text-main)', fontWeight: 700, lineHeight: 1.6, margin: '0 0 4px' }}>
+                      {AMOX_MISSION_VISION.mission.motto}
+                    </p>
+                    <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', margin: 0 }}>
+                      {AMOX_MISSION_VISION.mission.mottoEn}
                     </p>
                   </div>
                 </div>
@@ -303,8 +366,122 @@ export const AboutPage: React.FC = () => {
               />
             </div>
           </div>
+
+          {/* 3 Pillars of SSG Cards */}
+          <div style={{ marginTop: 60 }}>
+            <div style={{ textAlign: 'center', marginBottom: 30 }}>
+              <span style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--aiesec-blue)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                SSG Action Pillars
+              </span>
+              <h3 style={{ fontSize: '1.9rem', fontWeight: 800, marginTop: 4 }}>
+                Бидний Үйл Ажиллагааны 3 Тулгуур
+              </h3>
+            </div>
+
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gap: 24
+              }}
+            >
+              {AMOX_MISSION_VISION.mission.pillars.map((pillar) => (
+                <div
+                  key={pillar.id}
+                  style={{
+                    backgroundColor: '#FFFFFF',
+                    borderRadius: 18,
+                    border: '1.5px solid var(--border)',
+                    borderTop: `4px solid ${pillar.color}`,
+                    padding: '26px 24px',
+                    boxShadow: 'var(--shadow-sm)',
+                    transition: 'var(--transition)'
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
+                    <div
+                      style={{
+                        width: 44,
+                        height: 44,
+                        borderRadius: 12,
+                        backgroundColor: pillar.bg,
+                        color: pillar.color,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                      }}
+                    >
+                      {pillar.id === 'sharing' ? (
+                        <Share2 size={22} />
+                      ) : pillar.id === 'supporting' ? (
+                        <HeartHandshake size={22} />
+                      ) : (
+                        <Sparkles size={22} />
+                      )}
+                    </div>
+                    <div>
+                      <h4 style={{ fontSize: '1.2rem', fontWeight: 800, margin: 0 }}>
+                        {pillar.title}
+                      </h4>
+                      <span style={{ fontSize: '0.78rem', fontWeight: 700, color: pillar.color, textTransform: 'uppercase' }}>
+                        {pillar.titleEn}
+                      </span>
+                    </div>
+                  </div>
+                  <p style={{ fontSize: '0.92rem', color: 'var(--text-sub)', lineHeight: 1.65, margin: 0 }}>
+                    {pillar.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Official German Association Statement Card */}
+          <div
+            style={{
+              marginTop: 48,
+              backgroundColor: '#F8FAFC',
+              borderRadius: 20,
+              border: '1.5px solid var(--border)',
+              padding: '30px 36px',
+              position: 'relative'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16, flexWrap: 'wrap' }}>
+              <span
+                style={{
+                  background: 'var(--aiesec-blue)',
+                  color: '#FFFFFF',
+                  fontSize: '0.75rem',
+                  fontWeight: 800,
+                  padding: '4px 12px',
+                  borderRadius: 'var(--radius-pill)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.04em'
+                }}
+              >
+                🇦🇹 Deutsch &bull; Offizielle Vereinsbeschreibung
+              </span>
+              <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 600 }}>
+                ZVR-Zahl: 107178700 (Verein der mongolischen Studenten in Österreich)
+              </span>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12, fontSize: '0.94rem', color: 'var(--text-main)', lineHeight: 1.75 }}>
+              {AMOX_MISSION_VISION.germanStatement.paragraphs.map((para, i) => (
+                <p key={i} style={{ margin: 0 }}>
+                  {para}
+                </p>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
+
+      {/* -------------------------------------------------------------
+          3. OFFICIAL CHANNELS & MEDIA PLATFORMS SECTION
+          ------------------------------------------------------------- */}
+      <OfficialChannelsSection />
 
       {/* -------------------------------------------------------------
           3. CORE VALUES SECTION (The 6 AIESEC Pillars)
