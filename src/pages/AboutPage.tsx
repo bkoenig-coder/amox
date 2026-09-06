@@ -29,6 +29,7 @@ import {
 import { HandDrawnLoop, HandDrawnWave } from '../components/HandDrawnSVGs';
 import { CascadingCollage } from '../components/CascadingCollage';
 import { OfficialChannelsSection } from '../components/OfficialChannelsSection';
+import { TypewriterLoop } from '../components/TypewriterLoop';
 import { TIMELINE_HISTORY } from '../data/eventsData';
 import { AMOX_MISSION_VISION } from '../data/associationData';
 
@@ -219,6 +220,27 @@ export const AboutPage: React.FC = () => {
               <span style={{ opacity: 0.8, fontSize: '0.85rem', fontWeight: 600 }}>
                 (SSG)
               </span>
+            </div>
+
+            {/* Typewriter Categories Loop */}
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
+              <div className="typewriter-hero-badge">
+                <span className="typewriter-tag-pulse" />
+                <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.85)', fontWeight: 600 }}>
+                  Үйл ажиллагаа:
+                </span>
+                <TypewriterLoop
+                  words={[
+                    'Sun Festival 2027',
+                    'Student Guide',
+                    'Students Info Day',
+                    'AMOX Students Info Day 2026',
+                    '1-on-1 Mentorship',
+                    'Housing & Visa Support'
+                  ]}
+                  highlightColor="#FFDF00"
+                />
+              </div>
             </div>
 
             <p

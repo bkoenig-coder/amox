@@ -17,6 +17,7 @@ import { AiesecHexagonsLeft, AiesecHexagonsRight } from '../components/AiesecHex
 import { CascadingCollage } from '../components/CascadingCollage';
 import { OfficialChannelsSection } from '../components/OfficialChannelsSection';
 import { AnimatedStatNumber } from '../components/AnimatedStatCounter';
+import { TypewriterLoop } from '../components/TypewriterLoop';
 import { EVENTS_DATA } from '../data/eventsData';
 import { AMOX_MISSION_VISION } from '../data/associationData';
 
@@ -133,6 +134,28 @@ export const HomePage: React.FC = () => {
               <span style={{ opacity: 0.8, fontSize: '0.85rem', fontWeight: 600 }}>
                 (SSG)
               </span>
+            </div>
+
+            {/* Typewriter Categories Loop Banner */}
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
+              <div className="typewriter-hero-badge">
+                <span className="typewriter-tag-pulse" />
+                <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.85)', fontWeight: 600 }}>
+                  Онцлох хөтөлбөр:
+                </span>
+                <TypewriterLoop
+                  words={[
+                    'Sun Festival 2027',
+                    'Student Guide',
+                    'Students Info Day',
+                    'AMOX Students Info Day 2026',
+                    'Housing Finder',
+                    'MA35 Visa Center',
+                    '1-on-1 Mentorship'
+                  ]}
+                  highlightColor="#FFDF00"
+                />
+              </div>
             </div>
 
             <p
@@ -447,9 +470,27 @@ export const HomePage: React.FC = () => {
                 <HandDrawnLoop color="#037EF3" />
               </span>
             </h2>
-            <p style={{ fontSize: '1.1rem', color: 'var(--text-sub)' }}>
+            <p style={{ fontSize: '1.1rem', color: 'var(--text-sub)', marginBottom: 16 }}>
               Австри дахь амьдрал, их сургууль, спорт ба карьерын бүх талын дэмжлэг
             </p>
+
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 20px', background: '#EFF6FF', borderRadius: 'var(--radius-pill)', border: '1px solid rgba(3, 126, 243, 0.25)', boxShadow: '0 2px 10px rgba(3, 126, 243, 0.08)' }}>
+              <span style={{ fontSize: '0.86rem', fontWeight: 800, color: 'var(--aiesec-blue)' }}>
+                ✨ Чиглэлүүд:
+              </span>
+              <TypewriterLoop
+                words={[
+                  'Sun Festival 2027',
+                  'Student Guide',
+                  'Students Info Day',
+                  'AMOX Students Info Day 2026',
+                  'Housing & Dorm Finder',
+                  'MA35 Visa & ÖGK Insurance',
+                  '1-on-1 Mentorship'
+                ]}
+                highlightColor="var(--aiesec-blue)"
+              />
+            </div>
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 110 }}>

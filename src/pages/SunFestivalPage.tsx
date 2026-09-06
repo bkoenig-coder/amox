@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { HandDrawnLoop, HandDrawnWave } from '../components/HandDrawnSVGs';
 import { FestivalPhotoSlider } from '../components/FestivalPhotoSlider';
+import { TypewriterLoop } from '../components/TypewriterLoop';
 
 export const SunFestivalPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -183,6 +184,28 @@ export const SunFestivalPage: React.FC = () => {
                 <HandDrawnLoop color="#F85A40" />
               </span>
             </h1>
+
+            {/* Typewriter Sports Loop */}
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
+              <div className="typewriter-hero-badge" style={{ borderColor: 'rgba(248, 90, 64, 0.4)' }}>
+                <span className="typewriter-tag-pulse" style={{ background: '#F85A40', boxShadow: '0 0 10px #F85A40' }} />
+                <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.9)', fontWeight: 600 }}>
+                  Тэмцээний төрөл:
+                </span>
+                <TypewriterLoop
+                  words={[
+                    'Сагсан бөмбөг (Эрэгтэй / Эмэгтэй)',
+                    'Гар бөмбөг (Холимог 4+2)',
+                    'Мини Хөлбөмбөг (5+1)',
+                    'Ширээний теннис',
+                    'Талбайн теннис',
+                    'Шатар & Оюуны спорт',
+                    'Sun Festival 2027 Mega Cup'
+                  ]}
+                  highlightColor="#FFD700"
+                />
+              </div>
+            </div>
 
             <p
               style={{
