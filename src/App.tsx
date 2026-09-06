@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { SearchModal } from './components/SearchModal';
+import { WelcomeViewportOverlay } from './components/WelcomeViewportOverlay';
 import { HomePage } from './pages/HomePage';
 import { SunFestivalPage } from './pages/SunFestivalPage';
 import { GuidePage } from './pages/GuidePage';
@@ -68,6 +69,7 @@ export const App: React.FC = () => {
 
         <Footer />
         <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+        <WelcomeViewportOverlay />
       </div>
     </BrowserRouter>
   );
