@@ -315,15 +315,15 @@ export const ImpressumPage: React.FC = () => {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12, fontSize: '0.9rem' }}>
                 <div>
                   <div style={{ fontSize: '0.76rem', color: 'var(--text-muted)', fontWeight: 700 }}>E-MAIL:</div>
-                  <a href="mailto:contact@amox.at" style={{ color: 'var(--aiesec-blue)', fontWeight: 600, textDecoration: 'none' }}>
-                    contact@amox.at
+                  <a href="mailto:amox.org@gmail.com" style={{ color: 'var(--aiesec-blue)', fontWeight: 600, textDecoration: 'none' }}>
+                    amox.org@gmail.com
                   </a>
                 </div>
 
                 <div>
                   <div style={{ fontSize: '0.76rem', color: 'var(--text-muted)', fontWeight: 700 }}>WEBSITE:</div>
-                  <a href="https://amox.at" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--aiesec-blue)', fontWeight: 600, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 4 }}>
-                    https://amox.at <ExternalLink size={12} />
+                  <a href="https://www.amox.site" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--aiesec-blue)', fontWeight: 600, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                    www.amox.site <ExternalLink size={12} />
                   </a>
                 </div>
 
@@ -397,7 +397,7 @@ export const ImpressumPage: React.FC = () => {
                     📰 Grundlegende Richtung (Blattlinie nach § 25 Abs 4 MedienG)
                   </h4>
                   <p style={{ color: 'var(--text-muted)', marginBottom: 12 }}>
-                    Die Website <strong>amox.at</strong> dient der Information und Orientierung von mongolischen Studierenden,
+                    Die Website <strong>www.amox.site</strong> dient der Information und Orientierung von mongolischen Studierenden,
                     Studieninteressierten und Jugendlichen in Österreich. Sie bietet Hilfestellungen zu Hochschulzulassung,
                     Wohnheimen, Aufenthaltsrecht, Mentoring-Programmen sowie Berichterstattung über kulturelle und sportliche
                     Vereinsveranstaltungen (wie z.B. das Sun Festival).
@@ -548,15 +548,15 @@ export const ImpressumPage: React.FC = () => {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12, fontSize: '0.9rem' }}>
                 <div>
                   <div style={{ fontSize: '0.76rem', color: 'var(--text-muted)', fontWeight: 700 }}>И-МЭЙЛ ХАЯГ:</div>
-                  <a href="mailto:contact@amox.at" style={{ color: 'var(--aiesec-blue)', fontWeight: 600, textDecoration: 'none' }}>
-                    contact@amox.at
+                  <a href="mailto:amox.org@gmail.com" style={{ color: 'var(--aiesec-blue)', fontWeight: 600, textDecoration: 'none' }}>
+                    amox.org@gmail.com
                   </a>
                 </div>
 
                 <div>
                   <div style={{ fontSize: '0.76rem', color: 'var(--text-muted)', fontWeight: 700 }}>АЛБАН ЁСНЫ ВЭБСАЙТ:</div>
-                  <a href="https://amox.at" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--aiesec-blue)', fontWeight: 600, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 4 }}>
-                    https://amox.at <ExternalLink size={12} />
+                  <a href="https://www.amox.site" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--aiesec-blue)', fontWeight: 600, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                    www.amox.site <ExternalLink size={12} />
                   </a>
                 </div>
 

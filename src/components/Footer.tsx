@@ -165,9 +165,9 @@ export const Footer: React.FC = () => {
                 <MapPin size={13} color="var(--aiesec-orange)" style={{ flexShrink: 0, marginTop: 2 }} />
                 <span>Вена хот, Австри</span>
               </div>
-              <a href="mailto:contact@amox.at" className="footer-email-link">
+              <a href="mailto:amox.org@gmail.com" className="footer-email-link">
                 <Mail size={13} color="var(--aiesec-blue)" style={{ flexShrink: 0 }} />
-                <span>contact@amox.at</span>
+                <span>amox.org@gmail.com</span>
               </a>
               <div className="footer-contact-item" style={{ color: 'var(--text-muted)', fontSize: '0.72rem' }}>
                 <ShieldCheck size={13} color="var(--aiesec-teal)" style={{ flexShrink: 0 }} />

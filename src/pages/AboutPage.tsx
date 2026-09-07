@@ -1192,7 +1192,7 @@ export const AboutPage: React.FC = () => {
                 <span>Impressum &amp; Хууль зүйн мэдээлэл</span>
               </Link>
               <a
-                href="mailto:contact@amox.at"
+                href="mailto:amox.org@gmail.com"
                 className="aiesec-btn-primary"
                 style={{ padding: '10px 22px', fontSize: '0.88rem' }}
               >

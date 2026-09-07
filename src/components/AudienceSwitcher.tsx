@@ -189,7 +189,7 @@ export const AudienceSwitcher: React.FC = () => {
                 </p>
                 <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
                   <Link to="/about#partners" className="aiesec-btn-primary" style={{ padding: '10px 22px', fontSize: '0.88rem' }}>Хамтрагчид үзэх <ArrowRight size={16} /></Link>
-                  <a href="mailto:contact@amox.at" className="aiesec-btn-outline" style={{ padding: '10px 22px', fontSize: '0.88rem', color: 'var(--text-main) !important', borderColor: 'var(--border-strong)' }}>Санал хүсэлт илгээх</a>
+                  <a href="mailto:amox.org@gmail.com" className="aiesec-btn-outline" style={{ padding: '10px 22px', fontSize: '0.88rem', color: 'var(--text-main) !important', borderColor: 'var(--border-strong)' }}>Санал хүсэлт илгээх</a>
                 </div>
               </div>
               <div style={{ background: '#F0FDF4', padding: 24, borderRadius: 'var(--radius-md)', border: '1px solid rgba(0,193,110,0.2)' }}>
