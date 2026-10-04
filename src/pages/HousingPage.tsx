@@ -33,10 +33,8 @@ export const HousingPage: React.FC = () => {
   return (
     <div className="housing-page">
       {/* Header */}
-      <section style={{
-        padding: '60px 0 40px',
-        background: 'linear-gradient(180deg, #FFFFFF 0%, var(--bg-subtle) 100%)',
-        borderBottom: '1px solid var(--border)'
+      <section className="page-hero" style={{
+        padding: '120px 0 56px'
       }}>
         <div className="container text-center">
           <span className="section-subtitle">ОЮУТНЫ ОРОН БАЙР &bull; LIVE DIRECTORY</span>
@@ -219,7 +217,7 @@ export const HousingPage: React.FC = () => {
                           position: 'absolute',
                           top: 18,
                           right: 18,
-                          background: dorm.badge.includes('LUXURY') || dorm.badge.includes('PREMIUM') ? '#0F172A' : '#EFF6FF',
+                          background: dorm.badge.includes('LUXURY') || dorm.badge.includes('PREMIUM') ? '#0F172A' : '#EEF0FF',
                           color: dorm.badge.includes('LUXURY') || dorm.badge.includes('PREMIUM') ? '#F4B400' : 'var(--aiesec-blue)',
                           fontSize: '0.72rem',
                           fontWeight: 800,
@@ -259,7 +257,7 @@ export const HousingPage: React.FC = () => {
                     <ul style={{ listStyle: 'none', marginBottom: 20, flexGrow: 1 }}>
                       {dorm.features.map((feat, fIdx) => (
                         <li key={fIdx} style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: 6, display: 'flex', gap: 8 }}>
-                          <span style={{ color: 'var(--aiesec-blue)', fontWeight: 800 }}>✓</span> {feat}
+                          <span style={{ color: 'var(--aiesec-blue)', fontWeight: 800 }}></span> {feat}
                         </li>
                       ))}
                     </ul>

@@ -31,3 +31,6 @@ lerna-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# Local event data (dev only)
+.data

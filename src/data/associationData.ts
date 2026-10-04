@@ -21,33 +21,33 @@ export const AMOX_MISSION_VISION = {
         title: 'Хуваалцъя',
         titleEn: 'Sharing',
         icon: 'Share2',
-        color: '#037EF3',
-        bg: '#EFF6FF',
-        description: 'Австри улсын боловсрол, их сургуулийн элсэлт, тэтгэлэг, амьдрах орчны үнэн бодит мэдлэг, туршлага, боломжуудыг нээлттэй хуваалцана.'
+        color: '#3347FF',
+        bg: '#EEF0FF',
+        description: 'Австрийн боловсрол, элсэлт, тэтгэлэг, амьдралын талаар өөрсдийн туршлагаас олсон бодит мэдээллийг нээлттэй хуваалцана.'
       },
       {
         id: 'supporting',
         title: 'Дэмжье',
         titleEn: 'Supporting',
         icon: 'HeartHandshake',
-        color: '#F85A40',
-        bg: '#FFF7ED',
-        description: 'Оюутан залуусын виз, даатгал, дотуур байр, 20 цагийн ажил эрхлэлт болон хууль эрх зүйн баталгааг бүх шатанд зөвлөн дэмжинэ.'
+        color: '#F0643A',
+        bg: '#FFE9E5',
+        description: 'Виз, даатгал, байр, цагийн ажил зэрэг хүндрэлтэй үед ахмад оюутнууд зөвлөгөө өгч, хажууд нь байна.'
       },
       {
         id: 'growing',
         title: 'Хамтдаа хөгжье',
         titleEn: 'Growing Together',
         icon: 'Sparkles',
-        color: '#00C16E',
-        bg: '#F0FDF4',
-        description: 'Бие биенээсээ суралцан нэгдэж, олон улсын түвшний мэргэжилтэн, манлайлагч болон Австри дахь Монголчуудын нийгэмлэгээрээ хамтдаа өсөн дэвжинэ.'
+        color: '#12926B',
+        bg: '#DDF6EE',
+        description: 'Бие биенээсээ суралцаж, мэргэжлийн болон хувийн хөгжлөө хамт дэмжиж, Австри дахь Монгол хамт олноо хүчирхэгжүүлнэ.'
       }
     ]
   },
   vision: {
     title: 'Алсын Хараа (Vision)',
-    text: 'Бид эв нэгдлийг эрхэмлэн, мэдлэгийг түгээж, оюутан залуусаа дэмжин, шинэлэг бүхний түүчээ болж хамтдаа хөгжинө.'
+    text: 'Нэгдэж, мэдлэгээ хуваалцаж, бие биенээ дэмжин хамтдаа өсөх нь манай зорилго.'
   },
   germanStatement: {
     badge: 'Offizielle Vereinsbeschreibung & Leitbild',
@@ -63,12 +63,12 @@ export const AMOX_MISSION_VISION = {
 export const OFFICIAL_CHANNELS: ChannelItem[] = [
   {
     id: 'facebook-group',
-    title: 'Австри дахь Монгол Оюутны Холбоо фэйсбүүк групп',
+    title: 'AMOX Facebook групп',
     handle: 'AmoxAustriaGroup',
     url: 'https://www.facebook.com/groups/AmoxAustriaGroup',
     category: 'community',
     badge: 'Албан ёсны групп',
-    description: 'Австри дахь оюутнуудын хамгийн том нэгдсэн коммюнити: байр, ажил, сургуулийн зөвлөгөө, зар мэдээлэл.',
+    description: 'Австри дахь Монгол оюутнуудын хамгийн том групп. Байр, ажил, сургуулийн талаар асууж, зар мэдээлэл авах газар.',
     actionText: 'Группт нэгдэх'
   },
   {
@@ -78,8 +78,8 @@ export const OFFICIAL_CHANNELS: ChannelItem[] = [
     url: 'https://www.instagram.com/amox_at/',
     category: 'social',
     badge: 'Instagram',
-    description: 'Оюутны амьдралын өдөр тутмын мэдээлэл, шинэ арга хэмжээний зураг, видео болон зарлалууд.',
-    actionText: 'Дагах (@amox_at)'
+    description: 'Арга хэмжээний зураг, видео болон шинэ мэдээ.',
+    actionText: 'Дагах'
   },
   {
     id: 'youtube',
@@ -88,37 +88,37 @@ export const OFFICIAL_CHANNELS: ChannelItem[] = [
     url: 'https://www.youtube.com/channel/UCx2WabubQ10shpkeOeLUpbQ/videos',
     category: 'video',
     badge: 'YouTube',
-    description: 'Их сургуулиудын танилцуулга, оюутны подкаст бичлэгүүд болон Австри дахь амьдралын контентууд.',
-    actionText: 'Сувагт бүртгүүлэх'
+    description: 'Их сургуулиудын танилцуулга, оюутнуудын ярилцлага, Австри дахь амьдралын бичлэгүүд.',
+    actionText: 'Суваг үзэх'
   },
   {
     id: 'podcast',
-    title: 'Хөтлөн явуулдаг подкаст хаяг',
+    title: 'AMOX подкаст',
     handle: 'AMOX Podcast',
     url: 'https://soundcloud.com/amox-podcast',
     category: 'podcast',
     badge: 'SoundCloud Podcast',
-    description: 'Австрийн шилдэг оюутан, төгсөгчдийн бодит туршлага, суралцах арга барил, карьерын ярилцлагууд.',
-    actionText: 'Подкаст сонсох'
+    description: 'Австрид суралцсан оюутан, төгсөгчдийн туршлага, карьерын түүх.',
+    actionText: 'Сонсох'
   },
   {
     id: 'study-video',
-    title: 'Австри улсад суралцах видео мэдээлэл',
+    title: 'Австрид суралцах нь — видео танилцуулга',
     handle: 'YouTube Video',
     url: 'https://youtu.be/j_DwiLspu08',
     category: 'video',
     badge: 'Видео Хөтөч',
-    description: 'Австри улсад суралцахаар бэлтгэж буй залууст зориулсан албан ёсны видео гарын авлага, зөвлөмж.',
-    actionText: 'Видеог үзэх'
+    description: 'Австрид суралцахаар бэлдэж буй хүмүүст зориулсан товч видео гарын авлага.',
+    actionText: 'Үзэх'
   },
   {
     id: 'study-article',
-    title: 'Австри улсад суралцах нийтлэл',
+    title: 'Австрид суралцах нийтлэл',
     handle: 'Google Docs Guide',
     url: 'https://docs.google.com/document/d/18X8c1iTN8rQPaVyUCq34wE5ApBgyHJvyvdSv4IGEWbY/edit?usp=sharing',
     category: 'guide',
     badge: 'Цогц Нийтлэл',
-    description: 'Австрийн их сургуульд элсэхээс эхлээд виз, байр авах хүртэлх алхамчилсан цогц нийтлэл, гарын авлага.',
-    actionText: 'Нийтлэлийг унших'
+    description: 'Элсэлтээс эхлээд виз, байр хүртэл алхам алхмаар тайлбарласан гарын авлага.',
+    actionText: 'Унших'
   }
 ];

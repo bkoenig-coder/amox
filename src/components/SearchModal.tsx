@@ -129,7 +129,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
           {isLegalMatch && (
             <div style={{ marginBottom: 20 }}>
               <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--aiesec-blue)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                ⚖️ Хууль зүйн бүртгэл &amp; Impressum
+                Хууль зүйн бүртгэл &amp; Impressum
               </span>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginTop: 8 }}>
                 <div
@@ -137,8 +137,8 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
                   style={{
                     padding: '12px 14px',
                     borderRadius: 'var(--radius-sm)',
-                    background: 'rgba(3, 126, 243, 0.06)',
-                    border: '1px solid rgba(3, 126, 243, 0.2)',
+                    background: 'rgba(51, 71, 255, 0.06)',
+                    border: '1px solid rgba(51, 71, 255, 0.2)',
                     cursor: 'pointer',
                     display: 'flex',
                     alignItems: 'center',
@@ -166,7 +166,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
           {/* Section: Guide */}
           <div style={{ marginBottom: 20 }}>
             <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-              📖 Оюутны Гарын Авлага ({filteredGuides.length})
+              Оюутны Гарын Авлага ({filteredGuides.length})
             </span>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginTop: 8 }}>
               {filteredGuides.map(guide => (
@@ -199,7 +199,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
           {/* Section: Dorms */}
           <div>
             <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-              🏠 Дотуур Байр ({filteredDorms.length})
+              Дотуур Байр ({filteredDorms.length})
             </span>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginTop: 8 }}>
               {filteredDorms.map(dorm => (
@@ -246,7 +246,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
           fontSize: '0.8rem',
           color: 'var(--text-muted)'
         }}>
-          <span>🔍 Шуурхай хайх: ESC дарж хаана</span>
+          <span>Шуурхай хайх: ESC дарж хаана</span>
           <span>AMOX Seit 2007</span>
         </div>
       </div>

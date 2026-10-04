@@ -12,7 +12,7 @@ interface TypewriterLoopProps {
 
 export const TypewriterLoop: React.FC<TypewriterLoopProps> = ({
   words = [
-    'Sun Festival 2027',
+    'Нарны Баяр 2027',
     'Student Guide',
     'Students Info Day',
     'AMOX Students Info Day 2026',

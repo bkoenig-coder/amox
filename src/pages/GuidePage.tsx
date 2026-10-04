@@ -35,7 +35,7 @@ import { GUIDE_CHAPTERS, GuideChapter } from '../data/guideData';
 export const GuidePage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const [openChapterId, setOpenChapterId] = useState<string>('chapter-1-admission');
+  const [openChapterId, setOpenChapterId] = useState<string>('');
   const [chapterActiveTab, setChapterActiveTab] = useState<Record<string, 'details' | 'misconceptions' | 'steps' | 'checklist'>>({
     'chapter-1-admission': 'details',
     'chapter-2-ma35-visa': 'details',
@@ -77,15 +77,15 @@ export const GuidePage: React.FC = () => {
 
   const categories = [
     { id: 'all', label: 'Бүх Бүлэг (9)' },
-    { id: 'admission', label: '🎓 Их Сургуулийн Элсэлт' },
-    { id: 'visa', label: '🛂 MA35 Оюутны Виз' },
-    { id: 'housing', label: '🏠 Дотуур Байр & Хаяг' },
-    { id: 'insurance', label: '🩺 ÖGK Даатгал & E-Card' },
-    { id: 'work', label: '💼 AMS 20h Ажил & Цалин' },
-    { id: 'finance', label: '💶 Санхүү, Данс & Татвар' },
-    { id: 'transport', label: '🚆 Нийтийн Тээвэр' },
-    { id: 'living', label: '🧭 Өдөр Тутмын Амьдрал' },
-    { id: 'emergency', label: '🚨 Яаралтай & ЭСЯ' }
+    { id: 'admission', label: 'Их Сургуулийн Элсэлт' },
+    { id: 'visa', label: 'MA35 Оюутны Виз' },
+    { id: 'housing', label: 'Дотуур Байр & Хаяг' },
+    { id: 'insurance', label: 'ÖGK Даатгал & E-Card' },
+    { id: 'work', label: 'AMS 20h Ажил & Цалин' },
+    { id: 'finance', label: 'Санхүү, Данс & Татвар' },
+    { id: 'transport', label: 'Нийтийн Тээвэр' },
+    { id: 'living', label: 'Өдөр Тутмын Амьдрал' },
+    { id: 'emergency', label: 'Яаралтай & ЭСЯ' }
   ];
 
   const filteredChapters = GUIDE_CHAPTERS.filter(chapter => {
@@ -134,13 +134,10 @@ export const GuidePage: React.FC = () => {
   };
 
   return (
-    <div className="guide-page" style={{ background: '#F8FAFC', minHeight: '100vh' }}>
+    <div className="guide-page" style={{ background: '#F6F6F4', minHeight: '100vh' }}>
       {/* Hero Header */}
-      <section style={{
-        padding: '70px 0 45px',
-        background: 'linear-gradient(135deg, #0A192F 0%, #002D62 55%, #037EF3 100%)',
-        color: '#FFFFFF',
-        borderBottom: '1px solid rgba(255,255,255,0.1)'
+      <section className="page-hero" style={{
+        padding: '120px 0 56px'
       }}>
         <div className="container text-center">
           <div style={{
@@ -160,7 +157,7 @@ export const GuidePage: React.FC = () => {
             color: '#E0F2FE'
           }}>
             <Award size={15} color="#FBBF24" />
-            <span>Австрийн Төгсөгчдийн (Alumni) Бодит Туршлагаар Бэлтгэв &bull; 2026/2027</span>
+            <span>2026/2027 оны мэдээлэлд үндэслэсэн</span>
           </div>
 
           <h1 style={{ 
@@ -181,7 +178,7 @@ export const GuidePage: React.FC = () => {
             margin: '0 auto 32px',
             lineHeight: 1.6
           }}>
-            Монголоос эхлээд их сургуулиа амжилттай төгсөх хүртэлх бүх давааг өөрийн биеэр туулсан монгол оюутан төгсөгчдийн алтан зөвлөгөө, хууль эрх зүйн бодит үнэн ба түгээмэл ташаа ойлголтуудын бүрэн залруулга.
+            Элсэлт, виз, байр, даатгал, ажил, амьжиргааны зардлын талаарх үндсэн мэдээлэл болон түгээмэл ташаа ойлголтуудын тайлбар. Үнэ, дүрэм өөрчлөгдөж болох тул албан ёсны сайтаас заавал шалгаарай.
           </p>
 
           {/* Search Bar */}
@@ -226,8 +223,7 @@ export const GuidePage: React.FC = () => {
                     color: '#64748B'
                   }}
                 >
-                  ✕
-                </button>
+                                  </button>
               )}
             </div>
           </div>
@@ -262,7 +258,7 @@ export const GuidePage: React.FC = () => {
                 gap: 4
               }}
             >
-              <span>📄 Албан баримт (Doc)</span>
+              <span>Албан баримт (Doc)</span>
               <ExternalLink size={12} />
             </a>
             <span style={{ color: 'rgba(255,255,255,0.3)' }}>|</span>
@@ -280,7 +276,7 @@ export const GuidePage: React.FC = () => {
                 gap: 4
               }}
             >
-              <span>🎥 Видео гарын авлага</span>
+              <span>Видео гарын авлага</span>
               <ExternalLink size={12} />
             </a>
             <span style={{ color: 'rgba(255,255,255,0.3)' }}>|</span>
@@ -298,7 +294,7 @@ export const GuidePage: React.FC = () => {
                 gap: 4
               }}
             >
-              <span>👥 AMOX Фэйсбүүк групп</span>
+              <span>AMOX Фэйсбүүк групп</span>
               <ExternalLink size={12} />
             </a>
           </div>
@@ -326,7 +322,7 @@ export const GuidePage: React.FC = () => {
                   fontSize: '0.84rem',
                   fontWeight: selectedCategory === cat.id ? 800 : 600,
                   border: selectedCategory === cat.id ? '1.5px solid var(--aiesec-blue)' : '1px solid var(--border)',
-                  background: selectedCategory === cat.id ? '#EFF6FF' : '#FFFFFF',
+                  background: selectedCategory === cat.id ? '#EEF0FF' : '#FFFFFF',
                   color: selectedCategory === cat.id ? 'var(--aiesec-blue)' : 'var(--text-sub)',
                   cursor: 'pointer',
                   transition: 'all 0.15s ease',
@@ -380,8 +376,8 @@ export const GuidePage: React.FC = () => {
               <a
                 href="#calculator"
                 style={{
-                  background: '#EFF6FF',
-                  border: '1px solid rgba(3, 126, 243, 0.3)',
+                  background: '#EEF0FF',
+                  border: '1px solid rgba(51, 71, 255, 0.3)',
                   borderRadius: 8,
                   padding: '6px 12px',
                   fontSize: '0.8rem',
@@ -414,7 +410,7 @@ export const GuidePage: React.FC = () => {
                     border: isOpen ? '2px solid var(--aiesec-blue)' : '1px solid var(--border)',
                     borderRadius: 16,
                     overflow: 'hidden',
-                    boxShadow: isOpen ? '0 10px 30px rgba(3, 126, 243, 0.08)' : '0 2px 10px rgba(0,0,0,0.03)',
+                    boxShadow: isOpen ? '0 10px 30px rgba(51, 71, 255, 0.08)' : '0 2px 10px rgba(0,0,0,0.03)',
                     transition: 'all 0.2s ease'
                   }}
                 >
@@ -427,7 +423,7 @@ export const GuidePage: React.FC = () => {
                       alignItems: 'center',
                       justifyContent: 'space-between',
                       cursor: 'pointer',
-                      background: isOpen ? 'linear-gradient(90deg, #EFF6FF 0%, #FFFFFF 100%)' : '#FFFFFF'
+                      background: isOpen ? 'linear-gradient(90deg, #EEF0FF 0%, #FFFFFF 100%)' : '#FFFFFF'
                     }}
                   >
                     <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
@@ -490,11 +486,11 @@ export const GuidePage: React.FC = () => {
                       width: 36,
                       height: 36,
                       borderRadius: '50%',
-                      background: isOpen ? '#DBEAFE' : '#F8FAFC',
+                      background: isOpen ? '#DBEAFE' : '#F6F6F4',
                       flexShrink: 0,
                       marginLeft: 12
                     }}>
-                      {isOpen ? <ChevronUp size={20} color="var(--aiesec-blue)" /> : <ChevronDown size={20} color="#64748B Gamboge" />}
+                      {isOpen ? <ChevronUp size={20} color="var(--aiesec-blue)" /> : <ChevronDown size={20} color="#64748B" />}
                     </div>
                   </div>
 
@@ -505,7 +501,7 @@ export const GuidePage: React.FC = () => {
                       {/* Summary callout */}
                       <div style={{
                         padding: '16px 24px',
-                        background: '#F8FAFC',
+                        background: '#F6F6F4',
                         borderBottom: '1px solid var(--border)',
                         fontSize: '0.94rem',
                         lineHeight: 1.65,
@@ -519,41 +515,26 @@ export const GuidePage: React.FC = () => {
                         <div style={{
                           margin: '20px 24px 16px',
                           padding: '16px 20px',
-                          background: 'linear-gradient(135deg, #FEF3C7 0%, #FFFBEB 100%)',
-                          border: '1.5px solid #FCD34D',
+                          background: '#F6F6F4',
+                          border: '1px solid #E7E7E3',
                           borderRadius: 12,
                           display: 'flex',
                           gap: 14,
                           alignItems: 'flex-start'
                         }}>
-                          <div style={{
-                            background: '#F59E0B',
-                            color: '#FFFFFF',
-                            width: 34,
-                            height: 34,
-                            borderRadius: 8,
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            flexShrink: 0,
-                            marginTop: 2
-                          }}>
-                            <Sparkles size={18} />
-                          </div>
                           <div>
                             <div style={{
                               fontSize: '0.82rem',
                               fontWeight: 800,
-                              color: '#92400E',
-                              textTransform: 'uppercase',
-                              letterSpacing: '0.04em',
+                              color: '#0C0C0F',
+                              letterSpacing: '0',
                               marginBottom: 4
                             }}>
-                              Төгсөгчийн Бодит Зөвлөгөө &bull; Alumni Insider Hack
+                              Төгсөгчийн зөвлөгөө
                             </div>
                             <p style={{
                               fontSize: '0.92rem',
-                              color: '#78350F',
+                              color: '#52525B',
                               lineHeight: 1.6,
                               margin: 0,
                               fontStyle: 'italic'
@@ -567,7 +548,7 @@ export const GuidePage: React.FC = () => {
                       {/* Chapter Quick Takeaways */}
                       <div style={{ padding: '0 24px 16px' }}>
                         <div style={{
-                          background: '#EFF6FF',
+                          background: '#EEF0FF',
                           borderRadius: 12,
                           padding: '14px 18px',
                           border: '1px solid #BFDBFE'
@@ -694,7 +675,7 @@ export const GuidePage: React.FC = () => {
                             <div
                               key={sIdx}
                               style={{
-                                background: '#F8FAFC',
+                                background: '#F6F6F4',
                                 border: '1px solid var(--border)',
                                 borderRadius: 12,
                                 padding: '20px 22px'
@@ -740,7 +721,7 @@ export const GuidePage: React.FC = () => {
                                   marginTop: 14,
                                   padding: '12px 16px',
                                   borderRadius: 8,
-                                  background: sec.alertBox.type === 'warning' ? '#FEF2F2' : sec.alertBox.type === 'success' ? '#ECFDF5' : '#EFF6FF',
+                                  background: sec.alertBox.type === 'warning' ? '#FEF2F2' : sec.alertBox.type === 'success' ? '#ECFDF5' : '#EEF0FF',
                                   border: `1px solid ${sec.alertBox.type === 'warning' ? '#F87171' : sec.alertBox.type === 'success' ? '#34D399' : '#60A5FA'}`,
                                   display: 'flex',
                                   gap: 10,
@@ -787,7 +768,7 @@ export const GuidePage: React.FC = () => {
                             color: '#991B1B',
                             fontWeight: 600
                           }}>
-                            💡 Оюутнуудын дунд амнаас ам дамжин тардаг ташаа ойлголтууд болон түүний хууль зүйн бодит үнэн:
+                            Түгээмэл ташаа ойлголтууд ба тэдгээрийн тайлбар:
                           </div>
 
                           {chapter.misconceptions.map((item, mIdx) => (
@@ -813,7 +794,7 @@ export const GuidePage: React.FC = () => {
                                 borderLeft: '4px solid #EF4444'
                               }}>
                                 <div style={{ color: '#DC2626', fontWeight: 900, fontSize: '0.84rem', flexShrink: 0 }}>
-                                  ❌ ТАШАА ОЙЛГОЛТ:
+                                  ТАШАА ОЙЛГОЛТ:
                                 </div>
                                 <div style={{ fontSize: '0.9rem', color: '#991B1B', fontWeight: 600, lineHeight: 1.5 }}>
                                   "{item.myth}"
@@ -832,7 +813,7 @@ export const GuidePage: React.FC = () => {
                                 borderLeft: '4px solid #10B981'
                               }}>
                                 <div style={{ color: '#059669', fontWeight: 900, fontSize: '0.84rem', flexShrink: 0 }}>
-                                  ✅ БОДИТ ҮНЭН:
+                                  БОДИТ ҮНЭН:
                                 </div>
                                 <div style={{ fontSize: '0.9rem', color: '#065F46', lineHeight: 1.6 }}>
                                   {item.reality}
@@ -842,14 +823,14 @@ export const GuidePage: React.FC = () => {
                               {/* Alumni Advice */}
                               <div style={{
                                 padding: '10px 14px',
-                                background: '#F8FAFC',
+                                background: '#F6F6F4',
                                 borderRadius: 8,
                                 border: '1px solid #E2E8F0',
                                 fontSize: '0.88rem',
                                 color: '#334155',
                                 lineHeight: 1.6
                               }}>
-                                <strong style={{ color: 'var(--aiesec-blue)' }}>Төгсөгчийн зөвлөгөө: </strong>
+                                <strong style={{ color: 'var(--aiesec-blue)' }}>Зөвлөмж: </strong>
                                 {item.advice}
                               </div>
                             </div>
@@ -904,7 +885,7 @@ export const GuidePage: React.FC = () => {
                                         background: '#F1F5F9',
                                         color: '#475569'
                                       }}>
-                                        ⏱️ {st.timing}
+                                        ⏱{st.timing}
                                       </span>
                                     )}
                                   </div>
@@ -1003,7 +984,7 @@ export const GuidePage: React.FC = () => {
                       {chapter.officialLinks.length > 0 && (
                         <div style={{
                           padding: '16px 24px',
-                          background: '#F8FAFC',
+                          background: '#F6F6F4',
                           borderTop: '1px solid var(--border)',
                           display: 'flex',
                           alignItems: 'center',
@@ -1075,7 +1056,7 @@ export const GuidePage: React.FC = () => {
               <div>
                 <div style={{ marginBottom: 18 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6, fontSize: '0.9rem', fontWeight: 700 }}>
-                    <span>🏠 Дотуур Байр / Түрээс:</span>
+                    <span>Дотуур Байр / Түрээс:</span>
                     <span style={{ color: 'var(--aiesec-blue)' }}>€{dormPrice} / сар</span>
                   </div>
                   <input
@@ -1088,15 +1069,15 @@ export const GuidePage: React.FC = () => {
                     style={{ width: '100%', accentColor: 'var(--aiesec-blue)' }}
                   />
                   <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.74rem', color: '#94A3B8' }}>
-                    <span>€300 (WIHAST)</span>
-                    <span>€550 (STUWO/Base19)</span>
-                    <span>€800 (Хувийн)</span>
+                    <span>€300 (бага үнэтэй байр)</span>
+                    <span>€550 (дундаж)</span>
+                    <span>€800 (хувийн түрээс)</span>
                   </div>
                 </div>
 
                 <div style={{ marginBottom: 18 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6, fontSize: '0.9rem', fontWeight: 700 }}>
-                    <span>🍲 Хоол &amp; Хүнс (Hofer/Lidl):</span>
+                    <span>Хоол &amp; Хүнс (Hofer/Lidl):</span>
                     <span style={{ color: 'var(--aiesec-blue)' }}>€{foodPrice} / сар</span>
                   </div>
                   <input
@@ -1117,7 +1098,7 @@ export const GuidePage: React.FC = () => {
 
                 <div style={{ marginBottom: 18 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6, fontSize: '0.9rem', fontWeight: 700 }}>
-                    <span>🩺 Эрүүл Мэндийн Даатгал (ÖGK):</span>
+                    <span>Эрүүл Мэндийн Даатгал (ÖGK):</span>
                     <span style={{ color: 'var(--aiesec-blue)' }}>€{insurancePrice} / сар</span>
                   </div>
                   <input
@@ -1131,13 +1112,13 @@ export const GuidePage: React.FC = () => {
                   />
                   <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.74rem', color: '#94A3B8' }}>
                     <span>€0 (Ажил олгогч төлбөл)</span>
-                    <span>€78.84 (Оюутны албан тариф)</span>
+                    <span>€78.84 (2026 оны оюутны тариф, ойролцоогоор)</span>
                   </div>
                 </div>
 
                 <div style={{ marginBottom: 18 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6, fontSize: '0.9rem', fontWeight: 700 }}>
-                    <span>📱 Утас, Тээвэр &amp; Бусад:</span>
+                    <span>Утас, Тээвэр &amp; Бусад:</span>
                     <span style={{ color: 'var(--aiesec-blue)' }}>€{otherPrice} / сар</span>
                   </div>
                   <input
@@ -1153,7 +1134,7 @@ export const GuidePage: React.FC = () => {
 
                 <div style={{ marginBottom: 8, paddingTop: 8, borderTop: '1px dashed var(--border)' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6, fontSize: '0.92rem', fontWeight: 800 }}>
-                    <span>💼 20 Цагийн Ажлын Сар бүрийн Орлого:</span>
+                    <span>20 Цагийн Ажлын Сар бүрийн Орлого:</span>
                     <span style={{ color: '#059669' }}>+€{workIncome} / сар</span>
                   </div>
                   <input
@@ -1167,15 +1148,15 @@ export const GuidePage: React.FC = () => {
                   />
                   <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.74rem', color: '#94A3B8' }}>
                     <span>€0 (Зөвхөн сурах)</span>
-                    <span>€551.10 (Geringfügig)</span>
-                    <span>€1,100 (Teilzeit 20h)</span>
+                    <span>€551.10 (Geringfügig, 2026 оны хязгаар)</span>
+                    <span>€1,100 (ойролцоогоор 20 цаг/долоо хоног)</span>
                   </div>
                 </div>
               </div>
 
               {/* Result Summary Box */}
               <div style={{
-                background: 'linear-gradient(135deg, #0A192F 0%, #002D62 100%)',
+                background: 'linear-gradient(135deg, #0C0C0F 0%, #0C0C0F 100%)',
                 color: '#FFFFFF',
                 borderRadius: 20,
                 padding: '30px 24px',
@@ -1202,8 +1183,8 @@ export const GuidePage: React.FC = () => {
                   </div>
                   <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.7)', marginTop: 8, marginBottom: 0 }}>
                     {netBalance >= 0 
-                      ? '🎉 Та 20 цаг ажилласнаар амьжиргааны зардлаа бүрэн нөхөж, сар бүр хуримтлуулах боломжтой!' 
-                      : '⚠️ Сар бүрийн зөрүүг нөхөхийн тулд хадгаламж эсвэл гэр бүлийн санхүүгийн дэмжлэг хэрэгтэй.'}
+                      ? 'Та 20 цаг ажилласнаар амьжиргааны зардлаа бүрэн нөхөж, сар бүр хуримтлуулах боломжтой!' 
+                      : 'Сар бүрийн зөрүүг нөхөхийн тулд хадгаламж эсвэл гэр бүлийн санхүүгийн дэмжлэг хэрэгтэй.'}
                   </p>
                 </div>
               </div>
@@ -1213,7 +1194,7 @@ export const GuidePage: React.FC = () => {
       </section>
 
       {/* Community Call to Action */}
-      <section style={{ padding: '60px 0', background: 'linear-gradient(180deg, #F8FAFC 0%, #EFF6FF 100%)' }}>
+      <section style={{ padding: '60px 0', background: 'linear-gradient(180deg, #F6F6F4 0%, #EEF0FF 100%)' }}>
         <div className="container text-center" style={{ maxWidth: 700 }}>
           <div style={{
             width: 54,

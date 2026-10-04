@@ -1,939 +1,350 @@
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { 
-  Globe, 
-  Building2, 
-  Rocket, 
-  ArrowRight, 
-  Calendar, 
-  MapPin, 
-  ArrowDown,
-  Sparkles,
-  GraduationCap
-} from 'lucide-react';
-import { HandDrawnLoop, HandDrawnWave } from '../components/HandDrawnSVGs';
-import { AiesecHexagonsLeft, AiesecHexagonsRight } from '../components/AiesecHexagons';
-import { CascadingCollage } from '../components/CascadingCollage';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { fetchEvents, isPast, type PublicEvent } from '../lib/api';
+import { ArrowRight, ArrowUpRight, BookOpen, Building2, MapPin, ShieldCheck, Users } from 'lucide-react';
 import { OfficialChannelsSection } from '../components/OfficialChannelsSection';
 import { AnimatedStatNumber } from '../components/AnimatedStatCounter';
-import { TypewriterLoop } from '../components/TypewriterLoop';
 import { EVENTS_DATA } from '../data/eventsData';
 import { AMOX_MISSION_VISION } from '../data/associationData';
 
+const SERVICES = [
+  { to: '/guide', Icon: BookOpen, title: 'Оюутны хөтөч', text: 'Элсэлтээс даатгал хүртэл 9 бүлэгт ойлгомжтой тайлбарласан гарын авлага.', tint: 'var(--tint-lilac)' },
+  { to: '/housing', Icon: Building2, title: 'Байр хайгч', text: 'OeAD, STUWO зэрэг 15+ байрны үнэ, байршлыг харьцуулж үзэх.', tint: 'var(--tint-sky)' },
+  { to: '/visa-insurance', Icon: ShieldCheck, title: 'Виз & Даатгал', text: 'MA35-д илгээх и-мэйл бэлтгэх, E-Card даатгалын тайлбар.', tint: 'var(--tint-peach)' },
+  { to: '/about#mentor', Icon: Users, title: 'Ментор', text: 'Ахмад оюутнуудтай холбогдож, ганцаарчилсан зөвлөгөө авах.', tint: 'var(--tint-mint)' }
+];
+
+// Compact date chip shown beside each event
+const DATE_CHIP: Record<string, [string, string]> = {
+  'students-info-day-2026': ['19', 'IX · 2026'],
+  'ma35-deadline-winter-2026': ['IX–X', '2026'],
+  'sun-festival-2027': ['10', 'VII · 2027'],
+  'housing-early-booking-2026': ['26/27', 'Хичээлийн жил']
+};
+
+const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
+
+interface AgendaItem {
+  id: string;
+  title: string;
+  description: string;
+  location: string;
+  chip: [string, string];
+  to: string;
+}
+
+const fromLive = (e: PublicEvent): AgendaItem => {
+  const [y, m, d] = e.date.split('-').map(Number);
+  return {
+    id: e.id,
+    title: e.title,
+    description: e.description,
+    location: e.location,
+    chip: [String(d), ROMAN[m - 1] + ' · ' + y],
+    to: '/events#' + e.id
+  };
+};
+
 export const HomePage: React.FC = () => {
-  const navigate = useNavigate();
-  const [selectedTool, setSelectedTool] = useState('/guide');
-  const [selectedCity, setSelectedCity] = useState('wien');
+  // Events added by the admin (with registration). Falls back to the built-in
+  // list until at least one event has been added.
+  const [live, setLive] = useState<PublicEvent[]>([]);
+  useEffect(() => {
+    fetchEvents().then((e) => setLive(e.filter((x) => !isPast(x.date)))).catch(() => undefined);
+  }, []);
 
-  const handleToolSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (selectedTool === '/housing' && selectedCity !== 'all') {
-      navigate(`/housing?city=${selectedCity}`);
-    } else {
-      navigate(selectedTool);
-    }
-  };
-
-  const getEventImage = (category: string) => {
-    switch (category) {
-      case 'sports':
-        return '/assets/sun_festival_basketball.jpg';
-      case 'academic':
-        return '/assets/student-female.jpg';
-      case 'community':
-        return '/assets/media_1787152152741.jpg';
-      default:
-        return '/assets/student-male.jpg';
-    }
-  };
+  const agenda: AgendaItem[] =
+    live.length > 0
+      ? live.slice(0, 5).map(fromLive)
+      : EVENTS_DATA.map((e) => ({
+          id: e.id,
+          title: e.title,
+          description: e.description,
+          location: e.location,
+          chip: DATE_CHIP[e.id] ?? ['—', ''],
+          to: e.linkUrl
+        }));
 
   return (
-    <div className="aiesec-homepage" style={{ overflowX: 'hidden' }}>
-      {/* -------------------------------------------------------------
-          1. HERO SECTION (#intro) - Exact AIESEC Austria Layout (2026)
-          ------------------------------------------------------------- */}
-      <section id="intro" className="homepage-hero">
-        <div className="container" style={{ position: 'relative', zIndex: 2, maxWidth: 900 }}>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 10,
-                padding: '7px 20px',
-                borderRadius: 'var(--radius-pill)',
-                background: 'rgba(255, 255, 255, 0.15)',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255, 255, 255, 0.28)',
-                fontSize: '0.85rem',
-                fontWeight: 700,
-                letterSpacing: '0.04em',
-                marginBottom: 22,
-                boxShadow: '0 4px 20px rgba(0,0,0,0.2)'
-              }}
-            >
-              <span>🇦🇹 Seit 2007 &bull; Австри дахь Монгол Оюутны Холбоо 🇲🇳</span>
+    <div className="home">
+      {/* ---------- Hero ---------- */}
+      <section className="hero">
+        <div className="blob blob-1" />
+        <div className="blob blob-2" />
+
+        <div className="container hero-in">
+          <span className="pill a1"><i /> Seit 2007 · Вена</span>
+          <h1 className="a2">
+            Австри дахь Монгол оюутнуудын <span className="hl">нэгдсэн холбоо</span>
+          </h1>
+          <p className="hero-lead a3">
+            Шинээр ирсэн оюутанд зөвлөгөө өгч, байр, виз, сургуулийн асуудалд нь тусалж, хамт олонтой нь холбодог. Холбоог оюутнууд өөрсдөө удирддаг.
+          </p>
+          <div className="hero-cta a4">
+            <Link to="/about#mentor" className="btn btn-dark">Холбоонд нэгдэх <ArrowRight size={16} /></Link>
+            <Link to="/guide" className="btn btn-outline">Оюутны хөтөч</Link>
+          </div>
+        </div>
+
+        <div className="container">
+          <div className="bento a4">
+            <figure className="b b-photo">
+              <img src="/assets/sun_festival_basketball.jpg" alt="Нарны Баяр наадмын тэмцээн, Вена" />
+              <figcaption><MapPin size={14} /> Нарны Баяр · Вена</figcaption>
+            </figure>
+            <div className="b b-illus b-peach">
+              <img src="/assets/student-female.jpg" alt="" />
             </div>
-
-            <h1
-              style={{
-                fontSize: 'clamp(2.3rem, 5.5vw, 4.2rem)',
-                lineHeight: 1.12,
-                fontWeight: 800,
-                color: '#FFFFFF',
-                marginBottom: 20,
-                letterSpacing: '-0.01em'
-              }}
-            >
-              Mongolian Students{' '}
-              <span className="doodle-wrap">
-                Association
-                <HandDrawnLoop color="#037EF3" />
-              </span>{' '}
-              in Austria
-            </h1>
-
-            {/* Typewriter Categories Loop Banner */}
-            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 24 }}>
-              <div className="typewriter-hero-badge">
-                <span className="typewriter-tag-pulse" />
-                <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.9)', fontWeight: 600 }}>
-                  Онцлох хөтөлбөр:
-                </span>
-                <TypewriterLoop
-                  words={[
-                    'Sun Festival 2027',
-                    'Student Guide',
-                    'Students Info Day',
-                    'AMOX Students Info Day 2026',
-                    'Housing Finder',
-                    'MA35 Visa Center',
-                    '1-on-1 Mentorship'
-                  ]}
-                  highlightColor="#FFDF00"
-                />
-              </div>
+            <div className="b b-stat b-accent">
+              <strong><AnimatedStatNumber target={19} suffix="+" /></strong>
+              <span>жилийн түүх</span>
             </div>
+            <div className="b b-stat b-lilac">
+              <strong><AnimatedStatNumber target={1500} suffix="+" /></strong>
+              <span>оюутан, төгсөгч</span>
+            </div>
+            <div className="b b-illus b-sky">
+              <img src="/assets/media_1787152152741.jpg" alt="" />
+              <span className="b-tag">Students Info Day · 9-р сар</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <p
-              style={{
-                fontSize: 'clamp(1.05rem, 2vw, 1.2rem)',
-                color: 'rgba(255, 255, 255, 0.94)',
-                lineHeight: 1.78,
-                maxWidth: 780,
-                margin: '0 auto 36px',
-                fontWeight: 400
-              }}
-            >
-              <strong>AMOX (Verein der mongolischen Studenten in Österreich)</strong> нь 2007 оноос эхлэн Австри улсын их, дээд сургуулиудад суралцаж буй болон суралцахаар бэлтгэж буй Монгол оюутан залуусын нэгдсэн эрх ашиг, мэдлэг мэдээллийн гүүр болсоор ирсэн албан ёсны төрийн бус байгууллага юм.
+      {/* ---------- About ---------- */}
+      <section className="sec about">
+        <div className="container about-grid">
+          <div>
+            <span className="section-subtitle reveal">Бид хэн бэ</span>
+            <h2 className="sec-title reveal">Оюутнуудын өөрсдийнх нь холбоо</h2>
+          </div>
+          <div className="reveal">
+            <p className="lede">
+              AMOX (Verein der mongolischen Studenten in Österreich) 2007 онд байгуулагдсан. Бид Австри дахь Монгол оюутнуудын эрх ашгийг хамгаалж, мэдээлэл, туршлагаа бие биедээ хуваалцдаг.
             </p>
+            <p>
+              Оюутан биш ч Австрид амьдардаг Монгол хүн бүхэнд манай хаалга нээлттэй. Students Info Day, Нарны Баяр спортын наадам зэрэг арга хэмжээг зохион байгуулж, шинээр ирсэн оюутнуудад гарын авлага, ментор, байр, визний зөвлөгөөгөөр тусалдаг.
+            </p>
+            <div className="badges">
+              <span className="tag">Албан ёсоор бүртгэлтэй</span>
+              <span className="tag">ZVR-Zahl 107178700</span>
+              <span className="tag">Ашгийн бус</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <div
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: 16,
-                justifyContent: 'center',
-                alignItems: 'center'
-              }}
-            >
-              <a href="#the-amox-way" className="aiesec-btn-primary">
-                <span>Хөтөлбөрүүд үзэх</span>
-                <ArrowRight size={17} />
-              </a>
-              <a href="#official-channels" className="aiesec-btn-outline">
-                <span>Албан ёсны сувгууд</span>
-              </a>
-              <Link to="/about#mentor" className="aiesec-btn-outline">
-                <span>🎓 9-р Сарын Өдөрлөгт Бүртгүүлэх</span>
+      {/* ---------- Services ---------- */}
+      <section className="sec sec-tight">
+        <div className="container">
+          <div className="sec-head">
+            <div>
+              <span className="section-subtitle reveal">Үйлчилгээ</span>
+              <h2 className="sec-title reveal">Оюутанд зориулсан үйлчилгээ</h2>
+            </div>
+            <p className="sec-sub reveal">Австрид шинээр ирсэн ч, хэдэн жил болсон ч — хэрэгтэй мэдээлэл нэг дор.</p>
+          </div>
+
+          <div className="services">
+            {SERVICES.map(({ to, Icon, title, text, tint }, i) => (
+              <Link key={to} to={to} className="svc reveal" style={{ background: tint, ['--d' as string]: `${i * 70}ms` }}>
+                <span className="svc-icon"><Icon size={22} /></span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+                <span className="svc-go"><ArrowUpRight size={20} /></span>
               </Link>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Signature Circular SCROLL DOWN rotating badge */}
-        <a href="#the-amox-way" className="scroll-down-badge" aria-label="Scroll Down">
-          <svg className="scroll-down-text" viewBox="0 0 100 100">
-            <path
-              id="circlePath"
-              d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
-              fill="transparent"
-            />
-            <text fontSize="10.5" fontWeight="700" letterSpacing="2.5" fill="#1D2129">
-              • SCROLL DOWN • SCROLL DOWN 
-            </text>
-          </svg>
-          <div className="scroll-down-arrow">
-            <ArrowDown size={20} color="var(--aiesec-blue)" />
-          </div>
-        </a>
-      </section>
-
-      {/* -------------------------------------------------------------
-          2. "THE AMOX WAY" & VALUES HEXAGON CLUSTERS SECTION
-          ------------------------------------------------------------- */}
-      <section
-        id="the-amox-way"
-        style={{
-          position: 'relative',
-          padding: '130px 0 100px',
-          backgroundColor: '#FFFFFF',
-          overflow: 'hidden'
-        }}
-      >
-        {/* Animated Background Outline Marquee */}
-        <div className="outline-text-marquee-container">
-          <div className="outline-text-marquee">
-            the amox way &nbsp; the amox way &nbsp; the amox way &nbsp; the amox way &nbsp;
-          </div>
-        </div>
-
-        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          {/* Main Title with Blue Doodle */}
-          <div style={{ textAlign: 'center', marginBottom: 60 }}>
-            <h2
-              style={{
-                fontSize: 'clamp(2.1rem, 4.8vw, 3.2rem)',
-                fontWeight: 800,
-                letterSpacing: '-0.01em',
-                marginBottom: 12
-              }}
-            >
-              Mongolian Students{' '}
-              <span className="doodle-wrap">
-                Association
-                <HandDrawnLoop color="#037EF3" />
-              </span>{' '}
-              in Austria
-            </h2>
-          </div>
-
-          {/* 3-Column Values Showcase */}
-          <div
-            className="values-grid"
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'auto 1fr auto',
-              gap: 40,
-              alignItems: 'center'
-            }}
-          >
-            {/* Left 3-Hexagon Cluster */}
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <AiesecHexagonsLeft />
-            </div>
-
-            {/* Center High-Elegance Manifesto */}
-            <div style={{ textAlign: 'center', padding: '0 20px', maxWidth: 680, margin: '0 auto' }}>
-              <span
-                style={{
-                  display: 'inline-block',
-                  fontSize: '0.78rem',
-                  fontWeight: 800,
-                  color: 'var(--aiesec-blue)',
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                  marginBottom: 10
-                }}
-              >
-                Эрхэм Зорилго &bull; SSG Mission
-              </span>
-              <h3
-                style={{
-                  fontSize: 'clamp(1.25rem, 2.4vw, 1.55rem)',
-                  lineHeight: 1.4,
-                  color: 'var(--text-main)',
-                  fontWeight: 800,
-                  marginBottom: 8
-                }}
-              >
-                Хуваалцъя, Дэмжье, Хамтдаа хөгжье
-              </h3>
-              <p style={{ fontSize: '0.92rem', color: 'var(--aiesec-blue)', fontWeight: 700, marginBottom: 14 }}>
-                Sharing, Supporting, Growing together (SSG)
-              </p>
-              <p
-                style={{
-                  fontSize: 'clamp(0.96rem, 1.8vw, 1.05rem)',
-                  lineHeight: 1.75,
-                  color: 'var(--text-sub)',
-                  fontWeight: 400,
-                  marginBottom: 18
-                }}
-              >
-                {AMOX_MISSION_VISION.vision.text}
-              </p>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                2007 онд үүсгэн байгуулагдсан, 100% оюутны албан ёсны төрийн бус байгууллага.
-              </p>
-            </div>
-
-            {/* Right 3-Hexagon Cluster */}
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <AiesecHexagonsRight />
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* -------------------------------------------------------------
-          3. MILESTONE STATISTICS SECTION (19+ YEARS)
-          ------------------------------------------------------------- */}
-      <section
-        style={{
-          backgroundColor: '#F8FAFC',
-          padding: '70px 0',
-          borderTop: '1px solid var(--border)',
-          borderBottom: '1px solid var(--border)'
-        }}
-      >
+      {/* ---------- Feature ---------- */}
+      <section className="sec sec-tight">
         <div className="container">
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-              gap: 40,
-              textAlign: 'center'
-            }}
-          >
-            {/* Stat 1 */}
-            <motion.div whileHover={{ y: -4 }}>
-              <div
-                style={{
-                  width: 64,
-                  height: 64,
-                  borderRadius: '50%',
-                  backgroundColor: '#EFF6FF',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  margin: '0 auto 16px',
-                  color: 'var(--aiesec-blue)'
-                }}
-              >
-                <Globe size={32} strokeWidth={2} />
-              </div>
-              <h3
-                style={{
-                  fontSize: '3rem',
-                  fontWeight: 900,
-                  color: 'var(--text-main)',
-                  lineHeight: 1,
-                  marginBottom: 8
-                }}
-              >
-                <AnimatedStatNumber target={19} suffix="+" />
-              </h3>
-              <p style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-sub)' }}>
-                Жилийн түүх &bull; Seit 2007
+          <div className="feature reveal">
+            <div className="feature-copy">
+              <span className="pill pill-dark"><i /> 2026 оны 9-р сар</span>
+              <h2>AMOX Students Info Day</h2>
+              <p>
+                AMOX-ийн шинэ оюутнуудыг угтах уулзалт. Виз, даатгал, байр, хичээл сонголтоор ахмад оюутнуудаас шууд асууж, зөвлөгөө аваарай.
               </p>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                Тасралтгүй үйл ажиллагаа ба хамт олон
-              </p>
-            </motion.div>
-
-            {/* Stat 2 */}
-            <motion.div whileHover={{ y: -4 }}>
-              <div
-                style={{
-                  width: 64,
-                  height: 64,
-                  borderRadius: '50%',
-                  backgroundColor: '#F0FDF4',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  margin: '0 auto 16px',
-                  color: 'var(--aiesec-teal)'
-                }}
-              >
-                <Building2 size={32} strokeWidth={2} />
-              </div>
-              <h3
-                style={{
-                  fontSize: '3rem',
-                  fontWeight: 900,
-                  color: 'var(--text-main)',
-                  lineHeight: 1,
-                  marginBottom: 8
-                }}
-              >
-                <AnimatedStatNumber target={1500} suffix="+" />
-              </h3>
-              <p style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-sub)' }}>
-                Монгол Оюутан &amp; Төгсөгчид
-              </p>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                Uni Wien, TU Wien, WU, Graz, Linz
-              </p>
-            </motion.div>
-
-            {/* Stat 3 */}
-            <motion.div whileHover={{ y: -4 }}>
-              <div
-                style={{
-                  width: 64,
-                  height: 64,
-                  borderRadius: '50%',
-                  backgroundColor: '#FFF7ED',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  margin: '0 auto 16px',
-                  color: 'var(--aiesec-orange)'
-                }}
-              >
-                <Rocket size={32} strokeWidth={2} />
-              </div>
-              <h3
-                style={{
-                  fontSize: '3rem',
-                  fontWeight: 900,
-                  color: 'var(--text-main)',
-                  lineHeight: 1,
-                  marginBottom: 8
-                }}
-              >
-                <AnimatedStatNumber target={50} suffix="+" />
-              </h3>
-              <p style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-sub)' }}>
-                Наадам, Хэлэлцүүлэг &amp; Төсөл
-              </p>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                Students Info Day 2026, Sun Festival 2027
-              </p>
-            </motion.div>
+              <Link to="/about#mentor" className="btn btn-light">Бүртгүүлэх <ArrowRight size={16} /></Link>
+            </div>
+            <img src="/assets/media_1787152152741.jpg" alt="AMOX Students Info Day" />
           </div>
         </div>
       </section>
 
-      {/* -------------------------------------------------------------
-          4. "PROGRAMS FOR YOU" - Cascading Photo Collages & Wavy Squiggles
-          ------------------------------------------------------------- */}
-      <section style={{ padding: '110px 0', backgroundColor: '#FFFFFF' }}>
+      {/* ---------- Events ---------- */}
+      <section className="sec">
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: 80 }}>
-            <h2
-              style={{
-                fontSize: 'clamp(2.2rem, 5vw, 3.4rem)',
-                fontWeight: 800,
-                letterSpacing: '-0.01em',
-                marginBottom: 12
-              }}
-            >
-              Programs for{' '}
-              <span className="doodle-wrap">
-                you
-                <HandDrawnLoop color="#037EF3" />
-              </span>
-            </h2>
-            <p style={{ fontSize: '1.1rem', color: 'var(--text-sub)', marginBottom: 16 }}>
-              Австри дахь амьдрал, их сургууль, спорт ба карьерын бүх талын дэмжлэг
-            </p>
-
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 20px', background: '#EFF6FF', borderRadius: 'var(--radius-pill)', border: '1px solid rgba(3, 126, 243, 0.25)', boxShadow: '0 2px 10px rgba(3, 126, 243, 0.08)' }}>
-              <span style={{ fontSize: '0.86rem', fontWeight: 800, color: 'var(--aiesec-blue)' }}>
-                ✨ Чиглэлүүд:
-              </span>
-              <TypewriterLoop
-                words={[
-                  'Sun Festival 2027',
-                  'Student Guide',
-                  'Students Info Day',
-                  'AMOX Students Info Day 2026',
-                  'Housing & Dorm Finder',
-                  'MA35 Visa & ÖGK Insurance',
-                  '1-on-1 Mentorship'
-                ]}
-                highlightColor="var(--aiesec-blue)"
-              />
-            </div>
-          </div>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 72 }}>
-            {/* Program 1: Sun Festival (Next coming in 2027) */}
-            <div
-              className="program-row"
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '1.1fr 0.9fr',
-                gap: 60,
-                alignItems: 'center'
-              }}
-            >
-              <div>
-                <CascadingCollage
-                  img1="/assets/sun_festival_basketball.jpg"
-                  img2="/assets/sun_festival_volleyball.jpg"
-                  img3="/assets/media_1787152152741.jpg"
-                  alt="AMOX Sun Festival наадам"
-                />
-              </div>
-
-              <div>
-                <h3
-                  style={{
-                    fontSize: 'clamp(2rem, 4vw, 2.7rem)',
-                    fontWeight: 300,
-                    marginBottom: 20
-                  }}
-                >
-                  <span className="doodle-wrap" style={{ fontWeight: 700 }}>
-                    Sun Festival 2027
-                    <HandDrawnWave color="#F85A40" />
-                  </span>{' '}
-                  &amp; Sports
-                </h3>
-
-                <p style={{ fontSize: '1.05rem', lineHeight: 1.8, color: 'var(--text-sub)', marginBottom: 20 }}>
-                  Европ дахь Монголчуудын спортын дараагийн их наадам 2027 оны 7-р сард Вена хотноо уламжлал ёсоор болно. Сагсан бөмбөг, гар бөмбөг, хөлбөмбөг, теннис, шатрын 6 төрөлт тэмцээн.
-                </p>
-
-                <Link to="/sun-festival" className="discover-pill pill-orange">
-                  <span>2027 Наадам &amp; Зургийн цомог</span>
-                  <div className="arrow-circle">
-                    <ArrowRight size={16} />
-                  </div>
-                </Link>
-              </div>
-            </div>
-
-            {/* Program 2: 9 Chapter Student Guide & Housing */}
-            <div
-              className="program-row"
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '0.9fr 1.1fr',
-                gap: 60,
-                alignItems: 'center'
-              }}
-            >
-              <div>
-                <h3
-                  style={{
-                    fontSize: 'clamp(2rem, 4vw, 2.7rem)',
-                    fontWeight: 300,
-                    marginBottom: 20
-                  }}
-                >
-                  <span className="doodle-wrap" style={{ fontWeight: 700 }}>
-                    Student Guide
-                    <HandDrawnWave color="#00878A" />
-                  </span>{' '}
-                  &amp; Housing
-                </h3>
-
-                <p style={{ fontSize: '1.05rem', lineHeight: 1.8, color: 'var(--text-sub)', marginBottom: 20 }}>
-                  2026/2027 хичээлийн жилийн их сургуулийн элсэлт, MA35 визний өргөдөл үүсгэгч, E-Card даатгал, болон 15+ оюутны дотуур байрны нэгдсэн харьцуулалт.
-                </p>
-
-                <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-                  <Link to="/guide" className="discover-pill pill-teal">
-                    <span>9 Бүлэг Хөтөч унших</span>
-                    <div className="arrow-circle">
-                      <ArrowRight size={16} />
-                    </div>
-                  </Link>
-                  <Link to="/housing" className="discover-pill pill-teal">
-                    <span>Байр хайх</span>
-                    <div className="arrow-circle">
-                      <ArrowRight size={16} />
-                    </div>
-                  </Link>
-                </div>
-              </div>
-
-              <div>
-                <CascadingCollage
-                  img1="/assets/student-male.jpg"
-                  img2="/assets/student-female.jpg"
-                  img3="/assets/media_1787152257891.jpg"
-                  alt="Оюутны хөтөч болон дотуур байр"
-                  reverse
-                />
-              </div>
-            </div>
-
-            {/* Program 3: Mentorship & Students Info Day 2026 */}
-            <div
-              className="program-row"
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '1.1fr 0.9fr',
-                gap: 60,
-                alignItems: 'center'
-              }}
-            >
-              <div>
-                <CascadingCollage
-                  img1="/assets/media_1787152152741.jpg"
-                  img2="/assets/student-female.jpg"
-                  img3="/assets/student-male.jpg"
-                  alt="Ахмад оюутны менторшил"
-                />
-              </div>
-
-              <div>
-                <h3
-                  style={{
-                    fontSize: 'clamp(2rem, 4vw, 2.7rem)',
-                    fontWeight: 300,
-                    marginBottom: 20
-                  }}
-                >
-                  <span className="doodle-wrap" style={{ fontWeight: 700 }}>
-                    Students Info Day
-                    <HandDrawnWave color="#D97706" />
-                  </span>{' '}
-                  &amp; Mentorship
-                </h3>
-
-                <p style={{ fontSize: '1.05rem', lineHeight: 1.8, color: 'var(--text-sub)', marginBottom: 20 }}>
-                  2026 оны 9-р сарын дундуур болох шинэ оюутны нэгдсэн өдөрлөг, Uni Wien, TU Wien, WU төгсөгч ахмад оюутнуудын 1-on-1 менторшил, цагийн ажил, хичээл сонголт.
-                </p>
-
-                <Link to="/about#mentor" className="discover-pill pill-gold">
-                  <span>9-р Сарын Өдөрлөгт Бүртгүүлэх</span>
-                  <div className="arrow-circle">
-                    <ArrowRight size={16} />
-                  </div>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* -------------------------------------------------------------
-          5. FEATURED SPOTLIGHT: STUDENTS INFO DAY 2026 (MID-SEPTEMBER)
-          ------------------------------------------------------------- */}
-      <section className="youth-forum-banner" style={{ background: '#0052CC' }}>
-        <div className="youth-forum-marquee">
-          <span>AMOX STUDENTS INFO DAY 2026 • SEPTEMBER ORIENTATION • SUN FESTIVAL 2027 •</span>
-        </div>
-
-        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          <div
-            className="youth-banner-grid"
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '1.2fr 0.8fr',
-              gap: 40,
-              alignItems: 'center'
-            }}
-          >
+          <div className="sec-head">
             <div>
-              <div
-                style={{
-                  display: 'inline-block',
-                  background: 'rgba(255,255,255,0.2)',
-                  padding: '4px 14px',
-                  borderRadius: 20,
-                  fontSize: '0.82rem',
-                  fontWeight: 800,
-                  letterSpacing: '0.05em',
-                  textTransform: 'uppercase',
-                  marginBottom: 16
-                }}
-              >
-                📅 2026 ОНЫ 9-Р САРЫН ДУНДУУР • VIRTUAL &amp; IN-PERSON
-              </div>
-
-              <h2
-                style={{
-                  fontSize: 'clamp(2.2rem, 5vw, 3.5rem)',
-                  fontWeight: 800,
-                  lineHeight: 1.15,
-                  color: '#FFFFFF',
-                  marginBottom: 20
-                }}
-              >
-                AMOX Students Info Day 2026
-              </h2>
-
-              <p
-                style={{
-                  fontSize: '1.15rem',
-                  lineHeight: 1.7,
-                  color: 'rgba(255, 255, 255, 0.92)',
-                  marginBottom: 30,
-                  maxWidth: 580
-                }}
-              >
-                Австрийн их сургуулиудад шинээр ирж буй болон бэлтгэл курсийн оюутнуудад зориулсан мэдээллийн нэгдсэн өдөрлөг. MA35 виз, E-Card даатгал, дотуур байр, хичээл сонголт ба ахмад оюутнуудын 1-on-1 зөвлөгөө.
-              </p>
-
-              <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-                <Link
-                  to="/about#mentor"
-                  style={{
-                    backgroundColor: '#FFFFFF',
-                    color: '#0052CC',
-                    padding: '13px 32px',
-                    borderRadius: 'var(--radius-pill)',
-                    fontWeight: 700,
-                    textDecoration: 'none',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: 8,
-                    boxShadow: '0 6px 20px rgba(0,0,0,0.15)'
-                  }}
-                >
-                  <span>Өдөрлөгт үнэгүй бүртгүүлэх</span>
-                  <ArrowRight size={16} />
-                </Link>
-                <Link
-                  to="/guide"
-                  style={{
-                    backgroundColor: 'transparent',
-                    color: '#FFFFFF',
-                    border: '2px solid #FFFFFF',
-                    padding: '13px 32px',
-                    borderRadius: 'var(--radius-pill)',
-                    fontWeight: 700,
-                    textDecoration: 'none',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: 8
-                  }}
-                >
-                  <span>9 Бүлэг Хөтөчтэй танилцах</span>
-                </Link>
-              </div>
-            </div>
-
-            <div style={{ textAlign: 'center' }}>
-              <img
-                src="/assets/media_1787152152741.jpg"
-                alt="AMOX Students Info Day"
-                style={{
-                  width: '100%',
-                  maxHeight: 380,
-                  objectFit: 'cover',
-                  borderRadius: 20,
-                  boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
-                  border: '4px solid rgba(255,255,255,0.4)'
-                }}
-              />
+              <span className="section-subtitle reveal">Календарь</span>
+              <h2 className="sec-title reveal">Удахгүй болох үйл ажиллагаа</h2>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* -------------------------------------------------------------
-          6. INTERACTIVE QUICK FINDER / TOOLS INTEGRATION
-          ------------------------------------------------------------- */}
-      <section style={{ padding: '90px 0', backgroundColor: '#F8FAFC' }}>
-        <div className="container" style={{ maxWidth: 1000 }}>
-          <div
-            style={{
-              backgroundColor: '#FFFFFF',
-              borderRadius: 24,
-              padding: 'clamp(24px, 5vw, 44px)',
-              boxShadow: '0 15px 45px rgba(0, 45, 98, 0.08)',
-              border: '1px solid var(--border)'
-            }}
-          >
-            <div style={{ textAlign: 'center', marginBottom: 30 }}>
-              <h3 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: 8 }}>
-                Шуурхай хайлт &amp; Оюутны хэрэгслүүд (2026)
-              </h3>
-              <p style={{ color: 'var(--text-sub)' }}>
-                Хэрэгцээт гарын авлага, дотуур байр болон MA35 өргөдлөө шууд нээгээрэй
-              </p>
-            </div>
-
-            <form onSubmit={handleToolSubmit}>
-              <div
-                className="quick-finder-form-grid"
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr)) auto',
-                  gap: 16,
-                  alignItems: 'flex-end'
-                }}
-              >
-                <div>
-                  <label style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--text-muted)', display: 'block', marginBottom: 8 }}>
-                    ХӨТӨЛБӨР / ХЭРЭГЦЭЭ
-                  </label>
-                  <select
-                    className="form-select"
-                    value={selectedTool}
-                    onChange={(e) => setSelectedTool(e.target.value)}
-                  >
-                    <option value="/guide">📖 9 Бүлэг Оюутны Гарын Авлага</option>
-                    <option value="/housing">🏠 Дотуур Байр Хайх (15+ Байр)</option>
-                    <option value="/visa-insurance">🛂 MA35 Герман И-мэйл Генератор</option>
-                    <option value="/sun-festival">🏆 Sun Festival 2027 Тэмцээн</option>
-                    <option value="/about#mentor">🎓 9-р Сарын Students Info Day</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--text-muted)', display: 'block', marginBottom: 8 }}>
-                    ХОТ / БҮС НУТАГ
-                  </label>
-                  <select
-                    className="form-select"
-                    value={selectedCity}
-                    onChange={(e) => setSelectedCity(e.target.value)}
-                  >
-                    <option value="wien">🇦🇹 Вена (Wien)</option>
-                    <option value="graz">🇦🇹 Грац (Graz)</option>
-                    <option value="linz">🇦🇹 Линц (Linz)</option>
-                    <option value="all">🇦🇹 Австри даяар</option>
-                  </select>
-                </div>
-
-                <button
-                  type="submit"
-                  className="aiesec-btn-primary"
-                  style={{ padding: '14px 28px', height: 'fit-content', width: '100%', justifyContent: 'center' }}
-                >
-                  <span>Шуурхай нээх</span>
-                  <ArrowRight size={16} />
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
-
-      {/* -------------------------------------------------------------
-          7. UPCOMING EVENTS SPOTLIGHT (2026/2027)
-          ------------------------------------------------------------- */}
-      <section style={{ padding: '90px 0', backgroundColor: '#FFFFFF' }}>
-        <div className="container">
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'flex-end',
-              marginBottom: 44,
-              flexWrap: 'wrap',
-              gap: 16
-            }}
-          >
-            <div>
-              <span
-                style={{
-                  fontSize: '0.82rem',
-                  fontWeight: 800,
-                  color: 'var(--aiesec-blue)',
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase'
-                }}
-              >
-                Upcoming Events &bull; 2026 / 2027
-              </span>
-              <h3 style={{ fontSize: '2.2rem', fontWeight: 800, marginTop: 4 }}>
-                Ойрын арга хэмжээнүүд &amp; Наадам
-              </h3>
-            </div>
-            <Link
-              to="/about#mentor"
-              style={{
-                color: 'var(--aiesec-blue)',
-                fontWeight: 700,
-                textDecoration: 'none',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 6
-              }}
-            >
-              <span>Бүртгүүлэх</span>
-              <ArrowRight size={16} />
-            </Link>
-          </div>
-
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))',
-              gap: 24
-            }}
-          >
-            {EVENTS_DATA.map((event) => (
-              <div
-                key={event.id}
-                style={{
-                  backgroundColor: '#FFFFFF',
-                  borderRadius: 18,
-                  border: '1px solid var(--border)',
-                  overflow: 'hidden',
-                  boxShadow: 'var(--shadow-sm)',
-                  transition: 'var(--transition)',
-                  display: 'flex',
-                  flexDirection: 'column'
-                }}
-              >
-                <div style={{ height: 180, overflow: 'hidden', position: 'relative' }}>
-                  <img
-                    src={getEventImage(event.category)}
-                    alt={event.title}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
-                  <div
-                    style={{
-                      position: 'absolute',
-                      top: 12,
-                      left: 12,
-                      background: event.id.includes('students-info-day') ? 'var(--aiesec-blue)' : 'rgba(0, 45, 98, 0.85)',
-                      color: '#FFFFFF',
-                      padding: '4px 10px',
-                      borderRadius: 6,
-                      fontSize: '0.78rem',
-                      fontWeight: 700
-                    }}
-                  >
-                    {event.badge}
-                  </div>
-                </div>
-
-                <div style={{ padding: 22, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-                  <h4 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: 10 }}>
-                    {event.title}
-                  </h4>
-                  <p style={{ fontSize: '0.88rem', color: 'var(--text-sub)', marginBottom: 16, flexGrow: 1 }}>
-                    {event.description}
-                  </p>
-
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: 16 }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                      <Calendar size={14} color="var(--aiesec-blue)" />
-                      <span>{event.date}</span>
+          <ul className="events">
+            {agenda.map((e, i) => {
+              const [big, small] = e.chip;
+              return (
+                <li key={e.id} className="reveal" style={{ ['--d' as string]: `${i * 60}ms` }}>
+                  <Link to={e.to} className="ev">
+                    <div className="ev-date"><b>{big}</b><span>{small}</span></div>
+                    <div className="ev-body">
+                      <h3>{e.title}</h3>
+                      <p>{e.description}</p>
+                      <span className="ev-meta"><MapPin size={13} /> {e.location}</span>
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                      <MapPin size={14} color="var(--aiesec-orange)" />
-                      <span>{event.location}</span>
-                    </div>
-                  </div>
-
-                  <Link
-                    to={event.linkUrl}
-                    className="aiesec-btn-primary"
-                    style={{ padding: '10px 18px', fontSize: '0.85rem', width: '100%', justifyContent: 'center' }}
-                  >
-                    <span>{event.linkText}</span>
-                    <ArrowRight size={14} />
+                    <span className="ev-go"><ArrowUpRight size={20} /></span>
                   </Link>
-                </div>
+                </li>
+              );
+            })}
+          </ul>
+          <Link to="/events" className="btn btn-dark all-events">Бүх арга хэмжээ, бүртгэл <ArrowRight size={16} /></Link>
+        </div>
+      </section>
+
+      {/* ---------- Mission ---------- */}
+      <section className="sec sec-tint">
+        <div className="container">
+          <span className="section-subtitle reveal">Зорилго</span>
+          <h2 className="motto reveal">
+            Хуваалцъя. Дэмжье. <span className="hl">Хамтдаа хөгжье.</span>
+          </h2>
+          <p className="motto-sub reveal">{AMOX_MISSION_VISION.vision.text}</p>
+
+          <div className="pillars">
+            {AMOX_MISSION_VISION.mission.pillars.map((p, i) => (
+              <div key={p.id} className="pillar reveal" style={{ ['--d' as string]: `${i * 90}ms` }}>
+                <span className="pillar-no">0{i + 1}</span>
+                <h3>{p.title}</h3>
+                <p>{p.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* -------------------------------------------------------------
-          8. OFFICIAL CHANNELS & MEDIA PLATFORMS
-          ------------------------------------------------------------- */}
       <OfficialChannelsSection />
+
+      <style>{`
+        .sec { padding: 112px 0; }
+        .sec-tight { padding: 56px 0; }
+        .sec-tint { background: var(--canvas-2); }
+        .sec-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-bottom: 44px; }
+        .sec-title { font-size: clamp(2rem, 4.2vw, 3.1rem); }
+        .sec-sub { max-width: 340px; font-size: 1.02rem; }
+        .pill { display: inline-flex; align-items: center; gap: 9px; padding: 7px 15px; border-radius: 999px; background: #fff; border: 1px solid var(--line); font-size: .84rem; font-weight: 600; color: var(--ink); box-shadow: 0 2px 10px rgba(12,12,15,.04); }
+        .pill i { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px rgba(18,146,107,.18); }
+        .pill-dark { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.2); color: #fff; box-shadow: none; }
+        .hl { color: var(--accent); }
+
+        /* ---- hero ---- */
+        .hero { position: relative; overflow: hidden; padding: calc(var(--nav-h) + 56px) 0 72px; }
+        .blob { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; opacity: .7; }
+        .blob-1 { width: 520px; height: 520px; left: -140px; top: -80px; background: #E3E5FF; animation: blobA 18s ease-in-out infinite; }
+        .blob-2 { width: 480px; height: 480px; right: -120px; top: 120px; background: #FFE9DC; animation: blobB 22s ease-in-out infinite; }
+        .hero-in { position: relative; z-index: 2; text-align: center; display: flex; flex-direction: column; align-items: center; }
+        .a1,.a2,.a3,.a4 { opacity: 0; animation: fadeUp .9s cubic-bezier(.2,.7,.2,1) forwards; }
+        .a1 { animation-delay: .05s; } .a2 { animation-delay: .15s; } .a3 { animation-delay: .27s; } .a4 { animation-delay: .38s; }
+        .hero h1 { font-size: clamp(2.5rem, 6.2vw, 5rem); line-height: 1.04; letter-spacing: -0.045em; max-width: 920px; margin: 22px 0 22px; }
+        .hero-lead { font-size: 1.15rem; max-width: 600px; color: var(--text-sub); }
+        .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 34px; }
+
+        .bento { position: relative; z-index: 2; margin-top: 64px; display: grid; grid-template-columns: repeat(12, 1fr); grid-template-rows: 210px 210px; gap: 16px; }
+        .b { position: relative; border-radius: 28px; overflow: hidden; margin: 0; }
+        .b img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s ease; }
+        .b:hover img { transform: scale(1.05); }
+        .b-photo { grid-column: 1 / span 5; grid-row: 1 / span 2; }
+        .b-photo figcaption { position: absolute; left: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,.92); color: var(--ink); font-size: .82rem; font-weight: 600; padding: 7px 13px; border-radius: 999px; backdrop-filter: blur(6px); }
+        .b-illus { background: var(--tint-peach); }
+        .b-peach { grid-column: 6 / span 4; grid-row: 1; }
+        .b-sky { grid-column: 9 / span 4; grid-row: 2; background: var(--tint-sky); }
+        .b-tag { position: absolute; left: 14px; bottom: 14px; background: rgba(255,255,255,.92); color: var(--ink); font-size: .78rem; font-weight: 600; padding: 6px 12px; border-radius: 999px; }
+        .b-stat { display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; }
+        .b-stat strong { font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1; }
+        .b-stat > span { margin-top: 8px; font-size: .92rem; font-weight: 500; opacity: .8; }
+        .b-accent { grid-column: 10 / span 3; grid-row: 1; background: var(--accent); color: #fff; }
+        .b-lilac { grid-column: 6 / span 3; grid-row: 2; background: var(--tint-lilac); color: var(--ink); }
+
+        /* ---- about ---- */
+        .about-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 72px; align-items: start; }
+        .lede { font-size: 1.25rem; line-height: 1.6; color: var(--ink); font-weight: 500; letter-spacing: -0.01em; margin-bottom: 18px; }
+        .about-grid p { font-size: 1.02rem; margin-bottom: 14px; }
+        .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+        .badges .tag { background: var(--canvas-2); color: var(--text-sub); border: 1px solid var(--line); }
+
+        /* ---- services ---- */
+        .services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+        .svc { position: relative; display: flex; flex-direction: column; min-height: 260px; padding: 32px; border-radius: 30px; text-decoration: none; color: var(--ink); transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s, opacity .8s ease; }
+        .svc:hover { transform: translateY(-6px); box-shadow: 0 24px 50px rgba(12,12,15,.1); }
+        .svc-icon { width: 48px; height: 48px; border-radius: 15px; background: #fff; display: flex; align-items: center; justify-content: center; margin-bottom: auto; }
+        .svc h3 { font-size: 1.7rem; margin: 40px 0 8px; }
+        .svc p { max-width: 380px; font-size: .98rem; color: #3f3f48; }
+        .svc-go { position: absolute; right: 26px; top: 26px; width: 44px; height: 44px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; transition: transform .3s, background .3s, color .3s; }
+        .svc:hover .svc-go { background: var(--ink); color: #fff; transform: rotate(45deg); }
+
+        /* ---- feature ---- */
+        .feature { position: relative; overflow: hidden; display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; border-radius: 40px; padding: clamp(32px, 5vw, 64px); color: #fff;
+          background: radial-gradient(60% 90% at 100% 0%, rgba(51,71,255,.6), transparent 70%), radial-gradient(40% 60% at 0% 100%, rgba(240,100,58,.25), transparent 70%), var(--night); }
+        .feature h2 { color: #fff; font-size: clamp(2.1rem, 4.6vw, 3.4rem); margin: 20px 0 18px; }
+        .feature p { color: rgba(255,255,255,.78); font-size: 1.08rem; max-width: 480px; margin-bottom: 30px; }
+        .feature img { width: 100%; height: 340px; object-fit: cover; border-radius: 28px; background: #fff; }
+
+        /* ---- events ---- */
+        .events { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .ev { display: grid; grid-template-columns: 150px 1fr 48px; gap: 28px; align-items: center; padding: 26px 30px; border-radius: 26px; background: var(--canvas-2); text-decoration: none; color: var(--ink); transition: background .3s, transform .3s, box-shadow .3s; }
+        .ev:hover { background: #fff; box-shadow: 0 16px 40px rgba(12,12,15,.08); transform: translateY(-2px); outline: 1px solid var(--line); }
+        .ev-date b { display: block; font-size: 2.4rem; font-weight: 700; letter-spacing: -0.04em; line-height: 1; color: var(--accent); }
+        .ev-date span { display: block; margin-top: 8px; font-size: .78rem; font-weight: 600; color: var(--text-muted); }
+        .ev-body h3 { font-size: 1.3rem; margin-bottom: 6px; }
+        .ev-body p { font-size: .95rem; max-width: 640px; }
+        .ev-meta { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; font-size: .82rem; color: var(--text-muted); font-weight: 500; }
+        .all-events { margin-top: 28px; }
+        .ev-go { width: 46px; height: 46px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; transition: background .3s, color .3s, transform .3s; }
+        .ev:hover .ev-go { background: var(--ink); color: #fff; transform: rotate(45deg); }
+
+        /* ---- mission ---- */
+        .motto { font-size: clamp(2.4rem, 6vw, 4.8rem); line-height: 1.04; letter-spacing: -0.045em; max-width: 940px; margin-bottom: 22px; }
+        .motto-sub { font-size: 1.12rem; max-width: 560px; margin-bottom: 60px; }
+        .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+        .pillar { background: #fff; border-radius: 26px; padding: 32px; border: 1px solid var(--line); }
+        .pillar-no { display: block; font-size: 3.4rem; font-weight: 700; letter-spacing: -0.05em; line-height: 1; color: var(--accent-soft); -webkit-text-stroke: 1.5px var(--accent); margin-bottom: 36px; }
+        .pillar h3 { font-size: 1.4rem; margin-bottom: 10px; }
+        .pillar p { font-size: .95rem; }
+
+        @media (max-width: 960px) {
+          .about-grid, .feature { grid-template-columns: 1fr; gap: 32px; }
+          .sec-head { flex-direction: column; align-items: flex-start; gap: 12px; }
+          .services { grid-template-columns: 1fr; }
+          .pillars { grid-template-columns: 1fr; }
+          .bento { grid-template-rows: 190px 190px 190px; }
+          .b-photo { grid-column: 1 / span 7; grid-row: 1 / span 2; }
+          .b-peach { grid-column: 8 / span 5; grid-row: 1; }
+          .b-accent { grid-column: 8 / span 5; grid-row: 2; }
+          .b-lilac { grid-column: 1 / span 5; grid-row: 3; }
+          .b-sky { grid-column: 6 / span 7; grid-row: 3; }
+        }
+        @media (max-width: 640px) {
+          .sec { padding: 72px 0; } .sec-tight { padding: 40px 0; }
+          .hero { padding-bottom: 48px; }
+          .bento { grid-template-columns: 1fr 1fr; grid-template-rows: 240px 150px 150px 190px; gap: 12px; margin-top: 44px; }
+          .b { border-radius: 22px; }
+          .b-photo { grid-column: 1 / -1; grid-row: 1; }
+          .b-peach { display: none; }
+          .b-accent { grid-column: 1; grid-row: 2; }
+          .b-lilac { grid-column: 2; grid-row: 2; }
+          .b-sky { grid-column: 1 / -1; grid-row: 3 / span 2; }
+          .b-stat { padding: 18px; }
+          .ev { grid-template-columns: 1fr; gap: 14px; padding: 22px; }
+          .ev-go { display: none; }
+          .ev-date { display: flex; align-items: baseline; gap: 12px; } .ev-date span { margin-top: 0; }
+          .svc { min-height: 220px; padding: 26px; }
+        }
+      `}</style>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 // Hand-drawn animated loop highlight
 export const HandDrawnLoop: React.FC<{ color?: string; className?: string }> = ({
-  color = '#037EF3',
+  color = '#3347FF',
   className = ''
 }) => (
   <svg
@@ -28,7 +28,7 @@ export const HandDrawnLoop: React.FC<{ color?: string; className?: string }> = (
 
 // Hand-drawn animated wavy underline
 export const HandDrawnWave: React.FC<{ color?: string; className?: string }> = ({
-  color = '#F85A40',
+  color = '#F0643A',
   className = ''
 }) => (
   <svg

@@ -164,7 +164,7 @@ export const AboutPage: React.FC = () => {
                 boxShadow: '0 4px 20px rgba(0,0,0,0.2)'
               }}
             >
-              <span>🇦🇹 Verein der mongolischen Studenten in Österreich &bull; ZVR: 107178700</span>
+              <span>Verein der mongolischen Studenten in Österreich &bull; ZVR: 107178700</span>
             </div>
 
             <h1
@@ -180,7 +180,7 @@ export const AboutPage: React.FC = () => {
               About{' '}
               <span className="doodle-wrap">
                 AMOX Austria
-                <HandDrawnLoop color="#037EF3" />
+                <HandDrawnLoop color="#3347FF" />
               </span>
             </h1>
 
@@ -192,7 +192,7 @@ export const AboutPage: React.FC = () => {
                 gap: 10,
                 padding: '8px 24px',
                 borderRadius: 'var(--radius-pill)',
-                background: 'rgba(3, 126, 243, 0.3)',
+                background: 'rgba(51, 71, 255, 0.3)',
                 border: '1px solid rgba(255, 255, 255, 0.32)',
                 backdropFilter: 'blur(10px)',
                 fontSize: 'clamp(0.95rem, 1.8vw, 1.15rem)',
@@ -201,7 +201,7 @@ export const AboutPage: React.FC = () => {
                 marginBottom: 18
               }}
             >
-              <span>🤝 Хуваалцъя &bull; 💡 Дэмжье &bull; 🚀 Хамтдаа хөгжье</span>
+              <span>Хуваалцъя &bull; Дэмжье &bull; Хамтдаа хөгжье</span>
               <span style={{ opacity: 0.85, fontSize: '0.85rem', fontWeight: 600 }}>
                 (SSG)
               </span>
@@ -216,7 +216,7 @@ export const AboutPage: React.FC = () => {
                 </span>
                 <TypewriterLoop
                   words={[
-                    'Sun Festival 2027',
+                    'Нарны Баяр 2027',
                     'Student Guide',
                     'Students Info Day',
                     'AMOX Students Info Day 2026',
@@ -295,7 +295,7 @@ export const AboutPage: React.FC = () => {
               >
                 <span className="doodle-wrap">
                   Хуваалцъя,
-                  <HandDrawnWave color="#037EF3" />
+                  <HandDrawnWave color="#3347FF" />
                 </span>{' '}
                 Дэмжье, Хамтдаа хөгжье
               </h2>
@@ -317,8 +317,8 @@ export const AboutPage: React.FC = () => {
                     alignItems: 'flex-start',
                     padding: '18px 20px',
                     borderRadius: 16,
-                    background: '#EFF6FF',
-                    border: '1px solid rgba(3, 126, 243, 0.2)'
+                    background: '#EEF0FF',
+                    border: '1px solid rgba(51, 71, 255, 0.2)'
                   }}
                 >
                   <div style={{ background: '#FFFFFF', color: 'var(--aiesec-blue)', padding: 10, borderRadius: 12, flexShrink: 0, boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
@@ -343,7 +343,7 @@ export const AboutPage: React.FC = () => {
                     padding: '18px 20px',
                     borderRadius: 16,
                     background: '#FFF7ED',
-                    border: '1px solid rgba(248, 90, 64, 0.2)'
+                    border: '1px solid rgba(240, 100, 58, 0.2)'
                   }}
                 >
                   <div style={{ background: '#FFFFFF', color: 'var(--aiesec-orange)', padding: 10, borderRadius: 12, flexShrink: 0, boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
@@ -442,46 +442,6 @@ export const AboutPage: React.FC = () => {
               ))}
             </div>
           </div>
-
-          {/* Official German Association Statement Card */}
-          <div
-            style={{
-              marginTop: 48,
-              backgroundColor: '#F8FAFC',
-              borderRadius: 20,
-              border: '1.5px solid var(--border)',
-              padding: '30px 36px',
-              position: 'relative'
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16, flexWrap: 'wrap' }}>
-              <span
-                style={{
-                  background: 'var(--aiesec-blue)',
-                  color: '#FFFFFF',
-                  fontSize: '0.75rem',
-                  fontWeight: 800,
-                  padding: '4px 12px',
-                  borderRadius: 'var(--radius-pill)',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.04em'
-                }}
-              >
-                🇦🇹 Deutsch &bull; Offizielle Vereinsbeschreibung
-              </span>
-              <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 600 }}>
-                ZVR-Zahl: 107178700 (Verein der mongolischen Studenten in Österreich)
-              </span>
-            </div>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12, fontSize: '0.94rem', color: 'var(--text-main)', lineHeight: 1.75 }}>
-              {AMOX_MISSION_VISION.germanStatement.paragraphs.map((para, i) => (
-                <p key={i} style={{ margin: 0 }}>
-                  {para}
-                </p>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
@@ -493,7 +453,7 @@ export const AboutPage: React.FC = () => {
       {/* -------------------------------------------------------------
           3. CORE VALUES SECTION (The 6 AIESEC Pillars)
           ------------------------------------------------------------- */}
-      <section style={{ padding: '90px 0', backgroundColor: '#F8FAFC', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
+      <section style={{ padding: '90px 0', backgroundColor: '#F6F6F4', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: 60 }}>
             <span style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--aiesec-blue)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
@@ -514,14 +474,14 @@ export const AboutPage: React.FC = () => {
               gap: 24
             }}
           >
-            <div className="timeline-card" style={{ borderLeft: '4px solid #037EF3' }}>
+            <div className="timeline-card" style={{ borderLeft: '4px solid #3347FF' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
-                <div style={{ background: '#EFF6FF', color: '#037EF3', padding: 10, borderRadius: 12 }}>
+                <div style={{ background: '#EEF0FF', color: '#3347FF', padding: 10, borderRadius: 12 }}>
                   <Flag size={24} />
                 </div>
                 <div>
                   <h4 style={{ fontSize: '1.1rem', fontWeight: 700 }}>Activating Leadership</h4>
-                  <span style={{ fontSize: '0.75rem', color: '#037EF3', fontWeight: 700 }}>МАНЛАЙЛАЛ</span>
+                  <span style={{ fontSize: '0.75rem', color: '#3347FF', fontWeight: 700 }}>МАНЛАЙЛАЛ</span>
                 </div>
               </div>
               <p style={{ fontSize: '0.9rem', color: 'var(--text-sub)', lineHeight: 1.6 }}>
@@ -529,14 +489,14 @@ export const AboutPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="timeline-card" style={{ borderLeft: '4px solid #F85A40' }}>
+            <div className="timeline-card" style={{ borderLeft: '4px solid #F0643A' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
-                <div style={{ background: '#FFF7ED', color: '#F85A40', padding: 10, borderRadius: 12 }}>
+                <div style={{ background: '#FFF7ED', color: '#F0643A', padding: 10, borderRadius: 12 }}>
                   <Gem size={24} />
                 </div>
                 <div>
                   <h4 style={{ fontSize: '1.1rem', fontWeight: 700 }}>Demonstrating Integrity</h4>
-                  <span style={{ fontSize: '0.75rem', color: '#F85A40', fontWeight: 700 }}>ШУДАРГА &amp; ИЛ ТОД</span>
+                  <span style={{ fontSize: '0.75rem', color: '#F0643A', fontWeight: 700 }}>ШУДАРГА &amp; ИЛ ТОД</span>
                 </div>
               </div>
               <p style={{ fontSize: '0.9rem', color: 'var(--text-sub)', lineHeight: 1.6 }}>
@@ -559,14 +519,14 @@ export const AboutPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="timeline-card" style={{ borderLeft: '4px solid #00C16E' }}>
+            <div className="timeline-card" style={{ borderLeft: '4px solid #12926B' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
-                <div style={{ background: '#F0FDF4', color: '#00C16E', padding: 10, borderRadius: 12 }}>
+                <div style={{ background: '#F0FDF4', color: '#12926B', padding: 10, borderRadius: 12 }}>
                   <Leaf size={24} />
                 </div>
                 <div>
                   <h4 style={{ fontSize: '1.1rem', fontWeight: 700 }}>Acting Sustainably</h4>
-                  <span style={{ fontSize: '0.75rem', color: '#00C16E', fontWeight: 700 }}>ТОГТВОРТОЙ ХӨГЖИЛ</span>
+                  <span style={{ fontSize: '0.75rem', color: '#12926B', fontWeight: 700 }}>ТОГТВОРТОЙ ХӨГЖИЛ</span>
                 </div>
               </div>
               <p style={{ fontSize: '0.9rem', color: 'var(--text-sub)', lineHeight: 1.6 }}>
@@ -574,14 +534,14 @@ export const AboutPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="timeline-card" style={{ borderLeft: '4px solid #002D62' }}>
+            <div className="timeline-card" style={{ borderLeft: '4px solid #0C0C0F' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
-                <div style={{ background: '#EFF6FF', color: '#002D62', padding: 10, borderRadius: 12 }}>
+                <div style={{ background: '#EEF0FF', color: '#0C0C0F', padding: 10, borderRadius: 12 }}>
                   <Trophy size={24} />
                 </div>
                 <div>
                   <h4 style={{ fontSize: '1.1rem', fontWeight: 700 }}>Striving for Excellence</h4>
-                  <span style={{ fontSize: '0.75rem', color: '#002D62', fontWeight: 700 }}>ЧАНАРЫН СТАНДАРТ</span>
+                  <span style={{ fontSize: '0.75rem', color: '#0C0C0F', fontWeight: 700 }}>ЧАНАРЫН СТАНДАРТ</span>
                 </div>
               </div>
               <p style={{ fontSize: '0.9rem', color: 'var(--text-sub)', lineHeight: 1.6 }}>
@@ -589,14 +549,14 @@ export const AboutPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="timeline-card" style={{ borderLeft: '4px solid #00878A' }}>
+            <div className="timeline-card" style={{ borderLeft: '4px solid #0E9F8A' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
-                <div style={{ background: '#ECFEFF', color: '#00878A', padding: 10, borderRadius: 12 }}>
+                <div style={{ background: '#ECFEFF', color: '#0E9F8A', padding: 10, borderRadius: 12 }}>
                   <Users size={24} />
                 </div>
                 <div>
                   <h4 style={{ fontSize: '1.1rem', fontWeight: 700 }}>Living Diversity</h4>
-                  <span style={{ fontSize: '0.75rem', color: '#00878A', fontWeight: 700 }}>ОЛОН ТАЛТ БАЙДАЛ</span>
+                  <span style={{ fontSize: '0.75rem', color: '#0E9F8A', fontWeight: 700 }}>ОЛОН ТАЛТ БАЙДАЛ</span>
                 </div>
               </div>
               <p style={{ fontSize: '0.9rem', color: 'var(--text-sub)', lineHeight: 1.6 }}>
@@ -642,7 +602,7 @@ export const AboutPage: React.FC = () => {
               >
                 <div
                   style={{
-                    background: idx === 4 ? 'var(--aiesec-blue)' : idx === 1 ? 'var(--aiesec-orange)' : '#0A192F',
+                    background: idx === 4 ? 'var(--aiesec-blue)' : idx === 1 ? 'var(--aiesec-orange)' : '#0C0C0F',
                     color: '#FFFFFF',
                     padding: '8px 18px',
                     borderRadius: 'var(--radius-pill)',
@@ -671,7 +631,7 @@ export const AboutPage: React.FC = () => {
       {/* -------------------------------------------------------------
           5. EXECUTIVE BOARD & LEADERSHIP TEAM
           ------------------------------------------------------------- */}
-      <section id="board" style={{ padding: '100px 0', backgroundColor: '#F8FAFC', borderTop: '1px solid var(--border)' }}>
+      <section id="board" style={{ padding: '100px 0', backgroundColor: '#F6F6F4', borderTop: '1px solid var(--border)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: 60 }}>
             <span style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--aiesec-blue)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
@@ -705,7 +665,7 @@ export const AboutPage: React.FC = () => {
                       position: 'absolute',
                       top: 12,
                       left: 12,
-                      background: 'rgba(3, 126, 243, 0.9)',
+                      background: 'rgba(51, 71, 255, 0.9)',
                       color: '#FFFFFF',
                       padding: '4px 10px',
                       borderRadius: 6,
@@ -782,7 +742,7 @@ export const AboutPage: React.FC = () => {
                   whiteSpace: 'nowrap'
                 }}
               >
-                👥 1-on-1 Ментор Зөвлөгөө Авах
+                1-on-1 Ментор Зөвлөгөө Авах
               </button>
               <button
                 type="button"
@@ -802,7 +762,7 @@ export const AboutPage: React.FC = () => {
                   whiteSpace: 'nowrap'
                 }}
               >
-                ✨ AMOX Багт Нэгдэх &bull; Volunteer
+                AMOX Багт Нэгдэх &bull; Volunteer
               </button>
             </div>
 
@@ -825,9 +785,9 @@ export const AboutPage: React.FC = () => {
                     style={{
                       textAlign: 'center',
                       padding: 'clamp(24px, 5vw, 40px)',
-                      backgroundColor: '#EFF6FF',
+                      backgroundColor: '#EEF0FF',
                       borderRadius: 18,
-                      border: '1.5px solid rgba(3, 126, 243, 0.3)'
+                      border: '1.5px solid rgba(51, 71, 255, 0.3)'
                     }}
                   >
                     <CheckCircle2 size={54} color="var(--aiesec-blue)" style={{ margin: '0 auto 16px' }} />
@@ -958,7 +918,7 @@ export const AboutPage: React.FC = () => {
                       padding: 'clamp(24px, 5vw, 40px)',
                       backgroundColor: '#FFF7ED',
                       borderRadius: 18,
-                      border: '1.5px solid rgba(248, 90, 64, 0.3)'
+                      border: '1.5px solid rgba(240, 100, 58, 0.3)'
                     }}
                   >
                     <CheckCircle2 size={54} color="var(--aiesec-orange)" style={{ margin: '0 auto 16px' }} />
@@ -1034,10 +994,10 @@ export const AboutPage: React.FC = () => {
                           value={volunteerForm.role}
                           onChange={(e) => setVolunteerForm({ ...volunteerForm, role: e.target.value })}
                         >
-                          <option value="events">🏆 Sun Festival &amp; Эвент зохион байгуулалт</option>
-                          <option value="marketing">🎨 Дизайн, Медиа &amp; Сошиал маркетинг</option>
-                          <option value="guide">📖 Оюутны гарын авлага &amp; Виз судалгаа</option>
-                          <option value="partnership">🤝 Гадаад харилцаа &amp; Түншлэл</option>
+                          <option value="events">Sun Festival &amp; Эвент зохион байгуулалт</option>
+                          <option value="marketing">Дизайн, Медиа &amp; Сошиал маркетинг</option>
+                          <option value="guide">Оюутны гарын авлага &amp; Виз судалгаа</option>
+                          <option value="partnership">Гадаад харилцаа &amp; Түншлэл</option>
                         </select>
                       </div>
                     </div>
@@ -1080,7 +1040,7 @@ export const AboutPage: React.FC = () => {
       {/* -------------------------------------------------------------
           7. FAQ ACCORDION & VEREIN LEGAL INFO
           ------------------------------------------------------------- */}
-      <section style={{ padding: '90px 0', backgroundColor: '#F8FAFC', borderTop: '1px solid var(--border)' }}>
+      <section style={{ padding: '90px 0', backgroundColor: '#F6F6F4', borderTop: '1px solid var(--border)' }}>
         <div className="container" style={{ maxWidth: 860 }}>
           <div style={{ textAlign: 'center', marginBottom: 44 }}>
             <span style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--aiesec-blue)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
@@ -1165,7 +1125,7 @@ export const AboutPage: React.FC = () => {
           >
             <div>
               <h4 style={{ fontSize: '1.05rem', fontWeight: 800, marginBottom: 4 }}>
-                🇦🇹 Verein der mongolischen Studenten in Österreich - &quot;AMOX&quot;
+                Verein der mongolischen Studenten in Österreich - &quot;AMOX&quot;
               </h4>
               <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', margin: 0 }}>
                 ZVR-Zahl: <strong>107178700</strong> (Австрийн Дотоод Хэргийн Яамны Бүртгэлийн Албан Ёсны Дугаар &bull; Seit 2007)

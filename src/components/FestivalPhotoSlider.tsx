@@ -17,7 +17,7 @@ export const FESTIVAL_PHOTOS: FestivalPhoto[] = [
     id: 'photo-1',
     year: '2025',
     title: 'Сагсан Бөмбөгийн Шигшээ Тоглолт & Алтан Медаль',
-    category: '🏀 Сагсан бөмбөг',
+    category: 'Сагсан бөмбөг',
     image: '/assets/sun_festival_basketball.jpg',
     location: 'Вена Хот • Sportzentrum',
     description: 'Европын 16 шилдэг баг өрсөлдөж, финалд Vienna Warriors болон Berlin Stars багууд тунасан гал гарсан шийдвэрлэх мөч.'
@@ -26,7 +26,7 @@ export const FESTIVAL_PHOTOS: FestivalPhoto[] = [
     id: 'photo-2',
     year: '2025',
     title: 'Волейболын Аваргын Төлөөх Шийдвэрлэх Өрсөлдөөн',
-    category: '🏐 Волейбол',
+    category: 'Волейбол',
     image: '/assets/sun_festival_volleyball.jpg',
     location: 'Вена Хот • Төв Арена',
     description: 'Холимог болон эрэгтэй 12 багийн 5 сет үргэлжилсэн өрсөлдөөн, Австри дахь оюутан залуусын хамтын дэмжлэг.'
@@ -35,7 +35,7 @@ export const FESTIVAL_PHOTOS: FestivalPhoto[] = [
     id: 'photo-3',
     year: '2024',
     title: 'Sun Festival Нээлтийн Ёслол & Залуусын Цугларалт',
-    category: '🎉 Нээлтийн Ёслол',
+    category: 'Нээлтийн Ёслол',
     image: '/assets/media_1787152152741.jpg',
     location: 'Вена Их Сургуулийн Спорт Цогцолбор',
     description: 'Австри, Герман, Чех, Унгараас хүрэлцэн ирсэн 300 гаруй тамирчид, хөгжөөн дэмжигчдийн нэгдсэн жагсаал.'
@@ -44,7 +44,7 @@ export const FESTIVAL_PHOTOS: FestivalPhoto[] = [
     id: 'photo-4',
     year: '2024',
     title: 'Цом & Медаль Гардуулах Ёслолын Мөч',
-    category: '🏆 Шагнал Гардуулалт',
+    category: 'Шагнал Гардуулалт',
     image: '/assets/media_1787152257891.jpg',
     location: 'Sportarena Wien',
     description: '6 төрлийн шилдэг аваргуудад цом, өргөмжлөл, ивээн тэтгэгчдийн бэлэг гардуулав.'
@@ -53,7 +53,7 @@ export const FESTIVAL_PHOTOS: FestivalPhoto[] = [
     id: 'photo-5',
     year: '2023',
     title: 'Ширээний Теннис & Шатрын Оюуны Тэмцээн',
-    category: '♟️ Шатар & 🏓 Теннис',
+    category: 'Шатар & Теннис',
     image: '/assets/student-male.jpg',
     location: 'Вена Хот • Клуб',
     description: 'Хурд, авхаалж самбаа, тактик шаардсан блиц тоглолтууд өндөр өрсөлдөөнтэй өрнөв.'
@@ -117,7 +117,7 @@ export const FestivalPhotoSlider: React.FC = () => {
               transition: 'var(--transition)'
             }}
           >
-            {year === 'all' ? '🌟 Бүх Наадмын Зургууд' : `🏆 ${year} Он`}
+            {year === 'all' ? 'Бүх Наадмын Зургууд' : `${year} Он`}
           </button>
         ))}
       </div>

@@ -1,13 +1,27 @@
 import React, { useState } from 'react';
-import { ExternalLink, Check, Copy, Sparkles } from 'lucide-react';
+import { ArrowUpRight, Check, Copy } from 'lucide-react';
 import { OFFICIAL_CHANNELS } from '../data/associationData';
-import { 
-  FacebookIcon, 
-  InstagramIcon, 
-  YoutubeIcon, 
-  SoundcloudIcon, 
-  GoogleDocIcon 
-} from './ChannelIcons';
+import { FacebookIcon, InstagramIcon, YoutubeIcon, SoundcloudIcon, GoogleDocIcon } from './ChannelIcons';
+
+const STYLE: Record<string, { bg: string; tint: string }> = {
+  'facebook-group': { bg: '#1877F2', tint: 'var(--tint-sky)' },
+  instagram: { bg: '#D6286E', tint: '#FFE6F0' },
+  youtube: { bg: '#E02D2D', tint: '#FFE8E6' },
+  podcast: { bg: '#F26A1B', tint: 'var(--tint-peach)' },
+  'study-video': { bg: '#3347FF', tint: 'var(--tint-lilac)' },
+  'study-article': { bg: '#12926B', tint: 'var(--tint-mint)' }
+};
+
+const icon = (id: string) => {
+  switch (id) {
+    case 'facebook-group': return <FacebookIcon size={22} color="#fff" />;
+    case 'instagram': return <InstagramIcon size={22} color="#fff" />;
+    case 'youtube':
+    case 'study-video': return <YoutubeIcon size={22} color="#fff" />;
+    case 'podcast': return <SoundcloudIcon size={22} color="#fff" />;
+    default: return <GoogleDocIcon size={22} color="#fff" />;
+  }
+};
 
 export const OfficialChannelsSection: React.FC = () => {
   const [copiedId, setCopiedId] = useState<string | null>(null);
@@ -18,256 +32,72 @@ export const OfficialChannelsSection: React.FC = () => {
     setTimeout(() => setCopiedId(null), 2000);
   };
 
-  const getChannelIcon = (id: string) => {
-    switch (id) {
-      case 'facebook-group':
-        return <FacebookIcon size={24} color="#1877F2" />;
-      case 'instagram':
-        return <InstagramIcon size={24} color="#E1306C" />;
-      case 'youtube':
-        return <YoutubeIcon size={24} color="#FF0000" />;
-      case 'podcast':
-        return <SoundcloudIcon size={24} color="#FF5500" />;
-      case 'study-video':
-        return <YoutubeIcon size={24} color="#037EF3" />;
-      case 'study-article':
-        return <GoogleDocIcon size={24} color="#00878A" />;
-      default:
-        return <ExternalLink size={24} color="var(--aiesec-blue)" />;
-    }
-  };
-
-  const getAccentBg = (id: string) => {
-    switch (id) {
-      case 'facebook-group':
-        return '#EFF6FF';
-      case 'instagram':
-        return '#FDF2F8';
-      case 'youtube':
-        return '#FEF2F2';
-      case 'podcast':
-        return '#FFF7ED';
-      case 'study-video':
-        return '#F0F9FF';
-      case 'study-article':
-        return '#ECFDF5';
-      default:
-        return '#F8FAFC';
-    }
-  };
-
   return (
-    <section id="official-channels" style={{ padding: '90px 0', backgroundColor: '#FFFFFF' }}>
+    <section id="official-channels" className="oc">
       <div className="container">
-        {/* Section Header */}
-        <div style={{ textAlign: 'center', marginBottom: 54 }}>
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 6,
-              padding: '4px 14px',
-              borderRadius: 'var(--radius-pill)',
-              background: '#EFF6FF',
-              color: 'var(--aiesec-blue)',
-              fontSize: '0.8rem',
-              fontWeight: 800,
-              letterSpacing: '0.06em',
-              textTransform: 'uppercase',
-              marginBottom: 12
-            }}
-          >
-            <Sparkles size={14} />
-            <span>Албан Ёсны Эх Сурвалжууд &bull; Official Platforms</span>
-          </div>
-
-          <h2
-            style={{
-              fontSize: 'clamp(2.1rem, 4.2vw, 2.9rem)',
-              fontWeight: 800,
-              color: 'var(--text-main)',
-              letterSpacing: '-0.02em',
-              marginBottom: 14
-            }}
-          >
-            Бидний Хөтлөн Явуулдаг Албан Ёсны Хаягууд
-          </h2>
-
-          <p
-            style={{
-              fontSize: '1.05rem',
-              color: 'var(--text-sub)',
-              maxWidth: 680,
-              margin: '0 auto',
-              lineHeight: 1.7
-            }}
-          >
-            Австри дахь Монгол оюутнуудын хамтын нэгдэл, мэдээлэл, подкаст, видео болон цогц нийтлэлүүдтэй албан ёсоор холбогдоорой.
-          </p>
+        <div className="oc-head reveal">
+          <span className="section-subtitle">Холбоо барих</span>
+          <h2>Манай албан ёсны хаягууд</h2>
+          <p>Мэдээ, зар, подкаст, видео, гарын авлага — AMOX-ийн албан ёсны хаягууд.</p>
         </div>
 
-        {/* 6-Grid Official Channels Cards */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: 24
-          }}
-        >
-          {OFFICIAL_CHANNELS.map((channel) => {
-            const isCopied = copiedId === channel.id;
+        <div className="oc-grid">
+          {OFFICIAL_CHANNELS.map((c, i) => {
+            const s = STYLE[c.id] ?? { bg: '#3347FF', tint: 'var(--tint-lilac)' };
+            const isCopied = copiedId === c.id;
             return (
-              <div
-                key={channel.id}
-                style={{
-                  backgroundColor: '#FFFFFF',
-                  borderRadius: 20,
-                  border: '1.5px solid var(--border)',
-                  padding: '24px 26px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  boxShadow: '0 4px 20px rgba(0, 45, 98, 0.04)',
-                  transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
-                  position: 'relative'
-                }}
-                className="official-channel-card"
-              >
-                <div>
-                  {/* Top Bar: Icon + Badge */}
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      marginBottom: 16
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: 50,
-                        height: 50,
-                        borderRadius: 14,
-                        backgroundColor: getAccentBg(channel.id),
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        boxShadow: '0 2px 8px rgba(0,0,0,0.03)'
-                      }}
-                    >
-                      {getChannelIcon(channel.id)}
-                    </div>
-
-                    <span
-                      style={{
-                        fontSize: '0.75rem',
-                        fontWeight: 700,
-                        padding: '4px 10px',
-                        borderRadius: 'var(--radius-pill)',
-                        background: 'var(--bg-subtle)',
-                        color: 'var(--text-sub)',
-                        border: '1px solid var(--border)'
-                      }}
-                    >
-                      {channel.badge}
-                    </span>
-                  </div>
-
-                  {/* Title */}
-                  <h3
-                    style={{
-                      fontSize: '1.15rem',
-                      fontWeight: 800,
-                      color: 'var(--text-main)',
-                      marginBottom: 6,
-                      lineHeight: 1.35
-                    }}
-                  >
-                    {channel.title}
-                  </h3>
-
-                  {channel.handle && (
-                    <div
-                      style={{
-                        fontSize: '0.82rem',
-                        fontWeight: 700,
-                        color: 'var(--aiesec-blue)',
-                        marginBottom: 10
-                      }}
-                    >
-                      {channel.handle}
-                    </div>
-                  )}
-
-                  {/* Description */}
-                  <p
-                    style={{
-                      fontSize: '0.88rem',
-                      color: 'var(--text-sub)',
-                      lineHeight: 1.6,
-                      marginBottom: 20
-                    }}
-                  >
-                    {channel.description}
-                  </p>
+              <article key={c.id} className="oc-card reveal" style={{ ['--d' as string]: `${i * 60}ms`, ['--tint' as string]: s.tint }}>
+                <div className="oc-top">
+                  <span className="oc-icon" style={{ background: s.bg }}>{icon(c.id)}</span>
+                  <span className="oc-badge">{c.badge}</span>
                 </div>
-
-                {/* Actions: Direct Link + Copy Link */}
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 10,
-                    borderTop: '1px solid var(--border)',
-                    paddingTop: 16
-                  }}
-                >
-                  <a
-                    href={channel.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="aiesec-btn-primary"
-                    style={{
-                      flex: 1,
-                      justifyContent: 'center',
-                      padding: '10px 16px',
-                      fontSize: '0.86rem',
-                      textDecoration: 'none'
-                    }}
-                  >
-                    <span>{channel.actionText}</span>
-                    <ExternalLink size={14} />
+                <h3>{c.title}</h3>
+                {c.handle && <span className="oc-handle">{c.handle}</span>}
+                <p>{c.description}</p>
+                <div className="oc-actions">
+                  <a href={c.url} target="_blank" rel="noopener noreferrer" className="oc-open">
+                    {c.actionText} <ArrowUpRight size={16} />
                   </a>
-
                   <button
                     type="button"
-                    onClick={() => handleCopy(channel.id, channel.url)}
-                    style={{
-                      padding: '10px 14px',
-                      borderRadius: 'var(--radius-pill)',
-                      border: '1px solid var(--border)',
-                      background: isCopied ? '#ECFDF5' : 'var(--bg-subtle)',
-                      color: isCopied ? '#059669' : 'var(--text-sub)',
-                      cursor: 'pointer',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: 6,
-                      fontSize: '0.8rem',
-                      fontWeight: 600,
-                      transition: 'all 0.2s ease'
-                    }}
-                    title="Линк хуулах"
+                    className={isCopied ? 'oc-copy done' : 'oc-copy'}
+                    onClick={() => handleCopy(c.id, c.url)}
                     aria-label="Линк хуулах"
+                    title="Линк хуулах"
                   >
-                    {isCopied ? <Check size={14} color="#059669" /> : <Copy size={14} />}
-                    <span>{isCopied ? 'Хуулагдлаа' : 'Хуулах'}</span>
+                    {isCopied ? <Check size={16} /> : <Copy size={16} />}
                   </button>
                 </div>
-              </div>
+              </article>
             );
           })}
         </div>
       </div>
+
+      <style>{`
+        .oc { padding: 112px 0 96px; }
+        .oc-head { max-width: 560px; margin-bottom: 52px; }
+        .oc-head h2 { font-size: clamp(2.1rem, 4.4vw, 3.2rem); margin-bottom: 14px; }
+        .oc-head p { font-size: 1.05rem; }
+        .oc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+        .oc-card { display: flex; flex-direction: column; padding: 28px; border-radius: 26px; background: var(--tint); transition: transform .3s ease, box-shadow .3s ease, opacity .8s ease; }
+        .oc-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(12,12,15,.08); }
+        .oc-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 36px; }
+        .oc-icon { width: 46px; height: 46px; border-radius: 14px; display: flex; align-items: center; justify-content: center; }
+        .oc-badge { font-size: .74rem; font-weight: 600; color: var(--ink); background: rgba(255,255,255,.75); padding: 5px 11px; border-radius: 999px; }
+        .oc-card h3 { font-size: 1.2rem; line-height: 1.3; margin-bottom: 4px; }
+        .oc-handle { font-size: .85rem; font-weight: 600; color: var(--text-sub); margin-bottom: 10px; }
+        .oc-card p { font-size: .93rem; flex: 1; margin-bottom: 26px; color: #3f3f48; }
+        .oc-actions { display: flex; gap: 8px; }
+        .oc-open { flex: 1; display: inline-flex; align-items: center; justify-content: space-between; padding: 12px 18px; border-radius: 999px; background: var(--ink); color: #fff; text-decoration: none; font-weight: 600; font-size: .9rem; transition: background .2s; }
+        .oc-open:hover { background: #2a2a33; }
+        .oc-open svg { transition: transform .2s; } .oc-open:hover svg { transform: translate(2px,-2px); }
+        .oc-copy { width: 46px; border: 0; border-radius: 999px; cursor: pointer; background: rgba(255,255,255,.75); color: var(--ink); display: flex; align-items: center; justify-content: center; transition: background .2s; }
+        .oc-copy:hover { background: #fff; }
+        .oc-copy.done { background: var(--green); color: #fff; }
+        @media (max-width: 980px) { .oc-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 620px) { .oc { padding: 72px 0 64px; } .oc-grid { grid-template-columns: 1fr; } }
+      `}</style>
     </section>
   );
 };

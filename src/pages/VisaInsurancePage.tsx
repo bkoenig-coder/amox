@@ -91,12 +91,10 @@ Telefon: [Таны Утасны дугаар]`;
   const progressPercent = Math.round((completedCount / checklistItems.length) * 100);
 
   return (
-    <div className="visa-insurance-page" style={{ paddingTop: 80, minHeight: '100vh', background: '#F8FAFC' }}>
+    <div className="visa-insurance-page" style={{ paddingTop: 80, minHeight: '100vh', background: '#F6F6F4' }}>
       {/* Header */}
-      <section style={{
-        padding: '50px 0 35px',
-        background: 'linear-gradient(135deg, #0A192F 0%, #003E9E 60%, #037EF3 100%)',
-        color: '#FFFFFF'
+      <section className="page-hero" style={{
+        padding: '50px 0 48px'
       }}>
         <div className="container text-center">
           <div style={{
@@ -153,7 +151,7 @@ Telefon: [Таны Утасны дугаар]`;
                 transition: 'var(--transition)'
               }}
             >
-              💶 Санхүүгийн Шаардлага (2026)
+              Санхүүгийн Шаардлага (2026)
             </button>
             <button
               onClick={() => setActiveTab('checklist')}
@@ -169,7 +167,7 @@ Telefon: [Таны Утасны дугаар]`;
                 transition: 'var(--transition)'
               }}
             >
-              📋 Бичиг Баримтын Чеклист ({completedCount}/8)
+              Бичиг Баримтын Чеклист ({completedCount}/8)
             </button>
             <button
               onClick={() => setActiveTab('email')}
@@ -185,7 +183,7 @@ Telefon: [Таны Утасны дугаар]`;
                 transition: 'var(--transition)'
               }}
             >
-              ✉️ MA35 И-мэйл Бэлтгэгч
+              MA35 И-мэйл Бэлтгэгч
             </button>
             <button
               onClick={() => setActiveTab('insurance')}
@@ -201,7 +199,7 @@ Telefon: [Таны Утасны дугаар]`;
                 transition: 'var(--transition)'
               }}
             >
-              🩺 ÖGK Даатгал &amp; E-Card
+              ÖGK Даатгал &amp; E-Card
             </button>
           </div>
         </div>
@@ -236,11 +234,11 @@ Telefon: [Таны Утасны дугаар]`;
                 border: '1.5px solid #BFDBFE',
                 borderRadius: 16,
                 padding: '24px 22px',
-                boxShadow: '0 4px 16px rgba(3, 126, 243, 0.06)'
+                boxShadow: '0 4px 16px rgba(51, 71, 255, 0.06)'
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
                   <span style={{
-                    background: '#EFF6FF',
+                    background: '#EEF0FF',
                     color: 'var(--aiesec-blue)',
                     padding: '3px 10px',
                     borderRadius: 20,
@@ -329,7 +327,7 @@ Telefon: [Таны Утасны дугаар]`;
 
             {/* Crucial Info Callouts */}
             <div style={{
-              background: '#EFF6FF',
+              background: '#EEF0FF',
               border: '1px solid #BFDBFE',
               borderRadius: 14,
               padding: '20px 24px',
@@ -379,7 +377,7 @@ Telefon: [Таны Утасны дугаар]`;
                     <strong>И-мэйл:</strong> referat-1.2@ma35.wien.gv.at
                   </div>
                   <p style={{ margin: '8px 0 0', fontSize: '0.82rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
-                    💡 <em>Зөвлөмж:</em> Визний хугацаа дуусахаас хамгийн багадаа <strong>3 сарын өмнө</strong> цаг авах герман өргөдлөө илгээж баталгаажуулна уу. Хугацаа дууссаны дараа илгээвэл хууль бус оршин суугч болох эрсдэлтэй.
+                    <em>Зөвлөмж:</em> Визний хугацаа дуусахаас хамгийн багадаа <strong>3 сарын өмнө</strong> цаг авах герман өргөдлөө илгээж баталгаажуулна уу. Хугацаа дууссаны дараа илгээвэл хууль бус оршин суугч болох эрсдэлтэй.
                   </p>
                 </div>
               </div>
@@ -418,7 +416,7 @@ Telefon: [Таны Утасны дугаар]`;
                   Бэлтгэлийн явц: {completedCount} / {checklistItems.length} баримт бэлэн
                 </strong>
                 <span style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-                  {progressPercent === 100 ? '🎉 Бүх баримт бүрэн бэлэн боллоо!' : 'Дутуу байгаа баримтуудаа эртнээс бүрдүүлээрэй.'}
+                  {progressPercent === 100 ? 'Бүх баримт бүрэн бэлэн боллоо!' : 'Дутуу байгаа баримтуудаа эртнээс бүрдүүлээрэй.'}
                 </span>
               </div>
               <div style={{ minWidth: 160, display: 'flex', alignItems: 'center', gap: 10 }}>
@@ -452,7 +450,7 @@ Telefon: [Таны Утасны дугаар]`;
                       gap: 14,
                       cursor: 'pointer',
                       transition: 'var(--transition)',
-                      boxShadow: isChecked ? '0 2px 8px rgba(3, 126, 243, 0.08)' : 'none'
+                      boxShadow: isChecked ? '0 2px 8px rgba(51, 71, 255, 0.08)' : 'none'
                     }}
                   >
                     <div style={{ marginTop: 2 }}>
@@ -600,7 +598,7 @@ Telefon: [Таны Утасны дугаар]`;
 
                   <div style={{
                     background: '#0F172A',
-                    color: '#F8FAFC',
+                    color: '#F6F6F4',
                     borderRadius: 'var(--radius-md)',
                     padding: 20,
                     fontSize: '0.86rem',

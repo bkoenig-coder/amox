@@ -51,8 +51,8 @@ export const SunFestivalPage: React.FC = () => {
       name: 'Сагсан бөмбөг (Эрэгтэй)', 
       categoryType: 'Багийн төрөл (5x5)', 
       teams: '16 Баг', 
-      icon: '🏀',
-      color: '#F85A40',
+      icon: '',
+      color: '#F0643A',
       rules: '5x5 Бүсийн тоглолт, 4 үе 10 минут, FIBA албан ёсны дүрэм, хасагдах шатны шууд плей-офф.'
     },
     { 
@@ -60,8 +60,8 @@ export const SunFestivalPage: React.FC = () => {
       name: 'Сагсан бөмбөг (Эмэгтэй)', 
       categoryType: 'Багийн төрөл (5x5)', 
       teams: '8 Баг', 
-      icon: '🏀',
-      color: '#F85A40',
+      icon: '',
+      color: '#F0643A',
       rules: '5x5 Бүсийн тоглолт, 4 үе 8 минут, шилдэг тоглогчийн тусгай өргөмжлөлтэй.'
     },
     { 
@@ -69,8 +69,8 @@ export const SunFestivalPage: React.FC = () => {
       name: 'Гар бөмбөг (Холимог 4+2)', 
       categoryType: 'Багийн төрөл (Холимог)', 
       teams: '12 Баг', 
-      icon: '🏐',
-      color: '#037EF3',
+      icon: '',
+      color: '#3347FF',
       rules: '3 сетээр 25 оноо, шийдвэрлэх сет 15 оноо. Багт хамгийн багадаа 2 эмэгтэй тоглогч талбайд байна.'
     },
     { 
@@ -78,8 +78,8 @@ export const SunFestivalPage: React.FC = () => {
       name: 'Хөлбөмбөг (Mini Football)', 
       categoryType: 'Багийн төрөл (5+1)', 
       teams: '10 Баг', 
-      icon: '⚽',
-      color: '#00C16E',
+      icon: '',
+      color: '#12926B',
       rules: '5+1 Талбайн тоглогч, 2 үе 15 минут, гүйлтийн солилцоо, хасагдах шатны шууд плей-офф.'
     },
     { 
@@ -87,7 +87,7 @@ export const SunFestivalPage: React.FC = () => {
       name: 'Ширээний теннис', 
       categoryType: 'Ганцаарчилсан', 
       teams: '32 Тамирчин', 
-      icon: '🏓',
+      icon: '',
       color: '#F4B400',
       rules: 'Ганцаарчилсан эрэгтэй / эмэгтэй ангилал, 11 оноо 3 сет, ITTF стандартын ширээ.'
     },
@@ -96,8 +96,8 @@ export const SunFestivalPage: React.FC = () => {
       name: 'Талбайн теннис', 
       categoryType: 'Ганцаарчилсан', 
       teams: '16 Тамирчин', 
-      icon: '🎾',
-      color: '#00878A',
+      icon: '',
+      color: '#0E9F8A',
       rules: 'Ганцаарчилсан ангилал, Hard court талбай, Tie-break систем.'
     },
     { 
@@ -105,41 +105,26 @@ export const SunFestivalPage: React.FC = () => {
       name: 'Шатар (Блиц & Rapid)', 
       categoryType: 'Ганцаарчилсан', 
       teams: '30 Тамирчин', 
-      icon: '♟️',
-      color: '#002D62',
+      icon: '',
+      color: '#0C0C0F',
       rules: 'Швейцар систем 7 өрөг, 10 мин + 5 сек нэмэлт цаг, FIDE дүрмээр явагдана.'
     }
   ];
 
   const championsHallOfFame = [
-    { year: '2025', sport: '🏀 Сагсан бөмбөг', winner: 'Vienna Warriors 🇦🇹', mvp: 'М. Батбилэг' },
-    { year: '2025', sport: '🏐 Гар бөмбөг', winner: 'Graz Nomads 🇦🇹', mvp: 'Э. Сарнай' },
-    { year: '2024', sport: '🏀 Сагсан бөмбөг', winner: 'Berlin Stars 🇩🇪', mvp: 'Т. Тэмүүлэн' },
-    { year: '2024', sport: '⚽ Хөлбөмбөг', winner: 'Prague Hawks 🇨🇿', mvp: 'Б. Анхбаяр' },
-    { year: '2023', sport: '🏀 Сагсан бөмбөг', winner: 'Munich Mongols 🇩🇪', mvp: 'О. Эрдэнэбат' }
+    { year: '2025', sport: 'Сагсан бөмбөг', winner: 'Vienna Warriors ', mvp: 'М. Батбилэг' },
+    { year: '2025', sport: 'Гар бөмбөг', winner: 'Graz Nomads ', mvp: 'Э. Сарнай' },
+    { year: '2024', sport: 'Сагсан бөмбөг', winner: 'Berlin Stars ', mvp: 'Т. Тэмүүлэн' },
+    { year: '2024', sport: 'Хөлбөмбөг', winner: 'Prague Hawks ', mvp: 'Б. Анхбаяр' },
+    { year: '2023', sport: 'Сагсан бөмбөг', winner: 'Munich Mongols ', mvp: 'О. Эрдэнэбат' }
   ];
 
   return (
     <div className="sun-festival-page" style={{ overflowX: 'hidden' }}>
       {/* -------------------------------------------------------------
-          1. HERO SECTION - Next Sun Festival 2027 Mega Announcement
+          1. HERO SECTION - Next Нарны Баяр 2027 Mega Announcement
           ------------------------------------------------------------- */}
-      <section
-        id="festival-hero"
-        style={{
-          position: 'relative',
-          minHeight: '75vh',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundImage: 'linear-gradient(180deg, rgba(0, 20, 50, 0.72) 0%, rgba(0, 20, 50, 0.88) 100%), url(/assets/sun_festival_basketball.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center 40%',
-          color: '#FFFFFF',
-          padding: '140px 0 90px',
-          textAlign: 'center'
-        }}
-      >
+      <section id="festival-hero" className="about-hero" style={{ minHeight: '60vh' }}>
         <div className="container" style={{ position: 'relative', zIndex: 2, maxWidth: 920 }}>
           <motion.div
             initial={{ opacity: 0, y: 25 }}
@@ -153,9 +138,9 @@ export const SunFestivalPage: React.FC = () => {
                 gap: 8,
                 padding: '6px 18px',
                 borderRadius: 'var(--radius-pill)',
-                background: 'rgba(248, 90, 64, 0.25)',
+                background: 'rgba(240, 100, 58, 0.25)',
                 backdropFilter: 'blur(8px)',
-                border: '1px solid rgba(248, 90, 64, 0.5)',
+                border: '1px solid rgba(240, 100, 58, 0.5)',
                 fontSize: '0.86rem',
                 fontWeight: 800,
                 letterSpacing: '0.04em',
@@ -165,7 +150,7 @@ export const SunFestivalPage: React.FC = () => {
               }}
             >
               <Flame size={16} color="var(--aiesec-orange)" />
-              <span>Next Mega Event • AMOX Sun Festival 2027 • Seit 2012</span>
+              <span>Next Mega Event • Нарны Баяр 2027 • Seit 2012</span>
             </div>
 
             <h1
@@ -178,17 +163,17 @@ export const SunFestivalPage: React.FC = () => {
                 letterSpacing: '-0.03em'
               }}
             >
-              AMOX Sun Festival{' '}
+              Нарны Баяр{' '}
               <span className="doodle-wrap">
                 2027
-                <HandDrawnLoop color="#F85A40" />
+                <HandDrawnLoop color="#F0643A" />
               </span>
             </h1>
 
             {/* Typewriter Sports Loop */}
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
-              <div className="typewriter-hero-badge" style={{ borderColor: 'rgba(248, 90, 64, 0.4)' }}>
-                <span className="typewriter-tag-pulse" style={{ background: '#F85A40', boxShadow: '0 0 10px #F85A40' }} />
+              <div className="typewriter-hero-badge" style={{ borderColor: 'rgba(240, 100, 58, 0.4)' }}>
+                <span className="typewriter-tag-pulse" style={{ background: '#F0643A', boxShadow: '0 0 10px #F0643A' }} />
                 <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.9)', fontWeight: 600 }}>
                   Тэмцээний төрөл:
                 </span>
@@ -200,7 +185,7 @@ export const SunFestivalPage: React.FC = () => {
                     'Ширээний теннис',
                     'Талбайн теннис',
                     'Шатар & Оюуны спорт',
-                    'Sun Festival 2027 Mega Cup'
+                    'Нарны Баяр 2027 Mega Cup'
                   ]}
                   highlightColor="#FFD700"
                 />
@@ -223,13 +208,13 @@ export const SunFestivalPage: React.FC = () => {
               <a 
                 href="#register" 
                 className="aiesec-btn-primary" 
-                style={{ background: 'var(--aiesec-orange)', borderColor: 'var(--aiesec-orange)', boxShadow: '0 8px 24px rgba(248,90,64,0.4)' }}
+                style={{ background: 'var(--aiesec-orange)', borderColor: 'var(--aiesec-orange)', boxShadow: '0 8px 24px rgba(240, 100, 58,0.4)' }}
               >
                 <span>2027 Баг Урьдчилан Бүртгүүлэх</span>
                 <ArrowRight size={16} />
               </a>
               <a href="#gallery" className="aiesec-btn-outline">
-                <span>📸 Өмнөх Наадмын Зургууд (2025, 2024)</span>
+                <span>Өмнөх Наадмын Зургууд (2025, 2024)</span>
               </a>
             </div>
           </motion.div>
@@ -239,7 +224,7 @@ export const SunFestivalPage: React.FC = () => {
       {/* -------------------------------------------------------------
           2. TOURNAMENT KEY STATS & INFO BAR
           ------------------------------------------------------------- */}
-      <section style={{ backgroundColor: '#F8FAFC', padding: '60px 0', borderBottom: '1px solid var(--border)' }}>
+      <section style={{ backgroundColor: '#F6F6F4', padding: '60px 0', borderBottom: '1px solid var(--border)' }}>
         <div className="container">
           <div
             style={{
@@ -297,7 +282,7 @@ export const SunFestivalPage: React.FC = () => {
               Өмнөх Наадмын{' '}
               <span className="doodle-wrap">
                 Онцлох Агшнууд
-                <HandDrawnWave color="#F85A40" />
+                <HandDrawnWave color="#F0643A" />
               </span>
             </h2>
             <p style={{ color: 'var(--text-sub)', maxWidth: 640, margin: '10px auto 0' }}>
@@ -313,97 +298,49 @@ export const SunFestivalPage: React.FC = () => {
       {/* -------------------------------------------------------------
           4. 6 SPORTS CATEGORIES INTERACTIVE CARDS & RULES
           ------------------------------------------------------------- */}
-      <section style={{ padding: '100px 0', backgroundColor: '#F8FAFC', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
+      <section style={{ padding: '100px 0', backgroundColor: '#F6F6F4', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: 60 }}>
             <span style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--aiesec-blue)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-              Tournament Categories &bull; 2027
+              Нарны Баяр &bull; 2027
             </span>
             <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginTop: 4 }}>
               Тэмцээний Төрөл &amp; Дүрэм
             </h2>
             <p style={{ color: 'var(--text-sub)', maxWidth: 600, margin: '8px auto 0' }}>
-              2027 оны наадамд өөрийн сонирхсон спортын төрлөөр баг бүрдүүлэн урьдчилан бүртгүүлээрэй
+              Тэмцээний төрөл, дүрэм болон багийн бүртгэлийн мэдээлэл удахгүй зарлагдана.
             </p>
           </div>
 
           <div
             style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))',
-              gap: 24
+              maxWidth: 560,
+              margin: '0 auto',
+              textAlign: 'center',
+              backgroundColor: '#FFFFFF',
+              border: '1px dashed var(--border-strong)',
+              borderRadius: 26,
+              padding: '44px 32px'
             }}
           >
-            {sportsList.map((sport) => (
-              <div
-                key={sport.id}
-                style={{
-                  backgroundColor: '#FFFFFF',
-                  borderRadius: 20,
-                  border: '1px solid var(--border)',
-                  padding: 24,
-                  boxShadow: 'var(--shadow-sm)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  transition: 'var(--transition)'
-                }}
-                className="timeline-card"
-              >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
-                  <span style={{ fontSize: '2.4rem' }}>{sport.icon}</span>
-                  <span
-                    style={{
-                      backgroundColor: '#EFF6FF',
-                      color: 'var(--aiesec-blue)',
-                      padding: '4px 12px',
-                      borderRadius: 20,
-                      fontSize: '0.78rem',
-                      fontWeight: 800
-                    }}
-                  >
-                    {sport.teams}
-                  </span>
-                </div>
-
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: 8 }}>
-                  {sport.name}
-                </h3>
-
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    padding: '10px 0',
-                    borderTop: '1px solid var(--border)',
-                    borderBottom: '1px solid var(--border)',
-                    marginBottom: 16
-                  }}
-                >
-                  <span style={{ fontSize: '0.86rem', color: 'var(--text-muted)' }}>Ангилал:</span>
-                  <strong style={{ fontSize: '0.95rem', color: 'var(--aiesec-orange)' }}>{sport.categoryType}</strong>
-                </div>
-
-                <p style={{ fontSize: '0.86rem', color: 'var(--text-sub)', lineHeight: 1.6, marginBottom: 20, flexGrow: 1 }}>
-                  {sport.rules}
-                </p>
-
-                <a
-                  href="#register"
-                  onClick={() => setFormData({ ...formData, sport: sport.id })}
-                  className="aiesec-btn-primary"
-                  style={{
-                    width: '100%',
-                    justifyContent: 'center',
-                    padding: '11px',
-                    fontSize: '0.88rem'
-                  }}
-                >
-                  <span>2027 Баг бүртгүүлэх</span>
-                  <ArrowRight size={15} />
-                </a>
-              </div>
-            ))}
+            <span
+              style={{
+                display: 'inline-block',
+                backgroundColor: '#EEF0FF',
+                color: 'var(--aiesec-blue)',
+                padding: '6px 16px',
+                borderRadius: 999,
+                fontSize: '0.85rem',
+                fontWeight: 700,
+                marginBottom: 16
+              }}
+            >
+              Удахгүй
+            </span>
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: 8 }}>Удахгүй зарлагдана</h3>
+            <p style={{ color: 'var(--text-sub)', margin: 0 }}>
+              Мэдээллийг манай албан ёсны хаягуудаар болон энэ хуудсан дээр нийтлэх болно.
+            </p>
           </div>
         </div>
       </section>
@@ -431,7 +368,7 @@ export const SunFestivalPage: React.FC = () => {
               </h2>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
-                <div style={{ backgroundColor: '#F8FAFC', padding: 20, borderRadius: 16, borderLeft: '4px solid var(--aiesec-blue)' }}>
+                <div style={{ backgroundColor: '#F6F6F4', padding: 20, borderRadius: 16, borderLeft: '4px solid var(--aiesec-blue)' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
                     <Calendar size={18} color="var(--aiesec-blue)" />
                     <h4 style={{ fontSize: '1.05rem', fontWeight: 800 }}>1 дэх өдөр • Бямба гараг</h4>
@@ -444,7 +381,7 @@ export const SunFestivalPage: React.FC = () => {
                   </ul>
                 </div>
 
-                <div style={{ backgroundColor: '#F8FAFC', padding: 20, borderRadius: 16, borderLeft: '4px solid var(--aiesec-orange)' }}>
+                <div style={{ backgroundColor: '#F6F6F4', padding: 20, borderRadius: 16, borderLeft: '4px solid var(--aiesec-orange)' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
                     <Trophy size={18} color="var(--aiesec-orange)" />
                     <h4 style={{ fontSize: '1.05rem', fontWeight: 800 }}>2 дахь өдөр • Ням гараг</h4>
@@ -453,7 +390,7 @@ export const SunFestivalPage: React.FC = () => {
                     <li><strong>10:00 - 13:00:</strong> Хагас шигшээ тоглолтууд (Semi-Finals)</li>
                     <li><strong>14:00 - 17:30:</strong> Алтан медалийн төлөөх Финал тоглолтууд</li>
                     <li><strong>18:00 - 19:30:</strong> Цом, шагнал гардуулах хаалтын ёслол</li>
-                    <li><strong>20:00:</strong> AMOX Sun Festival After-Party &amp; Networking</li>
+                    <li><strong>20:00:</strong> Нарны Баяр After-Party &amp; Networking</li>
                   </ul>
                 </div>
               </div>
@@ -483,9 +420,9 @@ export const SunFestivalPage: React.FC = () => {
                 </p>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontSize: '0.85rem', color: '#E2E8F0', marginBottom: 24 }}>
-                  <div>🚆 <strong>U-Bahn:</strong> U1 / U2 шугам, ойролцоо буудал 3 мин алхах</div>
-                  <div>🚗 <strong>Зогсоол:</strong> Цогцолборын үнэгүй зогсоолтой</div>
-                  <div>🍔 <strong>Хоол &amp; Ундаа:</strong> Монгол хоол, ундааны асарууд ажиллана</div>
+                  <div><strong>U-Bahn:</strong> U1 / U2 шугам, ойролцоо буудал 3 мин алхах</div>
+                  <div><strong>Зогсоол:</strong> Цогцолборын үнэгүй зогсоолтой</div>
+                  <div><strong>Хоол &amp; Ундаа:</strong> Монгол хоол, ундааны асарууд ажиллана</div>
                 </div>
 
                 <a
@@ -507,7 +444,7 @@ export const SunFestivalPage: React.FC = () => {
       {/* -------------------------------------------------------------
           6. INTERACTIVE TEAM REGISTRATION FORM (2027)
           ------------------------------------------------------------- */}
-      <section id="register" style={{ padding: '80px 0', backgroundColor: '#F8FAFC', borderTop: '1px solid var(--border)' }}>
+      <section id="register" style={{ padding: '80px 0', backgroundColor: '#F6F6F4', borderTop: '1px solid var(--border)' }}>
         <div className="container" style={{ maxWidth: 840 }}>
           <div
             style={{
@@ -520,7 +457,7 @@ export const SunFestivalPage: React.FC = () => {
           >
             <div style={{ textAlign: 'center', marginBottom: 32 }}>
               <span style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--aiesec-orange)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-                Online Registration &bull; Sun Festival 2027
+                Online Registration &bull; Нарны Баяр 2027
               </span>
               <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.3rem)', fontWeight: 800, marginTop: 4 }}>
                 2027 Наадамд Баг Урьдчилан Бүртгүүлэх
@@ -539,7 +476,7 @@ export const SunFestivalPage: React.FC = () => {
                   padding: 'clamp(24px, 5vw, 40px)',
                   backgroundColor: '#FFF7ED',
                   borderRadius: 18,
-                  border: '1.5px solid rgba(248, 90, 64, 0.3)'
+                  border: '1.5px solid rgba(240, 100, 58, 0.3)'
                 }}
               >
                 <CheckCircle2 size={56} color="var(--aiesec-orange)" style={{ margin: '0 auto 16px' }} />
@@ -569,13 +506,13 @@ export const SunFestivalPage: React.FC = () => {
                       value={formData.sport}
                       onChange={(e) => setFormData({ ...formData, sport: e.target.value })}
                     >
-                      <option value="basketball_men">🏀 Сагсан бөмбөг (Эрэгтэй)</option>
-                      <option value="basketball_women">🏀 Сагсан бөмбөг (Эмэгтэй)</option>
-                      <option value="volleyball">🏐 Гар бөмбөг (Холимог 4+2)</option>
-                      <option value="football">⚽ Хөлбөмбөг (Mini Football)</option>
-                      <option value="table_tennis">🏓 Ширээний теннис</option>
-                      <option value="tennis">🎾 Талбайн теннис</option>
-                      <option value="chess">♟️ Шатар</option>
+                      <option value="basketball_men">Сагсан бөмбөг (Эрэгтэй)</option>
+                      <option value="basketball_women">Сагсан бөмбөг (Эмэгтэй)</option>
+                      <option value="volleyball">Гар бөмбөг (Холимог 4+2)</option>
+                      <option value="football">Хөлбөмбөг (Mini Football)</option>
+                      <option value="table_tennis">Ширээний теннис</option>
+                      <option value="tennis">Талбайн теннис</option>
+                      <option value="chess">Шатар</option>
                     </select>
                   </div>
 
@@ -648,14 +585,14 @@ export const SunFestivalPage: React.FC = () => {
                       value={formData.country}
                       onChange={(e) => setFormData({ ...formData, country: e.target.value })}
                     >
-                      <option value="Austria - Wien">🇦🇹 Австри (Вена)</option>
-                      <option value="Austria - Graz">🇦🇹 Австри (Грац)</option>
-                      <option value="Austria - Linz">🇦🇹 Австри (Линц)</option>
-                      <option value="Germany - Munich">🇩🇪 Герман (Мюнхен)</option>
-                      <option value="Germany - Berlin">🇩🇪 Герман (Берлин)</option>
-                      <option value="Czechia - Prague">🇨🇿 Чех (Прага)</option>
-                      <option value="Hungary - Budapest">🇭🇺 Унгар (Будапешт)</option>
-                      <option value="Switzerland - Zurich">🇨🇭 Швейцар (Цюрих)</option>
+                      <option value="Austria - Wien">Австри (Вена)</option>
+                      <option value="Austria - Graz">Австри (Грац)</option>
+                      <option value="Austria - Linz">Австри (Линц)</option>
+                      <option value="Germany - Munich">Герман (Мюнхен)</option>
+                      <option value="Germany - Berlin">Герман (Берлин)</option>
+                      <option value="Czechia - Prague">Чех (Прага)</option>
+                      <option value="Hungary - Budapest">Унгар (Будапешт)</option>
+                      <option value="Switzerland - Zurich">Швейцар (Цюрих)</option>
                     </select>
                   </div>
                 </div>
@@ -682,7 +619,7 @@ export const SunFestivalPage: React.FC = () => {
                     padding: '14px',
                     background: 'var(--aiesec-orange)',
                     borderColor: 'var(--aiesec-orange)',
-                    boxShadow: '0 8px 24px rgba(248, 90, 64, 0.35)'
+                    boxShadow: '0 8px 24px rgba(240, 100, 58, 0.35)'
                   }}
                 >
                   <span>2027 Наадамд Бүртгүүлэх</span>

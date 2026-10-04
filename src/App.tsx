@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { SearchModal } from './components/SearchModal';
-import { WelcomeViewportOverlay } from './components/WelcomeViewportOverlay';
 import { HomePage } from './pages/HomePage';
 import { SunFestivalPage } from './pages/SunFestivalPage';
 import { GuidePage } from './pages/GuidePage';
@@ -11,6 +10,8 @@ import { HousingPage } from './pages/HousingPage';
 import { VisaInsurancePage } from './pages/VisaInsurancePage';
 import { AboutPage } from './pages/AboutPage';
 import { ImpressumPage } from './pages/ImpressumPage';
+import { EventsPage } from './pages/EventsPage';
+import { AdminPage } from './pages/AdminPage';
 
 // Scroll to top helper on route navigation
 const ScrollToTop: React.FC = () => {
@@ -34,8 +35,33 @@ const ScrollToTop: React.FC = () => {
   return null;
 };
 
+// Fade-in-on-scroll for any element with the "reveal" class (also on route changes)
+const useScrollReveal = () => {
+  useEffect(() => {
+    const io = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        }),
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    const scan = () => document.querySelectorAll('.reveal:not(.in)').forEach((el) => io.observe(el));
+    scan();
+    const mo = new MutationObserver(scan);
+    mo.observe(document.body, { childList: true, subtree: true });
+    return () => {
+      io.disconnect();
+      mo.disconnect();
+    };
+  }, []);
+};
+
 export const App: React.FC = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  useScrollReveal();
 
   // Global Ctrl+K Shortcut
   useEffect(() => {
@@ -64,12 +90,13 @@ export const App: React.FC = () => {
             <Route path="/visa-insurance" element={<VisaInsurancePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/impressum" element={<ImpressumPage />} />
+            <Route path="/events" element={<EventsPage />} />
+            <Route path="/admin" element={<AdminPage />} />
           </Routes>
         </main>
 
         <Footer />
         <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
-        <WelcomeViewportOverlay />
       </div>
     </BrowserRouter>
   );
