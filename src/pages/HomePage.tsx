@@ -18,7 +18,7 @@ const SERVICES = [
 const DATE_CHIP: Record<string, [string, string]> = {
   'students-info-day-2026': ['19', 'IX · 2026'],
   'ma35-deadline-winter-2026': ['IX–X', '2026'],
-  'sun-festival-2027': ['10', 'VII · 2027'],
+  'sun-festival-2027': ['V', '2027'],
   'housing-early-booking-2026': ['26/27', 'Хичээлийн жил']
 };
 

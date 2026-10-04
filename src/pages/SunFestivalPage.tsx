@@ -201,7 +201,7 @@ export const SunFestivalPage: React.FC = () => {
                 margin: '0 auto 34px'
               }}
             >
-              Европ дахь Монголчуудын спортын дараагийн нэгдсэн наадам <strong>2027 оны 7-р сард</strong> Вена хотноо уламжлал ёсоор зохион байгуулагдана. Сагсан бөмбөг, гар бөмбөг, хөлбөмбөг, теннис, шатрын 6 төрөлт нээлттэй наадам.
+              Европ дахь Монголчуудын спортын дараагийн нэгдсэн наадам <strong>2027 оны 5-р сард</strong> Вена хотноо уламжлал ёсоор зохион байгуулагдана. Сагсан бөмбөг, гар бөмбөг, хөлбөмбөг, теннис, шатрын 6 төрөлт нээлттэй наадам.
             </p>
 
             <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -238,7 +238,7 @@ export const SunFestivalPage: React.FC = () => {
               <div style={{ color: 'var(--aiesec-orange)', marginBottom: 8, display: 'flex', justifyContent: 'center' }}>
                 <Calendar size={28} />
               </div>
-              <h4 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: 4 }}>2027 Оны 7-р сар</h4>
+              <h4 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: 4 }}>2027 Оны 5-р сар</h4>
               <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Бямба, Ням гарагт 09:00 - 20:00</p>
             </div>
 
@@ -361,38 +361,37 @@ export const SunFestivalPage: React.FC = () => {
           >
             <div>
               <span style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--aiesec-orange)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-                Schedule &bull; 2 Өдрийн Хөтөлбөр
+                Хөтөлбөр
               </span>
               <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.4rem)', fontWeight: 800, marginTop: 4, marginBottom: 24 }}>
                 Наадмын Хуваарь (2027)
               </h2>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
-                <div style={{ backgroundColor: '#F6F6F4', padding: 20, borderRadius: 16, borderLeft: '4px solid var(--aiesec-blue)' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
-                    <Calendar size={18} color="var(--aiesec-blue)" />
-                    <h4 style={{ fontSize: '1.05rem', fontWeight: 800 }}>1 дэх өдөр • Бямба гараг</h4>
-                  </div>
-                  <ul style={{ paddingLeft: 20, fontSize: '0.88rem', color: 'var(--text-sub)', lineHeight: 1.7 }}>
-                    <li><strong>09:00 - 10:00:</strong> Багуудын нэгдсэн бүртгэл &amp; Нээлтийн ёслол</li>
-                    <li><strong>10:00 - 14:00:</strong> Сагсан бөмбөг, волейболын хэсгийн тоглолтууд</li>
-                    <li><strong>14:00 - 18:00:</strong> Хөлбөмбөг, ширээний теннис, шатрын эхний тойргууд</li>
-                    <li><strong>18:00 - 20:00:</strong> Шөвгийн 8-ын шалгаруулалт</li>
-                  </ul>
-                </div>
-
-                <div style={{ backgroundColor: '#F6F6F4', padding: 20, borderRadius: 16, borderLeft: '4px solid var(--aiesec-orange)' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
-                    <Trophy size={18} color="var(--aiesec-orange)" />
-                    <h4 style={{ fontSize: '1.05rem', fontWeight: 800 }}>2 дахь өдөр • Ням гараг</h4>
-                  </div>
-                  <ul style={{ paddingLeft: 20, fontSize: '0.88rem', color: 'var(--text-sub)', lineHeight: 1.7 }}>
-                    <li><strong>10:00 - 13:00:</strong> Хагас шигшээ тоглолтууд (Semi-Finals)</li>
-                    <li><strong>14:00 - 17:30:</strong> Алтан медалийн төлөөх Финал тоглолтууд</li>
-                    <li><strong>18:00 - 19:30:</strong> Цом, шагнал гардуулах хаалтын ёслол</li>
-                    <li><strong>20:00:</strong> Нарны Баяр After-Party &amp; Networking</li>
-                  </ul>
-                </div>
+              <div
+                style={{
+                  backgroundColor: '#FFFFFF',
+                  border: '1px dashed var(--border-strong)',
+                  borderRadius: 22,
+                  padding: '36px 28px',
+                  textAlign: 'center'
+                }}
+              >
+                <span
+                  style={{
+                    display: 'inline-block',
+                    backgroundColor: '#EEF0FF',
+                    color: 'var(--aiesec-blue)',
+                    padding: '6px 16px',
+                    borderRadius: 999,
+                    fontSize: '0.85rem',
+                    fontWeight: 700,
+                    marginBottom: 14
+                  }}
+                >
+                  Удахгүй
+                </span>
+                <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: 8 }}>Удахгүй зарлагдана</h3>
+                <p style={{ color: 'var(--text-sub)', margin: 0 }}>Наадмын хуваарийг батлагдмагц энд нийтэлнэ.</p>
               </div>
             </div>
 
