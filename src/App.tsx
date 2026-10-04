@@ -11,6 +11,7 @@ import { VisaInsurancePage } from './pages/VisaInsurancePage';
 import { AboutPage } from './pages/AboutPage';
 import { ImpressumPage } from './pages/ImpressumPage';
 import { EventsPage } from './pages/EventsPage';
+import { WelcomeCarpet } from './components/WelcomeCarpet';
 import { AdminPage } from './pages/AdminPage';
 
 // Scroll to top helper on route navigation
@@ -97,6 +98,7 @@ export const App: React.FC = () => {
 
         <Footer />
         <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+        <WelcomeCarpet />
       </div>
     </BrowserRouter>
   );
