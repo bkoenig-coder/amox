@@ -17,7 +17,6 @@ const SERVICES = [
 
 // Compact date chip shown beside each event
 const DATE_CHIP: Record<string, [string, string]> = {
-  'students-info-day-2026': ['19', 'IX · 2026'],
   'ma35-deadline-winter-2026': ['IX–X', '2026'],
   'sun-festival-2027': ['V', '2027'],
   'housing-early-booking-2026': ['26/27', 'Хичээлийн жил']
@@ -105,8 +104,8 @@ export const HomePage: React.FC = () => {
               <span>оюутан, төгсөгч</span>
             </div>
             <div className="b b-illus b-sky">
-              <img src="/assets/events/info-day-2019-1.webp" alt="Оюутан залуусын өдөрлөг 2019" />
-              <span className="b-tag">Students Info Day · 9-р сар</span>
+              <img src="/assets/events/info-day-2026-1.webp" alt="Оюутан залуусын өдөрлөг 2026" />
+              <span className="b-tag">Оюутан Залуусын Өдөрлөг 2026</span>
             </div>
           </div>
         </div>
@@ -167,14 +166,14 @@ export const HomePage: React.FC = () => {
         <div className="container">
           <div className="feature reveal">
             <div className="feature-copy">
-              <span className="pill pill-dark"><i /> 2026 оны 9-р сар</span>
-              <h2>AMOX Students Info Day</h2>
+              <span className="pill pill-dark"><i /> 2026.09.20 · Вена</span>
+              <h2>Оюутан Залуусын Өдөрлөг 2026</h2>
               <p>
-                AMOX-ийн шинэ оюутнуудыг угтах уулзалт. Виз, даатгал, байр, хичээл сонголтоор ахмад оюутнуудаас шууд асууж, зөвлөгөө аваарай.
+                Шинээр ирсэн оюутнуудыг угтсан AMOX-ийн өдөрлөг болж өнгөрлөө. Визний төрлүүдийн танилцуулга, Австрийн тухай викторина, танилцах уулзалт зохион байгуулагдлаа.
               </p>
-              <Link to="/about#mentor" className="btn btn-light">Бүртгүүлэх <ArrowRight size={16} /></Link>
+              <Link to="/events#past-events" className="btn btn-light">Зургуудыг үзэх <ArrowRight size={16} /></Link>
             </div>
-            <img src="/assets/events/info-day-2019-2.webp" alt="Оюутан залуусын өдөрлөг 2019" />
+            <img src="/assets/events/info-day-2026-4.webp" alt="Оюутан залуусын өдөрлөг 2026 — Вена хотоор алхсан нь" />
           </div>
         </div>
       </section>

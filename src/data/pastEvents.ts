@@ -16,6 +16,19 @@ const p = (id: string, n: number, alt: string) => ({ src: `/assets/events/${id}-
 // Photos come from the AMOX Facebook page albums.
 export const PAST_EVENTS: PastEvent[] = [
   {
+    id: 'info-day-2026',
+    title: 'Австри дахь Оюутан Залуусын Өдөрлөг 2026',
+    date: '2026.09.20',
+    place: 'Ruby Marie Hotel & Bar, Mariahilfer Straße 120, Wien',
+    kind: 'community',
+    photos: [
+      p('info-day-2026', 1, 'Оюутан залуусын өдөрлөг 2026 — танилцах уулзалт'),
+      p('info-day-2026', 2, 'Оюутан залуусын өдөрлөг 2026 — Австрийн тухай викторина'),
+      p('info-day-2026', 3, 'Оюутан залуусын өдөрлөг 2026 — визний төрлүүдийн танилцуулга'),
+      p('info-day-2026', 4, 'Оюутан залуусын өдөрлөг 2026 — Вена хотоор алхсан нь')
+    ]
+  },
+  {
     id: 'sun-2026',
     title: 'Нарны Баяр 2026 — 19-дахь спорт наадам',
     date: '2026.05.23–24',

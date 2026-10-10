@@ -14,19 +14,6 @@ export interface AMOXEvent {
 
 export const EVENTS_DATA: AMOXEvent[] = [
   {
-    id: 'students-info-day-2026',
-    title: 'AMOX Students Info Day 2026',
-    category: 'community',
-    date: '2026.09.19 (9-р сарын дундуур)',
-    location: 'Вена Их Сургуулийн Төв Кампус (Uni Wien)',
-    status: 'urgent',
-    statusLabel: 'Нээлттэй • 9-р сард',
-    description: 'Австрид шинээр ирсэн болон бэлтгэл курсийн оюутнуудад зориулсан уулзалт. Ахмад оюутнуудтай ганцаарчилсан ярилцаж, асуултдаа хариулт аваарай.',
-    linkUrl: '/about#mentor',
-    linkText: 'Бүртгүүлэх →',
-    badge: 'ОЮУТНЫ ӨДӨРЛӨГ 2026'
-  },
-  {
     id: 'ma35-deadline-winter-2026',
     title: '2026 оны өвлийн семестрийн MA35 виз сунгалт',
     category: 'academic',

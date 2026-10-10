@@ -18,7 +18,7 @@ export const PastEvents: React.FC<PastEventsProps> = ({ kind }) => {
   }, [open]);
 
   return (
-    <div className="pe">
+    <div className="pe" id="past-events">
       {events.map((ev) => (
         <article key={ev.id} className="pe-event">
           <header>
@@ -51,6 +51,7 @@ export const PastEvents: React.FC<PastEventsProps> = ({ kind }) => {
         .pe-n3 { grid-template-columns: 1.6fr 1fr; grid-template-rows: 1fr 1fr; }
         .pe-n3 .pe-ph-0 { grid-row: 1 / span 2; }
         .pe-n2 { grid-template-columns: 1fr 1fr; }
+        .pe-n4 { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; height: clamp(320px, 46vw, 560px); }
         .pe-poster { height: auto; grid-template-rows: auto; align-items: start; }
         .pe-poster .pe-ph img { height: auto; display: block; }
         .pe-ph { padding: 0; border: 0; border-radius: 20px; overflow: hidden; cursor: zoom-in; background: #ECECE8; min-height: 0; }
@@ -66,6 +67,7 @@ export const PastEvents: React.FC<PastEventsProps> = ({ kind }) => {
           .pe-n3 .pe-ph-0 { grid-column: 1 / -1; grid-row: 1; }
           .pe-n3 .pe-ph-1, .pe-n3 .pe-ph-2 { grid-row: 2; }
           .pe-n2 { grid-template-rows: 150px; }
+          .pe-n4 { grid-template-rows: 140px 140px; }
           .pe-ph { border-radius: 14px; }
         }
       `}</style>
