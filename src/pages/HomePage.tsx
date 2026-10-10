@@ -94,7 +94,7 @@ export const HomePage: React.FC = () => {
               <figcaption><MapPin size={14} /> Нарны Баяр 2024</figcaption>
             </figure>
             <div className="b b-illus b-peach">
-              <img src="/assets/events/sun-2021-1.webp" alt="Нарны Баяр 2021" />
+              <img src="/assets/events/sun-2025-2.webp" alt="Нарны Баяр 2025" />
             </div>
             <div className="b b-stat b-accent">
               <strong><AnimatedStatNumber target={19} suffix="+" /></strong>

@@ -18,7 +18,7 @@ const photo = (n: number) => `/assets/team/member-${String(n).padStart(2, '0')}.
 export const TEAM_GROUPS: TeamGroup[] = [
   {
     id: 'leaders',
-    title: 'Тэргүүлэгчид',
+    title: 'Удирдлага',
     members: [
       { id: 'margad-erdene', name: 'Г. Маргад-Эрдэнэ', role: 'Тэргүүн', photo: photo(1), focus: 'center 30%' },
       { id: 'tegsjargal', name: 'Д. Төгсжаргал', role: 'Дэд тэргүүн', photo: photo(2), focus: 'center 30%' }
