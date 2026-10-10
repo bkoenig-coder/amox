@@ -29,6 +29,7 @@ import {
 import { HandDrawnLoop, HandDrawnWave } from '../components/HandDrawnSVGs';
 import { CascadingCollage } from '../components/CascadingCollage';
 import { OfficialChannelsSection } from '../components/OfficialChannelsSection';
+import { TeamSection } from '../components/TeamSection';
 import { TypewriterLoop } from '../components/TypewriterLoop';
 import { TIMELINE_HISTORY } from '../data/eventsData';
 import { AMOX_MISSION_VISION } from '../data/associationData';
@@ -80,41 +81,6 @@ export const AboutPage: React.FC = () => {
       origin: { y: 0.6 }
     });
   };
-
-  const boardMembers = [
-    {
-      name: 'Б. Тэмүүлэн',
-      role: 'Ерөнхийлөгч (President)',
-      university: 'Uni Wien • Data Science M.Sc.',
-      bio: 'Холбооны ерөнхий стратеги, гадаад харилцаа, Австрийн их сургуулиудтай хийх албан ёсны хамтын ажиллагааг удирдан чиглүүлдэг.',
-      image: '/assets/student-male.jpg',
-      badge: 'Leadership'
-    },
-    {
-      name: 'Э. Ариунзаяа',
-      role: 'Дэд Ерөнхийлөгч & Менторшил',
-      university: 'WU Wien • International Business',
-      bio: '1-on-1 Ментор хөтөлбөр, шинэ оюутны дасан зохицох өдөрлөг болон карьер хөгжүүлэлтийн төслүүдийг хариуцдаг.',
-      image: '/assets/student-female.jpg',
-      badge: 'Mentorship'
-    },
-    {
-      name: 'М. Бат-Эрдэнэ',
-      role: 'Sun Festival Төслийн Менежер',
-      university: 'TU Wien • Mechanical Engineering',
-      bio: 'Европ дахь Монгол оюутнуудын спортын нэгдсэн наадам, сагсан бөмбөг, волейболын лиг, логистикийг хариуцдаг.',
-      image: '/assets/media_1787152152741.jpg',
-      badge: 'Sports & Event'
-    },
-    {
-      name: 'Н. Хулан',
-      role: 'Мэдээлэл & MA35 Визний Хөтөч',
-      university: 'Uni Wien • Law & European Studies',
-      bio: '9 бүлэг оюутны гарын авлага, MA35 визний өргөдлийн зааварчилгаа, Австрийн хууль дүрмийн зөвлөгөөг боловсруулдаг.',
-      image: '/assets/media_1787152257891.jpg',
-      badge: 'Guide & Visa'
-    }
-  ];
 
   const faqs = [
     {
@@ -256,10 +222,12 @@ export const AboutPage: React.FC = () => {
         </div>
       </section>
 
+      <TeamSection />
+
       {/* -------------------------------------------------------------
           2. MISSION & VISION MANIFESTO (SSG Core)
           ------------------------------------------------------------- */}
-      <section id="mission" style={{ padding: '100px 0 70px', backgroundColor: '#FFFFFF' }}>
+      <section id="mission" style={{ padding: '100px 0 70px', backgroundColor: '#F6F6F4' }}>
         <div className="container">
           <div
             style={{
@@ -366,9 +334,9 @@ export const AboutPage: React.FC = () => {
 
             <div>
               <CascadingCollage
-                img1="/assets/student-female.jpg"
-                img2="/assets/media_1787152152741.jpg"
-                img3="/assets/media_1787152257891.jpg"
+                img1="/assets/events/sun-2022-1.webp"
+                img2="/assets/events/info-day-2019-1.webp"
+                img3="/assets/events/sun-2021-1.webp"
                 alt="AMOX оюутан хамт олон"
               />
             </div>
@@ -631,71 +599,6 @@ export const AboutPage: React.FC = () => {
       {/* -------------------------------------------------------------
           5. EXECUTIVE BOARD & LEADERSHIP TEAM
           ------------------------------------------------------------- */}
-      <section id="board" style={{ padding: '100px 0', backgroundColor: '#F6F6F4', borderTop: '1px solid var(--border)' }}>
-        <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: 60 }}>
-            <span style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--aiesec-blue)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-              Executive Board
-            </span>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginTop: 4 }}>
-              Удирдах Зөвлөл &amp; Баг Хамт Олон
-            </h2>
-            <p style={{ color: 'var(--text-sub)', maxWidth: 600, margin: '8px auto 0' }}>
-              Австрийн их сургуулиудад суралцаж буй оюутнуудын сайн дурын манлайллын баг
-            </p>
-          </div>
-
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-              gap: 28
-            }}
-          >
-            {boardMembers.map((member, idx) => (
-              <div key={idx} className="team-card">
-                <div style={{ height: 240, overflow: 'hidden', position: 'relative' }}>
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
-                  <div
-                    style={{
-                      position: 'absolute',
-                      top: 12,
-                      left: 12,
-                      background: 'rgba(51, 71, 255, 0.9)',
-                      color: '#FFFFFF',
-                      padding: '4px 10px',
-                      borderRadius: 6,
-                      fontSize: '0.75rem',
-                      fontWeight: 700
-                    }}
-                  >
-                    {member.badge}
-                  </div>
-                </div>
-
-                <div style={{ padding: 22, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-                  <h4 style={{ fontSize: '1.2rem', fontWeight: 800, marginBottom: 4 }}>
-                    {member.name}
-                  </h4>
-                  <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--aiesec-blue)', marginBottom: 8, display: 'block' }}>
-                    {member.role}
-                  </span>
-                  <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: 12, display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <GraduationCap size={15} /> {member.university}
-                  </span>
-                  <p style={{ fontSize: '0.86rem', color: 'var(--text-sub)', lineHeight: 1.6, flexGrow: 1 }}>
-                    {member.bio}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* -------------------------------------------------------------
           6. INTERACTIVE 1-ON-1 MENTORSHIP & JOIN TEAM FORM

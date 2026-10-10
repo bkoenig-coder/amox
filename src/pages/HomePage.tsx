@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { fetchEvents, isPast, type PublicEvent } from '../lib/api';
 import { ArrowRight, ArrowUpRight, BookOpen, Building2, MapPin, ShieldCheck, Users } from 'lucide-react';
 import { OfficialChannelsSection } from '../components/OfficialChannelsSection';
+import { TeamSection } from '../components/TeamSection';
 import { AnimatedStatNumber } from '../components/AnimatedStatCounter';
 import { EVENTS_DATA } from '../data/eventsData';
 import { AMOX_MISSION_VISION } from '../data/associationData';
@@ -89,11 +90,11 @@ export const HomePage: React.FC = () => {
         <div className="container">
           <div className="bento a4">
             <figure className="b b-photo">
-              <img src="/assets/sun_festival_basketball.jpg" alt="Нарны Баяр наадмын тэмцээн, Вена" />
-              <figcaption><MapPin size={14} /> Нарны Баяр · Вена</figcaption>
+              <img src="/assets/events/sun-2024-1.webp" alt="Нарны Баяр 2024" />
+              <figcaption><MapPin size={14} /> Нарны Баяр 2024</figcaption>
             </figure>
             <div className="b b-illus b-peach">
-              <img src="/assets/student-female.jpg" alt="" />
+              <img src="/assets/events/sun-2021-1.webp" alt="Нарны Баяр 2021" />
             </div>
             <div className="b b-stat b-accent">
               <strong><AnimatedStatNumber target={19} suffix="+" /></strong>
@@ -104,7 +105,7 @@ export const HomePage: React.FC = () => {
               <span>оюутан, төгсөгч</span>
             </div>
             <div className="b b-illus b-sky">
-              <img src="/assets/media_1787152152741.jpg" alt="" />
+              <img src="/assets/events/info-day-2019-1.webp" alt="Оюутан залуусын өдөрлөг 2019" />
               <span className="b-tag">Students Info Day · 9-р сар</span>
             </div>
           </div>
@@ -131,6 +132,9 @@ export const HomePage: React.FC = () => {
               <span className="tag">Ашгийн бус</span>
             </div>
           </div>
+        </div>
+        <div className="container">
+          <TeamSection embedded />
         </div>
       </section>
 
@@ -170,7 +174,7 @@ export const HomePage: React.FC = () => {
               </p>
               <Link to="/about#mentor" className="btn btn-light">Бүртгүүлэх <ArrowRight size={16} /></Link>
             </div>
-            <img src="/assets/media_1787152152741.jpg" alt="AMOX Students Info Day" />
+            <img src="/assets/events/info-day-2019-2.webp" alt="Оюутан залуусын өдөрлөг 2019" />
           </div>
         </div>
       </section>

@@ -18,7 +18,7 @@ import {
   Bell
 } from 'lucide-react';
 import { HandDrawnLoop, HandDrawnWave } from '../components/HandDrawnSVGs';
-import { FestivalPhotoSlider } from '../components/FestivalPhotoSlider';
+import { PastEvents } from '../components/PastEvents';
 import { TypewriterLoop } from '../components/TypewriterLoop';
 
 export const SunFestivalPage: React.FC = () => {
@@ -273,10 +273,10 @@ export const SunFestivalPage: React.FC = () => {
           3. INTERACTIVE PHOTO CAROUSEL & GALLERY (Previous Years)
           ------------------------------------------------------------- */}
       <section id="gallery" style={{ padding: '100px 0', backgroundColor: '#FFFFFF' }}>
-        <div className="container" style={{ maxWidth: 1040 }}>
+        <div className="container">
           <div style={{ textAlign: 'center', marginBottom: 50 }}>
             <span style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--aiesec-orange)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-              Photo Highlights &bull; Seit 2012
+              Зургийн цомог
             </span>
             <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.2rem)', fontWeight: 800, marginTop: 4 }}>
               Өмнөх Наадмын{' '}
@@ -286,12 +286,12 @@ export const SunFestivalPage: React.FC = () => {
               </span>
             </h2>
             <p style={{ color: 'var(--text-sub)', maxWidth: 640, margin: '10px auto 0' }}>
-              2025, 2024, 2023 оны тэмцээнүүдийн шийдвэрлэх тоглолтууд, аваргуудын цом гардуулах мөч ба оюутан залуусын нөхөрлөл
+              Өмнөх жилүүдийн Нарны Баяр наадмын зургууд — 2019 оноос 2026 он хүртэл.
             </p>
           </div>
 
-          {/* Dedicated Rich Carousel Slider */}
-          <FestivalPhotoSlider />
+          {/* Real photos from past festivals */}
+          <PastEvents kind="sun" />
         </div>
       </section>
 

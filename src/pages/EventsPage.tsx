@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { CalendarDays, Check, Clock, MapPin, Users } from 'lucide-react';
 import { fetchEvents, formatDate, isPast, registerForEvent, type PublicEvent } from '../lib/api';
+import { PastEvents } from '../components/PastEvents';
 
 interface FormState {
   fullName: string;
@@ -162,6 +163,13 @@ export const EventsPage: React.FC = () => {
             })}
           </ul>
 
+          <div className="ep-archive">
+            <span className="section-subtitle">Архив</span>
+            <h2>Өмнөх арга хэмжээнүүд</h2>
+            <p>AMOX-ийн зохион байгуулсан өмнөх арга хэмжээнүүдийн зургууд.</p>
+            <PastEvents />
+          </div>
+
           {past.length > 0 && (
             <>
               <h3 className="ep-past-title">Болсон арга хэмжээнүүд</h3>
@@ -206,6 +214,9 @@ export const EventsPage: React.FC = () => {
         .ev-ok { display: flex; gap: 16px; align-items: flex-start; padding-top: 26px; }
         .ev-ok-icon { width: 44px; height: 44px; border-radius: 50%; background: var(--green); color: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .ev-ok p { font-size: .95rem; margin-top: 4px; }
+        .ep-archive { margin-top: 88px; }
+        .ep-archive h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); margin: 4px 0 10px; }
+        .ep-archive > p { max-width: 520px; margin-bottom: 40px; }
         .ep-past-title { margin: 56px 0 14px; font-size: 1.2rem; }
         .ep-past { list-style: none; display: flex; flex-direction: column; gap: 8px; color: var(--text-sub); font-size: .95rem; }
         .ep-past span { display: inline-block; min-width: 170px; color: var(--text-muted); }
