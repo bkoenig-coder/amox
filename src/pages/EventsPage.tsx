@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { CalendarDays, Check, Clock, MapPin, Users } from 'lucide-react';
 import { fetchEvents, formatDate, isPast, registerForEvent, type PublicEvent } from '../lib/api';
 import { PastEvents } from '../components/PastEvents';
+import { EventIndex } from '../components/EventIndex';
 
 interface FormState {
   fullName: string;
@@ -168,6 +169,13 @@ export const EventsPage: React.FC = () => {
             <h2>Өмнөх арга хэмжээнүүд</h2>
             <p>AMOX-ийн зохион байгуулсан өмнөх арга хэмжээнүүдийн зургууд.</p>
             <PastEvents />
+          </div>
+
+          <div className="ep-archive" id="all-events">
+            <span className="section-subtitle">Бүх арга хэмжээ</span>
+            <h2>AMOX-ийн арга хэмжээнүүд, 2015–2026</h2>
+            <p>Facebook дээр зарласан бүх арга хэмжээний постер, огноо, байршил.</p>
+            <EventIndex />
           </div>
 
           {past.length > 0 && (

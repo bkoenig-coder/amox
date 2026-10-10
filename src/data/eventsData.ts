@@ -14,17 +14,17 @@ export interface AMOXEvent {
 
 export const EVENTS_DATA: AMOXEvent[] = [
   {
-    id: 'ma35-deadline-winter-2026',
-    title: '2026 оны өвлийн семестрийн MA35 виз сунгалт',
-    category: 'academic',
-    date: '2026 оны 9 - 10-р сар',
-    location: 'MA35 (Wien / Graz / Linz)',
-    status: 'urgent',
-    statusLabel: 'Чухал Зөвлөмж',
-    description: 'Визний хугацаа дуусахаас 3 сарын өмнө MA35-д цаг авч, герман өргөдлөө илгээгээрэй.',
-    linkUrl: '/visa-insurance',
-    linkText: 'И-мэйл бэлдэх →',
-    badge: 'MA35 ХУГАЦАА'
+    id: 'halloween-2026',
+    title: 'AMOX Halloween',
+    category: 'community',
+    date: '2026.10.25',
+    location: 'Байршлыг удахгүй зарлана',
+    status: 'upcoming',
+    statusLabel: 'Удахгүй',
+    description: 'AMOX-ийн Halloween арга хэмжээ 10-р сарын 25-нд болно. Цаг, байршил болон бүртгэлийн мэдээллийг удахгүй зарлана.',
+    linkUrl: '/events',
+    linkText: 'Дэлгэрэнгүй →',
+    badge: 'HALLOWEEN'
   },
   {
     id: 'sun-festival-2027',
