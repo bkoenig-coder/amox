@@ -1,675 +1,149 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import confetti from 'canvas-confetti';
-import { 
-  Trophy, 
-  Users, 
-  Award, 
-  CheckCircle2, 
-  Calendar, 
-  MapPin, 
-  Clock, 
-  ShieldCheck, 
-  ArrowRight, 
-  Sparkles, 
-  Flame, 
-  Medal, 
-  Send,
-  Bell
-} from 'lucide-react';
-import { HandDrawnLoop, HandDrawnWave } from '../components/HandDrawnSVGs';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { CalendarDays, ClipboardList, MapPin, Trophy } from 'lucide-react';
 import { PastEvents } from '../components/PastEvents';
-import { TypewriterLoop } from '../components/TypewriterLoop';
+
+const NEXT = [
+  { Icon: CalendarDays, title: 'Огноо', text: 'Удахгүй зарлагдана' },
+  { Icon: MapPin, title: 'Байршил', text: 'Удахгүй зарлагдана' },
+  { Icon: Trophy, title: 'Тэмцээний төрөл & дүрэм', text: 'Удахгүй зарлагдана' },
+  { Icon: ClipboardList, title: 'Багийн бүртгэл', text: 'Удахгүй нээгдэнэ' }
+];
 
 export const SunFestivalPage: React.FC = () => {
-  const [formData, setFormData] = useState({
-    sport: 'basketball_men',
-    teamName: '',
-    captainName: '',
-    phone: '',
-    email: '',
-    country: 'Austria - Wien',
-    playerCount: '7',
-    notes: ''
-  });
-
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-    confetti({
-      particleCount: 140,
-      spread: 90,
-      origin: { y: 0.6 }
-    });
-  };
-
-  const sportsList = [
-    { 
-      id: 'basketball_men', 
-      name: 'Сагсан бөмбөг (Эрэгтэй)', 
-      categoryType: 'Багийн төрөл (5x5)', 
-      teams: '16 Баг', 
-      icon: '',
-      color: '#F0643A',
-      rules: '5x5 Бүсийн тоглолт, 4 үе 10 минут, FIBA албан ёсны дүрэм, хасагдах шатны шууд плей-офф.'
-    },
-    { 
-      id: 'basketball_women', 
-      name: 'Сагсан бөмбөг (Эмэгтэй)', 
-      categoryType: 'Багийн төрөл (5x5)', 
-      teams: '8 Баг', 
-      icon: '',
-      color: '#F0643A',
-      rules: '5x5 Бүсийн тоглолт, 4 үе 8 минут, шилдэг тоглогчийн тусгай өргөмжлөлтэй.'
-    },
-    { 
-      id: 'volleyball', 
-      name: 'Гар бөмбөг (Холимог 4+2)', 
-      categoryType: 'Багийн төрөл (Холимог)', 
-      teams: '12 Баг', 
-      icon: '',
-      color: '#3347FF',
-      rules: '3 сетээр 25 оноо, шийдвэрлэх сет 15 оноо. Багт хамгийн багадаа 2 эмэгтэй тоглогч талбайд байна.'
-    },
-    { 
-      id: 'football', 
-      name: 'Хөлбөмбөг (Mini Football)', 
-      categoryType: 'Багийн төрөл (5+1)', 
-      teams: '10 Баг', 
-      icon: '',
-      color: '#12926B',
-      rules: '5+1 Талбайн тоглогч, 2 үе 15 минут, гүйлтийн солилцоо, хасагдах шатны шууд плей-офф.'
-    },
-    { 
-      id: 'table_tennis', 
-      name: 'Ширээний теннис', 
-      categoryType: 'Ганцаарчилсан', 
-      teams: '32 Тамирчин', 
-      icon: '',
-      color: '#F4B400',
-      rules: 'Ганцаарчилсан эрэгтэй / эмэгтэй ангилал, 11 оноо 3 сет, ITTF стандартын ширээ.'
-    },
-    { 
-      id: 'tennis', 
-      name: 'Талбайн теннис', 
-      categoryType: 'Ганцаарчилсан', 
-      teams: '16 Тамирчин', 
-      icon: '',
-      color: '#0E9F8A',
-      rules: 'Ганцаарчилсан ангилал, Hard court талбай, Tie-break систем.'
-    },
-    { 
-      id: 'chess', 
-      name: 'Шатар (Блиц & Rapid)', 
-      categoryType: 'Ганцаарчилсан', 
-      teams: '30 Тамирчин', 
-      icon: '',
-      color: '#0C0C0F',
-      rules: 'Швейцар систем 7 өрөг, 10 мин + 5 сек нэмэлт цаг, FIDE дүрмээр явагдана.'
-    }
-  ];
-
-  const championsHallOfFame = [
-    { year: '2025', sport: 'Сагсан бөмбөг', winner: 'Vienna Warriors ', mvp: 'М. Батбилэг' },
-    { year: '2025', sport: 'Гар бөмбөг', winner: 'Graz Nomads ', mvp: 'Э. Сарнай' },
-    { year: '2024', sport: 'Сагсан бөмбөг', winner: 'Berlin Stars ', mvp: 'Т. Тэмүүлэн' },
-    { year: '2024', sport: 'Хөлбөмбөг', winner: 'Prague Hawks ', mvp: 'Б. Анхбаяр' },
-    { year: '2023', sport: 'Сагсан бөмбөг', winner: 'Munich Mongols ', mvp: 'О. Эрдэнэбат' }
-  ];
-
   return (
-    <div className="sun-festival-page" style={{ overflowX: 'hidden' }}>
-      {/* -------------------------------------------------------------
-          1. HERO SECTION - Next Нарны Баяр 2027 Mega Announcement
-          ------------------------------------------------------------- */}
-      <section id="festival-hero" className="about-hero" style={{ minHeight: '60vh' }}>
-        <div className="container" style={{ position: 'relative', zIndex: 2, maxWidth: 920 }}>
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-          >
-            <div
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 8,
-                padding: '6px 18px',
-                borderRadius: 'var(--radius-pill)',
-                background: 'rgba(240, 100, 58, 0.25)',
-                backdropFilter: 'blur(8px)',
-                border: '1px solid rgba(240, 100, 58, 0.5)',
-                fontSize: '0.86rem',
-                fontWeight: 800,
-                letterSpacing: '0.04em',
-                textTransform: 'uppercase',
-                color: '#FFE4E6',
-                marginBottom: 22
-              }}
-            >
-              <Flame size={16} color="var(--aiesec-orange)" />
-              <span>Next Mega Event • Нарны Баяр 2027 • Seit 2012</span>
-            </div>
-
-            <h1
-              style={{
-                fontSize: 'clamp(2.5rem, 6vw, 4.4rem)',
-                lineHeight: 1.12,
-                fontWeight: 800,
-                color: '#FFFFFF',
-                marginBottom: 22,
-                letterSpacing: '-0.03em'
-              }}
-            >
-              Нарны Баяр{' '}
-              <span className="doodle-wrap">
-                2027
-                <HandDrawnLoop color="#F0643A" />
-              </span>
-            </h1>
-
-            {/* Typewriter Sports Loop */}
-            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
-              <div className="typewriter-hero-badge" style={{ borderColor: 'rgba(240, 100, 58, 0.4)' }}>
-                <span className="typewriter-tag-pulse" style={{ background: '#F0643A', boxShadow: '0 0 10px #F0643A' }} />
-                <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.9)', fontWeight: 600 }}>
-                  Тэмцээний төрөл:
-                </span>
-                <TypewriterLoop
-                  words={[
-                    'Сагсан бөмбөг (Эрэгтэй / Эмэгтэй)',
-                    'Гар бөмбөг (Холимог 4+2)',
-                    'Мини Хөлбөмбөг (5+1)',
-                    'Ширээний теннис',
-                    'Талбайн теннис',
-                    'Шатар & Оюуны спорт',
-                    'Нарны Баяр 2027 Mega Cup'
-                  ]}
-                  highlightColor="#FFD700"
-                />
-              </div>
-            </div>
-
-            <p
-              style={{
-                fontSize: 'clamp(1.05rem, 2vw, 1.25rem)',
-                color: 'rgba(255, 255, 255, 0.92)',
-                lineHeight: 1.7,
-                maxWidth: 760,
-                margin: '0 auto 34px'
-              }}
-            >
-              Европ дахь Монголчуудын спортын дараагийн нэгдсэн наадам <strong>2027 оны 5-р сард</strong> Вена хотноо уламжлал ёсоор зохион байгуулагдана. Сагсан бөмбөг, гар бөмбөг, хөлбөмбөг, теннис, шатрын 6 төрөлт нээлттэй наадам.
-            </p>
-
-            <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
-              <a 
-                href="#register" 
-                className="aiesec-btn-primary" 
-                style={{ background: 'var(--aiesec-orange)', borderColor: 'var(--aiesec-orange)', boxShadow: '0 8px 24px rgba(240, 100, 58,0.4)' }}
-              >
-                <span>2027 Баг Урьдчилан Бүртгүүлэх</span>
-                <ArrowRight size={16} />
-              </a>
-              <a href="#gallery" className="aiesec-btn-outline">
-                <span>Өмнөх Наадмын Зургууд (2025, 2024)</span>
-              </a>
-            </div>
-          </motion.div>
+    <div className="sun-page">
+      {/* Hero */}
+      <section id="festival-hero" className="sun-hero">
+        <div className="sun-sky" aria-hidden="true">
+          <div className="sun-rays" />
+          <div className="sun-disc" />
+          <span className="sun-cloud c1" />
+          <span className="sun-cloud c2" />
         </div>
-      </section>
 
-      {/* -------------------------------------------------------------
-          2. TOURNAMENT KEY STATS & INFO BAR
-          ------------------------------------------------------------- */}
-      <section style={{ backgroundColor: '#F6F6F4', padding: '60px 0', borderBottom: '1px solid var(--border)' }}>
-        <div className="container">
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-              gap: 28,
-              textAlign: 'center'
-            }}
-          >
-            <div style={{ padding: '10px 16px' }}>
-              <div style={{ color: 'var(--aiesec-orange)', marginBottom: 8, display: 'flex', justifyContent: 'center' }}>
-                <Calendar size={28} />
-              </div>
-              <h4 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: 4 }}>2027 Оны 5-р сар</h4>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Бямба, Ням гарагт 09:00 - 20:00</p>
-            </div>
-
-            <div style={{ padding: '10px 16px' }}>
-              <div style={{ color: 'var(--aiesec-blue)', marginBottom: 8, display: 'flex', justifyContent: 'center' }}>
-                <MapPin size={28} />
-              </div>
-              <h4 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: 4 }}>Sportzentrum Wien</h4>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Вена Хот • Төв Спорт Цогцолбор</p>
-            </div>
-
-            <div style={{ padding: '10px 16px' }}>
-              <div style={{ color: '#D97706', marginBottom: 8, display: 'flex', justifyContent: 'center' }}>
-                <Trophy size={28} />
-              </div>
-              <h4 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: 4 }}>Цом &amp; Медаль</h4>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Аваргын цом, медаль &amp; өргөмжлөл</p>
-            </div>
-
-            <div style={{ padding: '10px 16px' }}>
-              <div style={{ color: 'var(--aiesec-teal)', marginBottom: 8, display: 'flex', justifyContent: 'center' }}>
-                <Users size={28} />
-              </div>
-              <h4 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: 4 }}>32+ Баг &bull; 500+ Хүн</h4>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Австри, Герман, Чех, Унгар, Швейцар</p>
-            </div>
+        <div className="container sun-hero-in">
+          <span className="sun-badge">Спортын наадам</span>
+          <h1>Нарны <span className="sun-grad">Баяр</span></h1>
+          <p className="sun-lead">
+            Европ дахь Монголчуудын спортын наадам. Вена хотод жил бүр зохиогддог бөгөөд сагсан бөмбөг, волейбол, хөлбөмбөг зэрэг төрлөөр тэмцэлддэг.
+          </p>
+          <p className="sun-quote">«Хамтдаа бүтээсэн уламжлал, хамтдаа үргэлжлэх түүх»</p>
+          <div className="sun-cta">
+            <a href="#next" className="btn btn-dark">Дараагийн наадам</a>
+            <a href="#gallery" className="btn btn-outline">Өмнөх наадмын зургууд</a>
           </div>
+
+          <span className="sun-pill p1">Сагсан бөмбөг</span>
+          <span className="sun-pill p2">Волейбол</span>
+          <span className="sun-pill p3">Хөлбөмбөг</span>
         </div>
-      </section>
 
-      {/* -------------------------------------------------------------
-          3. INTERACTIVE PHOTO CAROUSEL & GALLERY (Previous Years)
-          ------------------------------------------------------------- */}
-      <section id="gallery" style={{ padding: '100px 0', backgroundColor: '#FFFFFF' }}>
-        <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: 50 }}>
-            <span style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--aiesec-orange)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-              Зургийн цомог
-            </span>
-            <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.2rem)', fontWeight: 800, marginTop: 4 }}>
-              Өмнөх Наадмын{' '}
-              <span className="doodle-wrap">
-                Онцлох Агшнууд
-                <HandDrawnWave color="#F0643A" />
-              </span>
-            </h2>
-            <p style={{ color: 'var(--text-sub)', maxWidth: 640, margin: '10px auto 0' }}>
-              Өмнөх жилүүдийн Нарны Баяр наадмын зургууд — 2019 оноос 2026 он хүртэл.
-            </p>
-          </div>
-
-          {/* Real photos from past festivals */}
-          <PastEvents kind="sun" />
+        <div className="sun-photos container" aria-hidden="true">
+          <img className="sp sp1" src="/assets/events/sun-2022-1.webp" alt="" />
+          <img className="sp sp2" src="/assets/events/sun-2025-2.webp" alt="" />
+          <img className="sp sp3" src="/assets/events/sun-2023-1.webp" alt="" />
+          <img className="sp sp4" src="/assets/events/sun-2024-1.webp" alt="" />
         </div>
-      </section>
 
-      {/* -------------------------------------------------------------
-          4. 6 SPORTS CATEGORIES INTERACTIVE CARDS & RULES
-          ------------------------------------------------------------- */}
-      <section style={{ padding: '100px 0', backgroundColor: '#F6F6F4', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
-        <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: 60 }}>
-            <span style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--aiesec-blue)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-              Нарны Баяр &bull; 2027
-            </span>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginTop: 4 }}>
-              Тэмцээний Төрөл &amp; Дүрэм
-            </h2>
-            <p style={{ color: 'var(--text-sub)', maxWidth: 600, margin: '8px auto 0' }}>
-              Тэмцээний төрөл, дүрэм болон багийн бүртгэлийн мэдээлэл удахгүй зарлагдана.
-            </p>
-          </div>
-
-          <div
-            style={{
-              maxWidth: 560,
-              margin: '0 auto',
-              textAlign: 'center',
-              backgroundColor: '#FFFFFF',
-              border: '1px dashed var(--border-strong)',
-              borderRadius: 26,
-              padding: '44px 32px'
-            }}
-          >
-            <span
-              style={{
-                display: 'inline-block',
-                backgroundColor: '#EEF0FF',
-                color: 'var(--aiesec-blue)',
-                padding: '6px 16px',
-                borderRadius: 999,
-                fontSize: '0.85rem',
-                fontWeight: 700,
-                marginBottom: 16
-              }}
-            >
-              Удахгүй
-            </span>
-            <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: 8 }}>Удахгүй зарлагдана</h3>
-            <p style={{ color: 'var(--text-sub)', margin: 0 }}>
-              Мэдээллийг манай албан ёсны хаягуудаар болон энэ хуудсан дээр нийтлэх болно.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* -------------------------------------------------------------
-          5. WEEKEND SCHEDULE & VENUE DETAILS
-          ------------------------------------------------------------- */}
-      <section style={{ padding: '80px 0', backgroundColor: '#FFFFFF' }}>
-        <div className="container">
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gap: 40,
-              alignItems: 'center'
-            }}
-            className="program-row"
-          >
-            <div>
-              <span style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--aiesec-orange)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-                Хөтөлбөр
-              </span>
-              <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.4rem)', fontWeight: 800, marginTop: 4, marginBottom: 24 }}>
-                Наадмын Хуваарь (2027)
-              </h2>
-
-              <div
-                style={{
-                  backgroundColor: '#FFFFFF',
-                  border: '1px dashed var(--border-strong)',
-                  borderRadius: 22,
-                  padding: '36px 28px',
-                  textAlign: 'center'
-                }}
-              >
-                <span
-                  style={{
-                    display: 'inline-block',
-                    backgroundColor: '#EEF0FF',
-                    color: 'var(--aiesec-blue)',
-                    padding: '6px 16px',
-                    borderRadius: 999,
-                    fontSize: '0.85rem',
-                    fontWeight: 700,
-                    marginBottom: 14
-                  }}
-                >
-                  Удахгүй
-                </span>
-                <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: 8 }}>Удахгүй зарлагдана</h3>
-                <p style={{ color: 'var(--text-sub)', margin: 0 }}>Наадмын хуваарийг батлагдмагц энд нийтэлнэ.</p>
-              </div>
-            </div>
-
-            {/* Venue & Location Card */}
-            <div>
-              <div
-                style={{
-                  backgroundColor: '#0F172A',
-                  color: '#FFFFFF',
-                  borderRadius: 24,
-                  padding: 'clamp(24px, 5vw, 36px)',
-                  boxShadow: '0 20px 45px rgba(0,0,0,0.2)'
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
-                  <MapPin size={26} color="var(--aiesec-orange)" />
-                  <div>
-                    <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#FFFFFF' }}>Sportzentrum Wien</h3>
-                    <span style={{ fontSize: '0.82rem', color: '#94A3B8' }}>Төв Спортын Ордон</span>
-                  </div>
-                </div>
-
-                <p style={{ fontSize: '0.92rem', color: '#CBD5E1', lineHeight: 1.6, marginBottom: 20 }}>
-                  Австрийн Вена хотын нийтийн тээврээр (U-Bahn, Tram) шууд холбогдсон, мэргэжлийн стандартад нийцсэн паркетан шал, гэрэлтүүлэг, үзэгчдийн суудлын багтаамжтай цогцолбор.
-                </p>
-
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontSize: '0.85rem', color: '#E2E8F0', marginBottom: 24 }}>
-                  <div><strong>U-Bahn:</strong> U1 / U2 шугам, ойролцоо буудал 3 мин алхах</div>
-                  <div><strong>Зогсоол:</strong> Цогцолборын үнэгүй зогсоолтой</div>
-                  <div><strong>Хоол &amp; Ундаа:</strong> Монгол хоол, ундааны асарууд ажиллана</div>
-                </div>
-
-                <a
-                  href="https://maps.google.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="aiesec-btn-primary"
-                  style={{ width: '100%', justifyContent: 'center', background: 'var(--aiesec-orange)', borderColor: 'var(--aiesec-orange)' }}
-                >
-                  <span>Google Maps дээр нээх</span>
-                  <ArrowRight size={16} />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* -------------------------------------------------------------
-          6. INTERACTIVE TEAM REGISTRATION FORM (2027)
-          ------------------------------------------------------------- */}
-      <section id="register" style={{ padding: '80px 0', backgroundColor: '#F6F6F4', borderTop: '1px solid var(--border)' }}>
-        <div className="container" style={{ maxWidth: 840 }}>
-          <div
-            style={{
-              backgroundColor: '#FFFFFF',
-              borderRadius: 24,
-              padding: 'clamp(22px, 5vw, 44px)',
-              boxShadow: '0 20px 50px rgba(0, 45, 98, 0.09)',
-              border: '1.5px solid var(--border)'
-            }}
-          >
-            <div style={{ textAlign: 'center', marginBottom: 32 }}>
-              <span style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--aiesec-orange)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-                Online Registration &bull; Нарны Баяр 2027
-              </span>
-              <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.3rem)', fontWeight: 800, marginTop: 4 }}>
-                2027 Наадамд Баг Урьдчилан Бүртгүүлэх
-              </h2>
-              <p style={{ color: 'var(--text-sub)', marginTop: 6, fontSize: '0.92rem' }}>
-                Маягтыг бөглөж илгээснээр зохион байгуулах комиссоос бэлтгэл мэдээлэл болон дүрмийн зааврыг и-мэйлээр илгээнэ.
-              </p>
-            </div>
-
-            {submitted ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                style={{
-                  textAlign: 'center',
-                  padding: 'clamp(24px, 5vw, 40px)',
-                  backgroundColor: '#FFF7ED',
-                  borderRadius: 18,
-                  border: '1.5px solid rgba(240, 100, 58, 0.3)'
-                }}
-              >
-                <CheckCircle2 size={56} color="var(--aiesec-orange)" style={{ margin: '0 auto 16px' }} />
-                <h3 style={{ fontSize: '1.6rem', fontWeight: 800, marginBottom: 8, color: 'var(--text-main)' }}>
-                  Бүртгэл Амжилттай Хүлээгдэж Авлаа!
-                </h3>
-                <p style={{ color: 'var(--text-sub)', lineHeight: 1.6, maxWidth: 540, margin: '0 auto 24px' }}>
-                  Баярлалаа! Багийн ахлагч <strong>{formData.captainName}</strong> ({formData.phone}), <strong>{formData.teamName}</strong> багийн 2027 наадмын урьдчилсан бүртгэл системд орлоо. Тоглолтын хуваарь, бэлтгэлийг <strong>{formData.email}</strong> хаягаар илгээнэ.
-                </p>
-                <button
-                  onClick={() => setSubmitted(false)}
-                  className="aiesec-btn-primary"
-                  style={{ background: 'var(--aiesec-orange)', borderColor: 'var(--aiesec-orange)' }}
-                >
-                  Өөр баг бүртгүүлэх
-                </button>
-              </motion.div>
-            ) : (
-              <form onSubmit={handleSubmit}>
-                <div className="form-2col-grid">
-                  <div>
-                    <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 6 }}>
-                      Спортын Төрөл *
-                    </label>
-                    <select
-                      className="form-select"
-                      value={formData.sport}
-                      onChange={(e) => setFormData({ ...formData, sport: e.target.value })}
-                    >
-                      <option value="basketball_men">Сагсан бөмбөг (Эрэгтэй)</option>
-                      <option value="basketball_women">Сагсан бөмбөг (Эмэгтэй)</option>
-                      <option value="volleyball">Гар бөмбөг (Холимог 4+2)</option>
-                      <option value="football">Хөлбөмбөг (Mini Football)</option>
-                      <option value="table_tennis">Ширээний теннис</option>
-                      <option value="tennis">Талбайн теннис</option>
-                      <option value="chess">Шатар</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 6 }}>
-                      Багийн Нэр *
-                    </label>
-                    <input
-                      type="text"
-                      className="form-input"
-                      required
-                      placeholder="Жишээ: Vienna Warriors"
-                      value={formData.teamName}
-                      onChange={(e) => setFormData({ ...formData, teamName: e.target.value })}
-                    />
-                  </div>
-                </div>
-
-                <div className="form-2col-grid">
-                  <div>
-                    <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 6 }}>
-                      Ахлагчийн Овог Нэр *
-                    </label>
-                    <input
-                      type="text"
-                      className="form-input"
-                      required
-                      placeholder="Овог Нэр"
-                      value={formData.captainName}
-                      onChange={(e) => setFormData({ ...formData, captainName: e.target.value })}
-                    />
-                  </div>
-
-                  <div>
-                    <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 6 }}>
-                      Холбогдох Утас *
-                    </label>
-                    <input
-                      type="tel"
-                      className="form-input"
-                      required
-                      placeholder="+43 676 ..."
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    />
-                  </div>
-                </div>
-
-                <div className="form-2col-grid">
-                  <div>
-                    <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 6 }}>
-                      И-мэйл Хаяг *
-                    </label>
-                    <input
-                      type="email"
-                      className="form-input"
-                      required
-                      placeholder="captain@example.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    />
-                  </div>
-
-                  <div>
-                    <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 6 }}>
-                      Улс / Хот *
-                    </label>
-                    <select
-                      className="form-select"
-                      value={formData.country}
-                      onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                    >
-                      <option value="Austria - Wien">Австри (Вена)</option>
-                      <option value="Austria - Graz">Австри (Грац)</option>
-                      <option value="Austria - Linz">Австри (Линц)</option>
-                      <option value="Germany - Munich">Герман (Мюнхен)</option>
-                      <option value="Germany - Berlin">Герман (Берлин)</option>
-                      <option value="Czechia - Prague">Чех (Прага)</option>
-                      <option value="Hungary - Budapest">Унгар (Будапешт)</option>
-                      <option value="Switzerland - Zurich">Швейцар (Цюрих)</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div style={{ marginBottom: 24 }}>
-                  <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 6 }}>
-                    Нэмэлт Мэдээлэл / Тоглогчдын тоо
-                  </label>
-                  <textarea
-                    className="form-textarea"
-                    rows={3}
-                    placeholder="Тоглогчдын нэрс, өмсгөлийн өнгө, тусгай хүсэлт..."
-                    value={formData.notes}
-                    onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="aiesec-btn-primary"
-                  style={{
-                    width: '100%',
-                    justifyContent: 'center',
-                    padding: '14px',
-                    background: 'var(--aiesec-orange)',
-                    borderColor: 'var(--aiesec-orange)',
-                    boxShadow: '0 8px 24px rgba(240, 100, 58, 0.35)'
-                  }}
-                >
-                  <span>2027 Наадамд Бүртгүүлэх</span>
-                  <Send size={16} />
-                </button>
-              </form>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* -------------------------------------------------------------
-          7. HALL OF FAME - PAST CHAMPIONS (2025, 2024, 2023)
-          ------------------------------------------------------------- */}
-      <section style={{ padding: '90px 0', backgroundColor: '#FFFFFF' }}>
-        <div className="container" style={{ maxWidth: 860 }}>
-          <div style={{ textAlign: 'center', marginBottom: 40 }}>
-            <span style={{ fontSize: '0.82rem', fontWeight: 800, color: '#D97706', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-              Hall of Fame
-            </span>
-            <h3 style={{ fontSize: '2.1rem', fontWeight: 800, marginTop: 4 }}>
-              Өмнөх Жилүүдийн Аваргууд
-            </h3>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 18 }}>
-            {championsHallOfFame.map((champ, idx) => (
-              <div
-                key={idx}
-                style={{
-                  backgroundColor: '#FFFBEB',
-                  border: '1px solid #FDE68A',
-                  borderRadius: 16,
-                  padding: 20,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: 6
-                }}
-              >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <span style={{ fontSize: '0.78rem', fontWeight: 800, color: '#B45309' }}>{champ.year} ОН</span>
-                  <Medal size={18} color="#D97706" />
-                </div>
-                <h4 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#78350F' }}>{champ.winner}</h4>
-                <div style={{ fontSize: '0.82rem', color: '#92400E' }}>{champ.sport}</div>
-                <div style={{ fontSize: '0.78rem', color: '#B45309', marginTop: 4 }}>MVP: {champ.mvp}</div>
-              </div>
+        <div className="sun-marquee" aria-hidden="true">
+          <div className="sun-marquee-track">
+            {[0, 1].map((k) => (
+              <span key={k}>НАРНЫ БАЯР · СПОРТ · НӨХӨРЛӨЛ · ХАМТДАА · ВЕНА · НАРНЫ БАЯР · СПОРТ · НӨХӨРЛӨЛ · ХАМТДАА · ВЕНА ·&nbsp;</span>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Next edition: not decided yet */}
+      <section id="next" style={{ padding: '96px 0 40px', backgroundColor: '#FFFFFF' }}>
+        <div className="container">
+          <div style={{ maxWidth: 620, marginBottom: 40 }}>
+            <span className="section-subtitle">Дараагийн наадам</span>
+            <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: 12 }}>Удахгүй зарлагдана</h2>
+            <p>
+              Дараагийн Нарны Баярын огноо, байршил, тэмцээний төрөл, дүрмийг одоогоор шийдээгүй байна. Шийдэгдмэгц энэ хуудас болон AMOX-ийн албан ёсны хаягуудаар зарлана.
+            </p>
+          </div>
+          <div className="sun-next">
+            {NEXT.map(({ Icon, title, text }) => (
+              <div key={title} className="sun-next-card">
+                <span className="sun-next-icon"><Icon size={22} /></span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </div>
+            ))}
+          </div>
+          <p style={{ marginTop: 28, fontSize: '.95rem' }}>
+            Мэдээг дагахыг хүсвэл <Link to="/about#official-channels" style={{ color: 'var(--accent)', fontWeight: 600 }}>албан ёсны хаягуудыг</Link> харна уу.
+          </p>
+        </div>
+      </section>
+
+      {/* Photos */}
+      <section id="gallery" style={{ padding: '56px 0 110px', backgroundColor: '#FFFFFF' }}>
+        <div className="container">
+          <span className="section-subtitle">Зургийн цомог</span>
+          <h2 style={{ fontSize: 'clamp(1.8rem, 3.6vw, 2.6rem)', marginBottom: 32 }}>Өмнөх наадмын зургууд</h2>
+          <PastEvents kind="sun" />
+        </div>
+      </section>
+
+      <style>{`
+        .sun-hero { position: relative; overflow: hidden; padding: calc(var(--nav-h) + 56px) 0 0; text-align: center;
+          background: linear-gradient(180deg, #FFF3DC 0%, #FFE2C2 52%, #FFFFFF 100%); }
+        .sun-sky { position: absolute; inset: 0; pointer-events: none; }
+        .sun-disc { position: absolute; top: -170px; right: -120px; width: 560px; height: 560px; border-radius: 50%;
+          background: radial-gradient(circle at 50% 50%, #FFE08A 0%, #FFB84D 42%, rgba(255,160,64,.35) 62%, rgba(255,160,64,0) 72%);
+          animation: sunPulse 7s ease-in-out infinite; }
+        .sun-rays { position: absolute; top: -170px; right: -120px; width: 560px; height: 560px; border-radius: 50%;
+          background: repeating-conic-gradient(from 0deg, rgba(255,170,60,.28) 0deg 6deg, rgba(255,170,60,0) 6deg 18deg);
+          -webkit-mask-image: radial-gradient(circle, #000 25%, transparent 70%); mask-image: radial-gradient(circle, #000 25%, transparent 70%);
+          animation: spinSlow 80s linear infinite; transform: scale(1.7); }
+        .sun-cloud { position: absolute; height: 54px; border-radius: 999px; background: rgba(255,255,255,.75); filter: blur(1px); }
+        .sun-cloud::before, .sun-cloud::after { content: ''; position: absolute; background: inherit; border-radius: 50%; }
+        .sun-cloud::before { width: 54px; height: 54px; top: -24px; left: 22px; }
+        .sun-cloud::after { width: 38px; height: 38px; top: -16px; left: 70px; }
+        .sun-cloud.c1 { width: 150px; top: 22%; left: 6%; animation: cloudDrift 26s ease-in-out infinite; }
+        .sun-cloud.c2 { width: 110px; top: 44%; right: 18%; opacity: .8; animation: cloudDrift 32s ease-in-out infinite reverse; }
+        .sun-hero-in { position: relative; z-index: 2; max-width: 860px; }
+        .sun-badge { display: inline-block; padding: 6px 16px; border-radius: 999px; background: #fff; border: 1px solid rgba(12,12,15,.08); font-size: .82rem; font-weight: 700; color: var(--ink); box-shadow: 0 2px 10px rgba(12,12,15,.05); }
+        .sun-hero h1 { font-size: clamp(3.4rem, 10vw, 7.2rem); line-height: .98; letter-spacing: -0.05em; margin: 18px 0 20px; }
+        .sun-grad { background: linear-gradient(100deg, #F0643A, #FFB020, #F0643A); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: gradSlide 6s linear infinite; }
+        @keyframes gradSlide { to { background-position: 200% 0; } }
+        .sun-lead { font-size: clamp(1.05rem, 2vw, 1.2rem); max-width: 640px; margin: 0 auto 10px; color: #4a3b2b; }
+        .sun-quote { font-style: italic; margin-bottom: 28px; color: #7a5a35; }
+        .sun-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .sun-pill { position: absolute; padding: 8px 16px; border-radius: 999px; background: #fff; font-size: .85rem; font-weight: 700; box-shadow: 0 8px 22px rgba(240,100,58,.18); color: var(--ink); }
+        .sun-pill.p1 { left: -6%; top: 18%; animation: floatSlow 6s ease-in-out infinite; }
+        .sun-pill.p2 { right: -4%; top: 52%; animation: floatReverse 7s ease-in-out infinite; }
+        .sun-pill.p3 { left: 2%; bottom: 8%; animation: floatSlow 8s ease-in-out infinite; }
+        .sun-photos { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 64px; align-items: end; }
+        .sp { width: 100%; height: 220px; object-fit: cover; border-radius: 22px; border: 5px solid #fff; box-shadow: 0 18px 40px rgba(120,60,0,.18); }
+        .sp1 { transform: translateY(18px) rotate(-3deg); } .sp2 { transform: translateY(-4px) rotate(2deg); height: 250px; }
+        .sp3 { transform: translateY(8px) rotate(-1.5deg); height: 240px; } .sp4 { transform: translateY(22px) rotate(3deg); }
+        .sun-marquee { position: relative; z-index: 3; margin-top: 56px; background: var(--ink); color: #fff; overflow: hidden; white-space: nowrap; padding: 16px 0; font-weight: 800; letter-spacing: .22em; font-size: .95rem; }
+        .sun-marquee-track { display: inline-block; animation: tick 38s linear infinite; }
+        @keyframes tick { to { transform: translateX(-50%); } }
+        @keyframes sunPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+        @keyframes cloudDrift { 0%,100% { transform: translateX(0); } 50% { transform: translateX(60px); } }
+        @media (max-width: 900px) {
+          .sun-pill { display: none; }
+          .sun-photos { grid-template-columns: repeat(2, 1fr); margin-top: 44px; }
+          .sp, .sp2, .sp3 { height: 170px; }
+          .sp3, .sp4 { display: none; }
+          .sun-disc, .sun-rays { width: 380px; height: 380px; top: -120px; right: -120px; }
+        }
+        .sun-next { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+        .sun-next-card { background: var(--canvas-2); border-radius: 22px; padding: 26px 24px; }
+        .sun-next-icon { width: 46px; height: 46px; border-radius: 14px; background: #fff; color: var(--accent); display: flex; align-items: center; justify-content: center; margin-bottom: 26px; }
+        .sun-next-card h3 { font-size: 1.1rem; margin-bottom: 6px; }
+        .sun-next-card p { font-size: .92rem; color: var(--text-muted); font-weight: 600; }
+        @media (max-width: 900px) { .sun-next { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 640px) {
+          .sun-next { grid-template-columns: 1fr; }
+          }
+      `}</style>
     </div>
   );
 };

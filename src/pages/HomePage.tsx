@@ -18,7 +18,6 @@ const SERVICES = [
 // Compact date chip shown beside each event
 const DATE_CHIP: Record<string, [string, string]> = {
   'halloween-2026': ['25', 'X · 2026'],
-  'sun-festival-2027': ['V', '2027'],
   'housing-early-booking-2026': ['26/27', 'Хичээлийн жил']
 };
 
