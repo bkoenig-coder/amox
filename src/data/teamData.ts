@@ -30,7 +30,7 @@ export const TEAM_GROUPS: TeamGroup[] = [
     members: [
       { id: 'mishel', name: 'Б. Мишээл', role: 'Удирдах зөвлөл', photo: photo(3), focus: 'center 25%' },
       { id: 'anu', name: 'Э. Ану', role: 'Удирдах зөвлөл', photo: photo(4), focus: 'center 25%' },
-      { id: 'otgonbulgan', name: 'Т. Отгонбулган', role: 'Удирдах зөвлөл', photo: photo(5), focus: 'center 14%' },
+      { id: 'otgonbulgan', name: 'Т. Отгонбулган', role: 'Удирдах зөвлөл', photo: photo(5), focus: 'center 20%' },
       { id: 'erkhembayar', name: 'Ш. Эрхэмбаяр', role: 'Удирдах зөвлөл', photo: photo(6), focus: 'center 28%' }
     ]
   },
