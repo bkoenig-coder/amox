@@ -31,7 +31,6 @@ import { CascadingCollage } from '../components/CascadingCollage';
 import { OfficialChannelsSection } from '../components/OfficialChannelsSection';
 import { TeamSection } from '../components/TeamSection';
 import { TypewriterLoop } from '../components/TypewriterLoop';
-import { TIMELINE_HISTORY } from '../data/eventsData';
 import { AMOX_MISSION_VISION } from '../data/associationData';
 
 export const AboutPage: React.FC = () => {
@@ -531,67 +530,6 @@ export const AboutPage: React.FC = () => {
                 Австрийн бүх их сургууль, салбар бүрийн мэргэжил, соёлын ялгааг хүндэтгэн хамтдаа нэгдэж хүчирхэг баг болно.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* -------------------------------------------------------------
-          4. 19-YEAR INTERACTIVE HISTORY TIMELINE
-          ------------------------------------------------------------- */}
-      <section id="history" style={{ padding: '100px 0', backgroundColor: '#FFFFFF' }}>
-        <div className="container" style={{ maxWidth: 860 }}>
-          <div style={{ textAlign: 'center', marginBottom: 60 }}>
-            <span style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--aiesec-blue)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-              Seit 2007 &bull; 19 Жилийн Түүх
-            </span>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginTop: 4 }}>
-              Түүхэн Замнал &amp; Онцлох Үйл Явдлууд
-            </h2>
-            <p style={{ color: 'var(--text-sub)', marginTop: 8 }}>
-              Үүсгэн байгуулагдсан цагаас өнөөг хүртэл бүтээсэн замнал
-            </p>
-          </div>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-            {TIMELINE_HISTORY.map((item, idx) => (
-              <motion.div
-                key={idx}
-                whileHover={{ x: 6 }}
-                style={{
-                  background: '#FFFFFF',
-                  border: '1.5px solid var(--border)',
-                  borderRadius: 20,
-                  padding: '24px 28px',
-                  boxShadow: 'var(--shadow-sm)',
-                  display: 'flex',
-                  gap: 22,
-                  alignItems: 'flex-start'
-                }}
-              >
-                <div
-                  style={{
-                    background: idx === 4 ? 'var(--aiesec-blue)' : idx === 1 ? 'var(--aiesec-orange)' : '#0C0C0F',
-                    color: '#FFFFFF',
-                    padding: '8px 18px',
-                    borderRadius: 'var(--radius-pill)',
-                    fontWeight: 800,
-                    fontSize: '1.1rem',
-                    flexShrink: 0,
-                    boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
-                  }}
-                >
-                  {item.year}
-                </div>
-                <div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: 6 }}>
-                    {item.title}
-                  </h3>
-                  <p style={{ fontSize: '0.95rem', color: 'var(--text-sub)', lineHeight: 1.65 }}>
-                    {item.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
