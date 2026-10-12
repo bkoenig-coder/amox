@@ -46,7 +46,8 @@ export const TEAM_GROUPS: TeamGroup[] = [
       { id: 'tuvshinbaatar', name: 'Б. Түвшинбаатар', role: 'Гишүүн', photo: photo(12), focus: 'center 25%' },
       { id: 'nyamdavaa', name: 'Д. Нямдаваа', role: 'Гишүүн', photo: photo(13), focus: 'center 25%' },
       { id: 'bilguun', name: 'Б. Билгүүн', role: 'Гишүүн', photo: photo(14), focus: 'center 25%' },
-      { id: 'amina', name: 'Т. Амина', role: 'Гишүүн', photo: photo(15), focus: 'center 18%' }
+      { id: 'amina', name: 'Т. Амина', role: 'Гишүүн', photo: photo(15), focus: 'center 18%' },
+      { id: 'gantsetseg', name: 'Г. Ганцэцэг', role: 'Гишүүн', photo: photo(16), focus: 'center 35%' }
     ]
   }
 ];
