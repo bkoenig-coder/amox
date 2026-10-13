@@ -17,6 +17,7 @@ export default async function handler(req, res) {
           description: e.description,
           capacity: e.capacity,
           registrationOpen: e.registrationOpen,
+          image: e.hasImage ? '/api/image?id=' + e.id + '&v=' + (e.imageV || 0) : '',
           registered,
           full: e.capacity > 0 && registered >= e.capacity
         };

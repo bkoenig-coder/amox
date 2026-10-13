@@ -7,6 +7,7 @@ export interface PublicEvent {
   description: string;
   capacity: number;
   registrationOpen: boolean;
+  image?: string;
   registered: number;
   full: boolean;
 }
@@ -21,6 +22,11 @@ export interface AdminEvent {
   capacity: number;
   registrationOpen: boolean;
   createdAt?: string;
+  hasImage?: boolean;
+  imageV?: number;
+  /** data URL of a newly picked poster (sent to the server on save) */
+  image?: string;
+  removeImage?: boolean;
 }
 
 export interface Registration {

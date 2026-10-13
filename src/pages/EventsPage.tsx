@@ -128,6 +128,7 @@ export const EventsPage: React.FC = () => {
               const canRegister = e.registrationOpen && !e.full;
               return (
                 <li key={e.id} id={e.id} className="ep-card">
+                  {e.image && <img className="ep-img" src={e.image} alt={e.title} loading="lazy" />}
                   <div className="ep-main">
                     <div className="ep-date">
                       <b>{Number(e.date.split('-')[2])}</b>
@@ -201,6 +202,7 @@ export const EventsPage: React.FC = () => {
         .ep-empty { display: flex; align-items: center; gap: 16px; padding: 28px; border: 1px dashed var(--border-strong); border-radius: 22px; color: var(--text-sub); }
         .ep-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
         .ep-card { background: #fff; border: 1px solid var(--line); border-radius: 26px; overflow: hidden; scroll-margin-top: 110px; }
+        .ep-img { display: block; width: 100%; max-height: 360px; object-fit: contain; background: #F1F1EE; }
         .ep-main { display: grid; grid-template-columns: 130px 1fr auto; gap: 28px; align-items: center; padding: 28px 30px; }
         .ep-date b { display: block; font-size: 3rem; font-weight: 700; letter-spacing: -0.05em; line-height: 1; color: var(--accent); }
         .ep-date span { display: block; margin-top: 6px; font-size: .78rem; font-weight: 600; color: var(--text-muted); }

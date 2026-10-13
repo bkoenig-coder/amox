@@ -59,7 +59,9 @@ export function parseEvent(input, existing) {
     description: String(input.description == null ? '' : input.description).trim().slice(0, 2000),
     capacity: Math.max(0, Math.min(100000, parseInt(input.capacity, 10) || 0)),
     registrationOpen: input.registrationOpen !== false,
-    createdAt: (existing && existing.createdAt) || new Date().toISOString()
+    createdAt: (existing && existing.createdAt) || new Date().toISOString(),
+    hasImage: Boolean(existing && existing.hasImage),
+    imageV: (existing && existing.imageV) || 0
   };
   if (e.title.length < 3) return { error: 'Гарчиг дор хаяж 3 тэмдэгт байна.' };
   if (!/^\d{4}-\d{2}-\d{2}$/.test(e.date) || Number.isNaN(Date.parse(e.date))) return { error: 'Огноо буруу байна.' };
@@ -73,13 +75,34 @@ export async function saveEvent(input) {
   if (validId(input.id)) existing = await readJson('events/' + input.id + '.json');
   const parsed = parseEvent(input, existing);
   if (parsed.error) return parsed;
-  await writeJson('events/' + parsed.event.id + '.json', parsed.event);
+  const ev = parsed.event;
+  if (typeof input.image === 'string' && input.image) {
+    if (!IMG_RE.test(input.image) || input.image.length > 900000) return { error: 'Зураг буруу эсвэл хэт том байна (дээд тал нь ~600 KB).' };
+    await writeJson('event-images/' + ev.id + '.json', { dataUrl: input.image });
+    ev.hasImage = true;
+    ev.imageV = Date.now();
+  } else if (input.removeImage === true && ev.hasImage) {
+    await removePath('event-images/' + ev.id + '.json');
+    ev.hasImage = false;
+    ev.imageV = 0;
+  }
+  await writeJson('events/' + ev.id + '.json', ev);
   return parsed;
+}
+
+const IMG_RE = /^data:image\/(webp|jpeg|png);base64,[A-Za-z0-9+/]+=*$/;
+
+export async function getEventImage(id) {
+  if (!validId(id)) return null;
+  const row = await readJson('event-images/' + id + '.json');
+  const m = row && typeof row.dataUrl === 'string' && row.dataUrl.match(/^data:(image\/(?:webp|jpeg|png));base64,(.+)$/);
+  return m ? { type: m[1], buffer: Buffer.from(m[2], 'base64') } : null;
 }
 
 export async function deleteEvent(id) {
   if (!validId(id)) return;
   await removePath('events/' + id + '.json');
+  await removePath('event-images/' + id + '.json');
   for (const p of await listPaths(regPrefix() + '/' + id + '/')) await removePath(p);
 }
 

@@ -18,7 +18,7 @@
       ]
     },
     {
-      "source": "/api/(.*)",
+      "source": "/api/((?!image).*)",
       "headers": [
         { "key": "Cache-Control", "value": "no-store" },
         { "key": "X-Robots-Tag", "value": "noindex" }

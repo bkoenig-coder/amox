@@ -15,6 +15,31 @@ const csvCell = (v: string) => {
   return '"' + safe.replace(/"/g, '""') + '"';
 };
 
+// Shrink a picked poster so it stays small (~100-400 KB) before upload.
+const shrinkImage = (file: File): Promise<string> =>
+  new Promise((resolve, reject) => {
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      const encode = (maxW: number, q: number) => {
+        const k = Math.min(1, maxW / img.width);
+        const c = document.createElement('canvas');
+        c.width = Math.round(img.width * k);
+        c.height = Math.round(img.height * k);
+        c.getContext('2d')!.drawImage(img, 0, 0, c.width, c.height);
+        const webp = c.toDataURL('image/webp', q);
+        return webp.startsWith('data:image/webp') ? webp : c.toDataURL('image/jpeg', q);
+      };
+      let out = encode(1280, 0.82);
+      if (out.length > 800000) out = encode(1000, 0.7);
+      if (out.length > 880000) reject(new Error('Зураг хэт том байна. Жижиг зураг сонгоно уу.'));
+      else resolve(out);
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('Зургийг уншиж чадсангүй.')); };
+    img.src = url;
+  });
+
 export const AdminPage: React.FC = () => {
   const [authed, setAuthed] = useState(false);
   const [pw, setPw] = useState('');
@@ -71,6 +96,21 @@ export const AdminPage: React.FC = () => {
     setEvents([]);
     setViewId(null);
   };
+
+  const pickImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files && e.target.files[0];
+    e.target.value = '';
+    if (!file) return;
+    setFormError('');
+    try {
+      const data = await shrinkImage(file);
+      setForm((f) => ({ ...f, image: data, removeImage: false }));
+    } catch (err) {
+      setFormError((err as Error).message);
+    }
+  };
+
+  const preview = form.image || (form.hasImage && !form.removeImage && form.id ? '/api/image?id=' + form.id + '&v=' + (form.imageV || 0) : '');
 
   const save = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -181,6 +221,21 @@ export const AdminPage: React.FC = () => {
             </div>
             <label>Байршил<input className="form-input" value={form.location} onChange={field('location')} placeholder="Вена, Uni Wien" required /></label>
             <label>Тайлбар<textarea className="form-textarea" rows={4} value={form.description} onChange={field('description')} placeholder="Арга хэмжээний товч тайлбар…" /></label>
+            <div className="adm-img">
+              <span>Зураг / постер (заавал биш)</span>
+              {preview && <img src={preview} alt="" />}
+              <div className="adm-actions">
+                <label className="btn btn-outline adm-file">
+                  {preview ? 'Зураг солих' : 'Зураг сонгох'}
+                  <input type="file" accept="image/*" onChange={pickImage} hidden />
+                </label>
+                {preview && (
+                  <button type="button" className="btn btn-outline adm-danger" onClick={() => setForm((f) => ({ ...f, image: undefined, removeImage: true }))}>
+                    Зургийг устгах
+                  </button>
+                )}
+              </div>
+            </div>
             <label className="adm-check">
               <input type="checkbox" checked={form.registrationOpen} onChange={(e) => setForm((f) => ({ ...f, registrationOpen: e.target.checked }))} />
               Бүртгэл нээлттэй
@@ -268,6 +323,9 @@ const AdminStyles: React.FC = () => (
     .adm-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
     .adm-head h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
     .adm-store { font-size: .8rem; color: var(--text-muted); }
+    .adm-img { display: flex; flex-direction: column; gap: 10px; font-size: .86rem; font-weight: 600; }
+    .adm-img img { max-width: 320px; width: 100%; border-radius: 16px; border: 1px solid var(--line); }
+    .adm-file { cursor: pointer; }
     .adm-card { background: #fff; border: 1px solid var(--line); border-radius: 26px; padding: 28px; }
     .adm-card h2 { font-size: 1.25rem; margin-bottom: 18px; }
     .adm-form { display: flex; flex-direction: column; gap: 16px; }
