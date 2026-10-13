@@ -132,6 +132,27 @@ export async function deleteRegistration(eventId, key) {
   await removePath(regPrefix() + '/' + eventId + '/' + key + '.json');
 }
 
+export async function deleteAllRegistrations(eventId) {
+  if (!validId(eventId)) return 0;
+  const paths = await listPaths(regPrefix() + '/' + eventId + '/');
+  for (const p of paths) await removePath(p);
+  return paths.length;
+}
+
+// Remove the registrations (not the events) of events that ended more than `days` days ago.
+export async function purgeOldRegistrations(days) {
+  const d = Math.max(1, Math.min(3650, parseInt(days, 10) || 30));
+  const limit = new Date(Date.now() - d * 86400000).toISOString().slice(0, 10);
+  let removed = 0, events = 0;
+  for (const ev of await listEvents()) {
+    if (ev.date < limit) {
+      const n = await deleteAllRegistrations(ev.id);
+      if (n) { removed += n; events += 1; }
+    }
+  }
+  return { removed, events, before: limit };
+}
+
 // ---------- tiny in-memory rate limit (best effort per serverless instance) ----------
 const hits = new Map();
 export function rateLimited(key, max, windowMs) {

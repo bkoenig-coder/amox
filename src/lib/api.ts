@@ -46,10 +46,12 @@ async function call<T>(url: string, init?: RequestInit): Promise<T> {
     /* non-JSON response */
   }
   if (!res.ok) throw new Error((data && data.error) || 'Алдаа гарлаа (' + res.status + ')');
+  if (data === null) throw new Error('Сервер буруу хариу буцаалаа. Түр хүлээгээд дахин оролдоно уу.');
   return data as T;
 }
 
-export const fetchEvents = () => call<{ events: PublicEvent[] }>('/api/events').then((r) => r.events);
+export const fetchEvents = () =>
+  call<{ events?: PublicEvent[] }>('/api/events').then((r) => (Array.isArray(r.events) ? r.events : []));
 
 export const registerForEvent = (body: {
   eventId: string;

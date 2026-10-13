@@ -7,9 +7,10 @@ It needs **no Supabase, no Microsoft account** — only the Vercel project the s
 ## One-time setup on Vercel (about 3 minutes)
 
 1. **Create a Blob store** — Vercel dashboard → your project → *Storage* → *Create* → *Blob*.
-   Choose **Private** access and connect it to this project. Vercel adds `BLOB_READ_WRITE_TOKEN`
-   automatically. (If you can only create a Public store, also add the env var `BLOB_ACCESS=public`;
-   registrations are still saved under an unguessable path.)
+   Choose **Private** access and connect it to this project. Vercel adds `BLOB_STORE_ID`, and the
+   site then signs in to the store **keylessly via OIDC** (recommended; no long-lived token to leak).
+   Leave "Add a read-write token env var" **unticked**. (Only if you tick it does the site use the
+   older `BLOB_READ_WRITE_TOKEN`. If you can only create a Public store, also add `BLOB_ACCESS=public`.)
 2. **Set the admin password** — *Settings* → *Environment Variables* → add `ADMIN_PASSWORD`
    (pick a long one) for Production (and Preview if you use it).
 3. **Redeploy.** Open `https://<your-site>/admin`, sign in, add an event.

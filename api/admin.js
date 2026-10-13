@@ -1,6 +1,6 @@
 import {
-  adminPassword, clientIp, deleteEvent, deleteRegistration, isAdmin, json,
-  listEvents, listRegistrations, rateLimited, saveEvent
+  adminPassword, clientIp, deleteAllRegistrations, deleteEvent, deleteRegistration, isAdmin, json,
+  listEvents, listRegistrations, purgeOldRegistrations, rateLimited, saveEvent
 } from './_lib/core.js';
 import { storageMode } from './_lib/store.js';
 
@@ -39,6 +39,10 @@ export default async function handler(req, res) {
       case 'deleteRegistration':
         await deleteRegistration(body.eventId, body.key);
         return json(res, 200, { ok: true });
+      case 'deleteAllRegistrations':
+        return json(res, 200, { ok: true, removed: await deleteAllRegistrations(body.eventId) });
+      case 'purgeOld':
+        return json(res, 200, { ok: true, ...(await purgeOldRegistrations(body.days)) });
       default:
         return json(res, 400, { error: 'Unknown action' });
     }

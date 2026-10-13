@@ -1,10 +1,11 @@
 // Tiny JSON storage layer.
-//  - On Vercel (BLOB_READ_WRITE_TOKEN present) data lives in a Vercel Blob store.
+//  - On Vercel data lives in a Vercel Blob store: either keyless via OIDC (BLOB_STORE_ID, recommended)
+//    or with a long-lived BLOB_READ_WRITE_TOKEN.
 //  - Locally it falls back to ./.data so `npm run dev` works with no accounts.
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 
-const useBlob = Boolean(process.env.BLOB_READ_WRITE_TOKEN);
+const useBlob = Boolean(process.env.BLOB_STORE_ID || process.env.BLOB_READ_WRITE_TOKEN);
 const ACCESS = process.env.BLOB_ACCESS === 'public' ? 'public' : 'private';
 const DATA_DIR = path.join(process.cwd(), '.data');
 

@@ -13,6 +13,7 @@ import { ImpressumPage } from './pages/ImpressumPage';
 import { EventsPage } from './pages/EventsPage';
 import { WelcomeCarpet } from './components/WelcomeCarpet';
 import { AdminPage } from './pages/AdminPage';
+import { PrivacyPage } from './pages/PrivacyPage';
 
 // Scroll to top helper on route navigation
 const ScrollToTop: React.FC = () => {
@@ -92,6 +93,7 @@ export const App: React.FC = () => {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/impressum" element={<ImpressumPage />} />
             <Route path="/events" element={<EventsPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="/admin" element={<AdminPage />} />
           </Routes>
         </main>

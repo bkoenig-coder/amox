@@ -31,6 +31,7 @@ export const Footer: React.FC = () => {
             <Link to="/sun-festival">Нарны Баяр</Link>
             <Link to="/about#board">Багт нэгдэх</Link>
             <Link to="/impressum">Impressum</Link>
+            <Link to="/privacy">Нууцлал</Link>
           </div>
 
           <div className="foot-col">

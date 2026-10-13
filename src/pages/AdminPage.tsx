@@ -110,6 +110,22 @@ export const AdminPage: React.FC = () => {
     setCounts((c) => ({ ...c, [viewId]: Math.max(0, (c[viewId] || 1) - 1) }));
   };
 
+  const delAllRegs = async () => {
+    if (!viewId || !window.confirm('Энэ арга хэмжээний БҮХ бүртгэлийг устгах уу? Үүнийг буцаах боломжгүй. Эхлээд CSV татаж авсан эсэхээ шалгаарай.')) return;
+    await admin('deleteAllRegistrations', { eventId: viewId });
+    setRegs([]);
+    setCounts((c) => ({ ...c, [viewId]: 0 }));
+  };
+
+  const purgeOld = async () => {
+    if (!window.confirm('Болсноос хойш 30 хоногоос илүү өнгөрсөн бүх арга хэмжээний бүртгэлийг (нэр, утас, и-мэйл) устгах уу? Арга хэмжээ өөрөө хэвээр үлдэнэ.')) return;
+    const r = await admin<{ removed: number; events: number }>('purgeOld', { days: 30 });
+    window.alert(r.removed + ' бүртгэл (' + r.events + ' арга хэмжээ) устгагдлаа.');
+    setViewId(null);
+    setCounts({});
+    await loadEvents();
+  };
+
   const exportCsv = (ev: AdminEvent) => {
     const rows = [['Овог нэр', 'Утас', 'И-мэйл', 'Бүртгүүлсэн огноо']].concat(
       regs.map((r) => [r.fullName, r.phone, r.email, r.createdAt])
@@ -179,6 +195,7 @@ export const AdminPage: React.FC = () => {
 
         <section className="adm-card">
           <h2>Арга хэмжээнүүд ({events.length})</h2>
+          <p className="adm-muted">Хувийн мэдээллийг (нэр, утас, и-мэйл) арга хэмжээ болсноос хойш 30 хоногийн дотор устгана гэж нууцлалын мэдэгдэлд бичсэн. <button type="button" className="btn btn-outline adm-danger" onClick={purgeOld}><Trash2 size={15} /> 30 хоногоос хуучин бүртгэлийг цэвэрлэх</button></p>
           {events.length === 0 && <p className="adm-muted">Одоогоор арга хэмжээ алга. Дээрх маягтаар нэмнэ үү.</p>}
           <ul className="adm-list">
             {events.map((ev) => (
@@ -206,7 +223,12 @@ export const AdminPage: React.FC = () => {
           <section className="adm-card">
             <div className="adm-reg-head">
               <h2>«{viewing.title}» — бүртгэлүүд ({regs.length})</h2>
-              {regs.length > 0 && <button className="btn btn-dark" onClick={() => exportCsv(viewing)}><Download size={15} /> CSV татах</button>}
+              {regs.length > 0 && (
+                <div className="adm-li-actions">
+                  <button className="btn btn-dark" onClick={() => exportCsv(viewing)}><Download size={15} /> CSV татах</button>
+                  <button className="btn btn-outline adm-danger" onClick={delAllRegs}><Trash2 size={15} /> Бүгдийг устгах</button>
+                </div>
+              )}
             </div>
             {regs.length === 0 ? (
               <p className="adm-muted">Одоогоор бүртгүүлсэн хүн алга.</p>

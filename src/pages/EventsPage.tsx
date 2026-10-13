@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { CalendarDays, Check, Clock, MapPin, Users } from 'lucide-react';
 import { fetchEvents, formatDate, isPast, registerForEvent, type PublicEvent } from '../lib/api';
 import { PastEvents } from '../components/PastEvents';
@@ -69,7 +70,7 @@ const RegisterForm: React.FC<{ event: PublicEvent; onDone: () => void }> = ({ ev
       <input className="ev-hp" tabIndex={-1} autoComplete="off" aria-hidden="true" value={f.website} onChange={set('website')} />
       <label className="ev-consent">
         <input type="checkbox" checked={f.consent} onChange={set('consent')} />
-        <span>Миний нэр, утас, и-мэйлийг зөвхөн энэ арга хэмжээг зохион байгуулахад ашиглахыг зөвшөөрч байна.</span>
+        <span>Миний нэр, утас, и-мэйлийг зөвхөн энэ арга хэмжээг зохион байгуулахад ашиглахыг зөвшөөрч байна. <Link to="/privacy" target="_blank">Нууцлалын мэдэгдэл</Link></span>
       </label>
       {error && <p className="ev-error" role="alert">{error}</p>}
       <button className="btn btn-dark" disabled={busy}>{busy ? 'Илгээж байна…' : 'Бүртгүүлэх'}</button>
